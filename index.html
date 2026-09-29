@@ -4,18 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>WANG. — Language & Culture</title>
+<title>Teacher Xiāo — Online Chinese Lessons</title>
 
-<meta name="description" content="Online Chinese and English lessons with Wang.">
+<meta name="description" content="Online Chinese lessons with Teacher Xiāo. Private and small group Mandarin lessons for students worldwide.">
 
 <style>
-
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600&display=swap');
-
-
-/* =========================
-   RESET
-========================= */
 
 * {
     margin: 0;
@@ -28,9 +21,15 @@ html {
 }
 
 body {
-    background: #f4f2ed;
-    color: #171717;
-    font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+
+    background: #f5f4f0;
+    color: #111;
     line-height: 1.5;
 }
 
@@ -43,11 +42,6 @@ button {
     font: inherit;
 }
 
-img {
-    max-width: 100%;
-    display: block;
-}
-
 
 /* =========================
    GLOBAL
@@ -58,77 +52,100 @@ img {
     margin: auto;
 }
 
-.serif {
-    font-family: "Noto Serif SC", Georgia, serif;
-}
-
 .small-label {
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 2px;
     text-transform: uppercase;
     font-weight: 600;
+    color: #777;
 }
 
-.divider {
-    width: 100%;
-    height: 1px;
-    background: #cfcac0;
+.dark {
+    background: #111;
+    color: #f5f4f0;
+}
+
+.light {
+    background: #f5f4f0;
 }
 
 
 /* =========================
-   HEADER
+   NAVIGATION
 ========================= */
 
-header {
-    padding: 24px 0;
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    background: rgba(245,244,240,0.92);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid #d9d7d1;
 }
 
-.header-inner {
+.nav-inner {
+    height: 78px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .logo {
-    font-size: 23px;
-    font-weight: 700;
+    font-size: 22px;
+    font-weight: 800;
     letter-spacing: -1px;
 }
 
 .logo span {
-    font-family: "Noto Serif SC", serif;
     font-weight: 400;
-    font-size: 17px;
-    margin-left: 7px;
 }
 
-.header-right {
+.nav-right {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 28px;
 }
 
-.lang-switch {
-    border: 0;
+.nav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 14px;
+}
+
+.nav-links a {
+    transition: opacity .2s;
+}
+
+.nav-links a:hover {
+    opacity: .45;
+}
+
+.language {
+    border: 1px solid #222;
     background: transparent;
+
+    border-radius: 100px;
+
+    padding: 7px 13px;
+
     cursor: pointer;
+
+    font-size: 13px;
+}
+
+.nav-cta {
+    background: #111;
+    color: white;
+
+    border-radius: 100px;
+
+    padding: 11px 19px;
+
     font-size: 13px;
     font-weight: 600;
-}
-
-.menu-button {
-    border: 1px solid #171717;
-    background: transparent;
-    border-radius: 100px;
-    padding: 9px 16px;
-    cursor: pointer;
-    font-size: 13px;
-}
-
-.menu-button:hover {
-    background: #171717;
-    color: white;
 }
 
 
@@ -137,270 +154,178 @@ header {
 ========================= */
 
 .hero {
-    min-height: calc(100vh - 90px);
+    min-height: calc(100vh - 78px);
+
     display: flex;
     align-items: center;
-    padding: 60px 0 100px;
+
+    border-bottom: 1px solid #d9d7d1;
 }
 
-.hero-grid {
-    display: grid;
-    grid-template-columns: 1.3fr .7fr;
-    gap: 80px;
-    align-items: end;
+.hero-inner {
+    padding: 90px 0;
+
+    position: relative;
+}
+
+.hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    margin-bottom: 35px;
+}
+
+.hero-location {
+    font-size: 13px;
+    color: #777;
 }
 
 .hero-title {
-    font-size: clamp(70px, 10vw, 150px);
-    line-height: .88;
-    letter-spacing: -7px;
-    font-weight: 600;
+    font-size: clamp(70px, 12vw, 170px);
+
+    line-height: .82;
+
+    letter-spacing: -9px;
+
+    font-weight: 800;
+
+    max-width: 1200px;
 }
 
 .hero-title .outline {
     color: transparent;
-    -webkit-text-stroke: 1.5px #171717;
+
+    -webkit-text-stroke: 1.5px #111;
 }
 
-.hero-title .chinese {
-    font-family: "Noto Serif SC", serif;
-    font-weight: 400;
+.hero-bottom {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 60px;
+
+    margin-top: 70px;
+
+    align-items: end;
 }
 
-.hero-side {
-    padding-bottom: 8px;
-}
-
-.hero-side p {
-    font-size: 18px;
-    max-width: 360px;
-    margin-bottom: 30px;
+.hero-description {
+    font-size: 21px;
+    max-width: 520px;
     color: #555;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
 }
 
 .primary-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 18px;
-    background: #171717;
+    background: #111;
     color: white;
-    padding: 15px 22px;
+
+    padding: 16px 25px;
+
     border-radius: 100px;
-    font-size: 14px;
+
     font-weight: 600;
-    transition: .2s;
+
+    transition: transform .2s;
 }
 
 .primary-button:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
-.arrow {
-    font-size: 18px;
+.secondary-button {
+    border: 1px solid #222;
+
+    padding: 16px 25px;
+
+    border-radius: 100px;
+
+    font-weight: 600;
 }
 
 
 /* =========================
-   INTRO STRIP
+   MOVING STRIP
 ========================= */
 
-.intro-strip {
-    border-top: 1px solid #cfcac0;
-    border-bottom: 1px solid #cfcac0;
-    padding: 22px 0;
+.marquee {
+    overflow: hidden;
+
+    border-bottom: 1px solid #d9d7d1;
+
+    white-space: nowrap;
 }
 
-.intro-strip-inner {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    align-items: center;
-}
+.marquee-inner {
+    display: inline-block;
 
-.intro-strip p {
+    padding: 20px 0;
+
     font-size: 14px;
-    color: #666;
-}
 
-
-/* =========================
-   LANGUAGE SECTION
-========================= */
-
-.language-section {
-    padding: 120px 0;
-}
-
-.section-heading {
-    display: grid;
-    grid-template-columns: .35fr 1fr;
-    gap: 50px;
-    margin-bottom: 70px;
-}
-
-.section-number {
-    font-size: 13px;
-    color: #777;
-}
-
-.section-heading h2 {
-    font-size: clamp(45px, 6vw, 82px);
-    letter-spacing: -4px;
-    line-height: .95;
-    font-weight: 500;
-}
-
-.language-list {
-    border-top: 1px solid #171717;
-}
-
-.language-item {
-    display: grid;
-    grid-template-columns: 80px 1fr 150px 30px;
-    align-items: center;
-    gap: 30px;
-    padding: 28px 0;
-    border-bottom: 1px solid #cfcac0;
-    transition: padding .25s, background .25s;
-}
-
-.language-item:hover {
-    padding-left: 15px;
-    padding-right: 15px;
-    background: #ebe8e1;
-}
-
-.language-number {
-    color: #888;
-    font-size: 13px;
-}
-
-.language-name {
-    font-size: clamp(25px, 3vw, 42px);
-    font-weight: 500;
-    letter-spacing: -1px;
-}
-
-.language-description {
-    font-size: 13px;
-    color: #777;
-}
-
-.language-arrow {
-    font-size: 24px;
-}
-
-
-/* =========================
-   QUOTE
-========================= */
-
-.quote-section {
-    background: #171717;
-    color: #f4f2ed;
-    padding: 130px 0;
-}
-
-.quote-inner {
-    width: min(1000px, 90%);
-    margin: auto;
-}
-
-.quote-mark {
-    font-size: 80px;
-    line-height: .5;
-    font-family: Georgia, serif;
-}
-
-.quote {
-    font-size: clamp(42px, 6vw, 78px);
-    line-height: 1.05;
-    letter-spacing: -3px;
-    margin: 35px 0;
-}
-
-.quote-cn {
-    font-family: "Noto Serif SC", serif;
-    font-size: clamp(28px, 4vw, 48px);
-    color: #aaa;
-}
-
-.quote-author {
-    margin-top: 45px;
-    font-size: 12px;
     letter-spacing: 2px;
-    color: #888;
-}
 
-
-/* =========================
-   ABOUT
-========================= */
-
-.about {
-    padding: 130px 0;
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: .75fr 1.25fr;
-    gap: 100px;
-    align-items: start;
-}
-
-.about-placeholder {
-    aspect-ratio: 4 / 5;
-    background: #d8d4cb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #888;
-    font-size: 12px;
-    letter-spacing: 2px;
-}
-
-.about-content h2 {
-    font-size: clamp(50px, 7vw, 90px);
-    line-height: .95;
-    letter-spacing: -4px;
-    margin-bottom: 45px;
-}
-
-.about-content h2 span {
-    font-family: "Noto Serif SC", serif;
-    font-weight: 400;
-}
-
-.about-content p {
-    font-size: 20px;
-    color: #555;
-    max-width: 650px;
-    margin-bottom: 20px;
-}
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    margin-top: 65px;
-    border-top: 1px solid #cfcac0;
-}
-
-.stat {
-    padding: 22px 15px 0 0;
-}
-
-.stat strong {
-    display: block;
-    font-size: 40px;
-    font-weight: 500;
-    letter-spacing: -2px;
-}
-
-.stat span {
-    font-size: 11px;
-    color: #777;
     text-transform: uppercase;
-    letter-spacing: 1px;
+
+    animation: move 25s linear infinite;
+}
+
+@keyframes move {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-30%);
+    }
+
+}
+
+
+/* =========================
+   INTRO
+========================= */
+
+.intro {
+    padding: 150px 0;
+}
+
+.intro-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 2fr;
+
+    gap: 70px;
+}
+
+.intro-text {
+    font-size: clamp(36px, 5vw, 70px);
+
+    line-height: 1.05;
+
+    letter-spacing: -3px;
+}
+
+.intro-text strong {
+    font-weight: 700;
+}
+
+.intro-side {
+    align-self: end;
+
+    color: #666;
+
+    font-size: 18px;
+
+    max-width: 420px;
 }
 
 
@@ -410,252 +335,530 @@ header {
 
 .courses {
     padding: 130px 0;
-    background: #e6e2da;
+
+    border-top: 1px solid #d9d7d1;
 }
 
-.course-intro {
-    max-width: 650px;
-    margin-left: auto;
-    margin-bottom: 70px;
+.section-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: end;
+
+    margin-bottom: 80px;
 }
 
-.course-intro h2 {
-    font-size: clamp(50px, 7vw, 90px);
-    line-height: .92;
+.section-number {
+    font-size: 13px;
+    color: #777;
+}
+
+.section-title {
+    font-size: clamp(50px, 8vw, 105px);
+
+    line-height: .9;
+
     letter-spacing: -5px;
-}
 
-.course-intro p {
-    margin-top: 25px;
-    color: #666;
-    font-size: 17px;
+    max-width: 850px;
 }
 
 .course-list {
-    border-top: 1px solid #171717;
+    border-top: 1px solid #222;
 }
 
 .course-row {
     display: grid;
-    grid-template-columns: 70px 1fr 250px 30px;
-    gap: 25px;
+
+    grid-template-columns: 90px 1fr 1fr 40px;
+
     align-items: center;
-    padding: 30px 0;
-    border-bottom: 1px solid #bdb8ae;
-    transition: .2s;
+
+    gap: 30px;
+
+    padding: 32px 0;
+
+    border-bottom: 1px solid #ccc;
+
+    transition: padding .3s, background .3s;
 }
 
 .course-row:hover {
     padding-left: 20px;
-    background: #ddd8cf;
+    padding-right: 20px;
+
+    background: #e9e7e0;
 }
 
-.course-index {
-    font-size: 12px;
-    color: #777;
+.course-number {
+    font-size: 13px;
+    color: #888;
 }
 
 .course-name {
-    font-size: 30px;
+    font-size: clamp(24px, 3vw, 38px);
+
+    font-weight: 600;
+
     letter-spacing: -1px;
 }
 
-.course-desc {
-    color: #777;
-    font-size: 13px;
+.course-description {
+    color: #666;
+
+    max-width: 400px;
 }
 
 .course-arrow {
-    font-size: 22px;
+    font-size: 25px;
 }
 
 
 /* =========================
-   EXPERIENCE
+   FORMAT
 ========================= */
 
-.experience {
-    padding: 130px 0;
+.format {
+    padding: 140px 0;
+
+    background: #111;
+
+    color: #f5f4f0;
 }
 
-.experience-grid {
+.format-grid {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 100px;
 }
 
-.experience-left h2 {
-    font-size: clamp(48px, 6vw, 75px);
-    line-height: .95;
-    letter-spacing: -4px;
+.format-title {
+    font-size: clamp(55px, 8vw, 110px);
+
+    line-height: .9;
+
+    letter-spacing: -5px;
 }
 
-.experience-right {
-    padding-top: 10px;
+.format-intro {
+    margin-top: 35px;
+
+    color: #999;
+
+    font-size: 18px;
+
+    max-width: 420px;
 }
 
-.experience-item {
-    border-top: 1px solid #cfcac0;
-    padding: 22px 0;
+.format-options {
+    border-top: 1px solid #444;
 }
 
-.experience-item:last-child {
-    border-bottom: 1px solid #cfcac0;
+.format-row {
+    display: grid;
+
+    grid-template-columns: 110px 1fr;
+
+    gap: 25px;
+
+    padding: 30px 0;
+
+    border-bottom: 1px solid #444;
 }
 
-.experience-item h3 {
-    font-size: 20px;
-    margin-bottom: 8px;
+.format-big {
+    font-size: 35px;
+
+    font-weight: 700;
 }
 
-.experience-item p {
-    color: #777;
-    font-size: 15px;
+.format-name {
+    font-size: 21px;
+
+    margin-bottom: 6px;
+}
+
+.format-description {
+    color: #999;
 }
 
 
 /* =========================
-   TESTIMONIALS
+   LESSON LENGTH
 ========================= */
 
-.testimonials {
-    padding: 120px 0;
-    background: #171717;
-    color: white;
+.length {
+    padding: 110px 0;
+
+    border-bottom: 1px solid #d9d7d1;
 }
 
-.testimonial-heading {
+.length-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    border-top: 1px solid #222;
+    border-left: 1px solid #222;
+}
+
+.length-card {
+    min-height: 300px;
+
+    padding: 35px;
+
+    border-right: 1px solid #222;
+    border-bottom: 1px solid #222;
+
     display: flex;
+
+    flex-direction: column;
+
     justify-content: space-between;
-    align-items: end;
-    margin-bottom: 60px;
+
+    transition: background .2s;
 }
 
-.testimonial-heading h2 {
-    font-size: clamp(50px, 7vw, 90px);
-    line-height: .9;
+.length-card:hover {
+    background: #e8e6df;
+}
+
+.length-time {
+    font-size: clamp(55px, 7vw, 90px);
+
+    font-weight: 700;
+
     letter-spacing: -5px;
 }
 
-.testimonial-heading span {
-    color: #888;
-    font-size: 12px;
+.length-name {
+    font-size: 18px;
+
+    font-weight: 600;
 }
 
-.testimonial-list {
+.length-description {
+    color: #666;
+
+    margin-top: 8px;
+}
+
+
+/* =========================
+   LEVELS
+========================= */
+
+.levels {
+    padding: 140px 0;
+}
+
+.levels-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: #444;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
 }
 
-.testimonial {
-    background: #171717;
-    padding: 45px;
-    min-height: 280px;
+.level-list {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    align-content: start;
 }
 
-.testimonial p {
-    font-family: "Noto Serif SC", Georgia, serif;
-    font-size: 24px;
-    line-height: 1.5;
+.level {
+    border: 1px solid #222;
+
+    border-radius: 100px;
+
+    padding: 13px 20px;
+
+    font-size: 14px;
+}
+
+.level-description {
+    color: #666;
+
+    font-size: 18px;
+
+    max-width: 430px;
+}
+
+
+/* =========================
+   GLOBAL
+========================= */
+
+.global {
+    padding: 140px 0;
+
+    background: #e6e3db;
+}
+
+.global-inner {
+    display: grid;
+
+    grid-template-columns: 1.3fr .7fr;
+
+    gap: 70px;
+
+    align-items: end;
+}
+
+.global-title {
+    font-size: clamp(60px, 10vw, 140px);
+
+    line-height: .82;
+
+    letter-spacing: -7px;
+}
+
+.global-text {
+    font-size: 19px;
+
+    color: #555;
+
+    max-width: 380px;
+}
+
+.world {
+    margin-top: 90px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.country {
+    border: 1px solid #aaa;
+
+    padding: 10px 15px;
+
+    border-radius: 100px;
+
+    font-size: 13px;
+}
+
+
+/* =========================
+   PLATFORM
+========================= */
+
+.platforms {
+    padding: 140px 0;
+}
+
+.platform-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    margin-top: 70px;
+
+    border-top: 1px solid #222;
+    border-left: 1px solid #222;
+}
+
+.platform-card {
+    min-height: 360px;
+
+    padding: 35px;
+
+    border-right: 1px solid #222;
+    border-bottom: 1px solid #222;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+}
+
+.platform-name {
+    font-size: 35px;
+
+    font-weight: 700;
+
+    letter-spacing: -2px;
+}
+
+.platform-tag {
+    display: inline-block;
+
+    margin-top: 15px;
+
+    border: 1px solid #222;
+
+    border-radius: 100px;
+
+    padding: 6px 12px;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+.platform-description {
+    color: #666;
+
+    max-width: 280px;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about {
+    padding: 140px 0;
+
+    background: #111;
+
+    color: #f5f4f0;
+}
+
+.about-grid {
+    display: grid;
+
+    grid-template-columns: .8fr 1.2fr;
+
+    gap: 90px;
+
+    align-items: center;
+}
+
+.about-photo {
+    aspect-ratio: 4 / 5;
+
+    background: #292929;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 70px;
+
+    color: #777;
+}
+
+.about-title {
+    font-size: clamp(55px, 8vw, 100px);
+
+    line-height: .9;
+
+    letter-spacing: -5px;
+
     margin-bottom: 35px;
 }
 
-.testimonial small {
-    color: #888;
-    font-size: 11px;
+.about-text {
+    font-size: 20px;
+
+    color: #aaa;
+
+    max-width: 600px;
+}
+
+.stats {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+
+    margin-top: 70px;
+}
+
+.stat-number {
+    font-size: 55px;
+
+    font-weight: 700;
+
+    color: white;
+}
+
+.stat-label {
+    color: #777;
+
+    font-size: 13px;
+
+    text-transform: uppercase;
+
     letter-spacing: 1px;
 }
 
 
 /* =========================
-   FAQ
+   CONTACT
 ========================= */
 
-.faq-section {
-    padding: 130px 0;
-}
-
-.faq-grid {
-    display: grid;
-    grid-template-columns: .4fr 1fr;
-    gap: 70px;
-}
-
-.faq-grid h2 {
-    font-size: clamp(45px, 6vw, 70px);
-    line-height: .95;
-    letter-spacing: -4px;
-}
-
-details {
-    border-top: 1px solid #cfcac0;
-    padding: 25px 0;
-}
-
-details:last-child {
-    border-bottom: 1px solid #cfcac0;
-}
-
-summary {
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: 500;
-    list-style: none;
-}
-
-summary::-webkit-details-marker {
-    display: none;
-}
-
-summary::after {
-    content: "+";
-    float: right;
-    font-size: 25px;
-    font-weight: 300;
-}
-
-details[open] summary::after {
-    content: "−";
-}
-
-details p {
-    padding: 20px 30px 5px 0;
-    color: #777;
-    max-width: 650px;
-}
-
-
-/* =========================
-   CTA
-========================= */
-
-.final-cta {
-    background: #dedad1;
+.contact {
     padding: 150px 0;
 }
 
-.final-cta-inner {
-    text-align: center;
+.contact-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 80px;
 }
 
-.final-cta h2 {
-    font-size: clamp(60px, 10vw, 130px);
-    letter-spacing: -7px;
+.contact-title {
+    font-size: clamp(60px, 9vw, 120px);
+
     line-height: .85;
-    margin-bottom: 40px;
+
+    letter-spacing: -6px;
 }
 
-.final-cta h2 span {
-    font-family: "Noto Serif SC", serif;
-    font-weight: 400;
-}
-
-.final-cta p {
+.contact-text {
     color: #666;
-    max-width: 500px;
-    margin: auto auto 35px;
+
+    font-size: 19px;
+
+    max-width: 430px;
+
+    margin-top: 30px;
+}
+
+.contact-links {
+    display: flex;
+
+    flex-direction: column;
+
+    border-top: 1px solid #222;
+
+    margin-top: 30px;
+}
+
+.contact-link {
+    padding: 25px 0;
+
+    border-bottom: 1px solid #ccc;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 19px;
+}
+
+.contact-link span:last-child {
+    color: #777;
 }
 
 
@@ -664,27 +867,27 @@ details p {
 ========================= */
 
 footer {
-    background: #171717;
+    background: #111;
+
     color: white;
+
     padding: 35px 0;
 }
 
 .footer-inner {
     display: flex;
+
     justify-content: space-between;
-    align-items: center;
+
+    color: #777;
+
+    font-size: 13px;
 }
 
 .footer-logo {
-    font-size: 25px;
-    font-weight: 600;
-}
+    color: white;
 
-.footer-right {
-    display: flex;
-    gap: 25px;
-    color: #999;
-    font-size: 12px;
+    font-weight: 700;
 }
 
 
@@ -694,165 +897,146 @@ footer {
 
 @media (max-width: 800px) {
 
-    .container {
-        width: 88%;
-    }
-
-    header {
-        padding: 20px 0;
-    }
-
-    .hero {
-        min-height: auto;
-        padding: 80px 0 100px;
-    }
-
-    .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 50px;
-    }
-
-    .hero-title {
-        font-size: clamp(65px, 19vw, 110px);
-        letter-spacing: -5px;
-    }
-
-    .hero-side p {
-        font-size: 17px;
-    }
-
-    .intro-strip-inner {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 8px;
-    }
-
-    .language-section,
-    .about,
-    .courses,
-    .experience,
-    .faq-section {
-        padding: 90px 0;
-    }
-
-    .section-heading {
-        grid-template-columns: 1fr;
-        gap: 15px;
-        margin-bottom: 50px;
-    }
-
-    .section-heading h2 {
-        font-size: 52px;
-    }
-
-    .language-item {
-        grid-template-columns: 35px 1fr 25px;
-        gap: 10px;
-    }
-
-    .language-description {
+    .nav-links {
         display: none;
     }
 
-    .quote-section {
-        padding: 100px 0;
+    .nav-right {
+        gap: 10px;
     }
 
-    .quote {
-        font-size: 42px;
-        letter-spacing: -2px;
+    .hero-inner {
+        padding: 70px 0;
+    }
+
+    .hero-title {
+        font-size: clamp(65px, 18vw, 110px);
+
+        letter-spacing: -5px;
+    }
+
+    .hero-bottom {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
+
+        margin-top: 50px;
+    }
+
+    .hero-actions {
+        justify-content: flex-start;
+    }
+
+    .intro {
+        padding: 90px 0;
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .section-header {
+        margin-bottom: 50px;
+    }
+
+    .course-row {
+        grid-template-columns: 40px 1fr 25px;
+
+        gap: 15px;
+    }
+
+    .course-description {
+        display: none;
+    }
+
+    .format {
+        padding: 90px 0;
+    }
+
+    .format-grid {
+        grid-template-columns: 1fr;
+
+        gap: 60px;
+    }
+
+    .length-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .length-card {
+        min-height: 230px;
+    }
+
+    .levels {
+        padding: 90px 0;
+    }
+
+    .levels-grid {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+    }
+
+    .global {
+        padding: 90px 0;
+    }
+
+    .global-inner {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .platform-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .platform-card {
+        min-height: 280px;
+    }
+
+    .about {
+        padding: 90px 0;
     }
 
     .about-grid {
         grid-template-columns: 1fr;
-        gap: 55px;
-    }
 
-    .about-content h2 {
-        font-size: 60px;
-    }
-
-    .about-content p {
-        font-size: 18px;
-    }
-
-    .stats {
-        margin-top: 50px;
-    }
-
-    .stat strong {
-        font-size: 30px;
-    }
-
-    .course-intro {
-        margin-left: 0;
-    }
-
-    .course-intro h2 {
-        font-size: 58px;
-    }
-
-    .course-row {
-        grid-template-columns: 35px 1fr 25px;
-        gap: 10px;
-    }
-
-    .course-desc {
-        display: none;
-    }
-
-    .course-name {
-        font-size: 23px;
-    }
-
-    .experience-grid {
-        grid-template-columns: 1fr;
-        gap: 55px;
-    }
-
-    .testimonial-list {
-        grid-template-columns: 1fr;
-    }
-
-    .testimonial {
-        padding: 35px;
-    }
-
-    .testimonial p {
-        font-size: 20px;
-    }
-
-    .faq-grid {
-        grid-template-columns: 1fr;
         gap: 50px;
     }
 
-    .faq-grid h2 {
-        font-size: 55px;
+    .about-photo {
+        aspect-ratio: 1 / 1;
     }
 
-    .final-cta {
-        padding: 110px 0;
+    .stats {
+        grid-template-columns: 1fr 1fr 1fr;
+
+        gap: 10px;
     }
 
-    .final-cta h2 {
-        font-size: 75px;
-        letter-spacing: -4px;
+    .stat-number {
+        font-size: 35px;
+    }
+
+    .contact {
+        padding: 90px 0;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
     }
 
     .footer-inner {
         flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
+
+        gap: 10px;
     }
 
-    .header-right {
-        gap: 12px;
-    }
-
-    .menu-button {
-        display: none;
-    }
 }
 
 </style>
@@ -863,313 +1047,191 @@ footer {
 
 
 <!-- =========================
-     HEADER
+     NAV
 ========================= -->
 
-<header>
+<nav>
 
-<div class="container header-inner">
+<div class="container nav-inner">
 
     <a href="#" class="logo">
-        WANG.<span>王</span>
+        Teacher <span>Xiāo</span>
     </a>
 
-    <div class="header-right">
+    <div class="nav-right">
 
-        <button class="lang-switch" onclick="toggleLanguage()">
+        <div class="nav-links">
+
+            <a href="#learn"
+               data-en="Learn"
+               data-zh="课程">
+               Learn
+            </a>
+
+            <a href="#formats"
+               data-en="Formats"
+               data-zh="上课方式">
+               Formats
+            </a>
+
+            <a href="#platforms"
+               data-en="Platforms"
+               data-zh="授课平台">
+               Platforms
+            </a>
+
+            <a href="#about"
+               data-en="About"
+               data-zh="关于我">
+               About
+            </a>
+
+        </div>
+
+
+        <button class="language"
+                onclick="toggleLanguage()">
             中文
         </button>
 
-        <a href="#contact" class="menu-button" id="headerButton">
-            Book a trial
+
+        <a href="#contact"
+           class="nav-cta"
+           id="navCta">
+            Book a Trial
         </a>
 
     </div>
 
 </div>
 
-</header>
+</nav>
+
 
 
 <!-- =========================
      HERO
 ========================= -->
 
-<main>
-
 <section class="hero">
 
-<div class="container hero-grid">
+<div class="container hero-inner">
+
+
+    <div class="hero-top">
+
+        <div class="small-label">
+            Online Chinese · Worldwide
+        </div>
+
+        <div class="hero-location">
+            Madrid / Worldwide
+        </div>
+
+    </div>
+
+
+    <h1 class="hero-title">
+
+        CHINESE<br>
+
+        <span class="outline">
+            YOUR WAY.
+        </span>
+
+    </h1>
+
+
+    <div class="hero-bottom">
+
+        <p class="hero-description"
+           id="heroDescription">
+
+            Mandarin lessons built around your level,
+            your goals and the way you learn —
+            from complete beginner to advanced and business Chinese.
+
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a href="#learn"
+               class="primary-button"
+               id="heroPrimary">
+                Explore Classes →
+            </a>
+
+            <a href="#contact"
+               class="secondary-button"
+               id="heroSecondary">
+                Free Trial
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     MARQUEE
+========================= -->
+
+<div class="marquee">
+
+<div class="marquee-inner">
+
+    MANDARIN · PINYIN · PRONUNCIATION · GRAMMAR · HSK · CYT · BUSINESS CHINESE · SPEAKING · READING · WRITING ·
+
+    MANDARIN · PINYIN · PRONUNCIATION · GRAMMAR · HSK · CYT · BUSINESS CHINESE · SPEAKING · READING · WRITING ·
+
+</div>
+
+</div>
+
+
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<section class="intro">
+
+<div class="container intro-grid">
+
+    <div class="small-label">
+        01 — THE IDEA
+    </div>
+
 
     <div>
 
-        <div class="small-label" style="margin-bottom:25px;">
-            LANGUAGE / CULTURE / CONNECTION
+        <div class="intro-text"
+             id="introText">
+
+            Chinese isn't one-size-fits-all.
+
+            <br><br>
+
+            <strong>
+                Your lessons shouldn't be either.
+            </strong>
+
         </div>
 
-        <h1 class="hero-title">
 
-            <span id="heroLine1">CHINESE</span><br>
+        <div class="intro-side"
+             id="introSide">
 
-            <span class="outline" id="heroLine2">MADE</span><br>
-
-            <span class="chinese" id="heroLine3">USEFUL.</span>
-
-        </h1>
-
-    </div>
-
-
-    <div class="hero-side">
-
-        <p id="heroDescription">
-            Online Chinese lessons for children,
-            teenagers and adults — designed around
-            real communication, not just textbooks.
-        </p>
-
-        <a href="#courses" class="primary-button">
-
-            <span id="heroButton">
-                Explore classes
-            </span>
-
-            <span class="arrow">↗</span>
-
-        </a>
-
-    </div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     STRIP
-========================= -->
-
-<div class="intro-strip">
-
-<div class="container intro-strip-inner">
-
-    <span class="small-label">
-        ONLINE / WORLDWIDE
-    </span>
-
-    <p id="stripText">
-        Chinese & English · 1-on-1 & small groups
-    </p>
-
-</div>
-
-</div>
-
-
-<!-- =========================
-     WHAT I TEACH
-========================= -->
-
-<section class="language-section">
-
-<div class="container">
-
-    <div class="section-heading">
-
-        <div class="section-number">
-            01 / WHAT I TEACH
-        </div>
-
-        <h2 id="whatTitle">
-            Language should<br>
-            be <em>used</em>, not stored.
-        </h2>
-
-    </div>
-
-
-    <div class="language-list">
-
-        <a href="#courses" class="language-item">
-
-            <div class="language-number">01</div>
-
-            <div class="language-name" id="lang1">
-                Chinese for Kids
-            </div>
-
-            <div class="language-description" id="lang1Desc">
-                Speak · Read · Write
-            </div>
-
-            <div class="language-arrow">↗</div>
-
-        </a>
-
-
-        <a href="#courses" class="language-item">
-
-            <div class="language-number">02</div>
-
-            <div class="language-name" id="lang2">
-                Heritage Chinese
-            </div>
-
-            <div class="language-description" id="lang2Desc">
-                For children growing up abroad
-            </div>
-
-            <div class="language-arrow">↗</div>
-
-        </a>
-
-
-        <a href="#courses" class="language-item">
-
-            <div class="language-number">03</div>
-
-            <div class="language-name" id="lang3">
-                HSK Preparation
-            </div>
-
-            <div class="language-description" id="lang3Desc">
-                Vocabulary · Grammar · Exams
-            </div>
-
-            <div class="language-arrow">↗</div>
-
-        </a>
-
-
-        <a href="#courses" class="language-item">
-
-            <div class="language-number">04</div>
-
-            <div class="language-name" id="lang4">
-                Chinese for Adults
-            </div>
-
-            <div class="language-description" id="lang4Desc">
-                Practical Mandarin
-            </div>
-
-            <div class="language-arrow">↗</div>
-
-        </a>
-
-    </div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     QUOTE
-========================= -->
-
-<section class="quote-section">
-
-<div class="quote-inner">
-
-    <div class="quote-mark">“</div>
-
-    <div class="quote" id="quoteText">
-        You don't learn a language
-        to pass a test.
-        You learn it to have
-        somewhere to go with it.
-    </div>
-
-    <div class="quote-cn" id="quoteCn">
-        学语言，不只是为了考试。
-        是为了让语言带你走得更远。
-    </div>
-
-    <div class="quote-author">
-        — WANG
-    </div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     ABOUT
-========================= -->
-
-<section class="about">
-
-<div class="container about-grid">
-
-    <div>
-
-        <div class="about-placeholder">
-            YOUR PHOTO
-        </div>
-
-    </div>
-
-
-    <div class="about-content">
-
-        <div class="small-label" style="margin-bottom:20px;">
-            02 / ABOUT
-        </div>
-
-        <h2 id="aboutTitle">
-            Hi,<br>
-            I'm <span>Wang.</span>
-        </h2>
-
-        <p id="aboutText1">
-            I'm an online Chinese teacher based in Madrid,
-            working with children, teenagers and adults
-            from different countries and backgrounds.
-        </p>
-
-        <p id="aboutText2">
-            I've spent the past few years teaching Chinese
-            online and building lessons around something
-            simple: students should actually enjoy using
-            the language they're learning.
-        </p>
-
-
-        <div class="stats">
-
-            <div class="stat">
-
-                <strong>4+</strong>
-
-                <span id="stat1">
-                    Years teaching
-                </span>
-
-            </div>
-
-
-            <div class="stat">
-
-                <strong>30+</strong>
-
-                <span id="stat2">
-                    Students
-                </span>
-
-            </div>
-
-
-            <div class="stat">
-
-                <strong>∞</strong>
-
-                <span id="stat3">
-                    Curiosity
-                </span>
-
-            </div>
+            Whether you're learning your first words,
+            preparing for HSK, improving pronunciation,
+            studying for school, or using Chinese for work,
+            lessons are adapted to you.
 
         </div>
 
@@ -1178,105 +1240,174 @@ footer {
 </div>
 
 </section>
+
 
 
 <!-- =========================
      COURSES
 ========================= -->
 
-<section class="courses" id="courses">
+<section class="courses" id="learn">
 
 <div class="container">
 
-    <div class="course-intro">
+
+    <div class="section-header">
 
         <div class="small-label">
-            03 / CLASSES
+            02 — WHAT WE CAN LEARN
         </div>
 
-        <h2 id="coursesTitle">
-            Find your<br>
-            language.
-        </h2>
-
-        <p id="coursesIntro">
-            Different students need different things.
-            Choose a class, or get in touch and we'll
-            figure it out together.
-        </p>
+        <div class="section-number">
+            01 / 07
+        </div>
 
     </div>
+
+
+    <h2 class="section-title"
+        id="coursesTitle">
+
+        Find your<br>
+        Chinese.
+
+    </h2>
 
 
     <div class="course-list">
 
 
-        <a href="#contact" class="course-row">
+        <div class="course-row">
 
-            <div class="course-index">01</div>
+            <div class="course-number">01</div>
 
-            <div class="course-name" id="course1">
-                Chinese for Kids
+            <div class="course-name">
+                Beginner
             </div>
 
-            <div class="course-desc" id="course1Desc">
-                Fun, structured Chinese for children
+            <div class="course-description"
+                 data-en="Starting from zero is completely fine."
+                 data-zh="零基础也完全没问题，从最基础开始。">
+                Starting from zero is completely fine.
             </div>
 
-            <div class="course-arrow">→</div>
+            <div class="course-arrow">↗</div>
 
-        </a>
+        </div>
 
 
-        <a href="#contact" class="course-row">
+        <div class="course-row">
 
-            <div class="course-index">02</div>
+            <div class="course-number">02</div>
 
-            <div class="course-name" id="course2">
-                Heritage Chinese
+            <div class="course-name">
+                Intermediate
             </div>
 
-            <div class="course-desc" id="course2Desc">
-                Chinese for children growing up abroad
+            <div class="course-description"
+                 data-en="Build confidence and turn knowledge into real communication."
+                 data-zh="提高表达能力，把学过的中文真正用起来。">
+                Build confidence and turn knowledge into real communication.
             </div>
 
-            <div class="course-arrow">→</div>
+            <div class="course-arrow">↗</div>
 
-        </a>
+        </div>
 
 
-        <a href="#contact" class="course-row">
+        <div class="course-row">
 
-            <div class="course-index">03</div>
+            <div class="course-number">03</div>
 
-            <div class="course-name" id="course3">
-                HSK Preparation
+            <div class="course-name">
+                Advanced
             </div>
 
-            <div class="course-desc" id="course3Desc">
-                Focused exam preparation
+            <div class="course-description"
+                 data-en="Refine your Chinese and discuss more complex topics."
+                 data-zh="提高语言准确度，讨论更复杂、更自然的话题。">
+                Refine your Chinese and discuss more complex topics.
             </div>
 
-            <div class="course-arrow">→</div>
+            <div class="course-arrow">↗</div>
 
-        </a>
+        </div>
 
 
-        <a href="#contact" class="course-row">
+        <div class="course-row">
 
-            <div class="course-index">04</div>
+            <div class="course-number">04</div>
 
-            <div class="course-name" id="course4">
-                English for Teens
+            <div class="course-name">
+                HSK / CYT
             </div>
 
-            <div class="course-desc" id="course4Desc">
-                B1–B2 · Cambridge · Conversation
+            <div class="course-description"
+                 data-en="Structured preparation for Chinese language exams."
+                 data-zh="针对 HSK、CYT 等考试进行系统学习和备考。">
+                Structured preparation for Chinese language exams.
             </div>
 
-            <div class="course-arrow">→</div>
+            <div class="course-arrow">↗</div>
 
-        </a>
+        </div>
+
+
+        <div class="course-row">
+
+            <div class="course-number">05</div>
+
+            <div class="course-name">
+                Pinyin & Pronunciation
+            </div>
+
+            <div class="course-description"
+                 data-en="Build a strong foundation for clear Mandarin pronunciation."
+                 data-zh="从拼音、声母、韵母和声调开始建立发音基础。">
+                Build a strong foundation for clear Mandarin pronunciation.
+            </div>
+
+            <div class="course-arrow">↗</div>
+
+        </div>
+
+
+        <div class="course-row">
+
+            <div class="course-number">06</div>
+
+            <div class="course-name">
+                Grammar
+            </div>
+
+            <div class="course-description"
+                 data-en="Understand how Chinese actually works."
+                 data-zh="真正理解中文语法，而不是只靠死记。">
+                Understand how Chinese actually works.
+            </div>
+
+            <div class="course-arrow">↗</div>
+
+        </div>
+
+
+        <div class="course-row">
+
+            <div class="course-number">07</div>
+
+            <div class="course-name">
+                Business Chinese
+            </div>
+
+            <div class="course-description"
+                 data-en="Chinese for meetings, work and professional communication."
+                 data-zh="适合工作、会议、商务沟通等实际场景。">
+                Chinese for meetings, work and professional communication.
+            </div>
+
+            <div class="course-arrow">↗</div>
+
+        </div>
 
 
     </div>
@@ -1286,89 +1417,115 @@ footer {
 </section>
 
 
+
 <!-- =========================
-     EXPERIENCE
+     FORMATS
 ========================= -->
 
-<section class="experience">
+<section class="format" id="formats">
 
-<div class="container experience-grid">
+<div class="container format-grid">
 
-    <div class="experience-left">
 
-        <div class="small-label" style="margin-bottom:25px;">
-            04 / MY APPROACH
+    <div>
+
+        <div class="small-label">
+            03 — LESSON FORMAT
         </div>
 
-        <h2 id="approachTitle">
-            Less<br>
-            memorising.<br>
-            More <em>using.</em>
+
+        <h2 class="format-title"
+            id="formatTitle">
+
+            Learn<br>
+            together.
+
         </h2>
 
+
+        <p class="format-intro"
+           id="formatIntro">
+
+            Choose private lessons or a small group.
+            For group classes, students are matched according
+            to level, age, goals and learning style.
+
+        </p>
+
     </div>
 
 
-    <div class="experience-right">
-
-        <div class="experience-item">
-
-            <h3 id="approach1Title">
-                Real communication
-            </h3>
-
-            <p id="approach1Text">
-                Grammar and vocabulary matter —
-                but they should lead somewhere.
-                Lessons include meaningful speaking,
-                reading and discussion.
-            </p>
-
-        </div>
+    <div class="format-options">
 
 
-        <div class="experience-item">
+        <div class="format-row">
 
-            <h3 id="approach2Title">
-                Personalised lessons
-            </h3>
+            <div class="format-big">
+                1:1
+            </div>
 
-            <p id="approach2Text">
-                Every student has different goals,
-                interests and strengths. Lessons are
-                adapted accordingly.
-            </p>
+            <div>
+
+                <div class="format-name">
+                    Personalised
+                </div>
+
+                <div class="format-description"
+                     data-en="Every lesson is built around one student."
+                     data-zh="完全根据一位学生的水平、目标和需求设计。">
+                    Every lesson is built around one student.
+                </div>
+
+            </div>
 
         </div>
 
 
-        <div class="experience-item">
+        <div class="format-row">
 
-            <h3 id="approach3Title">
-                Structured but flexible
-            </h3>
+            <div class="format-big">
+                2–3
+            </div>
 
-            <p id="approach3Text">
-                A clear learning structure without
-                making every lesson feel like a textbook.
-            </p>
+            <div>
+
+                <div class="format-name">
+                    Small Group
+                </div>
+
+                <div class="format-description"
+                     data-en="A small, interactive group with more opportunities to speak."
+                     data-zh="人数少、互动多，让学生有更多机会使用中文。">
+                    A small, interactive group with more opportunities to speak.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="format-row">
+
+            <div class="format-big">
+                4–6
+            </div>
+
+            <div>
+
+                <div class="format-name">
+                    Matched Group
+                </div>
+
+                <div class="format-description"
+                     data-en="Students are matched according to level, age and learning goals."
+                     data-zh="根据水平、年龄、学习目标和学习特点进行匹配分班。">
+                    Students are matched according to level, age and learning goals.
+                </div>
+
+            </div>
 
         </div>
 
-
-        <div class="experience-item">
-
-            <h3 id="approach4Title">
-                Long-term progress
-            </h3>
-
-            <p id="approach4Text">
-                The goal isn't just one good lesson.
-                It's helping students become increasingly
-                independent language users.
-            </p>
-
-        </div>
 
     </div>
 
@@ -1377,57 +1534,99 @@ footer {
 </section>
 
 
+
 <!-- =========================
-     TESTIMONIALS
+     LENGTH
 ========================= -->
 
-<section class="testimonials">
+<section class="length">
 
 <div class="container">
 
-    <div class="testimonial-heading">
 
-        <h2 id="reviewsTitle">
-            Words from<br>
-            students.
-        </h2>
+    <div class="section-header">
 
-        <span>
-            05 / REVIEWS
-        </span>
+        <div class="small-label">
+            04 — LESSON LENGTH
+        </div>
 
     </div>
 
 
-    <div class="testimonial-list">
+    <div class="length-grid">
 
 
-        <div class="testimonial">
+        <div class="length-card">
 
-            <p id="review1">
-                “Wang makes Chinese lessons feel much
-                more natural and enjoyable. My child is
-                much more willing to speak Chinese now.”
-            </p>
+            <div class="length-time">
+                30'
+            </div>
 
-            <small id="review1Author">
-                — PARENT / CHINESE STUDENT
-            </small>
+            <div>
+
+                <div class="length-name"
+                     data-en="Short & focused"
+                     data-zh="短时高效">
+                    Short & focused
+                </div>
+
+                <div class="length-description"
+                     data-en="Great for younger learners or focused practice."
+                     data-zh="适合年龄较小的学生或针对某一个目标进行练习。">
+                    Great for younger learners or focused practice.
+                </div>
+
+            </div>
 
         </div>
 
 
-        <div class="testimonial">
+        <div class="length-card">
 
-            <p id="review2">
-                “The lessons are structured, but they
-                never feel boring. We actually talk about
-                things my son is interested in.”
-            </p>
+            <div class="length-time">
+                40'
+            </div>
 
-            <small id="review2Author">
-                — PARENT / TEENAGE STUDENT
-            </small>
+            <div>
+
+                <div class="length-name"
+                     data-en="Balanced"
+                     data-zh="平衡型">
+                    Balanced
+                </div>
+
+                <div class="length-description"
+                     data-en="Enough time for structured learning and communication."
+                     data-zh="兼顾系统学习、练习和交流。">
+                    Enough time for structured learning and communication.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="length-card">
+
+            <div class="length-time">
+                60'
+            </div>
+
+            <div>
+
+                <div class="length-name"
+                     data-en="Full lesson"
+                     data-zh="完整课程">
+                    Full lesson
+                </div>
+
+                <div class="length-description"
+                     data-en="More time for input, practice, conversation and feedback."
+                     data-zh="有充足时间进行输入、练习、交流和反馈。">
+                    More time for input, practice, conversation and feedback.
+                </div>
+
+            </div>
 
         </div>
 
@@ -1439,23 +1638,29 @@ footer {
 </section>
 
 
+
 <!-- =========================
-     FAQ
+     LEVELS
 ========================= -->
 
-<section class="faq-section">
+<section class="levels">
 
-<div class="container faq-grid">
+<div class="container levels-grid">
+
 
     <div>
 
-        <div class="small-label" style="margin-bottom:25px;">
-            06 / FAQ
+        <div class="small-label">
+            05 — WHO IS IT FOR?
         </div>
 
-        <h2 id="faqTitle">
-            Questions,<br>
-            answered.
+
+        <h2 class="section-title"
+            id="levelsTitle">
+
+            No age<br>
+            limit.
+
         </h2>
 
     </div>
@@ -1463,65 +1668,39 @@ footer {
 
     <div>
 
+        <p class="level-description"
+           id="levelsDescription">
 
-        <details>
+            Children, teenagers, university students,
+            adults and professionals are all welcome.
 
-            <summary id="faq1q">
-                Do you offer a trial lesson?
-            </summary>
+            <br><br>
 
-            <p id="faq1a">
-                Yes. You can book a free trial lesson
-                before deciding whether the class is right
-                for you or your child.
-            </p>
+            You don't need to already speak Chinese.
+            You can start from zero.
 
-        </details>
+        </p>
 
 
-        <details>
+        <div class="level-list">
 
-            <summary id="faq2q">
-                Are lessons online?
-            </summary>
+            <div class="level">Kids</div>
 
-            <p id="faq2a">
-                Yes. All lessons are taught online.
-                Lessons can be arranged for students
-                living in different time zones.
-            </p>
+            <div class="level">Teenagers</div>
 
-        </details>
+            <div class="level">Adults</div>
 
+            <div class="level">Beginner</div>
 
-        <details>
+            <div class="level">Intermediate</div>
 
-            <summary id="faq3q">
-                Do you teach children?
-            </summary>
+            <div class="level">Advanced</div>
 
-            <p id="faq3a">
-                Yes. I teach children, teenagers and adults,
-                with different lesson formats depending
-                on age and learning goals.
-            </p>
+            <div class="level">Professionals</div>
 
-        </details>
+            <div class="level">Heritage Learners</div>
 
-
-        <details>
-
-            <summary id="faq4q">
-                How long is each lesson?
-            </summary>
-
-            <p id="faq4a">
-                Standard lessons are 60 minutes.
-                Group classes can also be arranged.
-            </p>
-
-        </details>
-
+        </div>
 
     </div>
 
@@ -1530,44 +1709,371 @@ footer {
 </section>
 
 
+
 <!-- =========================
-     FINAL CTA
+     GLOBAL
 ========================= -->
 
-<section class="final-cta" id="contact">
+<section class="global">
 
-<div class="container final-cta-inner">
+<div class="container">
 
-    <div class="small-label" style="margin-bottom:25px;">
-        07 / LET'S START
+
+    <div class="global-inner">
+
+
+        <h2 class="global-title"
+            id="globalTitle">
+
+            FROM<br>
+            ANYWHERE.
+
+        </h2>
+
+
+        <p class="global-text"
+           id="globalText">
+
+            You don't need to live near me.
+            Lessons are online, and students can join
+            from anywhere in the world.
+
+        </p>
+
+
     </div>
 
-    <h2 id="finalTitle">
-        READY?<br>
-        <span>开始吧。</span>
+
+    <div class="world">
+
+        <div class="country">🇪🇸 Spain</div>
+
+        <div class="country">🇺🇸 USA</div>
+
+        <div class="country">🇨🇦 Canada</div>
+
+        <div class="country">🇬🇧 UK</div>
+
+        <div class="country">🇦🇺 Australia</div>
+
+        <div class="country">🇩🇪 Germany</div>
+
+        <div class="country">🇫🇷 France</div>
+
+        <div class="country">🇯🇵 Japan</div>
+
+        <div class="country">🇸🇬 Singapore</div>
+
+        <div class="country">🌍 Anywhere</div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     PLATFORMS
+========================= -->
+
+<section class="platforms" id="platforms">
+
+<div class="container">
+
+
+    <div class="small-label">
+        06 — HOW WE MEET
+    </div>
+
+
+    <h2 class="section-title"
+        id="platformTitle">
+
+        Choose your<br>
+        classroom.
+
     </h2>
 
-    <p id="finalText">
-        Not sure which class is right for you?
-        Send me a message and we'll figure it out together.
-    </p>
 
-    <a href="mailto:YOUR-EMAIL@example.com"
-       class="primary-button">
+    <div class="platform-grid">
 
-        <span id="finalButton">
-            Book a free trial
-        </span>
 
-        <span class="arrow">↗</span>
+        <div class="platform-card">
 
-    </a>
+            <div>
+
+                <div class="platform-name">
+                    ClassIn
+                </div>
+
+                <div class="platform-tag">
+                    Recommended
+                </div>
+
+            </div>
+
+
+            <div class="platform-description"
+                 data-en="A professional online classroom with powerful teaching features. Free for students."
+                 data-zh="专业的线上课堂，功能丰富，而且学生端免费。">
+                A professional online classroom with powerful
+                teaching features. Free for students.
+            </div>
+
+        </div>
+
+
+        <div class="platform-card">
+
+            <div>
+
+                <div class="platform-name">
+                    Zoom
+                </div>
+
+                <div class="platform-tag">
+                    Simple
+                </div>
+
+            </div>
+
+
+            <div class="platform-description"
+                 data-en="A familiar and simple option for students who already use Zoom."
+                 data-zh="简单熟悉，适合已经习惯使用 Zoom 的学生。">
+                A familiar and simple option for students
+                who already use Zoom.
+            </div>
+
+        </div>
+
+
+        <div class="platform-card">
+
+            <div>
+
+                <div class="platform-name">
+                    Preply
+                </div>
+
+                <div class="platform-tag">
+                    Available
+                </div>
+
+            </div>
+
+
+            <div class="platform-description"
+                 data-en="Lessons are also available through Preply. Platform fees are reflected in the lesson price."
+                 data-zh="也可以通过 Preply 上课。由于平台佣金原因，通过 Preply 的课时费会相应增加。">
+                Lessons are also available through Preply.
+                Platform fees are reflected in the lesson price.
+            </div>
+
+        </div>
+
+
+    </div>
 
 </div>
 
 </section>
 
-</main>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about" id="about">
+
+<div class="container about-grid">
+
+
+    <div class="about-photo">
+        PHOTO
+    </div>
+
+
+    <div>
+
+        <div class="small-label">
+            07 — ABOUT TEACHER XIĀO
+        </div>
+
+
+        <h2 class="about-title">
+            Hi.<br>
+            I'm Xiāo.
+        </h2>
+
+
+        <div class="about-text"
+             id="aboutText">
+
+            I'm an online Chinese teacher based in Madrid,
+            teaching students from different countries,
+            ages and backgrounds.
+
+            <br><br>
+
+            I believe language lessons should be structured,
+            useful and genuinely enjoyable.
+
+            <br><br>
+
+            Instead of forcing every student through exactly
+            the same lesson, I adapt the class to the person
+            sitting on the other side of the screen.
+
+        </div>
+
+
+        <div class="stats">
+
+
+            <div>
+
+                <div class="stat-number">
+                    4+
+                </div>
+
+                <div class="stat-label">
+                    Years teaching
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="stat-number">
+                    30+
+                </div>
+
+                <div class="stat-label">
+                    Students
+                </div>
+
+            </div>
+
+
+            <div>
+
+                <div class="stat-number">
+                    🌍
+                </div>
+
+                <div class="stat-label">
+                    Worldwide
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact" id="contact">
+
+<div class="container contact-grid">
+
+
+    <div>
+
+        <div class="small-label">
+            START HERE
+        </div>
+
+
+        <h2 class="contact-title"
+            id="contactTitle">
+
+            LET'S<br>
+            TALK.
+
+        </h2>
+
+
+        <p class="contact-text"
+           id="contactText">
+
+            Not sure which class is right for you?
+
+            Tell me a little about yourself,
+            your current level and what you'd like to achieve.
+
+            We'll figure it out together.
+
+        </p>
+
+    </div>
+
+
+    <div class="contact-links">
+
+
+        <a href="mailto:YOUR-EMAIL@example.com"
+           class="contact-link">
+
+            <span>Email</span>
+
+            <span>↗</span>
+
+        </a>
+
+
+        <a href="#"
+           class="contact-link">
+
+            <span>WhatsApp</span>
+
+            <span>↗</span>
+
+        </a>
+
+
+        <a href="#"
+           class="contact-link">
+
+            <span>WeChat</span>
+
+            <span>↗</span>
+
+        </a>
+
+
+        <a href="#"
+           class="contact-link">
+
+            <span id="formLink">
+                Student Enquiry Form
+            </span>
+
+            <span>↗</span>
+
+        </a>
+
+
+    </div>
+
+</div>
+
+</section>
+
 
 
 <!-- =========================
@@ -1579,15 +2085,15 @@ footer {
 <div class="container footer-inner">
 
     <div class="footer-logo">
-        WANG. 王
+        Teacher Xiāo
     </div>
 
-    <div class="footer-right">
+    <div>
+        © 2026 Teacher Xiāo
+    </div>
 
-        <a href="#">Instagram</a>
-        <a href="#">Xiaohongshu</a>
-        <a href="mailto:YOUR-EMAIL@example.com">Email</a>
-
+    <div>
+        Chinese · Worldwide
     </div>
 
 </div>
@@ -1595,8 +2101,9 @@ footer {
 </footer>
 
 
+
 <!-- =========================
-     LANGUAGE SWITCH
+     LANGUAGE SCRIPT
 ========================= -->
 
 <script>
@@ -1606,223 +2113,146 @@ let currentLanguage = "en";
 
 function toggleLanguage() {
 
-    if (currentLanguage === "en") {
+    currentLanguage =
+        currentLanguage === "en"
+        ? "zh"
+        : "en";
 
-        currentLanguage = "zh";
 
-        document.documentElement.lang = "zh";
+    const button =
+        document.querySelector(".language");
 
-        document.querySelector(".lang-switch").innerText = "EN";
+
+    button.innerText =
+        currentLanguage === "en"
+        ? "中文"
+        : "EN";
+
+
+    document.documentElement.lang =
+        currentLanguage;
+
+
+    /* =====================
+       SMALL DATA TEXT
+    ===================== */
+
+    document
+        .querySelectorAll("[data-en]")
+        .forEach(element => {
+
+            element.innerText =
+                element.dataset[currentLanguage];
+
+        });
+
+
+    /* =====================
+       NAV
+    ===================== */
+
+    document.querySelector(
+        '[data-en="Learn"]'
+    );
+
+
+    const navLinks =
+        document.querySelectorAll(
+            ".nav-links a"
+        );
+
+
+    if (currentLanguage === "zh") {
+
+        navLinks[0].innerText = "课程";
+        navLinks[1].innerText = "上课方式";
+        navLinks[2].innerText = "授课平台";
+        navLinks[3].innerText = "关于我";
+
+        document.getElementById("navCta").innerText =
+            "免费试听";
+
 
         /* HERO */
 
-        document.getElementById("heroLine1").innerText = "学好";
-
-        document.getElementById("heroLine2").innerText = "中文";
-
-        document.getElementById("heroLine3").innerText = "用起来。";
-
         document.getElementById("heroDescription").innerText =
-            "为海外儿童、青少年和成人提供线上中文与英语课程。让语言真正成为可以使用的能力。";
+            "根据你的水平、目标和学习方式设计中文课程。从零基础到高级中文，也可以学习商务中文。";
 
-        document.getElementById("heroButton").innerText =
-            "查看课程";
+        document.getElementById("heroPrimary").innerText =
+            "查看课程 →";
 
-
-        /* STRIP */
-
-        document.getElementById("stripText").innerText =
-            "中文 & 英语 · 一对一 & 小班课程";
+        document.getElementById("heroSecondary").innerText =
+            "免费试听";
 
 
-        /* WHAT */
+        /* INTRO */
 
-        document.getElementById("whatTitle").innerHTML =
-            "语言不是<br><em>收藏</em>起来的。";
+        document.getElementById("introText").innerHTML =
+            "中文学习没有<br><br><strong>一种标准答案。</strong>";
 
-        document.getElementById("lang1").innerText =
-            "海外儿童中文";
-
-        document.getElementById("lang1Desc").innerText =
-            "听 · 说 · 读 · 写";
-
-        document.getElementById("lang2").innerText =
-            "华裔儿童中文";
-
-        document.getElementById("lang2Desc").innerText =
-            "适合在海外成长的孩子";
-
-        document.getElementById("lang3").innerText =
-            "HSK 中文考试";
-
-        document.getElementById("lang3Desc").innerText =
-            "词汇 · 语法 · 阅读 · 考试";
-
-        document.getElementById("lang4").innerText =
-            "成人中文";
-
-        document.getElementById("lang4Desc").innerText =
-            "实用普通话";
-
-
-        /* QUOTE */
-
-        document.getElementById("quoteText").innerText =
-            "学语言，不只是为了考试。是为了让语言带你走得更远。";
-
-        document.getElementById("quoteCn").innerText =
-            "Learn a language to use it — not just to know it.";
-
-
-        /* ABOUT */
-
-        document.getElementById("aboutTitle").innerHTML =
-            "你好，<br>我是<span>Wang。</span>";
-
-        document.getElementById("aboutText1").innerText =
-            "我是一名住在马德里的线上中文老师，也教授英语。我和来自不同国家、不同背景的儿童、青少年和成人一起学习。";
-
-        document.getElementById("aboutText2").innerText =
-            "过去几年，我一直在线上教授中文。我希望课程不仅有结构、有内容，也能让学生真正愿意使用这门语言。";
-
-        document.getElementById("stat1").innerText =
-            "教学经验";
-
-        document.getElementById("stat2").innerText =
-            "学生";
-
-        document.getElementById("stat3").innerText =
-            "好奇心";
+        document.getElementById("introSide").innerText =
+            "无论是第一次接触中文、准备 HSK、改善发音、学习学校中文，还是因为工作需要使用中文，课程都会根据你的情况进行调整。";
 
 
         /* COURSES */
 
         document.getElementById("coursesTitle").innerHTML =
-            "找到你的<br>语言。";
-
-        document.getElementById("coursesIntro").innerText =
-            "每个学生的需求都不一样。选择一个课程，或者直接联系我，我们一起找到最适合你的学习方式。";
-
-        document.getElementById("course1").innerText =
-            "海外儿童中文";
-
-        document.getElementById("course1Desc").innerText =
-            "有趣、有结构的儿童中文课程";
-
-        document.getElementById("course2").innerText =
-            "华裔儿童中文";
-
-        document.getElementById("course2Desc").innerText =
-            "适合海外成长的华裔儿童";
-
-        document.getElementById("course3").innerText =
-            "HSK 中文考试";
-
-        document.getElementById("course3Desc").innerText =
-            "系统的考试准备";
-
-        document.getElementById("course4").innerText =
-            "青少年英语";
-
-        document.getElementById("course4Desc").innerText =
-            "B1–B2 · Cambridge · 口语";
+            "找到你的<br>中文课程。";
 
 
-        /* APPROACH */
+        /* FORMAT */
 
-        document.getElementById("approachTitle").innerHTML =
-            "少一点<br>死记硬背。<br>多一点<span>使用。</span>";
+        document.getElementById("formatTitle").innerHTML =
+            "一起<br>学中文。";
 
-        document.getElementById("approach1Title").innerText =
-            "真正交流";
-
-        document.getElementById("approach1Text").innerText =
-            "语法和词汇当然重要，但最终都应该回到真实的交流中。";
-
-        document.getElementById("approach2Title").innerText =
-            "因人而异";
-
-        document.getElementById("approach2Text").innerText =
-            "每个学生都有不同的目标、兴趣和学习方式，所以课程也应该有所不同。";
-
-        document.getElementById("approach3Title").innerText =
-            "有结构，但不死板";
-
-        document.getElementById("approach3Text").innerText =
-            "课程有清晰的学习目标，但不会让每一节课都变成课本练习。";
-
-        document.getElementById("approach4Title").innerText =
-            "长期进步";
-
-        document.getElementById("approach4Text").innerText =
-            "目标不只是上一节好课，而是帮助学生逐渐成为能够独立使用语言的人。";
+        document.getElementById("formatIntro").innerText =
+            "你可以选择一对一或者小班课。小班学生会根据水平、年龄、目标和学习特点进行匹配。";
 
 
-        /* REVIEWS */
+        /* LEVELS */
 
-        document.getElementById("reviewsTitle").innerHTML =
-            "来自学生的<br>评价。";
+        document.getElementById("levelsTitle").innerHTML =
+            "没有<br>年龄限制。";
 
-        document.getElementById("review1").innerText =
-            "“Wang 的课程让我觉得中文变得自然、有趣。孩子现在比以前更愿意主动说中文了。”";
-
-        document.getElementById("review1Author").innerText =
-            "— 家长 / 中文学生";
-
-        document.getElementById("review2").innerText =
-            "“课程很有结构，但不会觉得无聊。老师会根据孩子感兴趣的话题来设计课堂。”";
-
-        document.getElementById("review2Author").innerText =
-            "— 家长 / 青少年学生";
+        document.getElementById("levelsDescription").innerHTML =
+            "儿童、青少年、大学生、成年人和职场人士都可以参加。<br><br>完全没有中文基础也没关系，我们可以从零开始。";
 
 
-        /* FAQ */
+        /* GLOBAL */
 
-        document.getElementById("faqTitle").innerHTML =
-            "常见问题。";
+        document.getElementById("globalTitle").innerHTML =
+            "世界<br>任何地方。";
 
-        document.getElementById("faq1q").innerText =
-            "有免费试听课吗？";
-
-        document.getElementById("faq1a").innerText =
-            "有。你可以先预约一次免费试听，再决定课程是否适合自己或孩子。";
-
-        document.getElementById("faq2q").innerText =
-            "课程是线上的吗？";
-
-        document.getElementById("faq2a").innerText =
-            "是的，所有课程都在线上进行，也可以根据学生所在的时区安排时间。";
-
-        document.getElementById("faq3q").innerText =
-            "你教孩子吗？";
-
-        document.getElementById("faq3a").innerText =
-            "是的。我教授儿童、青少年和成人，并根据年龄和学习目标调整课程。";
-
-        document.getElementById("faq4q").innerText =
-            "一节课多长时间？";
-
-        document.getElementById("faq4a").innerText =
-            "标准课程为 60 分钟，也可以安排小组课程。";
+        document.getElementById("globalText").innerText =
+            "你不需要住在我附近。所有课程均在线进行，无论你在哪里，都可以参加。";
 
 
-        /* FINAL */
+        /* PLATFORM */
 
-        document.getElementById("finalTitle").innerHTML =
-            "准备好了吗？<br><span>开始吧。</span>";
-
-        document.getElementById("finalText").innerText =
-            "不知道哪一种课程最适合？给我发消息，我们一起找到适合你的学习方式。";
-
-        document.getElementById("finalButton").innerText =
-            "预约免费试听";
+        document.getElementById("platformTitle").innerHTML =
+            "选择你的<br>线上课堂。";
 
 
-        document.getElementById("headerButton").innerText =
-            "免费试听";
+        /* ABOUT */
+
+        document.getElementById("aboutText").innerHTML =
+            "我是一名住在马德里的线上中文老师，学生来自不同国家、不同年龄和不同背景。<br><br>我相信语言课应该有结构、有用，而且真正有趣。<br><br>我不会让每个学生都上一模一样的课，而是根据屏幕另一端的学生来调整课程。";
 
 
-    } else {
+        /* CONTACT */
+
+        document.getElementById("contactTitle").innerHTML =
+            "我们<br>聊聊。";
+
+        document.getElementById("contactText").innerText =
+            "不知道哪种课程适合你？告诉我你的年龄、目前的中文水平以及学习目标，我们一起找到合适的课程。";
+
+        document.getElementById("formLink").innerText =
+            "学生咨询表";
+
+    }
+
+    else {
 
         location.reload();
 
@@ -1831,6 +2261,7 @@ function toggleLanguage() {
 }
 
 </script>
+
 
 </body>
 </html>
