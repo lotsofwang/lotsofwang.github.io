@@ -2814,7 +2814,7 @@ function localizeForms() {
         "Live private lessons":"直播一对一", "Live small group":"直播小班课", "Matched group":"匹配小组",
         "Self-paced course":"录播课程", "Not sure yet":"还不确定",
         "30 minutes":"30 分钟", "40 minutes":"40 分钟", "60 minutes":"60 分钟",
-        "5 lessons":"5 节课", "10 lessons":"10 节课", "15 lessons":"15 节课", "20 lessons":"20 节课", "Custom":"自定义"
+        "5 lessons":"5 节课", "10 lessons":"10 节课", "15 lessons":"15 节课", "20 lessons":"20 节课", "Custom":"自定义", "Private":"一对一", "Small Group":"小班课", "Matched Group":"匹配小组", "1 student":"1 人", "2–3 students":"2–3 人", "4–6 students":"4–6 人", "1 lesson":"1 节课", "lessons / week":"每周课次"
     };
     document.querySelectorAll("select option:not([data-en])").forEach(o => {
         const raw = o.dataset.enOption || o.textContent.trim();
@@ -2838,7 +2838,39 @@ function refreshBusinessText(){
   const ib=document.querySelector('#availabilityForm button[type="button"]'); if(ib) ib.textContent=localizedText(...items.inquiryButton);
   const tb=document.querySelector('#trialForm button[type="submit"]'); if(tb&&!tb.disabled) tb.textContent=localizedText("Request Trial →","申请试听 →");
   const iq=document.querySelector('#inquiryForm button[type="submit"]'); if(iq&&!iq.disabled) iq.textContent=localizedText(...items.inquirySend);
+  document.querySelectorAll('[data-en-text]').forEach(el=>{ el.textContent = currentLanguage === 'zh' ? (el.dataset.zhText || el.dataset.enText) : el.dataset.enText; });
 }
+
+const timezoneOptions = [
+ ['UTC−11','Pacific','太平洋地区','Pacific/Pago_Pago'],
+ ['UTC−10','Hawaii','夏威夷','Pacific/Honolulu'],
+ ['UTC−09','Alaska','阿拉斯加','America/Anchorage'],
+ ['UTC−08','Pacific Time','太平洋时间','America/Los_Angeles'],
+ ['UTC−07','Mountain Time','山地时间','America/Denver'],
+ ['UTC−06','Central Time','中部时间','America/Chicago'],
+ ['UTC−05','Eastern Time','东部时间','America/New_York'],
+ ['UTC−04','Atlantic Time','大西洋时间','America/Halifax'],
+ ['UTC−03','South America / Atlantic','南美洲 / 大西洋地区','America/Sao_Paulo'],
+ ['UTC−02','Mid-Atlantic','中大西洋地区','Atlantic/South_Georgia'],
+ ['UTC−01','Azores / Cape Verde','亚速尔群岛 / 佛得角','Atlantic/Azores'],
+ ['UTC+00','UK / Portugal','英国 / 葡萄牙','Europe/London'],
+ ['UTC+01','Central Europe / Madrid','中欧 / 马德里','Europe/Madrid'],
+ ['UTC+02','Eastern Europe / South Africa','东欧 / 南非','Europe/Athens'],
+ ['UTC+03','Arabia / East Africa','阿拉伯半岛 / 东非','Asia/Riyadh'],
+ ['UTC+04','Gulf / Caucasus','海湾地区 / 高加索','Asia/Dubai'],
+ ['UTC+05','Pakistan / Central Asia','巴基斯坦 / 中亚','Asia/Karachi'],
+ ['UTC+05:30','India / Sri Lanka','印度 / 斯里兰卡','Asia/Kolkata'],
+ ['UTC+06','Bangladesh / Central Asia','孟加拉国 / 中亚','Asia/Dhaka'],
+ ['UTC+07','Southeast Asia','东南亚','Asia/Bangkok'],
+ ['UTC+08','China / Singapore','中国 / 新加坡','Asia/Shanghai'],
+ ['UTC+09','Japan / Korea','日本 / 韩国','Asia/Tokyo'],
+ ['UTC+09:30','Central Australia','澳大利亚中部','Australia/Adelaide'],
+ ['UTC+10','Eastern Australia','澳大利亚东部','Australia/Sydney'],
+ ['UTC+11','Pacific / New Caledonia','太平洋地区 / 新喀里多尼亚','Pacific/Noumea'],
+ ['UTC+12','New Zealand / Pacific','新西兰 / 太平洋地区','Pacific/Auckland'],
+ ['UTC+13','Pacific Islands','太平洋岛屿','Pacific/Tongatapu'],
+ ['UTC+14','Pacific / Line Islands','太平洋 / 莱恩群岛','Pacific/Kiritimati']
+];
 
 function applyLanguage() {
     document.documentElement.lang = currentLanguage;
@@ -2847,7 +2879,7 @@ function applyLanguage() {
         option.textContent = currentLanguage === "zh" ? option.dataset.zh : option.dataset.en;
     });
     localizeForms();
-    if (typeof refreshTimezoneOptions === "function") refreshTimezoneOptions();
+    if (typeof refreshTimezoneOptions === "function") refreshTimezoneOptions(); if (typeof initTrialFields === "function") initTrialFields();
     const customLessons = document.getElementById("customLessons");
     const customFrequency = document.getElementById("customFrequency");
     if (customLessons) customLessons.placeholder = currentLanguage === "zh" ? "输入课时数" : "Enter number of lessons";
@@ -3026,36 +3058,6 @@ function closeOnBackdrop(event, id) {
     if (event.target.id === id) closeModal(id);
 }
 
-const timezoneOptions = [
- ['UTC−11','Pacific','太平洋地区','Pacific/Pago_Pago'],
- ['UTC−10','Hawaii','夏威夷','Pacific/Honolulu'],
- ['UTC−09','Alaska','阿拉斯加','America/Anchorage'],
- ['UTC−08','Pacific Time','太平洋时间','America/Los_Angeles'],
- ['UTC−07','Mountain Time','山地时间','America/Denver'],
- ['UTC−06','Central Time','中部时间','America/Chicago'],
- ['UTC−05','Eastern Time','东部时间','America/New_York'],
- ['UTC−04','Atlantic Time','大西洋时间','America/Halifax'],
- ['UTC−03','South America / Atlantic','南美洲 / 大西洋地区','America/Sao_Paulo'],
- ['UTC−02','Mid-Atlantic','中大西洋地区','Atlantic/South_Georgia'],
- ['UTC−01','Azores / Cape Verde','亚速尔群岛 / 佛得角','Atlantic/Azores'],
- ['UTC+00','UK / Portugal','英国 / 葡萄牙','Europe/London'],
- ['UTC+01','Central Europe / Madrid','中欧 / 马德里','Europe/Madrid'],
- ['UTC+02','Eastern Europe / South Africa','东欧 / 南非','Europe/Athens'],
- ['UTC+03','Arabia / East Africa','阿拉伯半岛 / 东非','Asia/Riyadh'],
- ['UTC+04','Gulf / Caucasus','海湾地区 / 高加索','Asia/Dubai'],
- ['UTC+05','Pakistan / Central Asia','巴基斯坦 / 中亚','Asia/Karachi'],
- ['UTC+05:30','India / Sri Lanka','印度 / 斯里兰卡','Asia/Kolkata'],
- ['UTC+06','Bangladesh / Central Asia','孟加拉国 / 中亚','Asia/Dhaka'],
- ['UTC+07','Southeast Asia','东南亚','Asia/Bangkok'],
- ['UTC+08','China / Singapore','中国 / 新加坡','Asia/Shanghai'],
- ['UTC+09','Japan / Korea','日本 / 韩国','Asia/Tokyo'],
- ['UTC+09:30','Central Australia','澳大利亚中部','Australia/Adelaide'],
- ['UTC+10','Eastern Australia','澳大利亚东部','Australia/Sydney'],
- ['UTC+11','Pacific / New Caledonia','太平洋地区 / 新喀里多尼亚','Pacific/Noumea'],
- ['UTC+12','New Zealand / Pacific','新西兰 / 太平洋地区','Pacific/Auckland'],
- ['UTC+13','Pacific Islands','太平洋岛屿','Pacific/Tongatapu'],
- ['UTC+14','Pacific / Line Islands','太平洋 / 莱恩群岛','Pacific/Kiritimati']
-];
 function refreshTimezoneOptions(){
  const tz=document.getElementById('timezoneSelect');
  if(!tz)return;
@@ -3126,11 +3128,25 @@ initAvailabilityFields();
 function initTrialFields(){
  const tz=document.getElementById('trialTimezoneSelect');
  if(!tz)return;
- timezoneOptions.forEach(([off,label,iana])=>{const o=document.createElement('option');o.value=iana;o.textContent=off+' — '+label;tz.appendChild(o)});
+ const current=tz.value;
+ tz.innerHTML='';
+ const placeholder=document.createElement('option');
+ placeholder.value='';
+ placeholder.textContent=currentLanguage === 'zh' ? '请选择你的时区' : 'Select your time zone';
+ tz.appendChild(placeholder);
+ timezoneOptions.forEach(([off,en,zh,iana])=>{
+   const o=document.createElement('option');
+   o.value=iana;
+   o.dataset.enLabel=off+' — '+en;
+   o.dataset.zhLabel=off+' — '+zh;
+   o.textContent=currentLanguage === 'zh' ? o.dataset.zhLabel : o.dataset.enLabel;
+   tz.appendChild(o);
+ });
  try{
    const detected=Intl.DateTimeFormat().resolvedOptions().timeZone;
    if(detected && [...tz.options].some(o=>o.value===detected)) tz.value=detected;
- }catch(e){}
+   else if(current && [...tz.options].some(o=>o.value===current)) tz.value=current;
+ }catch(e){ if(current && [...tz.options].some(o=>o.value===current)) tz.value=current; }
  updateTrialMadridTime();
 }
 function updateTrialMadridTime(){
