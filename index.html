@@ -3604,9 +3604,20 @@ footer {
         <div class="form-field"><label>Contact details *</label><input name="contact_details" placeholder="Number, email or WeChat ID" required></div>
         <div class="form-field"><label>Time zone *</label><select name="timezone" id="timezoneSelect" required onchange="updateMadridTime()"><option value="">Select your time zone</option></select></div>
         <div class="form-field"><label>Chinese level</label><select name="level"><option>Beginner</option><option>Elementary</option><option>Intermediate</option><option>Advanced</option><option>HSK / exam preparation</option><option>Business Chinese</option></select></div>
-        <div class="form-field full"><label>Preferred days *</label><div class="day-options">${['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'].map(d => `<label class="day-option"><input type="checkbox" name="preferred_days" value="${d}" onchange="updateMadridTime()"> <span>${d}</span></label>`).join('')}</div></div>
-        <div class="form-field"><label>From *</label><select name="start_time" id="startTime" required onchange="updateMadridTime()"><option value="">Start time</option></select></div>
-        <div class="form-field"><label>To *</label><select name="end_time" id="endTime" required onchange="updateMadridTime()"><option value="">End time</option></select></div>
+        <div class="form-field full">
+  <label for="preferredDays">Preferred days *</label>
+  <div class="day-options" id="preferredDays">
+    <label class="day-option"><input type="checkbox" name="preferred_days" value="Monday"><span>Monday</span></label>
+    <label class="day-option"><input type="checkbox" name="preferred_days" value="Tuesday"><span>Tuesday</span></label>
+    <label class="day-option"><input type="checkbox" name="preferred_days" value="Wednesday"><span>Wednesday</span></label>
+    <label class="day-option"><input type="checkbox" name="preferred_days" value="Thursday"><span>Thursday</span></label>
+    <label class="day-option"><input type="checkbox" name="preferred_days" value="Friday"><span>Friday</span></label>
+    <label class="day-option"><input type="checkbox" name="preferred_days" value="Saturday"><span>Saturday</span></label>
+    <label class="day-option"><input type="checkbox" name="preferred_days" value="Sunday"><span>Sunday</span></label>
+  </div>
+</div>
+        <div class="form-field"><label>From *</label><input type="time" name="start_time" id="startTime" min="06:00" max="22:00" step="1800" required onchange="updateMadridTime()"></div>
+        <div class="form-field"><label>To *</label><input type="time" name="end_time" id="endTime" min="06:00" max="22:00" step="1800" required onchange="updateMadridTime()"></div>
         <div class="form-field full"><div id="madridTimePreview" class="time-preview">Select your time zone and preferred time to see the approximate Madrid time.</div></div>
         <div class="form-field full"><label>Alternative availability <span class="optional">(optional)</span></label><textarea name="alternative" placeholder="For example: Saturday 10:00–12:00 local time"></textarea></div>
         <div class="form-field full"><label>Plan</label><input id="availabilityPlan" name="plan" readonly></div>
@@ -3936,24 +3947,50 @@ const timezoneOptions = [
 ['UTC-11','Pacific / Midway','Pacific/Midway'],['UTC-10','Hawaii','Pacific/Honolulu'],['UTC-09','Alaska','America/Anchorage'],['UTC-08','Pacific Time','America/Los_Angeles'],['UTC-07','Mountain Time','America/Denver'],['UTC-06','Central Time','America/Chicago'],['UTC-05','Eastern Time','America/New_York'],['UTC-04','Atlantic Time','America/Halifax'],['UTC-03','South America / Atlantic','America/Sao_Paulo'],['UTC-02','Mid-Atlantic','Atlantic/South_Georgia'],['UTC-01','Azores / Cape Verde','Atlantic/Azores'],['UTC+00','UK / Portugal','Europe/London'],['UTC+01','Central Europe / Madrid','Europe/Madrid'],['UTC+02','Eastern Europe / South Africa','Europe/Athens'],['UTC+03','Arabia / East Africa','Asia/Riyadh'],['UTC+04','Gulf / Caucasus','Asia/Dubai'],['UTC+05','Pakistan / Central Asia','Asia/Karachi'],['UTC+05:30','India / Sri Lanka','Asia/Kolkata'],['UTC+06','Bangladesh / Central Asia','Asia/Dhaka'],['UTC+07','Southeast Asia','Asia/Bangkok'],['UTC+08','China / Singapore','Asia/Shanghai'],['UTC+09','Japan / Korea','Asia/Tokyo'],['UTC+09:30','Central Australia','Australia/Adelaide'],['UTC+10','Eastern Australia','Australia/Sydney'],['UTC+11','Pacific / New Caledonia','Pacific/Noumea'],['UTC+12','New Zealand / Pacific','Pacific/Auckland'],['UTC+13','Pacific Islands','Pacific/Tongatapu'],['UTC+14','Pacific / Line Islands','Pacific/Kiritimati']
 ];
 function initAvailabilityFields(){
- const tz=document.getElementById('timezoneSelect'), st=document.getElementById('startTime'), et=document.getElementById('endTime');
- if(!tz||!st||!et)return;
+ const tz=document.getElementById('timezoneSelect');
+ if(!tz)return;
  timezoneOptions.forEach(([off,label,iana])=>{const o=document.createElement('option');o.value=iana;o.textContent=off+' — '+label;tz.appendChild(o)});
- for(let h=6;h<=22;h++) for(let m of [0,30]){if(h===22&&m>0)continue; const v=String(h).padStart(2,'0')+':'+String(m).padStart(2,'0'); [st,et].forEach(sel=>{const o=document.createElement('option');o.value=v;o.textContent=v;sel.appendChild(o)})}
- try{const detected=Intl.DateTimeFormat().resolvedOptions().timeZone; if([...tz.options].some(o=>o.value===detected))tz.value=detected;}catch(e){}
+ try{
+   const detected=Intl.DateTimeFormat().resolvedOptions().timeZone;
+   if(detected && [...tz.options].some(o=>o.value===detected)){
+     tz.value=detected;
+   }
+ }catch(e){}
  updateMadridTime();
 }
 function updateMadridTime(){
  const tz=document.getElementById('timezoneSelect'), st=document.getElementById('startTime'), et=document.getElementById('endTime'), preview=document.getElementById('madridTimePreview');
  if(!tz||!st||!et||!preview)return;
  document.getElementById('studentTimezoneHidden').value=tz.value||'';
- if(!tz.value||!st.value||!et.value){preview.textContent='Select your time zone and preferred time to see the approximate Madrid time.';document.getElementById('madridTimeHidden').value='';return;}
+ if(!tz.value||!st.value||!et.value){
+   preview.textContent='Select your time zone and preferred time to see the approximate Madrid time.';
+   document.getElementById('madridTimeHidden').value='';
+   return;
+ }
  const [sh,sm]=st.value.split(':').map(Number), [eh,em]=et.value.split(':').map(Number);
- const now=new Date(), base=new Date(now.getFullYear(),now.getMonth(),now.getDate(),12,0,0);
- function offsetAt(zone){const parts=new Intl.DateTimeFormat('en-US',{timeZone:zone,timeZoneName:'longOffset',hour:'2-digit',minute:'2-digit'}).formatToParts(base); const z=parts.find(p=>p.type==='timeZoneName')?.value||'GMT'; const m=z.match(/GMT([+-])(\d{2})(?::(\d{2}))?/); return m?(m[1]==='-'?-1:1)*(+m[2]*60+(+(m[3]||0))):0;}
- const diff=offsetAt('Europe/Madrid')-offsetAt(tz.value); let a=sh*60+sm+diff,b=eh*60+em+diff; const fmt=x=>{x=(x+1440)%1440;return String(Math.floor(x/60)).padStart(2,'0')+':'+String(x%60).padStart(2,'0')};
- preview.textContent='Approximately '+fmt(a)+'–'+fmt(b)+' Madrid time.'; document.getElementById('madridTimeHidden').value=fmt(a)+'–'+fmt(b)+' Madrid time';
+ const selectedDay=document.querySelector('input[name="preferred_days"]:checked');
+ const now=new Date();
+ let base=new Date(now.getFullYear(),now.getMonth(),now.getDate(),12,0,0);
+ if(selectedDay){
+   const days={Sunday:0,Monday:1,Tuesday:2,Wednesday:3,Thursday:4,Friday:5,Saturday:6};
+   const target=days[selectedDay.value];
+   let add=(target-base.getDay()+7)%7;
+   base.setDate(base.getDate()+add);
+ }
+ function offsetAt(zone){
+   const parts=new Intl.DateTimeFormat('en-US',{timeZone:zone,timeZoneName:'longOffset',hour:'2-digit',minute:'2-digit'}).formatToParts(base);
+   const z=parts.find(p=>p.type==='timeZoneName')?.value||'GMT';
+   const m=z.match(/GMT([+-])(\d{2})(?::(\d{2}))?/);
+   return m?(m[1]==='-'?-1:1)*(+m[2]*60+(+(m[3]||0))):0;
+ }
+ const diff=offsetAt('Europe/Madrid')-offsetAt(tz.value);
+ let a=sh*60+sm+diff,b=eh*60+em+diff;
+ const fmt=x=>{x=(x+1440)%1440;return String(Math.floor(x/60)).padStart(2,'0')+':'+String(x%60).padStart(2,'0')};
+ const madrid=fmt(a)+'–'+fmt(b)+' Madrid time';
+ preview.textContent='Approximately '+madrid+'.';
+ document.getElementById('madridTimeHidden').value=madrid;
 }
+
 initAvailabilityFields();
 
 function openAvailabilityFromBuilder() {
@@ -4011,6 +4048,8 @@ function submitForm(event, successId) {
     event.preventDefault();
     document.getElementById(successId).classList.add("show");
 }
+
+document.querySelectorAll('input[name=\"preferred_days\"]').forEach(cb => cb.addEventListener('change', updateMadridTime));
 
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
