@@ -4,22 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Teacher Xiāo — Learn Chinese Your Way</title>
+<title>Teacher Xiāo — Learn Chinese From Anywhere</title>
 
 <meta name="description" content="Learn Chinese online with Teacher Xiāo. Private lessons, small groups, matched classes and self-paced Chinese courses for students worldwide.">
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600;700;800&display=swap');
-
-:root {
-    --black: #111111;
-    --white: #f7f7f4;
-    --gray: #d9d9d3;
-    --light: #ecece7;
-    --muted: #777;
-    --line: #c9c9c3;
-}
+/* =========================================================
+   RESET
+========================================================= */
 
 * {
     box-sizing: border-box;
@@ -32,10 +25,10 @@ html {
 }
 
 body {
-    background: var(--white);
-    color: var(--black);
-    font-family: "Inter", Arial, sans-serif;
-    line-height: 1.5;
+    background: #f7f7f4;
+    color: #111;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.45;
 }
 
 a {
@@ -43,45 +36,69 @@ a {
     text-decoration: none;
 }
 
-button {
+button,
+select,
+input {
     font-family: inherit;
 }
 
-/* =========================
-   NAVIGATION
-========================= */
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+    --black: #111;
+    --white: #f7f7f4;
+    --gray: #deded8;
+    --line: #bdbdb7;
+    --muted: #777;
+    --dark-gray: #444;
+}
+
+
+/* =========================================================
+   NAV
+========================================================= */
 
 nav {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(247,247,244,0.94);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--black);
-    padding: 18px 4vw;
+
+    height: 68px;
+
+    padding: 0 3.5vw;
+
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+
+    background: rgba(247,247,244,.95);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid var(--black);
 }
 
 .logo {
-    font-size: 18px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -.03em;
+    white-space: nowrap;
 }
 
 .logo span {
-    font-family: "DM Mono", monospace;
     font-weight: 400;
 }
 
 .nav-links {
     display: flex;
-    gap: 28px;
     align-items: center;
-    font-size: 12px;
+    gap: 25px;
+
+    font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: .08em;
 }
 
 .nav-links a {
@@ -92,11 +109,14 @@ nav {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -4px;
+    bottom: -5px;
+
     width: 0;
     height: 1px;
+
     background: var(--black);
-    transition: width .25s;
+
+    transition: width .2s;
 }
 
 .nav-links a:hover::after {
@@ -106,125 +126,156 @@ nav {
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 10px;
 }
 
 .lang-btn {
     border: 1px solid var(--black);
     background: transparent;
-    padding: 7px 10px;
+
+    padding: 8px 11px;
+
+    font-family: monospace;
+    font-size: 10px;
+
     cursor: pointer;
-    font-family: "DM Mono", monospace;
-    font-size: 11px;
 }
 
 .nav-cta {
     background: var(--black);
     color: white;
-    padding: 10px 16px;
-    font-size: 11px;
+
+    padding: 10px 14px;
+
+    font-size: 10px;
     text-transform: uppercase;
     letter-spacing: .08em;
 }
 
-.mobile-menu {
-    display: none;
-}
 
-/* =========================
-   GENERAL
-========================= */
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
 
 section {
-    padding: 110px 7vw;
+    padding: 72px 6vw;
     border-bottom: 1px solid var(--black);
 }
 
 .eyebrow {
-    font-family: "DM Mono", monospace;
-    font-size: 11px;
+    font-family: monospace;
+    font-size: 10px;
     text-transform: uppercase;
     letter-spacing: .12em;
-    margin-bottom: 24px;
+    margin-bottom: 18px;
 }
 
 .section-title {
-    font-size: clamp(42px, 7vw, 100px);
-    line-height: .92;
-    letter-spacing: -.06em;
+    font-size: clamp(42px, 5.8vw, 82px);
+    line-height: .88;
+    letter-spacing: -.07em;
     font-weight: 800;
-    max-width: 1100px;
+
+    max-width: 1000px;
 }
 
 .section-intro {
-    max-width: 570px;
-    margin-top: 30px;
-    font-size: 17px;
-    color: #444;
+    max-width: 560px;
+
+    margin-top: 24px;
+
+    font-size: 15px;
+    color: var(--dark-gray);
 }
 
 .mono {
-    font-family: "DM Mono", monospace;
+    font-family: monospace;
 }
 
-/* =========================
+
+/* =========================================================
    HERO
-========================= */
+========================================================= */
 
 .hero {
-    min-height: 88vh;
-    padding: 80px 7vw 70px;
+    min-height: 620px;
+
+    padding: 55px 6vw 50px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     border-bottom: 1px solid var(--black);
 }
 
 .hero-top {
     display: flex;
     justify-content: space-between;
-    font-family: "DM Mono", monospace;
-    font-size: 11px;
+
+    font-family: monospace;
+    font-size: 10px;
     text-transform: uppercase;
 }
 
 .hero-title {
-    font-size: clamp(70px, 13vw, 190px);
-    line-height: .8;
+    font-size: clamp(65px, 10.5vw, 150px);
+
+    line-height: .82;
     letter-spacing: -.085em;
+
     font-weight: 800;
-    max-width: 1300px;
-    margin-top: 90px;
+
+    max-width: 1250px;
+
+    margin-top: 50px;
 }
 
 .hero-title .outline {
     color: transparent;
-    -webkit-text-stroke: 1.5px var(--black);
+    -webkit-text-stroke: 1.3px var(--black);
 }
 
 .hero-bottom {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    gap: 40px;
-    margin-top: 70px;
+
+    gap: 30px;
+
+    margin-top: 50px;
 }
 
 .hero-copy {
-    max-width: 500px;
-    font-size: 18px;
+    max-width: 430px;
+
+    font-size: 16px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.primary-btn,
+.secondary-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 18px;
+
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+
+    border: 1px solid var(--black);
 }
 
 .primary-btn {
-    display: inline-flex;
     background: var(--black);
     color: white;
-    padding: 16px 24px;
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-    border: 1px solid var(--black);
-    transition: .25s;
 }
 
 .primary-btn:hover {
@@ -233,233 +284,243 @@ section {
 }
 
 .secondary-btn {
-    display: inline-flex;
-    padding: 15px 23px;
-    border: 1px solid var(--black);
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: .08em;
+    background: transparent;
 }
 
-.hero-buttons {
+.secondary-btn:hover {
+    background: var(--black);
+    color: white;
+}
+
+
+/* =========================================================
+   ANYWHERE
+========================================================= */
+
+.anywhere {
+    background: #e8e8e2;
+
+    padding-top: 65px;
+    padding-bottom: 60px;
+}
+
+.anywhere-title {
+    font-size: clamp(50px, 8.3vw, 125px);
+
+    line-height: .82;
+    letter-spacing: -.085em;
+
+    font-weight: 800;
+
+    max-width: 1250px;
+}
+
+.country-list {
     display: flex;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 9px;
+
+    margin-top: 48px;
 }
 
-/* =========================
-   MARQUEE
-========================= */
+.country {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 
-.marquee {
-    overflow: hidden;
-    white-space: nowrap;
-    border-bottom: 1px solid var(--black);
-    padding: 15px 0;
-    font-family: "DM Mono", monospace;
-    font-size: 12px;
+    padding: 10px 17px;
+
+    border: 1px solid #aaa;
+    border-radius: 999px;
+
+    font-size: 14px;
+
+    background: rgba(255,255,255,.18);
 }
 
-.marquee-track {
-    display: inline-block;
-    animation: scroll 25s linear infinite;
+.country span:first-child {
+    font-size: 17px;
 }
 
-@keyframes scroll {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(-50%);
-    }
-}
 
-/* =========================
-   WHO IS IT FOR
-========================= */
-
-.who-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    border-top: 1px solid var(--black);
-    margin-top: 70px;
-}
-
-.who-item {
-    padding: 35px 20px 35px 0;
-    border-bottom: 1px solid var(--black);
-    min-height: 190px;
-}
-
-.who-item:nth-child(odd) {
-    border-right: 1px solid var(--black);
-    padding-right: 40px;
-}
-
-.who-item:nth-child(even) {
-    padding-left: 40px;
-}
-
-.big-number {
-    font-family: "DM Mono", monospace;
-    font-size: 12px;
-    margin-bottom: 45px;
-}
-
-.who-item h3 {
-    font-size: 34px;
-    letter-spacing: -.04em;
-    margin-bottom: 10px;
-}
-
-.who-item p {
-    color: var(--muted);
-    max-width: 430px;
-}
-
-/* =========================
+/* =========================================================
    LEARN
-========================= */
+========================================================= */
 
 .learn-list {
-    margin-top: 70px;
+    margin-top: 48px;
+
     border-top: 1px solid var(--black);
 }
 
 .learn-row {
     display: grid;
-    grid-template-columns: 90px 1fr 120px;
+
+    grid-template-columns: 60px 1fr 130px;
+
     align-items: center;
-    padding: 25px 0;
+
+    padding: 19px 0;
+
     border-bottom: 1px solid var(--black);
-    transition: padding .25s;
+
+    transition: padding .2s;
 }
 
 .learn-row:hover {
-    padding-left: 20px;
+    padding-left: 12px;
 }
 
 .learn-row .number {
-    font-family: "DM Mono", monospace;
-    font-size: 11px;
+    font-family: monospace;
+    font-size: 10px;
 }
 
 .learn-row h3 {
-    font-size: clamp(28px, 4vw, 55px);
+    font-size: clamp(25px, 3.5vw, 46px);
+
     letter-spacing: -.05em;
 }
 
 .learn-row span {
     text-align: right;
-    font-family: "DM Mono", monospace;
-    font-size: 11px;
+
+    font-family: monospace;
+    font-size: 9px;
+
     color: var(--muted);
 }
 
-/* =========================
-   FORMATS
-========================= */
+
+/* =========================================================
+   FORMAT + LENGTH COMBINED
+========================================================= */
+
+.format-section {
+    padding-bottom: 0;
+}
 
 .format-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 70px;
+
+    margin-top: 48px;
+
     border-top: 1px solid var(--black);
     border-left: 1px solid var(--black);
 }
 
 .format {
-    min-height: 400px;
-    padding: 30px;
+    min-height: 285px;
+
+    padding: 24px;
+
     border-right: 1px solid var(--black);
     border-bottom: 1px solid var(--black);
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .format-number {
-    font-family: "DM Mono", monospace;
-    font-size: 11px;
+    font-family: monospace;
+    font-size: 9px;
 }
 
 .format h3 {
-    font-size: 44px;
-    letter-spacing: -.05em;
+    font-size: 36px;
+
+    letter-spacing: -.055em;
 }
 
 .format p {
+    max-width: 280px;
+
     color: var(--muted);
-    max-width: 300px;
+
+    font-size: 13px;
 }
 
 .format strong {
     display: block;
-    margin-top: 20px;
-    font-size: 13px;
+
+    margin-top: 13px;
+
+    font-size: 11px;
 }
 
-/* =========================
-   LESSON LENGTH
-========================= */
 
-.length-section {
-    background: var(--black);
-    color: white;
-}
+/* =========================================================
+   LENGTH
+========================================================= */
 
-.length-section .section-intro {
-    color: #bbb;
-}
+.length-block {
+    margin-top: 45px;
 
-.length-grid {
+    border-top: 1px solid var(--black);
+
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 70px;
-    border-top: 1px solid #555;
 }
 
 .length {
-    padding: 45px 20px 45px 0;
-    border-bottom: 1px solid #555;
+    padding: 30px 20px 30px 0;
+
+    border-bottom: 1px solid var(--black);
 }
 
 .length:not(:last-child) {
-    border-right: 1px solid #555;
-    margin-right: 30px;
+    border-right: 1px solid var(--black);
+    margin-right: 25px;
 }
 
 .length h3 {
-    font-size: clamp(55px, 8vw, 110px);
+    font-size: clamp(55px, 7vw, 90px);
+
+    line-height: .85;
+
     letter-spacing: -.08em;
 }
 
 .length p {
-    font-family: "DM Mono", monospace;
-    font-size: 11px;
-    color: #aaa;
+    margin-top: 12px;
+
+    font-family: monospace;
+    font-size: 9px;
+
+    color: var(--muted);
 }
 
-/* =========================
+
+/* =========================================================
    PACKS
-========================= */
+========================================================= */
 
 .packs {
-    background: #e9e9e4;
+    background: #e8e8e2;
 }
 
 .pack-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    margin-top: 70px;
+
+    gap: 12px;
+
+    margin-top: 48px;
 }
 
 .pack {
-    border: 1px solid var(--black);
     background: var(--white);
-    padding: 30px;
-    min-height: 430px;
+
+    border: 1px solid var(--black);
+
+    padding: 24px;
+
+    min-height: 350px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -473,28 +534,36 @@ section {
 .pack-top {
     display: flex;
     justify-content: space-between;
-    font-family: "DM Mono", monospace;
-    font-size: 10px;
+
+    font-family: monospace;
+    font-size: 9px;
+
     text-transform: uppercase;
 }
 
 .pack h3 {
-    font-size: 32px;
-    line-height: 1;
-    letter-spacing: -.04em;
-    margin-top: 25px;
+    font-size: 27px;
+
+    line-height: .95;
+
+    letter-spacing: -.05em;
+
+    margin-top: 20px;
 }
 
 .pack-main {
-    margin-top: 30px;
+    margin-top: 23px;
 }
 
 .pack-detail {
     display: flex;
     justify-content: space-between;
+
+    padding: 8px 0;
+
     border-bottom: 1px solid var(--line);
-    padding: 12px 0;
-    font-size: 13px;
+
+    font-size: 11px;
 }
 
 .pack.featured .pack-detail {
@@ -502,26 +571,27 @@ section {
 }
 
 .pack-detail span:last-child {
-    font-family: "DM Mono", monospace;
-}
-
-.pack-bottom {
-    margin-top: 30px;
+    font-family: monospace;
 }
 
 .pack-note {
-    font-family: "DM Mono", monospace;
-    font-size: 10px;
-    text-transform: uppercase;
-    margin-bottom: 15px;
+    font-family: monospace;
+    font-size: 9px;
+
+    margin-bottom: 10px;
 }
 
 .pack-btn {
     display: block;
+
     text-align: center;
-    padding: 13px;
+
+    padding: 10px;
+
     border: 1px solid var(--black);
-    font-size: 11px;
+
+    font-size: 9px;
+
     text-transform: uppercase;
     letter-spacing: .08em;
 }
@@ -540,57 +610,95 @@ section {
     color: var(--black);
 }
 
-/* =========================
-   BUILD PACK
-========================= */
+
+/* =========================================================
+   PACK BUILDER
+========================================================= */
 
 .builder {
-    margin-top: 70px;
+    margin-top: 55px;
+
     border: 1px solid var(--black);
+
     background: var(--white);
-    padding: 40px;
+
+    padding: 28px;
 }
 
 .builder-grid {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
-    gap: 35px;
+
+    gap: 22px;
 }
 
 .field label {
     display: block;
-    font-family: "DM Mono", monospace;
-    font-size: 11px;
+
+    font-family: monospace;
+    font-size: 9px;
+
     text-transform: uppercase;
-    margin-bottom: 12px;
+
+    margin-bottom: 8px;
 }
 
-select {
+select,
+input[type="number"] {
     width: 100%;
-    padding: 15px;
+
+    padding: 12px;
+
     border: 1px solid var(--black);
+
     background: transparent;
-    font-size: 15px;
+
+    font-size: 13px;
+}
+
+.custom-input {
+    display: none;
+
+    margin-top: 8px;
+}
+
+.custom-input.show {
+    display: block;
 }
 
 .builder-result {
-    margin-top: 40px;
+    margin-top: 28px;
+
+    padding-top: 22px;
+
     border-top: 1px solid var(--black);
-    padding-top: 30px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 30px;
+
+    gap: 25px;
 }
 
 .builder-result h3 {
-    font-size: 32px;
+    font-size: 24px;
+
     letter-spacing: -.04em;
 }
 
-/* =========================
+.builder-result p {
+    color: var(--muted);
+
+    font-size: 12px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================================
    SELF PACED
-========================= */
+========================================================= */
 
 .self-paced {
     background: var(--black);
@@ -598,178 +706,267 @@ select {
 }
 
 .self-paced .section-intro {
-    color: #bbb;
+    color: #aaa;
 }
 
 .course-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 1px;
+
     background: #555;
-    margin-top: 70px;
+
+    margin-top: 48px;
+
     border: 1px solid #555;
 }
 
 .course {
     background: var(--black);
-    min-height: 430px;
-    padding: 30px;
+
+    min-height: 340px;
+
+    padding: 25px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .course-tag {
-    font-family: "DM Mono", monospace;
-    font-size: 10px;
+    font-family: monospace;
+
+    font-size: 9px;
+
+    color: #999;
+
     text-transform: uppercase;
-    color: #aaa;
 }
 
 .course h3 {
-    font-size: 42px;
-    line-height: .95;
-    letter-spacing: -.05em;
+    font-size: 34px;
+
+    line-height: .92;
+
+    letter-spacing: -.06em;
 }
 
 .course p {
-    color: #aaa;
-    font-size: 14px;
-    max-width: 320px;
+    color: #999;
+
+    font-size: 12px;
+
+    max-width: 300px;
+
+    margin-top: 16px;
 }
 
 .course-link {
     display: inline-block;
-    margin-top: 20px;
+
+    margin-top: 18px;
+
+    padding-bottom: 3px;
+
     border-bottom: 1px solid white;
-    padding-bottom: 4px;
-    font-family: "DM Mono", monospace;
-    font-size: 10px;
+
+    font-family: monospace;
+
+    font-size: 9px;
+
     text-transform: uppercase;
 }
 
-/* =========================
+
+/* =========================================================
    ABOUT
-========================= */
+========================================================= */
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    margin-top: 70px;
+
+    grid-template-columns: .9fr 1.1fr;
+
+    gap: 65px;
+
+    margin-top: 48px;
 }
 
 .photo-placeholder {
-    min-height: 560px;
+    min-height: 430px;
+
     background: #deded8;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: "DM Mono", monospace;
-    font-size: 11px;
+
+    font-family: monospace;
+
+    font-size: 9px;
+
     text-transform: uppercase;
 }
 
 .about-copy h3 {
-    font-size: 48px;
-    letter-spacing: -.05em;
-    line-height: 1;
-    margin-bottom: 30px;
+    font-size: 38px;
+
+    letter-spacing: -.055em;
+
+    line-height: .95;
+
+    margin-bottom: 22px;
 }
 
 .about-copy p {
-    margin-bottom: 20px;
-    color: #444;
+    margin-bottom: 15px;
+
+    font-size: 14px;
+
+    color: var(--dark-gray);
+
+    max-width: 520px;
 }
 
 .stats {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 50px;
+
+    margin-top: 35px;
+
     border-top: 1px solid var(--black);
 }
 
 .stat {
-    padding: 25px 0;
+    padding: 18px 0;
+
     border-bottom: 1px solid var(--black);
 }
 
 .stat:nth-child(odd) {
     border-right: 1px solid var(--black);
-    margin-right: 25px;
+
+    margin-right: 18px;
 }
 
 .stat-number {
-    font-size: 48px;
+    font-size: 36px;
+
     font-weight: 800;
+
     letter-spacing: -.06em;
 }
 
 .stat-label {
-    font-family: "DM Mono", monospace;
-    font-size: 10px;
+    font-family: monospace;
+
+    font-size: 9px;
+
     text-transform: uppercase;
 }
 
-/* =========================
+
+/* =========================================================
    PLATFORMS
-========================= */
+========================================================= */
 
 .platform-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 70px;
+
+    margin-top: 48px;
+
     border-top: 1px solid var(--black);
 }
 
 .platform {
-    padding: 35px 20px 35px 0;
+    padding: 25px 18px 25px 0;
+
     border-bottom: 1px solid var(--black);
 }
 
 .platform:not(:last-child) {
     border-right: 1px solid var(--black);
-    margin-right: 30px;
+
+    margin-right: 22px;
 }
 
 .platform h3 {
-    font-size: 35px;
-    margin-bottom: 15px;
+    font-size: 28px;
+
+    margin-bottom: 10px;
 }
 
 .platform p {
     color: var(--muted);
+
+    font-size: 12px;
+
+    max-width: 310px;
 }
 
-/* =========================
-   TRIAL CTA
-========================= */
+
+/* =========================================================
+   FREE TRIAL
+========================================================= */
 
 .trial {
-    min-height: 500px;
+    min-height: 360px;
+
     background: #e5e5df;
+
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
-    gap: 40px;
+
+    gap: 35px;
 }
 
 .trial h2 {
-    font-size: clamp(60px, 10vw, 150px);
+    font-size: clamp(55px, 8vw, 110px);
+
     line-height: .82;
+
     letter-spacing: -.08em;
-    max-width: 900px;
 }
 
-/* =========================
+.trial-copy {
+    max-width: 330px;
+
+    font-size: 14px;
+
+    color: var(--dark-gray);
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
    CONTACT
-========================= */
+========================================================= */
 
 .contact-grid {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    margin-top: 70px;
+
+    gap: 65px;
+
+    margin-top: 48px;
+}
+
+.contact-note {
+    max-width: 430px;
+
+    font-size: 14px;
+
+    color: var(--dark-gray);
 }
 
 .contact-links {
@@ -778,52 +975,62 @@ select {
 
 .contact-link {
     display: flex;
+
     justify-content: space-between;
-    padding: 20px 0;
+
+    padding: 15px 0;
+
     border-bottom: 1px solid var(--black);
-    font-size: 18px;
+
+    font-size: 15px;
 }
 
 .contact-link span {
-    font-family: "DM Mono", monospace;
-    font-size: 11px;
+    font-family: monospace;
+
+    font-size: 9px;
+
     color: var(--muted);
 }
 
-.contact-note {
-    font-size: 17px;
-    color: #444;
-    max-width: 450px;
-}
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
 footer {
     background: var(--black);
+
     color: white;
-    padding: 35px 7vw;
+
+    padding: 25px 6vw;
+
     display: flex;
+
     justify-content: space-between;
-    font-family: "DM Mono", monospace;
-    font-size: 10px;
+
+    font-family: monospace;
+
+    font-size: 9px;
+
     text-transform: uppercase;
 }
 
-/* =========================
-   CHINESE
-========================= */
+
+/* =========================================================
+   LANGUAGE
+========================================================= */
 
 .zh {
     display: none;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
 
-@media (max-width: 900px) {
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 950px) {
 
     .nav-links {
         display: none;
@@ -833,44 +1040,24 @@ footer {
         display: none;
     }
 
-    .mobile-menu {
-        display: block;
-        font-family: "DM Mono", monospace;
-        font-size: 11px;
-    }
-
     section {
-        padding: 80px 6vw;
+        padding: 60px 6vw;
     }
 
     .hero {
-        min-height: 80vh;
-        padding: 55px 6vw;
+        min-height: 580px;
+
+        padding: 45px 6vw;
     }
 
     .hero-title {
-        margin-top: 60px;
-        font-size: clamp(60px, 17vw, 130px);
+        font-size: clamp(58px, 15vw, 110px);
     }
 
     .hero-bottom {
         flex-direction: column;
+
         align-items: flex-start;
-    }
-
-    .who-grid,
-    .about-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .who-item:nth-child(odd) {
-        border-right: none;
-        padding-right: 0;
-    }
-
-    .who-item:nth-child(even) {
-        padding-left: 0;
     }
 
     .format-grid,
@@ -880,11 +1067,7 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .format {
-        min-height: 320px;
-    }
-
-    .length-grid {
+    .length-block {
         grid-template-columns: 1fr;
     }
 
@@ -899,26 +1082,31 @@ footer {
 
     .builder-result {
         flex-direction: column;
+
         align-items: flex-start;
     }
 
-    .about-grid {
-        gap: 45px;
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
     }
 
     .photo-placeholder {
-        min-height: 400px;
+        min-height: 350px;
     }
 
     .trial {
         flex-direction: column;
+
         align-items: flex-start;
+
         justify-content: center;
     }
 
     footer {
         flex-direction: column;
-        gap: 15px;
+
+        gap: 10px;
     }
 }
 
@@ -928,15 +1116,17 @@ footer {
 
 <body>
 
-<!-- =========================
-     NAV
-========================= -->
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
 <nav>
 
     <a href="#top" class="logo">
         Teacher <span>Xiāo</span>
     </a>
+
 
     <div class="nav-links">
 
@@ -947,12 +1137,12 @@ footer {
 
         <a href="#formats">
             <span class="en">Live Classes</span>
-            <span class="zh">线上课程</span>
+            <span class="zh">直播课程</span>
         </a>
 
         <a href="#packs">
             <span class="en">Packages</span>
-            <span class="zh">套餐</span>
+            <span class="zh">课程套餐</span>
         </a>
 
         <a href="#self-paced">
@@ -962,15 +1152,16 @@ footer {
 
         <a href="#about">
             <span class="en">About</span>
-            <span class="zh">关于小老师</span>
+            <span class="zh">关于我</span>
         </a>
 
         <a href="#contact">
             <span class="en">Contact</span>
-            <span class="zh">联系</span>
+            <span class="zh">联系我</span>
         </a>
 
     </div>
+
 
     <div class="nav-right">
 
@@ -979,8 +1170,11 @@ footer {
         </button>
 
         <a href="#trial" class="nav-cta">
+
             <span class="en">Free Trial</span>
+
             <span class="zh">免费试听</span>
+
         </a>
 
     </div>
@@ -988,17 +1182,23 @@ footer {
 </nav>
 
 
-<!-- =========================
+
+<!-- =====================================================
      HERO
-========================= -->
+===================================================== -->
 
 <header class="hero" id="top">
 
     <div class="hero-top">
 
-        <span>
+        <span class="en">
             Online Chinese · Worldwide
         </span>
+
+        <span class="zh">
+            在线中文 · 全球学生
+        </span>
+
 
         <span>
             2026 — Teacher Xiāo
@@ -1015,7 +1215,9 @@ footer {
 
             <span class="outline">CHINESE.</span><br>
 
-            YOUR WAY.
+            FROM<br>
+
+            ANYWHERE.
 
         </h1>
 
@@ -1027,13 +1229,13 @@ footer {
         <div class="hero-copy">
 
             <p class="en">
-                Chinese lessons designed around your level,
+                Chinese lessons built around your level,
                 your goals and the way you actually learn.
             </p>
 
             <p class="zh">
                 根据你的水平、目标和学习方式，
-                打造真正适合你的中文学习体验。
+                打造真正适合你的中文课程。
             </p>
 
         </div>
@@ -1042,13 +1244,28 @@ footer {
         <div class="hero-buttons">
 
             <a href="#trial" class="primary-btn">
-                <span class="en">30-Min Free Trial →</span>
-                <span class="zh">30分钟免费试听 →</span>
+
+                <span class="en">
+                    30-Min Free Trial →
+                </span>
+
+                <span class="zh">
+                    30分钟免费试听 →
+                </span>
+
             </a>
 
+
             <a href="#self-paced" class="secondary-btn">
-                <span class="en">Explore Courses</span>
-                <span class="zh">探索录播课程</span>
+
+                <span class="en">
+                    Explore Courses
+                </span>
+
+                <span class="zh">
+                    探索录播课程
+                </span>
+
             </a>
 
         </div>
@@ -1058,120 +1275,107 @@ footer {
 </header>
 
 
-<!-- =========================
-     MARQUEE
-========================= -->
 
-<div class="marquee">
+<!-- =====================================================
+     FROM ANYWHERE
+===================================================== -->
 
-    <div class="marquee-track">
-
-        LEARN · SPEAK · UNDERSTAND · CONNECT ·
-        LEARN · SPEAK · UNDERSTAND · CONNECT ·
-        LEARN · SPEAK · UNDERSTAND · CONNECT ·
-        LEARN · SPEAK · UNDERSTAND · CONNECT ·
-
-    </div>
-
-</div>
-
-
-<!-- =========================
-     WHO IS IT FOR
-========================= -->
-
-<section>
+<section class="anywhere">
 
     <div class="eyebrow">
-        01 — WHO IS IT FOR?
+
+        01 — LEARN FROM ANYWHERE
+
     </div>
 
-    <h2 class="section-title">
-        CHINESE FOR<br>
-        REAL PEOPLE.
+
+    <h2 class="anywhere-title">
+
+        LEARN CHINESE<br>
+
+        FROM ANYWHERE.
+
     </h2>
 
+
     <p class="section-intro en">
-        Wherever you live, whatever your age, and wherever
-        you are starting from.
+
+        Wherever you are, your Chinese classroom can come with you.
+
     </p>
 
     <p class="section-intro zh">
-        无论你在哪里，无论你的年龄，
-        无论你现在是什么水平，都可以开始。
+
+        无论你在哪里，都可以随时进入你的中文课堂。
+
     </p>
 
 
-    <div class="who-grid">
+    <div class="country-list">
 
-        <div class="who-item">
 
-            <div class="big-number">01</div>
+        <!-- Oceania -->
 
-            <h3>From anywhere.</h3>
+        <div class="country">
+            <span>🇦🇺</span>
+            <span>Australia</span>
+        </div>
 
-            <p class="en">
-                Learn online from Europe, Oceania,
-                Asia, the Americas or anywhere else.
-            </p>
-
-            <p class="zh">
-                全球在线学习。欧洲、大洋洲、亚洲、美洲，
-                以及其他任何地方都可以参加。
-            </p>
-
+        <div class="country">
+            <span>🇳🇿</span>
+            <span>New Zealand</span>
         </div>
 
 
-        <div class="who-item">
+        <!-- Europe -->
 
-            <div class="big-number">02</div>
+        <div class="country">
+            <span>🇪🇸</span>
+            <span>Spain</span>
+        </div>
 
-            <h3>No age limit.</h3>
+        <div class="country">
+            <span>🇬🇧</span>
+            <span>UK</span>
+        </div>
 
-            <p class="en">
-                Children, teenagers and adults are all welcome.
-            </p>
+        <div class="country">
+            <span>🇩🇪</span>
+            <span>Germany</span>
+        </div>
 
-            <p class="zh">
-                儿童、青少年和成年人都可以参加。
-            </p>
-
+        <div class="country">
+            <span>🇫🇷</span>
+            <span>France</span>
         </div>
 
 
-        <div class="who-item">
+        <!-- North America -->
 
-            <div class="big-number">03</div>
+        <div class="country">
+            <span>🇺🇸</span>
+            <span>USA</span>
+        </div>
 
-            <h3>Any level.</h3>
-
-            <p class="en">
-                From your first Chinese word to advanced conversation.
-            </p>
-
-            <p class="zh">
-                从零基础到高级中文，都可以找到适合你的课程。
-            </p>
-
+        <div class="country">
+            <span>🇨🇦</span>
+            <span>Canada</span>
         </div>
 
 
-        <div class="who-item">
+        <!-- Everywhere -->
 
-            <div class="big-number">04</div>
+        <div class="country">
 
-            <h3>Different goals.</h3>
+            <span>🌎</span>
 
-            <p class="en">
-                Travel, school, HSK, business, conversation
-                or simply becoming more comfortable in Chinese.
-            </p>
+            <span class="en">
+                Anywhere
+            </span>
 
-            <p class="zh">
-                旅行、学校、HSK、商务、日常交流，
-                或者只是想更自信地使用中文。
-            </p>
+            <span class="zh">
+                世界各地
+            </span>
 
         </div>
 
@@ -1180,9 +1384,10 @@ footer {
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================================
      WHAT CAN YOU LEARN
-========================= -->
+===================================================== -->
 
 <section id="learn">
 
@@ -1190,75 +1395,135 @@ footer {
         02 — WHAT CAN YOU LEARN?
     </div>
 
+
     <h2 class="section-title">
+
         START<br>
+
         WHERE YOU ARE.
+
     </h2>
 
+
     <p class="section-intro en">
-        Your lessons can focus on communication, structured
-        learning, exam preparation or practical Chinese.
+
+        Learn for everyday life, school, exams,
+        work, travel or simply because you want to speak Chinese better.
+
     </p>
 
     <p class="section-intro zh">
-        根据你的目标，可以重点学习日常交流、
-        系统中文、考试或实际应用。
+
+        可以为了日常生活、学校、考试、工作、
+        旅行，也可以只是因为你想把中文说得更好。
+
     </p>
 
 
     <div class="learn-list">
 
+
         <div class="learn-row">
 
-            <div class="number">01</div>
+            <div class="number">
+                01
+            </div>
 
-            <h3>Beginner Chinese</h3>
+            <h3>
+                Beginner
+            </h3>
 
-            <span>START HERE</span>
+            <span class="en">
+                START HERE
+            </span>
+
+            <span class="zh">
+                从这里开始
+            </span>
 
         </div>
 
 
         <div class="learn-row">
 
-            <div class="number">02</div>
+            <div class="number">
+                02
+            </div>
 
-            <h3>Intermediate</h3>
+            <h3>
+                Intermediate
+            </h3>
 
-            <span>BUILD UP</span>
+            <span class="en">
+                BUILD UP
+            </span>
 
-        </div>
-
-
-        <div class="learn-row">
-
-            <div class="number">03</div>
-
-            <h3>Advanced</h3>
-
-            <span>GO FURTHER</span>
-
-        </div>
-
-
-        <div class="learn-row">
-
-            <div class="number">04</div>
-
-            <h3>HSK / CYT</h3>
-
-            <span>EXAM PREP</span>
+            <span class="zh">
+                稳步提升
+            </span>
 
         </div>
 
 
         <div class="learn-row">
 
-            <div class="number">05</div>
+            <div class="number">
+                03
+            </div>
 
-            <h3>Business Chinese</h3>
+            <h3>
+                Advanced
+            </h3>
 
-            <span>WORK IN CHINESE</span>
+            <span class="en">
+                GO FURTHER
+            </span>
+
+            <span class="zh">
+                更进一步
+            </span>
+
+        </div>
+
+
+        <div class="learn-row">
+
+            <div class="number">
+                04
+            </div>
+
+            <h3>
+                Business Chinese
+            </h3>
+
+            <span class="en">
+                WORK IN CHINESE
+            </span>
+
+            <span class="zh">
+                商务中文
+            </span>
+
+        </div>
+
+
+        <div class="learn-row">
+
+            <div class="number">
+                05
+            </div>
+
+            <h3>
+                HSK / CYT
+            </h3>
+
+            <span class="en">
+                EXAM PREP
+            </span>
+
+            <span class="zh">
+                考试准备
+            </span>
 
         </div>
 
@@ -1267,31 +1532,41 @@ footer {
 </section>
 
 
-<!-- =========================
-     FORMATS
-========================= -->
 
-<section id="formats">
+<!-- =====================================================
+     FORMAT + LENGTH
+===================================================== -->
+
+<section id="formats" class="format-section">
 
     <div class="eyebrow">
         03 — HOW DO YOU WANT TO LEARN?
     </div>
 
+
     <h2 class="section-title">
+
         FIND YOUR<br>
+
         FORMAT.
+
     </h2>
 
 
     <div class="format-grid">
 
+
         <div class="format">
 
-            <div class="format-number">01 / PRIVATE</div>
+            <div class="format-number">
+                01 / PRIVATE
+            </div>
 
             <div>
 
-                <h3>Private</h3>
+                <h3>
+                    Private
+                </h3>
 
                 <p class="en">
                     One teacher. One student.
@@ -1303,7 +1578,9 @@ footer {
                     完全根据你的需求定制。
                 </p>
 
-                <strong>1 student</strong>
+                <strong>
+                    1 student
+                </strong>
 
             </div>
 
@@ -1312,23 +1589,29 @@ footer {
 
         <div class="format">
 
-            <div class="format-number">02 / SMALL GROUP</div>
+            <div class="format-number">
+                02 / SMALL GROUP
+            </div>
 
             <div>
 
-                <h3>Small Group</h3>
+                <h3>
+                    Small Group
+                </h3>
 
                 <p class="en">
-                    Learn with 2–3 students and
-                    keep the class interactive.
+                    Learn with 2–3 students
+                    while keeping the class interactive.
                 </p>
 
                 <p class="zh">
                     2–3人小班，
-                    保持互动，同时享受小班的关注度。
+                    保持互动，同时享受小班关注度。
                 </p>
 
-                <strong>2–3 students</strong>
+                <strong>
+                    2–3 students
+                </strong>
 
             </div>
 
@@ -1337,11 +1620,15 @@ footer {
 
         <div class="format">
 
-            <div class="format-number">03 / MATCHED GROUP</div>
+            <div class="format-number">
+                03 / MATCHED GROUP
+            </div>
 
             <div>
 
-                <h3>Matched Group</h3>
+                <h3>
+                    Matched Group
+                </h3>
 
                 <p class="en">
                     Students are matched according to
@@ -1349,11 +1636,13 @@ footer {
                 </p>
 
                 <p class="zh">
-                    根据水平、年龄、目标和学习方式
+                    根据水平、年龄、目标和学习方式，
                     匹配适合你的同学。
                 </p>
 
-                <strong>4–6 students</strong>
+                <strong>
+                    4–6 students
+                </strong>
 
             </div>
 
@@ -1361,87 +1650,112 @@ footer {
 
     </div>
 
-</section>
 
+    <div class="eyebrow" style="margin-top:55px;">
 
-<!-- =========================
-     LESSON LENGTH
-========================= -->
-
-<section class="length-section">
-
-    <div class="eyebrow">
-        04 — LESSON LENGTH
-    </div>
-
-    <h2 class="section-title">
-        YOUR TIME.<br>
-        YOUR CHOICE.
-    </h2>
-
-    <p class="section-intro en">
-        Choose the lesson length that works best
-        for your age, schedule and learning goals.
-    </p>
-
-    <p class="section-intro zh">
-        根据你的年龄、时间和学习目标，
-        选择最适合你的课程时长。
-    </p>
-
-
-    <div class="length-grid">
-
-        <div class="length">
-            <h3>30'</h3>
-            <p>SHORT · FOCUSED · FLEXIBLE</p>
-        </div>
-
-        <div class="length">
-            <h3>40'</h3>
-            <p>BALANCED · INTERACTIVE</p>
-        </div>
-
-        <div class="length">
-            <h3>60'</h3>
-            <p>DEEP · COMPLETE · IMMERSIVE</p>
-        </div>
+        LESSON LENGTH
 
     </div>
 
+
+    <div class="length-block">
+
+
+        <div class="length">
+
+            <h3>
+                30'
+            </h3>
+
+            <p class="en">
+                SHORT · FOCUSED · FLEXIBLE
+            </p>
+
+            <p class="zh">
+                短时 · 集中 · 灵活
+            </p>
+
+        </div>
+
+
+        <div class="length">
+
+            <h3>
+                40'
+            </h3>
+
+            <p class="en">
+                BALANCED · INTERACTIVE
+            </p>
+
+            <p class="zh">
+                平衡 · 互动
+            </p>
+
+        </div>
+
+
+        <div class="length">
+
+            <h3>
+                60'
+            </h3>
+
+            <p class="en">
+                DEEP · COMPLETE · IMMERSIVE
+            </p>
+
+            <p class="zh">
+                深入 · 完整 · 沉浸
+            </p>
+
+        </div>
+
+    </div>
+
 </section>
 
 
-<!-- =========================
-     FEATURED PACKS
-========================= -->
+
+<!-- =====================================================
+     POPULAR PACKS
+===================================================== -->
 
 <section class="packs" id="packs">
 
     <div class="eyebrow">
-        05 — POPULAR PACKS
+        04 — POPULAR PACKS
     </div>
 
+
     <h2 class="section-title">
+
         A ROUTINE<br>
+
         THAT WORKS.
+
     </h2>
 
+
     <p class="section-intro en">
-        These are example study routines designed around
-        different learning styles. Final prices coming soon.
+
+        Three example study routines.
+        Final prices are coming soon.
+
     </p>
 
     <p class="section-intro zh">
-        这里是根据不同学习需求设计的热门学习方案。
+
+        三种热门学习方案。
         具体价格稍后公布。
+
     </p>
 
 
     <div class="pack-grid">
 
 
-        <!-- PACK A -->
+        <!-- PACK 01 -->
 
         <div class="pack">
 
@@ -1449,48 +1763,128 @@ footer {
 
                 <div class="pack-top">
 
-                    <span>PACK 01</span>
+                    <span>
+                        PACK 01
+                    </span>
 
-                    <span>POPULAR</span>
+                    <span>
+                        POPULAR
+                    </span>
 
                 </div>
 
+
                 <h3>
+
                     STEADY<br>
+
                     SMALL GROUP
+
                 </h3>
 
 
                 <div class="pack-main">
 
-                    <div class="pack-detail">
-                        <span>Format</span>
-                        <span>Small Group</span>
-                    </div>
 
                     <div class="pack-detail">
-                        <span>Students</span>
-                        <span>2–3</span>
+
+                        <span class="en">
+                            Format
+                        </span>
+
+                        <span class="zh">
+                            形式
+                        </span>
+
+                        <span>
+                            Small Group
+                        </span>
+
                     </div>
 
-                    <div class="pack-detail">
-                        <span>Lesson</span>
-                        <span>40 min</span>
-                    </div>
 
                     <div class="pack-detail">
-                        <span>Frequency</span>
-                        <span>2 / week</span>
+
+                        <span class="en">
+                            Students
+                        </span>
+
+                        <span class="zh">
+                            人数
+                        </span>
+
+                        <span>
+                            2–3
+                        </span>
+
                     </div>
 
-                    <div class="pack-detail">
-                        <span>Total</span>
-                        <span>10 lessons</span>
-                    </div>
 
                     <div class="pack-detail">
-                        <span>Duration</span>
-                        <span>5 weeks</span>
+
+                        <span class="en">
+                            Lesson
+                        </span>
+
+                        <span class="zh">
+                            每节
+                        </span>
+
+                        <span>
+                            40 min
+                        </span>
+
+                    </div>
+
+
+                    <div class="pack-detail">
+
+                        <span class="en">
+                            Frequency
+                        </span>
+
+                        <span class="zh">
+                            频率
+                        </span>
+
+                        <span>
+                            2 / week
+                        </span>
+
+                    </div>
+
+
+                    <div class="pack-detail">
+
+                        <span class="en">
+                            Total
+                        </span>
+
+                        <span class="zh">
+                            总课时
+                        </span>
+
+                        <span>
+                            10 lessons
+                        </span>
+
+                    </div>
+
+
+                    <div class="pack-detail">
+
+                        <span class="en">
+                            Duration
+                        </span>
+
+                        <span class="zh">
+                            周期
+                        </span>
+
+                        <span>
+                            5 weeks
+                        </span>
+
                     </div>
 
                 </div>
@@ -1498,14 +1892,31 @@ footer {
             </div>
 
 
-            <div class="pack-bottom">
+            <div>
 
                 <div class="pack-note">
-                    PRICE COMING SOON
+
+                    <span class="en">
+                        PRICE COMING SOON
+                    </span>
+
+                    <span class="zh">
+                        价格即将公布
+                    </span>
+
                 </div>
 
+
                 <a href="#contact" class="pack-btn">
-                    Request Details →
+
+                    <span class="en">
+                        Request Details →
+                    </span>
+
+                    <span class="zh">
+                        咨询详情 →
+                    </span>
+
                 </a>
 
             </div>
@@ -1513,7 +1924,8 @@ footer {
         </div>
 
 
-        <!-- PACK B -->
+
+        <!-- PACK 02 -->
 
         <div class="pack featured">
 
@@ -1521,48 +1933,128 @@ footer {
 
                 <div class="pack-top">
 
-                    <span>PACK 02</span>
+                    <span>
+                        PACK 02
+                    </span>
 
-                    <span>PRIVATE</span>
+                    <span>
+                        PRIVATE
+                    </span>
 
                 </div>
 
+
                 <h3>
+
                     FAST<br>
+
                     TRACK
+
                 </h3>
 
 
                 <div class="pack-main">
 
-                    <div class="pack-detail">
-                        <span>Format</span>
-                        <span>Private</span>
-                    </div>
 
                     <div class="pack-detail">
-                        <span>Students</span>
-                        <span>1</span>
+
+                        <span class="en">
+                            Format
+                        </span>
+
+                        <span class="zh">
+                            形式
+                        </span>
+
+                        <span>
+                            Private
+                        </span>
+
                     </div>
 
-                    <div class="pack-detail">
-                        <span>Lesson</span>
-                        <span>30 min</span>
-                    </div>
 
                     <div class="pack-detail">
-                        <span>Frequency</span>
-                        <span>3 / week</span>
+
+                        <span class="en">
+                            Students
+                        </span>
+
+                        <span class="zh">
+                            人数
+                        </span>
+
+                        <span>
+                            1
+                        </span>
+
                     </div>
 
-                    <div class="pack-detail">
-                        <span>Total</span>
-                        <span>15 lessons</span>
-                    </div>
 
                     <div class="pack-detail">
-                        <span>Duration</span>
-                        <span>5 weeks</span>
+
+                        <span class="en">
+                            Lesson
+                        </span>
+
+                        <span class="zh">
+                            每节
+                        </span>
+
+                        <span>
+                            30 min
+                        </span>
+
+                    </div>
+
+
+                    <div class="pack-detail">
+
+                        <span class="en">
+                            Frequency
+                        </span>
+
+                        <span class="zh">
+                            频率
+                        </span>
+
+                        <span>
+                            3 / week
+                        </span>
+
+                    </div>
+
+
+                    <div class="pack-detail">
+
+                        <span class="en">
+                            Total
+                        </span>
+
+                        <span class="zh">
+                            总课时
+                        </span>
+
+                        <span>
+                            15 lessons
+                        </span>
+
+                    </div>
+
+
+                    <div class="pack-detail">
+
+                        <span class="en">
+                            Duration
+                        </span>
+
+                        <span class="zh">
+                            周期
+                        </span>
+
+                        <span>
+                            5 weeks
+                        </span>
+
                     </div>
 
                 </div>
@@ -1570,14 +2062,31 @@ footer {
             </div>
 
 
-            <div class="pack-bottom">
+            <div>
 
                 <div class="pack-note">
-                    PRICE COMING SOON
+
+                    <span class="en">
+                        PRICE COMING SOON
+                    </span>
+
+                    <span class="zh">
+                        价格即将公布
+                    </span>
+
                 </div>
 
+
                 <a href="#contact" class="pack-btn">
-                    Request Details →
+
+                    <span class="en">
+                        Request Details →
+                    </span>
+
+                    <span class="zh">
+                        咨询详情 →
+                    </span>
+
                 </a>
 
             </div>
@@ -1585,7 +2094,8 @@ footer {
         </div>
 
 
-        <!-- PACK C -->
+
+        <!-- PACK 03 -->
 
         <div class="pack">
 
@@ -1593,48 +2103,128 @@ footer {
 
                 <div class="pack-top">
 
-                    <span>PACK 03</span>
+                    <span>
+                        PACK 03
+                    </span>
 
-                    <span>GROUP</span>
+                    <span>
+                        GROUP
+                    </span>
 
                 </div>
 
+
                 <h3>
+
                     DEEP<br>
+
                     IMMERSION
+
                 </h3>
 
 
                 <div class="pack-main">
 
-                    <div class="pack-detail">
-                        <span>Format</span>
-                        <span>Matched Group</span>
-                    </div>
 
                     <div class="pack-detail">
-                        <span>Students</span>
-                        <span>4–6</span>
+
+                        <span class="en">
+                            Format
+                        </span>
+
+                        <span class="zh">
+                            形式
+                        </span>
+
+                        <span>
+                            Matched Group
+                        </span>
+
                     </div>
 
-                    <div class="pack-detail">
-                        <span>Lesson</span>
-                        <span>60 min</span>
-                    </div>
 
                     <div class="pack-detail">
-                        <span>Frequency</span>
-                        <span>2 / week</span>
+
+                        <span class="en">
+                            Students
+                        </span>
+
+                        <span class="zh">
+                            人数
+                        </span>
+
+                        <span>
+                            4–6
+                        </span>
+
                     </div>
 
-                    <div class="pack-detail">
-                        <span>Total</span>
-                        <span>10 lessons</span>
-                    </div>
 
                     <div class="pack-detail">
-                        <span>Duration</span>
-                        <span>5 weeks</span>
+
+                        <span class="en">
+                            Lesson
+                        </span>
+
+                        <span class="zh">
+                            每节
+                        </span>
+
+                        <span>
+                            60 min
+                        </span>
+
+                    </div>
+
+
+                    <div class="pack-detail">
+
+                        <span class="en">
+                            Frequency
+                        </span>
+
+                        <span class="zh">
+                            频率
+                        </span>
+
+                        <span>
+                            2 / week
+                        </span>
+
+                    </div>
+
+
+                    <div class="pack-detail">
+
+                        <span class="en">
+                            Total
+                        </span>
+
+                        <span class="zh">
+                            总课时
+                        </span>
+
+                        <span>
+                            10 lessons
+                        </span>
+
+                    </div>
+
+
+                    <div class="pack-detail">
+
+                        <span class="en">
+                            Duration
+                        </span>
+
+                        <span class="zh">
+                            周期
+                        </span>
+
+                        <span>
+                            5 weeks
+                        </span>
+
                     </div>
 
                 </div>
@@ -1642,14 +2232,31 @@ footer {
             </div>
 
 
-            <div class="pack-bottom">
+            <div>
 
                 <div class="pack-note">
-                    PRICE COMING SOON
+
+                    <span class="en">
+                        PRICE COMING SOON
+                    </span>
+
+                    <span class="zh">
+                        价格即将公布
+                    </span>
+
                 </div>
 
+
                 <a href="#contact" class="pack-btn">
-                    Request Details →
+
+                    <span class="en">
+                        Request Details →
+                    </span>
+
+                    <span class="zh">
+                        咨询详情 →
+                    </span>
+
                 </a>
 
             </div>
@@ -1659,41 +2266,70 @@ footer {
     </div>
 
 
+
     <!-- BUILD YOUR PACK -->
 
-    <div class="eyebrow" style="margin-top:100px;">
-        BUILD YOUR OWN
+    <div style="margin-top:65px;">
+
+        <div class="eyebrow">
+            BUILD YOUR OWN
+        </div>
+
+
+        <h2 class="section-title" style="font-size:clamp(42px,5vw,70px);">
+
+            BUILD YOUR<br>
+
+            PACK.
+
+        </h2>
+
+
+        <p class="section-intro en">
+
+            Choose your format, lesson length,
+            number of lessons and weekly frequency.
+
+        </p>
+
+        <p class="section-intro zh">
+
+            选择课程形式、每节时长、总课时
+            和每周上课频率。
+
+        </p>
+
     </div>
-
-    <h2 class="section-title" style="font-size:clamp(45px,6vw,80px);">
-        BUILD YOUR<br>
-        PACK.
-    </h2>
-
-    <p class="section-intro en">
-        Want something different? Choose your format,
-        lesson length and study frequency. We'll work out
-        the best package for you.
-    </p>
-
-    <p class="section-intro zh">
-        没有找到适合你的方案？
-        选择课程形式、时长和频率，
-        我们可以根据你的需求定制套餐。
-    </p>
 
 
     <div class="builder">
 
+
         <div class="builder-grid">
+
+
+            <!-- FORMAT -->
 
             <div class="field">
 
-                <label>Class format</label>
+                <label>
 
-                <select id="formatSelect" onchange="updatePack()">
+                    <span class="en">
+                        Class format
+                    </span>
 
-                    <option value="Private">Private — 1 student</option>
+                    <span class="zh">
+                        课程形式
+                    </span>
+
+                </label>
+
+
+                <select id="formatSelect">
+
+                    <option value="Private">
+                        Private — 1 student
+                    </option>
 
                     <option value="Small Group">
                         Small Group — 2–3 students
@@ -1708,30 +2344,66 @@ footer {
             </div>
 
 
+
+            <!-- LENGTH -->
+
             <div class="field">
 
-                <label>Lesson length</label>
+                <label>
 
-                <select id="lengthSelect" onchange="updatePack()">
+                    <span class="en">
+                        Lesson length
+                    </span>
 
-                    <option value="30">30 minutes</option>
+                    <span class="zh">
+                        每节时长
+                    </span>
 
-                    <option value="40">40 minutes</option>
+                </label>
 
-                    <option value="60">60 minutes</option>
+
+                <select id="lengthSelect">
+
+                    <option value="30">
+                        30 minutes
+                    </option>
+
+                    <option value="40">
+                        40 minutes
+                    </option>
+
+                    <option value="60">
+                        60 minutes
+                    </option>
 
                 </select>
 
             </div>
 
 
+
+            <!-- LESSON NUMBER -->
+
             <div class="field">
 
-                <label>Number of lessons</label>
+                <label>
 
-                <select id="lessonsSelect" onchange="updatePack()">
+                    <span class="en">
+                        Number of lessons
+                    </span>
 
-                    <option value="5">5 lessons</option>
+                    <span class="zh">
+                        总课时
+                    </span>
+
+                </label>
+
+
+                <select id="lessonsSelect">
+
+                    <option value="5">
+                        5 lessons
+                    </option>
 
                     <option value="10" selected>
                         10 lessons
@@ -1745,18 +2417,48 @@ footer {
                         20 lessons
                     </option>
 
+                    <option value="custom">
+                        Custom
+                    </option>
+
                 </select>
+
+
+                <input
+                    id="customLessons"
+                    class="custom-input"
+                    type="number"
+                    min="1"
+                    max="100"
+                    placeholder="Enter number of lessons"
+                >
 
             </div>
 
 
+
+            <!-- FREQUENCY -->
+
             <div class="field">
 
-                <label>Frequency</label>
+                <label>
 
-                <select id="frequencySelect" onchange="updatePack()">
+                    <span class="en">
+                        Frequency
+                    </span>
 
-                    <option value="1">1 lesson / week</option>
+                    <span class="zh">
+                        每周频率
+                    </span>
+
+                </label>
+
+
+                <select id="frequencySelect">
+
+                    <option value="1">
+                        1 lesson / week
+                    </option>
 
                     <option value="2" selected>
                         2 lessons / week
@@ -1766,7 +2468,25 @@ footer {
                         3 lessons / week
                     </option>
 
+                    <option value="4">
+                        4 lessons / week
+                    </option>
+
+                    <option value="custom">
+                        Custom
+                    </option>
+
                 </select>
+
+
+                <input
+                    id="customFrequency"
+                    class="custom-input"
+                    type="number"
+                    min="1"
+                    max="7"
+                    placeholder="Enter lessons per week"
+                >
 
             </div>
 
@@ -1775,17 +2495,28 @@ footer {
 
         <div class="builder-result">
 
+
             <div>
 
-                <div class="mono" style="font-size:10px; margin-bottom:10px;">
-                    YOUR STUDY PLAN
+                <div class="mono" style="font-size:9px; margin-bottom:7px;">
+
+                    <span class="en">
+                        YOUR STUDY PLAN
+                    </span>
+
+                    <span class="zh">
+                        你的学习计划
+                    </span>
+
                 </div>
+
 
                 <h3 id="packResult">
                     Small Group · 40 min · 10 lessons
                 </h3>
 
-                <p id="packDuration" style="color:#777; margin-top:8px;">
+
+                <p id="packDuration">
                     2 lessons / week · about 5 weeks
                 </p>
 
@@ -1793,7 +2524,15 @@ footer {
 
 
             <a href="#contact" class="primary-btn">
-                Request This Package →
+
+                <span class="en">
+                    Request This Package →
+                </span>
+
+                <span class="zh">
+                    咨询这个套餐 →
+                </span>
+
             </a>
 
         </div>
@@ -1803,32 +2542,43 @@ footer {
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================================
      SELF PACED COURSES
-========================= -->
+===================================================== -->
 
 <section class="self-paced" id="self-paced">
 
     <div class="eyebrow">
-        06 — SELF-PACED COURSES
+        05 — SELF-PACED COURSES
     </div>
 
+
     <h2 class="section-title">
+
         LEARN<br>
+
         AT YOUR<br>
+
         OWN PACE.
+
     </h2>
 
+
     <p class="section-intro en">
+
         Don't have time for live classes every week?
         Learn whenever you want with focused,
         practical Chinese courses.
+
     </p>
 
     <p class="section-intro zh">
+
         没有时间每周固定上直播课？
         通过系统、实用的录播课程，
         按照自己的节奏学习中文。
+
     </p>
 
 
@@ -1841,6 +2591,7 @@ footer {
                 COURSE 01 · BEGINNER
             </div>
 
+
             <div>
 
                 <h3>
@@ -1848,18 +2599,32 @@ footer {
                     FROM ZERO
                 </h3>
 
-                <p>
+                <p class="en">
                     Build a solid pronunciation foundation
                     without feeling overwhelmed.
                 </p>
 
+                <p class="zh">
+                    从零开始掌握拼音和中文发音，
+                    建立清晰的发音基础。
+                </p>
+
                 <a href="#contact" class="course-link">
-                    Coming soon →
+
+                    <span class="en">
+                        Coming soon →
+                    </span>
+
+                    <span class="zh">
+                        即将上线 →
+                    </span>
+
                 </a>
 
             </div>
 
         </div>
+
 
 
         <div class="course">
@@ -1868,6 +2633,7 @@ footer {
                 COURSE 02 · TRAVEL
             </div>
 
+
             <div>
 
                 <h3>
@@ -1875,18 +2641,32 @@ footer {
                     CHINESE
                 </h3>
 
-                <p>
+                <p class="en">
                     Useful Chinese for airports, hotels,
                     restaurants, shopping and real travel situations.
                 </p>
 
+                <p class="zh">
+                    学习机场、酒店、餐厅、购物和旅行中
+                    真正用得到的中文。
+                </p>
+
                 <a href="#contact" class="course-link">
-                    Coming soon →
+
+                    <span class="en">
+                        Coming soon →
+                    </span>
+
+                    <span class="zh">
+                        即将上线 →
+                    </span>
+
                 </a>
 
             </div>
 
         </div>
+
 
 
         <div class="course">
@@ -1895,6 +2675,7 @@ footer {
                 COURSE 03 · EVERYDAY
             </div>
 
+
             <div>
 
                 <h3>
@@ -1902,13 +2683,26 @@ footer {
                     MANDARIN
                 </h3>
 
-                <p>
-                    Understand and use the Chinese you actually
-                    hear in everyday conversations.
+                <p class="en">
+                    Understand and use the Chinese
+                    you actually hear in everyday conversations.
+                </p>
+
+                <p class="zh">
+                    学习日常生活中真正能听到、
+                    能用到的中文表达。
                 </p>
 
                 <a href="#contact" class="course-link">
-                    Coming soon →
+
+                    <span class="en">
+                        Coming soon →
+                    </span>
+
+                    <span class="zh">
+                        即将上线 →
+                    </span>
+
                 </a>
 
             </div>
@@ -1918,10 +2712,18 @@ footer {
     </div>
 
 
-    <div style="margin-top:60px;">
+    <div style="margin-top:35px;">
 
-        <p class="mono" style="font-size:11px; color:#999;">
-            MORE COURSES ARE ON THE WAY.
+        <p class="mono" style="font-size:9px; color:#999;">
+
+            <span class="en">
+                MORE COURSES ARE ON THE WAY.
+            </span>
+
+            <span class="zh">
+                更多课程正在准备中。
+            </span>
+
         </p>
 
     </div>
@@ -1929,60 +2731,84 @@ footer {
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================================
      ABOUT
-========================= -->
+===================================================== -->
 
 <section id="about">
 
     <div class="eyebrow">
-        07 — ABOUT XIĀO
+        06 — ABOUT XIĀO
     </div>
 
+
     <h2 class="section-title">
+
         MEET<br>
+
         TEACHER XIĀO.
+
     </h2>
 
 
     <div class="about-grid">
 
+
         <div class="photo-placeholder">
+
             PHOTO — COMING SOON
+
         </div>
 
 
         <div class="about-copy">
 
+
             <h3>
+
                 Chinese teacher.<br>
+
                 Language nerd.<br>
+
                 Human being.
+
             </h3>
 
+
             <p class="en">
+
                 I’ve been teaching Chinese online for years,
                 working with students from different ages,
                 backgrounds and levels.
+
             </p>
 
             <p class="zh">
+
                 我已经在线教授中文多年，
                 接触过不同年龄、不同背景和不同水平的学生。
+
             </p>
 
+
             <p class="en">
+
                 My goal is simple: make Chinese easier to understand,
                 more useful in real life, and more enjoyable to learn.
+
             </p>
 
             <p class="zh">
+
                 我的目标很简单：
                 让中文更容易理解、更实用，也更有趣。
+
             </p>
 
 
             <div class="stats">
+
 
                 <div class="stat">
 
@@ -1991,7 +2817,15 @@ footer {
                     </div>
 
                     <div class="stat-label">
-                        Students
+
+                        <span class="en">
+                            Students
+                        </span>
+
+                        <span class="zh">
+                            学生
+                        </span>
+
                     </div>
 
                 </div>
@@ -2004,7 +2838,15 @@ footer {
                     </div>
 
                     <div class="stat-label">
-                        Years Teaching Online
+
+                        <span class="en">
+                            Years Teaching Online
+                        </span>
+
+                        <span class="zh">
+                            在线教学年限
+                        </span>
+
                     </div>
 
                 </div>
@@ -2013,11 +2855,19 @@ footer {
                 <div class="stat">
 
                     <div class="stat-number">
-                        5–19+
+                        ∞
                     </div>
 
                     <div class="stat-label">
-                        Student Ages
+
+                        <span class="en">
+                            Student Age
+                        </span>
+
+                        <span class="zh">
+                            学生年龄
+                        </span>
+
                     </div>
 
                 </div>
@@ -2026,11 +2876,19 @@ footer {
                 <div class="stat">
 
                     <div class="stat-number">
-                        🌎
+                        2500+
                     </div>
 
                     <div class="stat-label">
-                        Worldwide
+
+                        <span class="en">
+                            Total Teaching Hours
+                        </span>
+
+                        <span class="zh">
+                            总教学时长
+                        </span>
+
                     </div>
 
                 </div>
@@ -2044,19 +2902,24 @@ footer {
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================================
      PLATFORMS
-========================= -->
+===================================================== -->
 
 <section>
 
     <div class="eyebrow">
-        08 — WHERE WE LEARN
+        07 — WHERE WE LEARN
     </div>
 
+
     <h2 class="section-title">
+
         THE PLATFORM<br>
+
         IS YOUR CHOICE.
+
     </h2>
 
 
@@ -2065,7 +2928,9 @@ footer {
 
         <div class="platform">
 
-            <h3>ClassIn</h3>
+            <h3>
+                ClassIn
+            </h3>
 
             <p class="en">
                 Recommended for regular lessons.
@@ -2082,7 +2947,9 @@ footer {
 
         <div class="platform">
 
-            <h3>Zoom</h3>
+            <h3>
+                Zoom
+            </h3>
 
             <p class="en">
                 Simple, familiar and easy to use.
@@ -2097,7 +2964,9 @@ footer {
 
         <div class="platform">
 
-            <h3>Preply</h3>
+            <h3>
+                Preply
+            </h3>
 
             <p class="en">
                 Available for students who prefer
@@ -2116,21 +2985,28 @@ footer {
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================================
      FREE TRIAL
-========================= -->
+===================================================== -->
 
 <section class="trial" id="trial">
 
     <div>
 
         <div class="eyebrow">
-            09 — START HERE
+
+            08 — START HERE
+
         </div>
 
+
         <h2>
+
             30-MIN<br>
+
             FREE TRIAL.
+
         </h2>
 
     </div>
@@ -2138,19 +3014,31 @@ footer {
 
     <div>
 
-        <p style="max-width:360px; margin-bottom:25px;" class="en">
+        <p class="trial-copy en">
+
             Not sure which class is right for you?
             Come try one first.
+
         </p>
 
-        <p style="max-width:360px; margin-bottom:25px;" class="zh">
+        <p class="trial-copy zh">
+
             不确定哪种课程适合你？
             先来免费试听一次。
+
         </p>
 
 
         <a href="#contact" class="primary-btn">
-            Book Your Trial →
+
+            <span class="en">
+                Book Your Trial →
+            </span>
+
+            <span class="zh">
+                预约试听 →
+            </span>
+
         </a>
 
     </div>
@@ -2158,19 +3046,24 @@ footer {
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================================
      CONTACT
-========================= -->
+===================================================== -->
 
 <section id="contact">
 
     <div class="eyebrow">
-        10 — CONTACT
+        09 — CONTACT
     </div>
 
+
     <h2 class="section-title">
+
         LET'S<br>
+
         TALK.
+
     </h2>
 
 
@@ -2180,23 +3073,33 @@ footer {
         <div class="contact-note">
 
             <p class="en">
+
                 Tell me a little about yourself,
                 your Chinese level and what you'd like to learn.
+
             </p>
 
             <p class="zh">
+
                 告诉我一些你的情况、
                 中文水平，以及你想学习什么。
+
             </p>
+
 
             <br>
 
+
             <p class="en">
+
                 I'll help you find the right lesson or package.
+
             </p>
 
             <p class="zh">
+
                 我会帮你找到最适合你的课程或套餐。
+
             </p>
 
         </div>
@@ -2207,7 +3110,13 @@ footer {
 
             <a href="#" class="contact-link">
 
-                Email
+                <span class="en">
+                    Email
+                </span>
+
+                <span class="zh">
+                    邮箱
+                </span>
 
                 <span>
                     CONTACT →
@@ -2240,7 +3149,13 @@ footer {
 
             <a href="#" class="contact-link">
 
-                Inquiry Form
+                <span class="en">
+                    Inquiry Form
+                </span>
+
+                <span class="zh">
+                    咨询表格
+                </span>
 
                 <span>
                     OPEN →
@@ -2255,9 +3170,10 @@ footer {
 </section>
 
 
-<!-- =========================
+
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
@@ -2265,9 +3181,19 @@ footer {
         Teacher Xiāo
     </span>
 
+
     <span>
-        Learn Chinese. Your Way.
+
+        <span class="en">
+            Learn Chinese From Anywhere.
+        </span>
+
+        <span class="zh">
+            随时随地学中文。
+        </span>
+
     </span>
+
 
     <span>
         © 2026
@@ -2276,13 +3202,20 @@ footer {
 </footer>
 
 
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
-/* =========================
+
+/* =====================================================
    LANGUAGE SWITCH
-========================= */
+===================================================== */
 
 let currentLanguage = "en";
+
 
 function toggleLanguage() {
 
@@ -2291,18 +3224,20 @@ function toggleLanguage() {
             ? "zh"
             : "en";
 
-    document.querySelectorAll(".en").forEach(el => {
 
-        el.style.display =
+    document.querySelectorAll(".en").forEach(element => {
+
+        element.style.display =
             currentLanguage === "en"
                 ? ""
                 : "none";
 
     });
 
-    document.querySelectorAll(".zh").forEach(el => {
 
-        el.style.display =
+    document.querySelectorAll(".zh").forEach(element => {
+
+        element.style.display =
             currentLanguage === "zh"
                 ? ""
                 : "none";
@@ -2312,32 +3247,112 @@ function toggleLanguage() {
 }
 
 
-/* =========================
+/* =====================================================
    PACK BUILDER
-========================= */
+===================================================== */
+
+const formatSelect =
+    document.getElementById("formatSelect");
+
+const lengthSelect =
+    document.getElementById("lengthSelect");
+
+const lessonsSelect =
+    document.getElementById("lessonsSelect");
+
+const frequencySelect =
+    document.getElementById("frequencySelect");
+
+const customLessons =
+    document.getElementById("customLessons");
+
+const customFrequency =
+    document.getElementById("customFrequency");
+
+
 
 function updatePack() {
 
+
+    /* ---------- CUSTOM LESSONS ---------- */
+
+    if (lessonsSelect.value === "custom") {
+
+        customLessons.classList.add("show");
+
+    } else {
+
+        customLessons.classList.remove("show");
+
+    }
+
+
+    /* ---------- CUSTOM FREQUENCY ---------- */
+
+    if (frequencySelect.value === "custom") {
+
+        customFrequency.classList.add("show");
+
+    } else {
+
+        customFrequency.classList.remove("show");
+
+    }
+
+
+    /* ---------- GET LESSON NUMBER ---------- */
+
+    let lessons;
+
+    if (lessonsSelect.value === "custom") {
+
+        lessons =
+            parseInt(customLessons.value) || 1;
+
+    } else {
+
+        lessons =
+            parseInt(lessonsSelect.value);
+
+    }
+
+
+    /* ---------- GET FREQUENCY ---------- */
+
+    let frequency;
+
+    if (frequencySelect.value === "custom") {
+
+        frequency =
+            parseInt(customFrequency.value) || 1;
+
+    } else {
+
+        frequency =
+            parseInt(frequencySelect.value);
+
+    }
+
+
+    /* ---------- FORMAT ---------- */
+
     const format =
-        document.getElementById("formatSelect").value;
+        formatSelect.value;
+
+
+    /* ---------- LENGTH ---------- */
 
     const length =
-        document.getElementById("lengthSelect").value;
+        lengthSelect.value;
 
-    const lessons =
-        parseInt(
-            document.getElementById("lessonsSelect").value
-        );
 
-    const frequency =
-        parseInt(
-            document.getElementById("frequencySelect").value
-        );
-
+    /* ---------- WEEKS ---------- */
 
     const weeks =
         Math.ceil(lessons / frequency);
 
+
+    /* ---------- UPDATE RESULT ---------- */
 
     document.getElementById("packResult").innerText =
         format +
@@ -2345,7 +3360,9 @@ function updatePack() {
         length +
         " min · " +
         lessons +
-        " lessons";
+        (lessons === 1
+            ? " lesson"
+            : " lessons");
 
 
     document.getElementById("packDuration").innerText =
@@ -2361,7 +3378,48 @@ function updatePack() {
 
 }
 
+
+/* =====================================================
+   LISTENERS
+===================================================== */
+
+formatSelect.addEventListener(
+    "change",
+    updatePack
+);
+
+lengthSelect.addEventListener(
+    "change",
+    updatePack
+);
+
+lessonsSelect.addEventListener(
+    "change",
+    updatePack
+);
+
+frequencySelect.addEventListener(
+    "change",
+    updatePack
+);
+
+customLessons.addEventListener(
+    "input",
+    updatePack
+);
+
+customFrequency.addEventListener(
+    "input",
+    updatePack
+);
+
+
+/* INITIAL */
+
+updatePack();
+
 </script>
+
 
 </body>
 </html>
