@@ -1,13 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Teacher Xiāo — Learn Chinese From Anywhere</title>
-
-<meta name="description" content="Learn Chinese online with Teacher Xiāo. Private lessons, small groups, matched classes and self-paced Chinese courses for students worldwide.">
-
+<meta content="Learn Chinese online with Teacher Xiāo. Private lessons, small groups, matched classes and self-paced Chinese courses for students worldwide." name="description"/>
 <style>
 
 /* =========================================================
@@ -1118,7 +1116,31 @@ footer {
 ========================================================= */
 
 .zh {
-    display: none;
+    display: none !important;
+}
+
+body.lang-zh .en {
+    display: none !important;
+}
+
+body.lang-zh .zh {
+    display: initial !important;
+}
+
+body.lang-zh p.zh {
+    display: block !important;
+}
+
+body.lang-zh div.zh {
+    display: block !important;
+}
+
+body.lang-zh a.zh {
+    display: inline-flex !important;
+}
+
+body.lang-zh button.zh {
+    display: inline-flex !important;
 }
 
 
@@ -1339,2417 +1361,1376 @@ footer {
     .form-grid { grid-template-columns:1fr; }
     .form-field.full { grid-column:auto; }
 }
-</style>
 
+/* Language-aware headline text */
+.section-title .en, .section-title .zh, h1 .en, h1 .zh, h3 .en, h3 .zh { white-space: pre-line; }
+</style>
 <style>
 .day-options{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:8px}.day-option{font-size:12px;font-weight:400;display:flex;align-items:center;gap:5px}.day-option input{width:auto}.time-preview{font-size:11px;line-height:1.6;color:#666;border-top:1px solid #ddd;padding-top:10px}.optional{color:#999;font-weight:400}.form-field select{width:100%}
 </style>
 </head>
-
-
 <body>
-
-
 <!-- =====================================================
      NAVIGATION
 ===================================================== -->
-
 <nav>
-
-    <a href="#top" class="logo">
+<a class="logo" href="#top">
         Teacher <span>Xiāo</span>
-    </a>
-
-
-    <div class="nav-links">
-
-        <a href="#learn">
-
-            <span class="en">
+</a>
+<div class="nav-links">
+<a href="#learn">
+<span class="en">
                 Learn
             </span>
-
-            <span class="zh">
+<span class="zh">
                 课程
             </span>
-
-        </a>
-
-
-        <a href="#formats">
-
-            <span class="en">
+</a>
+<a href="#formats">
+<span class="en">
                 Live Classes
             </span>
-
-            <span class="zh">
+<span class="zh">
                 直播课程
             </span>
-
-        </a>
-
-
-        <a href="#packs">
-
-            <span class="en">
+</a>
+<a href="#packs">
+<span class="en">
                 Packages
             </span>
-
-            <span class="zh">
+<span class="zh">
                 课程套餐
             </span>
-
-        </a>
-
-
-        <a href="#self-paced">
-
-            <span class="en">
+</a>
+<a href="#self-paced">
+<span class="en">
                 Self-Paced Courses
             </span>
-
-            <span class="zh">
+<span class="zh">
                 录播课程
             </span>
-
-        </a>
-
-
-        <a href="#about">
-
-            <span class="en">
+</a>
+<a href="#about">
+<span class="en">
                 About
             </span>
-
-            <span class="zh">
+<span class="zh">
                 关于我
             </span>
-
-        </a>
-
-
-        <a href="#contact">
-
-            <span class="en">
+</a>
+<a href="#contact">
+<span class="en">
                 Contact
             </span>
-
-            <span class="zh">
+<span class="zh">
                 联系我
             </span>
-
-        </a>
-
-    </div>
-
-
-    <div class="nav-right">
-
-        <button class="lang-btn" onclick="toggleLanguage()">
+</a>
+</div>
+<div class="nav-right">
+<button class="lang-btn" onclick="toggleLanguage()">
             EN / 中
         </button>
-
-
-        <a href="#trial" class="nav-cta">
-
-            <span class="en">
+<a class="nav-cta" href="#trial">
+<span class="en">
                 Free Trial
             </span>
-
-            <span class="zh">
+<span class="zh">
                 免费试听
             </span>
-
-        </a>
-
-    </div>
-
+</a>
+</div>
 </nav>
-
-
-
 <!-- =====================================================
      HERO
 ===================================================== -->
-
 <header class="hero" id="top">
-
-    <div class="hero-top">
-
-        <span class="en">
+<div class="hero-top">
+<span class="en">
             Online Chinese · Worldwide
         </span>
-
-        <span class="zh">
+<span class="zh">
             在线中文 · 全球学生
         </span>
-
-
-        <span>
+<span>
             2026 — Teacher Xiāo
         </span>
-
-    </div>
-
-
-    <div>
-
-        <h1 class="hero-title">
-
-            LEARN<br>
-
-            <span class="outline">
-                CHINESE.
-            </span>
-
-            <span class="hero-subtitle">
-                FROM ANYWHERE.
-            </span>
-
-            <div class="hero-offer">
-                <span class="en">ONLINE CHINESE · LIVE + RECORDED</span>
-                <span class="zh">在线中文 · 直播 + 录播</span>
-            </div>
-
-        </h1>
-
-    </div>
-
-
-    <div class="hero-bottom">
-
-
-        <div class="hero-regions">
-
-
-            <span class="country-pill">
-
-                <span class="flag">
+</div>
+<div>
+<h1 class="hero-title"><span class="en">LEARN CHINESE. FROM ANYWHERE.</span><span class="zh">随时随地，学中文。</span><div class="hero-offer">
+<span class="en">ONLINE CHINESE · LIVE + RECORDED</span>
+<span class="zh">在线中文 · 直播 + 录播</span>
+</div></h1>
+</div>
+<div class="hero-bottom">
+<div class="hero-regions">
+<span class="country-pill">
+<span class="flag">
                     🇦🇺
                 </span>
 
                 Australia
 
             </span>
-
-            <span class="country-pill">
-
-                <span class="flag">
+<span class="country-pill">
+<span class="flag">
                     🇪🇸
                 </span>
 
                 Spain
 
             </span>
-
-
-            <span class="country-pill">
-
-                <span class="flag">
+<span class="country-pill">
+<span class="flag">
                     🇬🇧
                 </span>
 
                 UK
 
             </span>
-
-
-            <span class="country-pill">
-
-                <span class="flag">
+<span class="country-pill">
+<span class="flag">
                     🇩🇪
                 </span>
 
                 Germany
 
             </span>
-
-
-            <span class="country-pill">
-
-                <span class="flag">
+<span class="country-pill">
+<span class="flag">
                     🇫🇷
                 </span>
 
                 France
 
             </span>
-
-
-            <span class="country-pill">
-
-                <span class="flag">
+<span class="country-pill">
+<span class="flag">
                     🇺🇸
                 </span>
 
                 USA
 
             </span>
-
-
-            <span class="country-pill">
-
-                <span class="flag">
+<span class="country-pill">
+<span class="flag">
                     🇨🇦
                 </span>
 
                 Canada
 
             </span>
-
-
-            <span class="country-pill">
-
-                <span class="flag">
+<span class="country-pill">
+<span class="flag">
                     🌎
                 </span>
 
                 Anywhere
 
             </span>
-
-
-        </div>
-
-
-        <div class="hero-buttons">
-
-
-            <a href="#trial" class="primary-btn">
-
-                <span class="en">
+</div>
+<div class="hero-buttons">
+<a class="primary-btn" href="#trial">
+<span class="en">
                     30-Min Free Trial →
                 </span>
-
-                <span class="zh">
+<span class="zh">
                     30分钟免费试听 →
                 </span>
-
-            </a>
-
-
-            <a href="#self-paced" class="secondary-btn">
-
-                <span class="en">
+</a>
+<a class="secondary-btn" href="#self-paced">
+<span class="en">
                     Explore Courses
                 </span>
-
-                <span class="zh">
+<span class="zh">
                     探索录播课程
                 </span>
-
-            </a>
-
-        </div>
-
-    </div>
-
+</a>
+</div>
+</div>
 </header>
-
-
-
 <!-- =====================================================
      MARQUEE
 ===================================================== -->
-
 <div class="marquee">
-
-    <div class="marquee-track">
-
-
-        <div class="marquee-group">
-
-            <span class="marquee-item">
+<div class="marquee-track">
+<div class="marquee-group">
+<span class="marquee-item">
                 CONNECT
             </span>
-
-            <span>·</span>
-
-            <span class="marquee-item">
+<span>·</span>
+<span class="marquee-item">
                 LEARN
             </span>
-
-            <span>·</span>
-
-            <span class="marquee-item">
+<span>·</span>
+<span class="marquee-item">
                 SPEAK
             </span>
-
-            <span>·</span>
-
-            <span class="marquee-item">
+<span>·</span>
+<span class="marquee-item">
                 UNDERSTAND
             </span>
-
-            <span>·</span>
-
-        </div>
-
-
-        <div class="marquee-group">
-
-            <span class="marquee-item">
-                CONNECT
-            </span>
-
-            <span>·</span>
-
-            <span class="marquee-item">
-                LEARN
-            </span>
-
-            <span>·</span>
-
-            <span class="marquee-item">
-                SPEAK
-            </span>
-
-            <span>·</span>
-
-            <span class="marquee-item">
-                UNDERSTAND
-            </span>
-
-            <span>·</span>
-
-        </div>
-
-
-        <div class="marquee-group">
-
-            <span class="marquee-item">
-                CONNECT
-            </span>
-
-            <span>·</span>
-
-            <span class="marquee-item">
-                LEARN
-            </span>
-
-            <span>·</span>
-
-            <span class="marquee-item">
-                SPEAK
-            </span>
-
-            <span>·</span>
-
-            <span class="marquee-item">
-                UNDERSTAND
-            </span>
-
-            <span>·</span>
-
-        </div>
-
-
-        <div class="marquee-group">
-
-            <span class="marquee-item">
-                CONNECT
-            </span>
-
-            <span>·</span>
-
-            <span class="marquee-item">
-                LEARN
-            </span>
-
-            <span>·</span>
-
-            <span class="marquee-item">
-                SPEAK
-            </span>
-
-            <span>·</span>
-
-            <span class="marquee-item">
-                UNDERSTAND
-            </span>
-
-            <span>·</span>
-
-        </div>
-
-
-    </div>
-
+<span>·</span>
 </div>
-
-
-
+<div class="marquee-group">
+<span class="marquee-item">
+                CONNECT
+            </span>
+<span>·</span>
+<span class="marquee-item">
+                LEARN
+            </span>
+<span>·</span>
+<span class="marquee-item">
+                SPEAK
+            </span>
+<span>·</span>
+<span class="marquee-item">
+                UNDERSTAND
+            </span>
+<span>·</span>
+</div>
+<div class="marquee-group">
+<span class="marquee-item">
+                CONNECT
+            </span>
+<span>·</span>
+<span class="marquee-item">
+                LEARN
+            </span>
+<span>·</span>
+<span class="marquee-item">
+                SPEAK
+            </span>
+<span>·</span>
+<span class="marquee-item">
+                UNDERSTAND
+            </span>
+<span>·</span>
+</div>
+<div class="marquee-group">
+<span class="marquee-item">
+                CONNECT
+            </span>
+<span>·</span>
+<span class="marquee-item">
+                LEARN
+            </span>
+<span>·</span>
+<span class="marquee-item">
+                SPEAK
+            </span>
+<span>·</span>
+<span class="marquee-item">
+                UNDERSTAND
+            </span>
+<span>·</span>
+</div>
+</div>
+</div>
 <!-- =====================================================
      WHAT CAN YOU LEARN
 ===================================================== -->
-
-<section id="learn" class="learn-section">
-
-    <div class="eyebrow">
+<section class="learn-section" id="learn">
+<div class="eyebrow">
         01 — WHAT CAN YOU LEARN?
     </div>
-
-
-    <h2 class="section-title">
-
-        START<br>
-
-        WHERE YOU ARE.
-
-    </h2>
-
-
-    <p class="section-intro en">
+<h2 class="section-title"><span class="en">START WHERE YOU ARE.</span><span class="zh">从你的起点开始。</span></h2>
+<p class="section-intro en">
 
         Learn for everyday life, school, exams,
         work, travel or simply because you want to speak Chinese better.
 
     </p>
-
-
-    <p class="section-intro zh">
+<p class="section-intro zh">
 
         可以为了日常生活、学校、考试、工作、
         旅行，也可以只是因为你想把中文说得更好。
 
     </p>
-
-
-    <div class="learn-list">
-
-
-        <div class="learn-row">
-
-            <div class="number">
+<div class="learn-list">
+<div class="learn-row">
+<div class="number">
                 01
             </div>
-
-            <h3>
-                Beginner
-            </h3>
-
-            <span class="en">
+<h3><span class="en">Beginner</span><span class="zh">初级</span></h3>
+<span class="en">
                 START HERE
             </span>
-
-            <span class="zh">
+<span class="zh">
                 从这里开始
             </span>
-
-        </div>
-
-
-        <div class="learn-row">
-
-            <div class="number">
+</div>
+<div class="learn-row">
+<div class="number">
                 02
             </div>
-
-            <h3>
-                Intermediate
-            </h3>
-
-            <span class="en">
+<h3><span class="en">Intermediate</span><span class="zh">中级</span></h3>
+<span class="en">
                 BUILD UP
             </span>
-
-            <span class="zh">
+<span class="zh">
                 稳步提升
             </span>
-
-        </div>
-
-
-        <div class="learn-row">
-
-            <div class="number">
+</div>
+<div class="learn-row">
+<div class="number">
                 03
             </div>
-
-            <h3>
-                Advanced
-            </h3>
-
-            <span class="en">
+<h3><span class="en">Advanced</span><span class="zh">高级</span></h3>
+<span class="en">
                 GO FURTHER
             </span>
-
-            <span class="zh">
+<span class="zh">
                 更进一步
             </span>
-
-        </div>
-
-
-        <div class="learn-row">
-
-            <div class="number">
+</div>
+<div class="learn-row">
+<div class="number">
                 04
             </div>
-
-            <h3>
-                Business Chinese
-            </h3>
-
-            <span class="en">
+<h3><span class="en">Business Chinese</span><span class="zh">商务中文</span></h3>
+<span class="en">
                 WORK IN CHINESE
             </span>
-
-            <span class="zh">
+<span class="zh">
                 商务中文
             </span>
-
-        </div>
-
-
-        <div class="learn-row">
-
-            <div class="number">
+</div>
+<div class="learn-row">
+<div class="number">
                 05
             </div>
-
-            <h3>
-                HSK / CYT
-            </h3>
-
-            <span class="en">
+<h3><span class="en">HSK / CYT</span><span class="zh">HSK / YCT</span></h3>
+<span class="en">
                 EXAM PREP
             </span>
-
-            <span class="zh">
+<span class="zh">
                 考试准备
             </span>
-
-        </div>
-
-    </div>
-
+</div>
+</div>
 </section>
-
-
-
 <!-- =====================================================
      FORMAT + LENGTH
 ===================================================== -->
-
-<section id="formats" class="format-section">
-
-    <div class="eyebrow">
+<section class="format-section" id="formats">
+<div class="eyebrow">
         02 — HOW DO YOU WANT TO LEARN?
     </div>
-
-
-    <h2 class="section-title">
-
-        FIND YOUR<br>
-
-        FORMAT.
-
-    </h2>
-
-
-    <div class="format-grid">
-
-
-        <div class="format">
-
-            <div class="format-number">
+<h2 class="section-title"><span class="en">FIND YOUR FORMAT.</span><span class="zh">选择适合你的课程形式。</span></h2>
+<div class="format-grid">
+<div class="format">
+<div class="format-number">
                 01 / PRIVATE
             </div>
-
-
-            <div>
-
-                <h3>
-                    Private
-                </h3>
-
-
-                <p class="en">
+<div>
+<h3><span class="en">Private</span><span class="zh">一对一</span></h3>
+<p class="en">
 
                     One teacher. One student.
                     Completely focused on you.
 
                 </p>
-
-
-                <p class="zh">
+<p class="zh">
 
                     一位老师，一位学生。
                     完全根据你的需求定制。
 
                 </p>
-
-
-                <strong>
+<strong>
                     1 student
                 </strong>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="format">
-
-            <div class="format-number">
+</div>
+</div>
+<div class="format">
+<div class="format-number">
                 02 / SMALL GROUP
             </div>
-
-
-            <div>
-
-                <h3>
-                    Small Group
-                </h3>
-
-
-                <p class="en">
+<div>
+<h3><span class="en">Small Group</span><span class="zh">小班课</span></h3>
+<p class="en">
 
                     Learn with 2–3 students
                     while keeping the class interactive.
 
                 </p>
-
-
-                <p class="zh">
+<p class="zh">
 
                     2–3人小班，
                     保持互动，同时享受小班关注度。
 
                 </p>
-
-
-                <strong>
+<strong>
                     2–3 students
                 </strong>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="format">
-
-            <div class="format-number">
+</div>
+</div>
+<div class="format">
+<div class="format-number">
                 03 / MATCHED GROUP
             </div>
-
-
-            <div>
-
-                <h3>
-                    Matched Group
-                </h3>
-
-
-                <p class="en">
+<div>
+<h3><span class="en">Matched Group</span><span class="zh">匹配小组</span></h3>
+<p class="en">
 
                     Students are matched according to
                     level, age, goals and learning style.
 
                 </p>
-
-
-                <p class="zh">
+<p class="zh">
 
                     根据水平、年龄、目标和学习方式，
                     匹配适合你的同学。
 
                 </p>
-
-
-                <strong>
+<strong>
                     4–6 students
                 </strong>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <div class="eyebrow length-label">
+</div>
+</div>
+</div>
+<div class="eyebrow length-label">
 
         LESSON LENGTH
 
     </div>
-
-
-    <div class="length-block">
-
-
-        <div class="length">
-
-            <h3>
+<div class="length-block">
+<div class="length">
+<h3>
                 30'
             </h3>
-
-
-            <p class="en">
+<p class="en">
                 SHORT · FOCUSED · FLEXIBLE
             </p>
-
-
-            <p class="zh">
+<p class="zh">
                 短时 · 集中 · 灵活
             </p>
-
-        </div>
-
-
-        <div class="length">
-
-            <h3>
+</div>
+<div class="length">
+<h3>
                 40'
             </h3>
-
-
-            <p class="en">
+<p class="en">
                 BALANCED · INTERACTIVE
             </p>
-
-
-            <p class="zh">
+<p class="zh">
                 平衡 · 互动
             </p>
-
-        </div>
-
-
-        <div class="length">
-
-            <h3>
+</div>
+<div class="length">
+<h3>
                 60'
             </h3>
-
-
-            <p class="en">
+<p class="en">
                 DEEP · COMPLETE · IMMERSIVE
             </p>
-
-
-            <p class="zh">
+<p class="zh">
                 深入 · 完整 · 沉浸
             </p>
-
-        </div>
-
-    </div>
-
+</div>
+</div>
 </section>
-
-
-
 <!-- =====================================================
      POPULAR PACKS
 ===================================================== -->
-
 <section class="packs" id="packs">
-
-    <div class="eyebrow">
+<div class="eyebrow">
         03 — POPULAR PACKS
     </div>
-
-
-    <h2 class="section-title">
-
-        A ROUTINE<br>
-
-        THAT WORKS.
-
-    </h2>
-
-
-    <p class="section-intro en">
+<h2 class="section-title"><span class="en">A ROUTINE THAT WORKS.</span><span class="zh">建立适合你的学习节奏。</span></h2>
+<p class="section-intro en">
 
         Three example study routines.
         Final prices are coming soon.
 
     </p>
-
-
-    <p class="section-intro zh">
+<p class="section-intro zh">
 
         三种热门学习方案。
         具体价格稍后公布。
 
     </p>
-
-
-    <div class="pack-grid">
-
-
-        <div class="pack">
-
-            <div>
-
-                <div class="pack-top">
-
-                    <span>
+<div class="pack-grid">
+<div class="pack">
+<div>
+<div class="pack-top">
+<span>
                         PACK 01
                     </span>
-
-                    <span>
+<span>
                         POPULAR
                     </span>
-
-                </div>
-
-
-                <h3>
-
-                    STEADY<br>
-
-                    SMALL GROUP
-
-                </h3>
-
-
-                <div class="pack-main">
-
-
-                    <div class="pack-detail">
-
-                        <span class="en">
+</div>
+<h3><span class="en">STEADY SMALL GROUP</span><span class="zh">稳定小班</span></h3>
+<div class="pack-main">
+<div class="pack-detail">
+<span class="en">
                             Format
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             形式
                         </span>
-
-                        <span>
-                            Small Group
-                        </span>
-
-                    </div>
-
-
-                    <div class="pack-detail">
-
-                        <span class="en">
+<span class="en">Small Group</span><span class="zh">小班课</span>
+</div>
+<div class="pack-detail">
+<span class="en">
                             Students
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             人数
                         </span>
-
-                        <span>
+<span>
                             2–3
                         </span>
-
-                    </div>
-
-
-                    <div class="pack-detail">
-
-                        <span class="en">
+</div>
+<div class="pack-detail">
+<span class="en">
                             Lesson
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             每节
                         </span>
-
-                        <span>
-                            40 min
-                        </span>
-
-                    </div>
-
-
-                    <div class="pack-detail">
-
-                        <span class="en">
+<span class="en">40 min</span><span class="zh">40 分钟</span>
+</div>
+<div class="pack-detail">
+<span class="en">
                             Frequency
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             频率
                         </span>
-
-                        <span>
-                            2 / week
-                        </span>
-
-                    </div>
-
-
-                    <div class="pack-detail">
-
-                        <span class="en">
+<span class="en">2 / week</span><span class="zh">每周 2 次</span>
+</div>
+<div class="pack-detail">
+<span class="en">
                             Total
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             总课时
                         </span>
-
-                        <span>
-                            10 lessons
-                        </span>
-
-                    </div>
-
-
-                    <div class="pack-detail">
-
-                        <span class="en">
+<span class="en">10 lessons</span><span class="zh">10 节课</span>
+</div>
+<div class="pack-detail">
+<span class="en">
                             Duration
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             周期
                         </span>
-
-                        <span>
-                            5 weeks
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div>
-
-                <div class="pack-note">
-
-                    <span class="en">
+<span class="en">5 weeks</span><span class="zh">5 周</span>
+</div>
+</div>
+</div>
+<div>
+<div class="pack-note">
+<span class="en">
                         PRICE COMING SOON
                     </span>
-
-                    <span class="zh">
+<span class="zh">
                         价格即将公布
                     </span>
-
-                </div>
-
-
-                <a href="#contact" class="pack-btn">
-
-                    <span class="en">
+</div>
+<a class="pack-btn" href="#contact">
+<span class="en">
                         Request Details →
                     </span>
-
-                    <span class="zh">
+<span class="zh">
                         咨询详情 →
                     </span>
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="pack featured">
-
-            <div>
-
-                <div class="pack-top">
-
-                    <span>
+</a>
+</div>
+</div>
+<div class="pack featured">
+<div>
+<div class="pack-top">
+<span>
                         PACK 02
                     </span>
-
-                    <span>
+<span>
                         PRIVATE
                     </span>
-
-                </div>
-
-
-                <h3>
-
-                    FAST<br>
-
-                    TRACK
-
-                </h3>
-
-
-                <div class="pack-main">
-
-
-                    <div class="pack-detail">
-
-                        <span class="en">
+</div>
+<h3><span class="en">FAST TRACK</span><span class="zh">快速进阶</span></h3>
+<div class="pack-main">
+<div class="pack-detail">
+<span class="en">
                             Format
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             形式
                         </span>
-
-                        <span>
-                            Private
-                        </span>
-
-                    </div>
-
-
-                    <div class="pack-detail">
-
-                        <span class="en">
+<span class="en">Private</span><span class="zh">一对一</span>
+</div>
+<div class="pack-detail">
+<span class="en">
                             Students
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             人数
                         </span>
-
-                        <span>
+<span>
                             1
                         </span>
-
-                    </div>
-
-
-                    <div class="pack-detail">
-
-                        <span class="en">
+</div>
+<div class="pack-detail">
+<span class="en">
                             Lesson
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             每节
                         </span>
-
-                        <span>
-                            30 min
-                        </span>
-
-                    </div>
-
-
-                    <div class="pack-detail">
-
-                        <span class="en">
+<span class="en">30 min</span><span class="zh">30 分钟</span>
+</div>
+<div class="pack-detail">
+<span class="en">
                             Frequency
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             频率
                         </span>
-
-                        <span>
-                            3 / week
-                        </span>
-
-                    </div>
-
-
-                    <div class="pack-detail">
-
-                        <span class="en">
+<span class="en">3 / week</span><span class="zh">每周 3 次</span>
+</div>
+<div class="pack-detail">
+<span class="en">
                             Total
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             总课时
                         </span>
-
-                        <span>
-                            15 lessons
-                        </span>
-
-                    </div>
-
-
-                    <div class="pack-detail">
-
-                        <span class="en">
+<span class="en">15 lessons</span><span class="zh">15 节课</span>
+</div>
+<div class="pack-detail">
+<span class="en">
                             Duration
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             周期
                         </span>
-
-                        <span>
-                            5 weeks
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div>
-
-                <div class="pack-note">
-
-                    <span class="en">
+<span class="en">5 weeks</span><span class="zh">5 周</span>
+</div>
+</div>
+</div>
+<div>
+<div class="pack-note">
+<span class="en">
                         PRICE COMING SOON
                     </span>
-
-                    <span class="zh">
+<span class="zh">
                         价格即将公布
                     </span>
-
-                </div>
-
-
-                <a href="#contact" class="pack-btn">
-
-                    <span class="en">
+</div>
+<a class="pack-btn" href="#contact">
+<span class="en">
                         Request Details →
                     </span>
-
-                    <span class="zh">
+<span class="zh">
                         咨询详情 →
                     </span>
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="pack">
-
-            <div>
-
-                <div class="pack-top">
-
-                    <span>
+</a>
+</div>
+</div>
+<div class="pack">
+<div>
+<div class="pack-top">
+<span>
                         PACK 03
                     </span>
-
-                    <span>
+<span>
                         GROUP
                     </span>
-
-                </div>
-
-
-                <h3>
-
-                    DEEP<br>
-
-                    IMMERSION
-
-                </h3>
-
-
-                <div class="pack-main">
-
-
-                    <div class="pack-detail">
-
-                        <span class="en">
+</div>
+<h3><span class="en">DEEP IMMERSION</span><span class="zh">深度沉浸</span></h3>
+<div class="pack-main">
+<div class="pack-detail">
+<span class="en">
                             Format
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             形式
                         </span>
-
-                        <span>
-                            Matched Group
-                        </span>
-
-                    </div>
-
-
-                    <div class="pack-detail">
-
-                        <span class="en">
+<span class="en">Matched Group</span><span class="zh">匹配小组</span>
+</div>
+<div class="pack-detail">
+<span class="en">
                             Students
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             人数
                         </span>
-
-                        <span>
+<span>
                             4–6
                         </span>
-
-                    </div>
-
-
-                    <div class="pack-detail">
-
-                        <span class="en">
+</div>
+<div class="pack-detail">
+<span class="en">
                             Lesson
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             每节
                         </span>
-
-                        <span>
-                            60 min
-                        </span>
-
-                    </div>
-
-
-                    <div class="pack-detail">
-
-                        <span class="en">
+<span class="en">60 min</span><span class="zh">60 分钟</span>
+</div>
+<div class="pack-detail">
+<span class="en">
                             Frequency
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             频率
                         </span>
-
-                        <span>
-                            2 / week
-                        </span>
-
-                    </div>
-
-
-                    <div class="pack-detail">
-
-                        <span class="en">
+<span class="en">2 / week</span><span class="zh">每周 2 次</span>
+</div>
+<div class="pack-detail">
+<span class="en">
                             Total
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             总课时
                         </span>
-
-                        <span>
-                            10 lessons
-                        </span>
-
-                    </div>
-
-
-                    <div class="pack-detail">
-
-                        <span class="en">
+<span class="en">10 lessons</span><span class="zh">10 节课</span>
+</div>
+<div class="pack-detail">
+<span class="en">
                             Duration
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             周期
                         </span>
-
-                        <span>
-                            5 weeks
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div>
-
-                <div class="pack-note">
-
-                    <span class="en">
+<span class="en">5 weeks</span><span class="zh">5 周</span>
+</div>
+</div>
+</div>
+<div>
+<div class="pack-note">
+<span class="en">
                         PRICE COMING SOON
                     </span>
-
-                    <span class="zh">
+<span class="zh">
                         价格即将公布
                     </span>
-
-                </div>
-
-
-                <a href="#contact" class="pack-btn">
-
-                    <span class="en">
+</div>
+<a class="pack-btn" href="#contact">
+<span class="en">
                         Request Details →
                     </span>
-
-                    <span class="zh">
+<span class="zh">
                         咨询详情 →
                     </span>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <div style="margin-top:65px;">
-
-        <div class="eyebrow">
+</a>
+</div>
+</div>
+</div>
+<div style="margin-top:65px;">
+<div class="eyebrow">
             BUILD YOUR OWN
         </div>
-
-
-        <h2 class="section-title"
-            style="font-size:clamp(42px,5vw,70px);">
-
-            BUILD YOUR<br>
-
-            PACK.
-
-        </h2>
-
-
-        <p class="section-intro en">
+<h2 class="section-title" style="font-size:clamp(42px,5vw,70px);"><span class="en">BUILD YOUR PACK.</span><span class="zh">定制你的课程套餐。</span></h2>
+<p class="section-intro en">
 
             Choose your format, lesson length,
             number of lessons and weekly frequency.
 
         </p>
-
-
-        <p class="section-intro zh">
+<p class="section-intro zh">
 
             选择课程形式、每节时长、总课时
             和每周上课频率。
 
         </p>
-
-    </div>
-
-
-    <div class="builder">
-
-
-        <div class="builder-grid">
-
-
-            <div class="field">
-
-                <label>
-
-                    <span class="en">
+</div>
+<div class="builder">
+<div class="builder-grid">
+<div class="field">
+<label>
+<span class="en">
                         Class format
                     </span>
-
-                    <span class="zh">
+<span class="zh">
                         课程形式
                     </span>
-
-                </label>
-
-
-                <select id="formatSelect">
-
-                    <option value="Private">
-                        Private — 1 student
-                    </option>
-
-                    <option value="Small Group">
-                        Small Group — 2–3 students
-                    </option>
-
-                    <option value="Matched Group">
-                        Matched Group — 4–6 students
-                    </option>
-
-                </select>
-
-            </div>
-
-
-
-            <div class="field">
-
-                <label>
-
-                    <span class="en">
+</label>
+<select id="formatSelect">
+<option value="Private" data-en="Private — 1 student" data-zh="一对一 — 1 人">Private — 1 student</option>
+<option value="Small Group" data-en="Small Group — 2–3 students" data-zh="小班课 — 2–3 人">Small Group — 2–3 students</option>
+<option value="Matched Group" data-en="Matched Group — 4–6 students" data-zh="匹配小组 — 4–6 人">Matched Group — 4–6 students</option>
+</select>
+</div>
+<div class="field">
+<label>
+<span class="en">
                         Lesson length
                     </span>
-
-                    <span class="zh">
+<span class="zh">
                         每节时长
                     </span>
-
-                </label>
-
-
-                <select id="lengthSelect">
-
-                    <option value="30">
-                        30 minutes
-                    </option>
-
-                    <option value="40">
-                        40 minutes
-                    </option>
-
-                    <option value="60">
-                        60 minutes
-                    </option>
-
-                </select>
-
-            </div>
-
-
-
-            <div class="field">
-
-                <label>
-
-                    <span class="en">
+</label>
+<select id="lengthSelect">
+<option value="30" data-en="30 minutes" data-zh="30 分钟">30 minutes</option>
+<option value="40" data-en="40 minutes" data-zh="40 分钟">40 minutes</option>
+<option value="60" data-en="60 minutes" data-zh="60 分钟">60 minutes</option>
+</select>
+</div>
+<div class="field">
+<label>
+<span class="en">
                         Number of lessons
                     </span>
-
-                    <span class="zh">
+<span class="zh">
                         总课时
                     </span>
-
-                </label>
-
-
-                <select id="lessonsSelect">
-
-                    <option value="5">
-                        5 lessons
-                    </option>
-
-                    <option value="10" selected>
-                        10 lessons
-                    </option>
-
-                    <option value="15">
-                        15 lessons
-                    </option>
-
-                    <option value="20">
-                        20 lessons
-                    </option>
-
-                    <option value="custom">
-                        Custom
-                    </option>
-
-                </select>
-
-
-                <input
-                    id="customLessons"
-                    class="custom-input"
-                    type="number"
-                    min="1"
-                    max="100"
-                    placeholder="Enter number of lessons"
-                >
-
-            </div>
-
-
-
-            <div class="field">
-
-                <label>
-
-                    <span class="en">
+</label>
+<select id="lessonsSelect">
+<option value="5" data-en="5 lessons" data-zh="5 节课">5 lessons</option>
+<option selected="" value="10" data-en="10 lessons" data-zh="10 节课">10 lessons</option>
+<option value="15" data-en="15 lessons" data-zh="15 节课">15 lessons</option>
+<option value="20" data-en="20 lessons" data-zh="20 节课">20 lessons</option>
+<option value="custom" data-en="Custom" data-zh="自定义">Custom</option>
+</select>
+<input class="custom-input" id="customLessons" max="100" min="1" placeholder="Enter number of lessons" type="number"/>
+</div>
+<div class="field">
+<label>
+<span class="en">
                         Frequency
                     </span>
-
-                    <span class="zh">
+<span class="zh">
                         每周频率
                     </span>
-
-                </label>
-
-
-                <select id="frequencySelect">
-
-                    <option value="1">
-                        1 lesson / week
-                    </option>
-
-                    <option value="2" selected>
-                        2 lessons / week
-                    </option>
-
-                    <option value="3">
-                        3 lessons / week
-                    </option>
-
-                    <option value="4">
-                        4 lessons / week
-                    </option>
-
-                    <option value="custom">
-                        Custom
-                    </option>
-
-                </select>
-
-
-                <input
-                    id="customFrequency"
-                    class="custom-input"
-                    type="number"
-                    min="1"
-                    max="7"
-                    placeholder="Enter lessons per week"
-                >
-
-            </div>
-
-        </div>
-
-
-        <div class="builder-result">
-
-
-            <div>
-
-                <div class="mono"
-                     style="font-size:9px; margin-bottom:7px;">
-
-                    <span class="en">
+</label>
+<select id="frequencySelect">
+<option value="1" data-en="1 lesson / week" data-zh="每周 1 次">1 lesson / week</option>
+<option value="2" data-en="2 lessons / week" data-zh="每周 2 次" selected="">2 lessons / week</option>
+<option value="3" data-en="3 lessons / week" data-zh="每周 3 次">3 lessons / week</option>
+<option value="4" data-en="4 lessons / week" data-zh="每周 4 次">4 lessons / week</option>
+<option value="custom" data-en="Custom" data-zh="自定义">Custom</option>
+</select>
+<input class="custom-input" id="customFrequency" max="7" min="1" placeholder="Enter lessons per week" type="number"/>
+</div>
+</div>
+<div class="builder-result">
+<div>
+<div class="mono" style="font-size:9px; margin-bottom:7px;">
+<span class="en">
                         YOUR STUDY PLAN
                     </span>
-
-                    <span class="zh">
+<span class="zh">
                         你的学习计划
                     </span>
-
-                </div>
-
-
-                <h3 id="packResult">
+</div>
+<h3 id="packResult">
 
                     Small Group · 40 min · 10 lessons
 
                 </h3>
-
-
-                <p id="packDuration">
+<p id="packDuration">
 
                     2 lessons / week · about 5 weeks
 
                 </p>
-
-            </div>
-
-
-            <a href="#" class="primary-btn" onclick="openAvailabilityFromBuilder(); return false;">
-                <span class="en">Check Availability →</span>
-                <span class="zh">查询时间 →</span>
-            </a>
-
-        </div>
-
-    </div>
-
+</div>
+<a class="primary-btn" href="#" onclick="openAvailabilityFromBuilder(); return false;">
+<span class="en">Check Availability →</span>
+<span class="zh">查询时间 →</span>
+</a>
+</div>
+</div>
 </section>
-
-
-
 <!-- =====================================================
      SELF-PACED COURSES
 ===================================================== -->
-
 <section class="self-paced" id="self-paced">
-
-    <div class="eyebrow">
+<div class="eyebrow">
         04 — SELF-PACED COURSES
     </div>
-
-
-    <h2 class="section-title">
-
-        LEARN<br>
-
-        AT YOUR<br>
-
-        OWN PACE.
-
-    </h2>
-
-
-    <p class="section-intro en">
+<h2 class="section-title"><span class="en">LEARN AT YOUR OWN PACE.</span><span class="zh">按照自己的节奏学习。</span></h2>
+<p class="section-intro en">
 
         Don't have time for live classes every week?
         Learn whenever you want with focused,
         practical Chinese courses.
 
     </p>
-
-
-    <p class="section-intro zh">
+<p class="section-intro zh">
 
         没有时间每周固定上直播课？
         通过系统、实用的录播课程，
         按照自己的节奏学习中文。
 
     </p>
-
-
-    <div class="course-grid">
-
-
-        <div class="course">
-
-            <div class="course-tag">
+<div class="course-grid">
+<div class="course">
+<div class="course-tag">
                 COURSE 01 · BEGINNER
             </div>
-
-
-            <div>
-
-                <h3>
-
-                    PINYIN<br>
-
-                    FROM ZERO
-
-                </h3>
-
-
-                <p class="en">
+<div>
+<h3><span class="en">PINYIN FROM ZERO</span><span class="zh">从零开始学拼音</span></h3>
+<p class="en">
 
                     Build a solid pronunciation foundation
                     without feeling overwhelmed.
 
                 </p>
-
-
-                <p class="zh">
+<p class="zh">
 
                     从零开始掌握拼音和中文发音，
                     建立清晰的发音基础。
 
                 </p>
-
-
-                <a href="#" class="course-link" onclick="openCourseInterest('pinyin', 'Pinyin From Zero'); return false;">
-                    <span class="en">Get Course Access →</span>
-                    <span class="zh">获取课程 →</span>
-                </a>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="course">
-
-            <div class="course-tag">
+<a class="course-link" href="#" onclick="openCourseInterest('pinyin', 'Pinyin From Zero'); return false;">
+<span class="en">Get Course Access →</span>
+<span class="zh">获取课程 →</span>
+</a>
+</div>
+</div>
+<div class="course">
+<div class="course-tag">
                 COURSE 02 · TRAVEL
             </div>
-
-
-            <div>
-
-                <h3>
-
-                    SURVIVAL<br>
-
-                    CHINESE
-
-                </h3>
-
-
-                <p class="en">
+<div>
+<h3><span class="en">SURVIVAL CHINESE</span><span class="zh">实用生存中文</span></h3>
+<p class="en">
 
                     Useful Chinese for airports, hotels,
                     restaurants, shopping and real travel situations.
 
                 </p>
-
-
-                <p class="zh">
+<p class="zh">
 
                     学习机场、酒店、餐厅、购物和旅行中
                     真正用得到的中文。
 
                 </p>
-
-
-                <a href="#" class="course-link" onclick="openCourseInterest('survival', 'Survival Chinese'); return false;">
-                    <span class="en">Get Course Access →</span>
-                    <span class="zh">获取课程 →</span>
-                </a>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="course">
-
-            <div class="course-tag">
+<a class="course-link" href="#" onclick="openCourseInterest('survival', 'Survival Chinese'); return false;">
+<span class="en">Get Course Access →</span>
+<span class="zh">获取课程 →</span>
+</a>
+</div>
+</div>
+<div class="course">
+<div class="course-tag">
                 COURSE 03 · EVERYDAY
             </div>
-
-
-            <div>
-
-                <h3>
-
-                    EVERYDAY<br>
-
-                    MANDARIN
-
-                </h3>
-
-
-                <p class="en">
+<div>
+<h3><span class="en">EVERYDAY MANDARIN</span><span class="zh">日常中文</span></h3>
+<p class="en">
 
                     Understand and use the Chinese
                     you actually hear in everyday conversations.
 
                 </p>
-
-
-                <p class="zh">
+<p class="zh">
 
                     学习日常生活中真正能听到、
                     能用到的中文表达。
 
                 </p>
-
-
-                <a href="#" class="course-link" onclick="openCourseInterest('everyday', 'Everyday Mandarin'); return false;">
-                    <span class="en">Get Course Access →</span>
-                    <span class="zh">获取课程 →</span>
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div style="margin-top:35px;">
-
-        <p class="mono"
-           style="font-size:9px; color:#999;">
-
-            <span class="en">
+<a class="course-link" href="#" onclick="openCourseInterest('everyday', 'Everyday Mandarin'); return false;">
+<span class="en">Get Course Access →</span>
+<span class="zh">获取课程 →</span>
+</a>
+</div>
+</div>
+</div>
+<div style="margin-top:35px;">
+<p class="mono" style="font-size:9px; color:#999;">
+<span class="en">
                 MORE COURSES ARE ON THE WAY.
             </span>
-
-            <span class="zh">
+<span class="zh">
                 更多课程正在准备中。
             </span>
-
-        </p>
-
-    </div>
-
+</p>
+</div>
 </section>
-
-
-
 <!-- =====================================================
      ABOUT
 ===================================================== -->
-
 <section id="about">
-
-    <div class="eyebrow">
+<div class="eyebrow">
         05 — ABOUT XIĀO
     </div>
-
-
-    <h2 class="section-title">
-
-        MEET<br>
-
-        TEACHER XIĀO.
-
-    </h2>
-
-
-    <div class="about-grid">
-
-
-        <div class="photo-placeholder">
+<h2 class="section-title"><span class="en">MEET TEACHER XIĀO.</span><span class="zh">认识肖老师。</span></h2>
+<div class="about-grid">
+<div class="photo-placeholder">
 
             PHOTO — COMING SOON
 
         </div>
-
-
-        <div class="about-copy">
-
-
-            <h3>
-
-                Chinese teacher.<br>
-
-                Language nerd.<br>
-
-                Human being.
-
-            </h3>
-
-
-            <p class="en">
+<div class="about-copy">
+<h3><span class="en">Chinese teacher. Language nerd. Human being.</span><span class="zh">中文老师。语言爱好者。一个真实的人。</span></h3>
+<p class="en">
 
                 I’ve been teaching Chinese online for years,
                 working with students from different ages,
                 backgrounds and levels.
 
             </p>
-
-
-            <p class="zh">
+<p class="zh">
 
                 我已经在线教授中文多年，
                 接触过不同年龄、不同背景和不同水平的学生。
 
             </p>
-
-
-            <p class="en">
+<p class="en">
 
                 My goal is simple: make Chinese easier to understand,
                 more useful in real life, and more enjoyable to learn.
 
             </p>
-
-
-            <p class="zh">
+<p class="zh">
 
                 我的目标很简单：
                 让中文更容易理解、更实用，也更有趣。
 
             </p>
-
-
-            <div class="stats">
-
-
-                <div class="stat">
-
-                    <div class="stat-number">
+<div class="stats">
+<div class="stat">
+<div class="stat-number">
                         100+
                     </div>
-
-                    <div class="stat-label">
-
-                        <span class="en">
+<div class="stat-label">
+<span class="en">
                             Students
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             学生
                         </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <div class="stat-number">
+</div>
+</div>
+<div class="stat">
+<div class="stat-number">
                         4+
                     </div>
-
-                    <div class="stat-label">
-
-                        <span class="en">
+<div class="stat-label">
+<span class="en">
                             Years Teaching Online
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             在线教学年限
                         </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <div class="stat-number">
+</div>
+</div>
+<div class="stat">
+<div class="stat-number">
                         ∞
                     </div>
-
-                    <div class="stat-label">
-
-                        <span class="en">
+<div class="stat-label">
+<span class="en">
                             No Age Limit
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             年龄不限
                         </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="stat">
-
-                    <div class="stat-number">
+</div>
+</div>
+<div class="stat">
+<div class="stat-number">
                         2500+
                     </div>
-
-                    <div class="stat-label">
-
-                        <span class="en">
+<div class="stat-label">
+<span class="en">
                             Total Teaching Hours
                         </span>
-
-                        <span class="zh">
+<span class="zh">
                             总教学时长
                         </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-
-
 <!-- =====================================================
      PLATFORMS
 ===================================================== -->
-
 <section>
-
-    <div class="eyebrow">
+<div class="eyebrow">
         06 — WHERE WE LEARN
     </div>
-
-
-    <h2 class="section-title">
-
-        THE PLATFORM<br>
-
-        IS YOUR CHOICE.
-
-    </h2>
-
-
-    <div class="platform-grid">
-
-
-        <div class="platform">
-
-            <h3>
+<h2 class="section-title"><span class="en">THE PLATFORM IS YOUR CHOICE.</span><span class="zh">选择你喜欢的上课平台。</span></h2>
+<div class="platform-grid">
+<div class="platform">
+<h3>
                 ClassIn
             </h3>
-
-
-            <p class="en">
+<p class="en">
 
                 Recommended for regular lessons.
                 Professional classroom tools and free for students.
 
             </p>
-
-
-            <p class="zh">
+<p class="zh">
 
                 推荐用于常规课程。
                 专业的在线课堂工具，对学生免费。
 
             </p>
-
-        </div>
-
-
-
-        <div class="platform">
-
-            <h3>
+</div>
+<div class="platform">
+<h3>
                 Zoom
             </h3>
-
-
-            <p class="en">
+<p class="en">
 
                 Simple, familiar and easy to use.
 
             </p>
-
-
-            <p class="zh">
+<p class="zh">
 
                 简单、熟悉、方便使用。
 
             </p>
-
-        </div>
-
-
-
-        <div class="platform">
-
-            <h3>
+</div>
+<div class="platform">
+<h3>
                 Preply
             </h3>
-
-
-            <p class="en">
+<p class="en">
 
                 Available for students who prefer
                 booking through Preply.
 
             </p>
-
-
-            <p class="zh">
+<p class="zh">
 
                 如果你习惯通过 Preply 预约，
                 也可以选择这个平台。
 
             </p>
-
-        </div>
-
-    </div>
-
+</div>
+</div>
 </section>
-
-
-
 <!-- =====================================================
      FREE TRIAL
 ===================================================== -->
-
 <section class="trial" id="trial">
-
-    <div>
-
-        <div class="eyebrow">
+<div>
+<div class="eyebrow">
             07 — START HERE
         </div>
-
-
-        <h2>
-
-            30-MIN<br>
-
-            FREE TRIAL.
-
-        </h2>
-
-    </div>
-
-
-    <div>
-
-        <p class="trial-copy en">
+<h2><span class="en">30-MIN FREE TRIAL.</span><span class="zh">30分钟免费试听。</span></h2>
+</div>
+<div>
+<p class="trial-copy en">
 
             Not sure which class is right for you?
             Come try one first.
 
         </p>
-
-
-        <p class="trial-copy zh">
+<p class="trial-copy zh">
 
             不确定哪种课程适合你？
             先来免费试听一次。
 
         </p>
-
-
-        <a href="#" class="primary-btn" onclick="openTrial(); return false;">
-            <span class="en">Book Your Trial →</span>
-            <span class="zh">预约试听 →</span>
-        </a>
-
-    </div>
-
+<a class="primary-btn" href="#" onclick="openTrial(); return false;">
+<span class="en">Book Your Trial →</span>
+<span class="zh">预约试听 →</span>
+</a>
+</div>
 </section>
-
-
-
 <!-- =====================================================
      CONTACT
 ===================================================== -->
-
 <section id="contact">
-
-    <div class="eyebrow">
+<div class="eyebrow">
         08 — CONTACT
     </div>
-
-
-    <h2 class="section-title">
-
-        LET'S<br>
-
-        TALK.
-
-    </h2>
-
-
-    <div class="contact-grid">
-
-
-        <div class="contact-note">
-
-            <p class="en">
+<h2 class="section-title"><span class="en">LET'S TALK.</span><span class="zh">聊聊你的学习计划。</span></h2>
+<div class="contact-grid">
+<div class="contact-note">
+<p class="en">
 
                 Tell me a little about yourself,
                 your Chinese level and what you'd like to learn.
 
             </p>
-
-
-            <p class="zh">
+<p class="zh">
 
                 告诉我一些你的情况、
                 中文水平，以及你想学习什么。
 
             </p>
-
-
-            <br>
-
-
-            <p class="en">
+<br/>
+<p class="en">
 
                 I'll help you find the right lesson or package.
 
             </p>
-
-
-            <p class="zh">
+<p class="zh">
 
                 我会帮你找到最适合你的课程或套餐。
 
             </p>
-
-        </div>
-
-
-        <div class="contact-links">
-
-
-            <a href="#" class="contact-link" onclick="openInquiry(); return false;">
-                <span class="contact-name"><span class="en">Email</span><span class="zh">邮箱</span></span>
-                <span class="contact-action">CONTACT →</span>
-            </a>
-
-
-
-            <a href="#" class="contact-link" onclick="openInquiry(); return false;">
-                <span class="contact-name">WhatsApp</span>
-                <span class="contact-action">MESSAGE →</span>
-            </a>
-
-
-
-            <a href="#" class="contact-link" onclick="openInquiry(); return false;">
-                <span class="contact-name">WeChat</span>
-                <span class="contact-action">ADD →</span>
-            </a>
-
-
-
-            <a href="#" class="contact-link" onclick="openInquiry(); return false;">
-                <span class="contact-name"><span class="en">Inquiry Form</span><span class="zh">咨询表格</span></span>
-                <span class="contact-action">OPEN →</span>
-            </a>
-
-        </div>
-
-    </div>
-
+</div>
+<div class="contact-links">
+<a class="contact-link" href="#" onclick="openInquiry(); return false;">
+<span class="contact-name"><span class="en">Email</span><span class="zh">邮箱</span></span>
+<span class="contact-action">CONTACT →</span>
+</a>
+<a class="contact-link" href="#" onclick="openInquiry(); return false;">
+<span class="contact-name">WhatsApp</span>
+<span class="contact-action">MESSAGE →</span>
+</a>
+<a class="contact-link" href="#" onclick="openInquiry(); return false;">
+<span class="contact-name">WeChat</span>
+<span class="contact-action">ADD →</span>
+</a>
+<a class="contact-link" href="#" onclick="openInquiry(); return false;">
+<span class="contact-name"><span class="en">Inquiry Form</span><span class="zh">咨询表格</span></span>
+<span class="contact-action">OPEN →</span>
+</a>
+</div>
+</div>
 </section>
-
-
-
-
 <!-- =====================================================
      FUNCTIONAL FORMS
 ===================================================== -->
-
 <div class="modal-overlay" id="availabilityModal" onclick="closeOnBackdrop(event, 'availabilityModal')">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('availabilityModal')">×</button>
-    <div class="eyebrow">LIVE CLASSES · AVAILABILITY</div>
-    <h3>Find a time that works.</h3>
-    <p class="modal-intro en">Live classes are arranged after we confirm your preferred schedule. For group classes, I will match students before payment.</p>
-    <p class="modal-intro zh">直播课程会先根据你的时间安排确认。小组课会先匹配学生，确认成班后再付款。</p>
-    <form id="availabilityForm" action="https://formspree.io/f/xoevblyo" method="POST" onsubmit="submitAvailability(event)">
-      <input type="hidden" name="student_timezone" id="studentTimezoneHidden">
-      <input type="hidden" name="madrid_time" id="madridTimeHidden">
-      <div class="form-grid">
-        <div class="form-field"><label>Name *</label><input name="name" autocomplete="name" required></div>
-        <div class="form-field"><label>Email *</label><input type="email" name="email" autocomplete="email" required></div>
-        <div class="form-field"><label>Contact method *</label><select name="contact_method" required><option value="">Select one</option><option>WhatsApp</option><option>iMessage</option><option>WeChat</option></select></div>
-        <div class="form-field"><label>Contact details *</label><input name="contact_details" placeholder="Number, email or WeChat ID" required></div>
-        <div class="form-field"><label>Time zone *</label><select name="timezone" id="timezoneSelect" required onchange="updateMadridTime()"><option value="">Select your time zone</option></select></div>
-        <div class="form-field"><label>Chinese level</label><select name="level"><option>Beginner</option><option>Elementary</option><option>Intermediate</option><option>Advanced</option><option>HSK / exam preparation</option><option>Business Chinese</option></select></div>
-        <div class="form-field full">
-  <label for="preferredDays">Preferred days *</label>
-  <div class="day-options" id="preferredDays">
-    <label class="day-option"><input type="checkbox" name="preferred_days" value="Monday"><span>Monday</span></label>
-    <label class="day-option"><input type="checkbox" name="preferred_days" value="Tuesday"><span>Tuesday</span></label>
-    <label class="day-option"><input type="checkbox" name="preferred_days" value="Wednesday"><span>Wednesday</span></label>
-    <label class="day-option"><input type="checkbox" name="preferred_days" value="Thursday"><span>Thursday</span></label>
-    <label class="day-option"><input type="checkbox" name="preferred_days" value="Friday"><span>Friday</span></label>
-    <label class="day-option"><input type="checkbox" name="preferred_days" value="Saturday"><span>Saturday</span></label>
-    <label class="day-option"><input type="checkbox" name="preferred_days" value="Sunday"><span>Sunday</span></label>
-  </div>
+<div class="modal">
+<button class="modal-close" onclick="closeModal('availabilityModal')">×</button>
+<div class="eyebrow">LIVE CLASSES · AVAILABILITY</div>
+<h3><span class="en">Find a time that works.</span><span class="zh">找到适合你的时间。</span></h3>
+<p class="modal-intro en">Live classes are arranged after we confirm your preferred schedule. For group classes, I will match students before payment.</p>
+<p class="modal-intro zh">直播课程会先根据你的时间安排确认。小组课会先匹配学生，确认成班后再付款。</p>
+<form action="https://formspree.io/f/xoevblyo" id="availabilityForm" method="POST" onsubmit="submitAvailability(event)">
+<input id="studentTimezoneHidden" name="student_timezone" type="hidden"/>
+<input id="madridTimeHidden" name="madrid_time" type="hidden"/>
+<div class="form-grid">
+<div class="form-field"><label>Name *</label><input autocomplete="name" name="name" required=""/></div>
+<div class="form-field"><label>Email *</label><input autocomplete="email" name="email" required="" type="email"/></div>
+<div class="form-field"><label>Contact method *</label><select name="contact_method" required=""><option value="">Select one</option><option>WhatsApp</option><option>iMessage</option><option>WeChat</option></select></div>
+<div class="form-field"><label>Contact details *</label><input name="contact_details" placeholder="Number, email or WeChat ID" required=""/></div>
+<div class="form-field"><label>Time zone *</label><select id="timezoneSelect" name="timezone" onchange="updateMadridTime()" required=""><option value="">Select your time zone</option></select></div>
+<div class="form-field"><label>Chinese level</label><select name="level"><option>Beginner</option><option>Elementary</option><option>Intermediate</option><option>Advanced</option><option>HSK / exam preparation</option><option>Business Chinese</option></select></div>
+<div class="form-field full">
+<label for="preferredDays">Preferred days *</label>
+<div class="day-options" id="preferredDays">
+<label class="day-option"><input name="preferred_days" type="checkbox" value="Monday"/><span>Monday</span></label>
+<label class="day-option"><input name="preferred_days" type="checkbox" value="Tuesday"/><span>Tuesday</span></label>
+<label class="day-option"><input name="preferred_days" type="checkbox" value="Wednesday"/><span>Wednesday</span></label>
+<label class="day-option"><input name="preferred_days" type="checkbox" value="Thursday"/><span>Thursday</span></label>
+<label class="day-option"><input name="preferred_days" type="checkbox" value="Friday"/><span>Friday</span></label>
+<label class="day-option"><input name="preferred_days" type="checkbox" value="Saturday"/><span>Saturday</span></label>
+<label class="day-option"><input name="preferred_days" type="checkbox" value="Sunday"/><span>Sunday</span></label>
 </div>
-        <div class="form-field"><label>From *</label><input type="time" name="start_time" id="startTime" min="06:00" max="22:00" step="1800" required onchange="updateMadridTime()"></div>
-        <div class="form-field"><label>To *</label><input type="time" name="end_time" id="endTime" min="06:00" max="22:00" step="1800" required onchange="updateMadridTime()"></div>
-        <div class="form-field full"><div id="madridTimePreview" class="time-preview">Select your time zone and preferred time to see the approximate Madrid time.</div></div>
-        <div class="form-field full"><label>Alternative availability <span class="optional">(optional)</span></label><textarea name="alternative" placeholder="For example: Saturday 10:00–12:00 local time"></textarea></div>
-        <div class="form-field full"><label>Plan</label><input id="availabilityPlan" name="plan" readonly></div>
-        <div class="form-field full"><label>Learning goals</label><textarea name="goals" placeholder="What would you like to improve?"></textarea></div>
-      </div>
-      <label class="form-check"><input type="checkbox" name="flexible"> <span>I can be flexible with my schedule if needed.</span></label>
-      <div class="form-actions"><button class="primary-btn" type="submit">Send Availability →</button><button type="button" class="secondary-btn" onclick="openInquiry();">Inquiry First</button></div>
-      <div class="modal-note">Your local time is automatically converted to Madrid time. This form does not promise a time. I will contact you after reviewing your availability.</div>
-      <div class="form-success" id="availabilitySuccess">Thanks! Your availability has been sent. I will contact you after reviewing your preferred times.</div>
-    </form>
-  </div>
 </div>
-
+<div class="form-field"><label>From *</label><input id="startTime" max="22:00" min="06:00" name="start_time" onchange="updateMadridTime()" required="" step="1800" type="time"/></div>
+<div class="form-field"><label>To *</label><input id="endTime" max="22:00" min="06:00" name="end_time" onchange="updateMadridTime()" required="" step="1800" type="time"/></div>
+<div class="form-field full"><div class="time-preview" id="madridTimePreview">Select your time zone and preferred time to see the approximate Madrid time.</div></div>
+<div class="form-field full"><label>Alternative availability <span class="optional">(optional)</span></label><textarea name="alternative" placeholder="For example: Saturday 10:00–12:00 local time"></textarea></div>
+<div class="form-field full"><label>Plan</label><input id="availabilityPlan" name="plan" readonly=""/></div>
+<div class="form-field full"><label>Learning goals</label><textarea name="goals" placeholder="What would you like to improve?"></textarea></div>
+</div>
+<label class="form-check"><input name="flexible" type="checkbox"/> <span>I can be flexible with my schedule if needed.</span></label>
+<div class="form-actions"><button class="primary-btn" type="submit">Send Availability →</button><button class="secondary-btn" onclick="openInquiry();" type="button">Inquiry First</button></div>
+<div class="modal-note">Your local time is automatically converted to Madrid time. This form does not promise a time. I will contact you after reviewing your availability.</div>
+<div class="form-success" id="availabilitySuccess">Thanks! Your availability has been sent. I will contact you after reviewing your preferred times.</div>
+</form>
+</div>
+</div>
 <div class="modal-overlay" id="trialModal" onclick="closeOnBackdrop(event, 'trialModal')">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('trialModal')">×</button>
-    <div class="eyebrow">30-MIN FREE TRIAL</div>
-    <h3>Book your trial.</h3>
-    <p class="modal-intro en">Tell me when you are available and what you want to learn. I will confirm the trial time with you.</p>
-    <p class="modal-intro zh">告诉我你的可用时间和学习目标，我会和你确认试听时间。</p>
-    <form id="trialForm" action="https://formspree.io/f/xoevblyo" method="POST" onsubmit="submitTrial(event)">
-      <input type="hidden" name="request_type" value="Free Trial Request">
-      <input type="hidden" name="student_timezone" id="trialTimezoneHidden">
-      <input type="hidden" name="madrid_time" id="trialMadridTimeHidden">
-      <div class="form-grid">
-        <div class="form-field"><label>Name *</label><input name="name" autocomplete="name" required></div>
-        <div class="form-field"><label>Email *</label><input type="email" name="email" autocomplete="email" required></div>
-        <div class="form-field"><label>Contact method *</label><select name="contact_method" required><option value="">Select one</option><option>WhatsApp</option><option>iMessage</option><option>WeChat</option></select></div>
-        <div class="form-field"><label>Contact details *</label><input name="contact_details" placeholder="Number, email or WeChat ID" required></div>
-        <div class="form-field"><label>Time zone *</label><select name="timezone" id="trialTimezoneSelect" required onchange="updateTrialMadridTime()"><option value="">Select your time zone</option></select></div>
-        <div class="form-field"><label>Chinese level</label><select name="level"><option>Beginner</option><option>Elementary</option><option>Intermediate</option><option>Advanced</option><option>HSK / exam preparation</option><option>Business Chinese</option></select></div>
-        <div class="form-field full"><label>Preferred days *</label><div class="day-options">
-          <label class="day-option"><input type="checkbox" name="preferred_days" value="Monday" onchange="updateTrialMadridTime()"><span>Monday</span></label>
-          <label class="day-option"><input type="checkbox" name="preferred_days" value="Tuesday" onchange="updateTrialMadridTime()"><span>Tuesday</span></label>
-          <label class="day-option"><input type="checkbox" name="preferred_days" value="Wednesday" onchange="updateTrialMadridTime()"><span>Wednesday</span></label>
-          <label class="day-option"><input type="checkbox" name="preferred_days" value="Thursday" onchange="updateTrialMadridTime()"><span>Thursday</span></label>
-          <label class="day-option"><input type="checkbox" name="preferred_days" value="Friday" onchange="updateTrialMadridTime()"><span>Friday</span></label>
-          <label class="day-option"><input type="checkbox" name="preferred_days" value="Saturday" onchange="updateTrialMadridTime()"><span>Saturday</span></label>
-          <label class="day-option"><input type="checkbox" name="preferred_days" value="Sunday" onchange="updateTrialMadridTime()"><span>Sunday</span></label>
-        </div></div>
-        <div class="form-field"><label>From *</label><input type="time" name="start_time" id="trialStartTime" min="06:00" max="22:00" step="1800" required onchange="updateTrialMadridTime()"></div>
-        <div class="form-field"><label>To *</label><input type="time" name="end_time" id="trialEndTime" min="06:00" max="22:00" step="1800" required onchange="updateTrialMadridTime()"></div>
-        <div class="form-field full"><div id="trialMadridTimePreview" class="time-preview">Select your time zone and preferred time to see the approximate Madrid time.</div></div>
-        <div class="form-field full"><label>What would you like to learn?</label><textarea name="goals" placeholder="For example: speaking, pronunciation, HSK, everyday Chinese..."></textarea></div>
-      </div>
-      <label class="form-check"><input type="checkbox" name="flexible"> <span>I can be flexible with my schedule if needed.</span></label>
-      <div class="form-actions"><button class="primary-btn" type="submit">Request Trial →</button></div>
-      <div class="modal-note">This request does not book a fixed time. I will contact you to confirm the trial.</div>
-      <div class="form-success" id="trialSuccess"></div>
-    </form>
-  </div>
+<div class="modal">
+<button class="modal-close" onclick="closeModal('trialModal')">×</button>
+<div class="eyebrow">30-MIN FREE TRIAL</div>
+<h3><span class="en">Book your trial.</span><span class="zh">预约试听。</span></h3>
+<p class="modal-intro en">Tell me when you are available and what you want to learn. I will confirm the trial time with you.</p>
+<p class="modal-intro zh">告诉我你的可用时间和学习目标，我会和你确认试听时间。</p>
+<form action="https://formspree.io/f/xoevblyo" id="trialForm" method="POST" onsubmit="submitTrial(event)">
+<input name="request_type" type="hidden" value="Free Trial Request"/>
+<input id="trialTimezoneHidden" name="student_timezone" type="hidden"/>
+<input id="trialMadridTimeHidden" name="madrid_time" type="hidden"/>
+<div class="form-grid">
+<div class="form-field"><label>Name *</label><input autocomplete="name" name="name" required=""/></div>
+<div class="form-field"><label>Email *</label><input autocomplete="email" name="email" required="" type="email"/></div>
+<div class="form-field"><label>Contact method *</label><select name="contact_method" required=""><option value="">Select one</option><option>WhatsApp</option><option>iMessage</option><option>WeChat</option></select></div>
+<div class="form-field"><label>Contact details *</label><input name="contact_details" placeholder="Number, email or WeChat ID" required=""/></div>
+<div class="form-field"><label>Time zone *</label><select id="trialTimezoneSelect" name="timezone" onchange="updateTrialMadridTime()" required=""><option value="">Select your time zone</option></select></div>
+<div class="form-field"><label>Chinese level</label><select name="level"><option>Beginner</option><option>Elementary</option><option>Intermediate</option><option>Advanced</option><option>HSK / exam preparation</option><option>Business Chinese</option></select></div>
+<div class="form-field full"><label>Preferred days *</label><div class="day-options">
+<label class="day-option"><input name="preferred_days" onchange="updateTrialMadridTime()" type="checkbox" value="Monday"/><span>Monday</span></label>
+<label class="day-option"><input name="preferred_days" onchange="updateTrialMadridTime()" type="checkbox" value="Tuesday"/><span>Tuesday</span></label>
+<label class="day-option"><input name="preferred_days" onchange="updateTrialMadridTime()" type="checkbox" value="Wednesday"/><span>Wednesday</span></label>
+<label class="day-option"><input name="preferred_days" onchange="updateTrialMadridTime()" type="checkbox" value="Thursday"/><span>Thursday</span></label>
+<label class="day-option"><input name="preferred_days" onchange="updateTrialMadridTime()" type="checkbox" value="Friday"/><span>Friday</span></label>
+<label class="day-option"><input name="preferred_days" onchange="updateTrialMadridTime()" type="checkbox" value="Saturday"/><span>Saturday</span></label>
+<label class="day-option"><input name="preferred_days" onchange="updateTrialMadridTime()" type="checkbox" value="Sunday"/><span>Sunday</span></label>
+</div></div>
+<div class="form-field"><label>From *</label><input id="trialStartTime" max="22:00" min="06:00" name="start_time" onchange="updateTrialMadridTime()" required="" step="1800" type="time"/></div>
+<div class="form-field"><label>To *</label><input id="trialEndTime" max="22:00" min="06:00" name="end_time" onchange="updateTrialMadridTime()" required="" step="1800" type="time"/></div>
+<div class="form-field full"><div class="time-preview" id="trialMadridTimePreview">Select your time zone and preferred time to see the approximate Madrid time.</div></div>
+<div class="form-field full"><label>What would you like to learn?</label><textarea name="goals" placeholder="For example: speaking, pronunciation, HSK, everyday Chinese..."></textarea></div>
 </div>
-
+<label class="form-check"><input name="flexible" type="checkbox"/> <span>I can be flexible with my schedule if needed.</span></label>
+<div class="form-actions"><button class="primary-btn" type="submit">Request Trial →</button></div>
+<div class="modal-note">This request does not book a fixed time. I will contact you to confirm the trial.</div>
+<div class="form-success" id="trialSuccess"></div>
+</form>
+</div>
+</div>
 <div class="modal-overlay" id="inquiryModal" onclick="closeOnBackdrop(event, 'inquiryModal')">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('inquiryModal')">×</button>
-    <div class="eyebrow">INQUIRY</div>
-    <h3>Not ready to choose?</h3>
-    <p class="modal-intro en">No problem. Tell me what you are looking for and I will help you work out the options first.</p>
-    <p class="modal-intro zh">还不确定选哪种课程？没关系，先告诉我你的需求，我会帮你一起看看。</p>
-    <form id="inquiryForm" action="https://formspree.io/f/xoevblyo" method="POST" onsubmit="submitInquiry(event)">
-      <input type="hidden" name="form_type" value="Inquiry First">
-      <div class="form-grid">
-        <div class="form-field"><label>Name *</label><input name="name" required></div>
-        <div class="form-field"><label>Email *</label><input name="email" type="email" required></div>
-        <div class="form-field"><label>Preferred contact *</label><select name="contact_method" required><option value="">Select one</option><option>WhatsApp</option><option>iMessage</option><option>WeChat</option></select></div>
-        <div class="form-field"><label>Contact details *</label><input name="contact_details" required placeholder="Your number or WeChat ID"></div>
-        <div class="form-field full"><label>What are you interested in?</label><select name="interest"><option>Live private lessons</option><option>Live small group</option><option>Matched group</option><option>Self-paced course</option><option>Not sure yet</option></select></div>
-        <div class="form-field full"><label>Message</label><textarea name="message" placeholder="Tell me about your goals, level, schedule, or questions."></textarea></div>
-      </div>
-      <div class="form-actions"><button class="primary-btn" type="submit">Send Inquiry →</button></div>
-      <div class="form-success" id="inquirySuccess"></div>
-    </form>
-  </div>
+<div class="modal">
+<button class="modal-close" onclick="closeModal('inquiryModal')">×</button>
+<div class="eyebrow">INQUIRY</div>
+<h3><span class="en">Not ready to choose?</span><span class="zh">还没想好选什么？</span></h3>
+<p class="modal-intro en">No problem. Tell me what you are looking for and I will help you work out the options first.</p>
+<p class="modal-intro zh">还不确定选哪种课程？没关系，先告诉我你的需求，我会帮你一起看看。</p>
+<form action="https://formspree.io/f/xoevblyo" id="inquiryForm" method="POST" onsubmit="submitInquiry(event)">
+<input name="form_type" type="hidden" value="Inquiry First"/>
+<div class="form-grid">
+<div class="form-field"><label>Name *</label><input name="name" required=""/></div>
+<div class="form-field"><label>Email *</label><input name="email" required="" type="email"/></div>
+<div class="form-field"><label>Preferred contact *</label><select name="contact_method" required=""><option value="">Select one</option><option>WhatsApp</option><option>iMessage</option><option>WeChat</option></select></div>
+<div class="form-field"><label>Contact details *</label><input name="contact_details" placeholder="Your number or WeChat ID" required=""/></div>
+<div class="form-field full"><label>What are you interested in?</label><select name="interest"><option>Live private lessons</option><option>Live small group</option><option>Matched group</option><option>Self-paced course</option><option>Not sure yet</option></select></div>
+<div class="form-field full"><label>Message</label><textarea name="message" placeholder="Tell me about your goals, level, schedule, or questions."></textarea></div>
 </div>
-
+<div class="form-actions"><button class="primary-btn" type="submit">Send Inquiry →</button></div>
+<div class="form-success" id="inquirySuccess"></div>
+</form>
+</div>
+</div>
 <div class="modal-overlay" id="courseModal" onclick="closeOnBackdrop(event, 'courseModal')">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('courseModal')">×</button>
-    <div class="eyebrow">SELF-PACED COURSE</div>
-    <h3 id="courseModalTitle">Course access</h3>
-    <p class="modal-intro en">Recorded courses can be purchased directly once payment is connected. For now, use this form to register your interest.</p>
-    <p class="modal-intro zh">录播课程接入付款后可以直接购买。目前先通过这个表格登记需求。</p>
-    <form onsubmit="submitForm(event, 'courseSuccess')">
-      <input type="hidden" id="courseSlug" name="course">
-      <div class="form-grid">
-        <div class="form-field"><label>Name</label><input required></div>
-        <div class="form-field"><label>Email</label><input type="email" required></div>
-        <div class="form-field full"><label>Course</label><input id="courseNameField" readonly></div>
-      </div>
-      <div class="form-actions"><button class="primary-btn" type="submit">Register Interest →</button></div>
-      <div class="form-success" id="courseSuccess">Thanks! When payment is connected, this flow can become Buy Course → Payment → Course Access.</div>
-    </form>
-  </div>
+<div class="modal">
+<button class="modal-close" onclick="closeModal('courseModal')">×</button>
+<div class="eyebrow">SELF-PACED COURSE</div>
+<h3 id="courseModalTitle"><span class="en">Course access</span><span class="zh">课程访问</span></h3>
+<p class="modal-intro en">Recorded courses can be purchased directly once payment is connected. For now, use this form to register your interest.</p>
+<p class="modal-intro zh">录播课程接入付款后可以直接购买。目前先通过这个表格登记需求。</p>
+<form onsubmit="submitForm(event, 'courseSuccess')">
+<input id="courseSlug" name="course" type="hidden"/>
+<div class="form-grid">
+<div class="form-field"><label>Name</label><input required=""/></div>
+<div class="form-field"><label>Email</label><input required="" type="email"/></div>
+<div class="form-field full"><label>Course</label><input id="courseNameField" readonly=""/></div>
 </div>
-
+<div class="form-actions"><button class="primary-btn" type="submit">Register Interest →</button></div>
+<div class="form-success" id="courseSuccess">Thanks! When payment is connected, this flow can become Buy Course → Payment → Course Access.</div>
+</form>
+</div>
+</div>
 <!-- =====================================================
      FOOTER
 ===================================================== -->
-
 <footer>
-
-    <span>
+<span>
         Teacher Xiāo
     </span>
-
-
-    <span>
-
-        <span class="en">
+<span>
+<span class="en">
             Learn Chinese From Anywhere.
         </span>
-
-        <span class="zh">
+<span class="zh">
             随时随地学中文。
         </span>
-
-    </span>
-
-
-    <span>
+</span>
+<span>
         © 2026
     </span>
-
 </footer>
-
-
-
 <!-- =====================================================
      JAVASCRIPT
 ===================================================== -->
-
 <script>
 
 
@@ -3759,36 +2740,25 @@ footer {
 
 let currentLanguage = "en";
 
-
-function toggleLanguage() {
-
-    currentLanguage =
-        currentLanguage === "en"
-            ? "zh"
-            : "en";
-
-
-    document.querySelectorAll(".en").forEach(element => {
-
-        element.style.display =
-            currentLanguage === "en"
-                ? ""
-                : "none";
-
+function applyLanguage() {
+    document.documentElement.lang = currentLanguage;
+    document.body.classList.toggle("lang-zh", currentLanguage === "zh");
+    document.querySelectorAll("select option[data-en]").forEach(option => {
+        option.textContent = currentLanguage === "zh" ? option.dataset.zh : option.dataset.en;
     });
-
-
-    document.querySelectorAll(".zh").forEach(element => {
-
-        element.style.display =
-            currentLanguage === "zh"
-                ? ""
-                : "none";
-
-    });
-
+    const customLessons = document.getElementById("customLessons");
+    const customFrequency = document.getElementById("customFrequency");
+    if (customLessons) customLessons.placeholder = currentLanguage === "zh" ? "输入课时数" : "Enter number of lessons";
+    if (customFrequency) customFrequency.placeholder = currentLanguage === "zh" ? "输入每周课次数" : "Enter lessons per week";
+    updatePack();
 }
 
+function toggleLanguage() {
+    currentLanguage = currentLanguage === "en" ? "zh" : "en";
+    applyLanguage();
+}
+
+applyLanguage();
 
 /* =====================================================
    PACK BUILDER
@@ -3880,27 +2850,14 @@ function updatePack() {
         Math.ceil(lessons / frequency);
 
 
-    document.getElementById("packResult").innerText =
-        format +
-        " · " +
-        length +
-        " min · " +
-        lessons +
-        (lessons === 1
-            ? " lesson"
-            : " lessons");
+    const formatZh = format === "Private" ? "一对一" : (format === "Small Group" ? "小班课" : "匹配小组");
+    const resultEn = format + " · " + length + " min · " + lessons + (lessons === 1 ? " lesson" : " lessons");
+    const resultZh = formatZh + " · " + length + " 分钟 · " + lessons + " 节课";
+    document.getElementById("packResult").innerText = currentLanguage === "zh" ? resultZh : resultEn;
 
-
-    document.getElementById("packDuration").innerText =
-        frequency +
-        (frequency === 1
-            ? " lesson"
-            : " lessons") +
-        " / week · about " +
-        weeks +
-        (weeks === 1
-            ? " week"
-            : " weeks");
+    const durationEn = frequency + (frequency === 1 ? " lesson" : " lessons") + " / week · about " + weeks + (weeks === 1 ? " week" : " weeks");
+    const durationZh = "每周 " + frequency + " 次 · 约 " + weeks + " 周";
+    document.getElementById("packDuration").innerText = currentLanguage === "zh" ? durationZh : durationEn;
 
 }
 
@@ -4133,7 +3090,5 @@ document.addEventListener('keydown', function(e) {
     }
 });
 </script>
-
-
 </body>
 </html>
