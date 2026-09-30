@@ -198,7 +198,13 @@ section {
 ========================================================= */
 
 .hero {
-    min-height: 555px;
+
+    /*
+       Tall enough to occupy almost the whole screen
+       before the next section appears.
+    */
+
+    min-height: calc(100vh - 68px);
 
     padding: 48px 6vw 38px;
 
@@ -219,6 +225,7 @@ section {
 }
 
 .hero-title {
+
     font-size: clamp(65px, 10.5vw, 150px);
 
     line-height: .82;
@@ -236,15 +243,14 @@ section {
     -webkit-text-stroke: 1.3px var(--black);
 }
 
-/* NEW:
-   FROM ANYWHERE is intentionally smaller
-   and stays on one line.
-*/
+
+/* FROM ANYWHERE — smaller and one line */
 
 .hero-title .hero-subtitle {
+
     display: block;
 
-    margin-top: 14px;
+    margin-top: 15px;
 
     font-size: clamp(38px, 5.5vw, 78px);
 
@@ -259,35 +265,76 @@ section {
     -webkit-text-stroke: 0;
 }
 
-.hero-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
-    gap: 30px;
+/* =========================================================
+   HERO BOTTOM
+========================================================= */
+
+.hero-bottom {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 16px;
 
     margin-top: 35px;
 }
 
 
-/* =========================================================
-   COUNTRY PILLS
-========================================================= */
+/*
+   Buttons now sit above the country row
+   and stay horizontally aligned on the right.
+*/
+
+.hero-buttons {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+
+    gap: 8px;
+
+    order: 1;
+}
+
+
+/*
+   Countries stay on ONE single line.
+*/
 
 .hero-regions {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
 
-    gap: 9px;
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    flex-wrap: nowrap;
+
+    gap: 7px;
+
+    width: 100%;
+
+    order: 2;
 }
 
 .country-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
 
-    padding: 10px 16px;
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 9px 13px;
 
     border: 1px solid #b9b9b9;
 
@@ -295,59 +342,79 @@ section {
 
     background: transparent;
 
-    font-size: 13px;
+    font-size: 12px;
 
     white-space: nowrap;
+
+    flex: 0 0 auto;
 }
 
 .country-pill .flag {
-    font-size: 17px;
+
+    font-size: 16px;
+
     line-height: 1;
 }
 
 .country-pill:hover {
+
     background: var(--black);
+
     color: white;
+
     border-color: var(--black);
 }
 
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .primary-btn,
 .secondary-btn {
+
     display: inline-flex;
+
     align-items: center;
+
     justify-content: center;
 
     padding: 13px 18px;
 
     font-size: 10px;
+
     text-transform: uppercase;
+
     letter-spacing: .08em;
 
     border: 1px solid var(--black);
+
+    white-space: nowrap;
 }
 
 .primary-btn {
+
     background: var(--black);
+
     color: white;
 }
 
 .primary-btn:hover {
+
     background: transparent;
+
     color: var(--black);
 }
 
 .secondary-btn {
+
     background: transparent;
 }
 
 .secondary-btn:hover {
+
     background: var(--black);
+
     color: white;
 }
 
@@ -357,44 +424,61 @@ section {
 ========================================================= */
 
 .marquee {
+
     overflow: hidden;
+
     white-space: nowrap;
 
-    border-bottom: 1px solid var(--black);
+    /*
+       Lighter border so it doesn't dominate.
+    */
 
-    padding: 17px 0;
+    border-top: 1px solid #d4d4cf;
+
+    border-bottom: 1px solid #d4d4cf;
+
+    padding: 15px 0;
 
     font-family: monospace;
 
-    /*
-       Bigger than before.
-    */
-    font-size: 17px;
+    font-size: 16px;
 
     line-height: 1;
 
     letter-spacing: .02em;
+
+    color: #555;
+
+    font-weight: 400;
+
+    background: #f7f7f4;
 }
 
 .marquee-track {
+
     display: flex;
 
     width: max-content;
 
-    animation: marqueeScroll 38s linear infinite;
+    animation: marqueeScroll 42s linear infinite;
 }
 
 .marquee-group {
+
     display: flex;
+
     align-items: center;
 
     flex-shrink: 0;
 }
 
 .marquee-item {
+
     display: inline-block;
 
-    margin-right: 22px;
+    margin-right: 20px;
+
+    font-weight: 400;
 }
 
 @keyframes marqueeScroll {
@@ -419,12 +503,14 @@ section {
 }
 
 .learn-list {
+
     margin-top: 48px;
 
     border-top: 1px solid var(--black);
 }
 
 .learn-row {
+
     display: grid;
 
     grid-template-columns: 60px 1fr 130px;
@@ -443,20 +529,25 @@ section {
 }
 
 .learn-row .number {
+
     font-family: monospace;
+
     font-size: 10px;
 }
 
 .learn-row h3 {
+
     font-size: clamp(25px, 3.5vw, 46px);
 
     letter-spacing: -.05em;
 }
 
 .learn-row span {
+
     text-align: right;
 
     font-family: monospace;
+
     font-size: 9px;
 
     color: var(--muted);
@@ -472,6 +563,7 @@ section {
 }
 
 .format-grid {
+
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
@@ -479,34 +571,43 @@ section {
     margin-top: 48px;
 
     border-top: 1px solid var(--black);
+
     border-left: 1px solid var(--black);
 }
 
 .format {
+
     min-height: 285px;
 
     padding: 24px;
 
     border-right: 1px solid var(--black);
+
     border-bottom: 1px solid var(--black);
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: space-between;
 }
 
 .format-number {
+
     font-family: monospace;
+
     font-size: 9px;
 }
 
 .format h3 {
+
     font-size: 36px;
 
     letter-spacing: -.055em;
 }
 
 .format p {
+
     max-width: 280px;
 
     color: var(--muted);
@@ -515,6 +616,7 @@ section {
 }
 
 .format strong {
+
     display: block;
 
     margin-top: 13px;
@@ -527,26 +629,32 @@ section {
 }
 
 .length-block {
+
     margin-top: 25px;
 
     border-top: 1px solid var(--black);
 
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
 }
 
 .length {
+
     padding: 30px 20px 30px 0;
 
     border-bottom: 1px solid var(--black);
 }
 
 .length:not(:last-child) {
+
     border-right: 1px solid var(--black);
+
     margin-right: 25px;
 }
 
 .length h3 {
+
     font-size: clamp(55px, 7vw, 90px);
 
     line-height: .85;
@@ -555,9 +663,11 @@ section {
 }
 
 .length p {
+
     margin-top: 12px;
 
     font-family: monospace;
+
     font-size: 9px;
 
     color: var(--muted);
@@ -573,6 +683,7 @@ section {
 }
 
 .pack-grid {
+
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
@@ -583,6 +694,7 @@ section {
 }
 
 .pack {
+
     background: var(--white);
 
     border: 1px solid var(--black);
@@ -592,26 +704,34 @@ section {
     min-height: 350px;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: space-between;
 }
 
 .pack.featured {
+
     background: var(--black);
+
     color: white;
 }
 
 .pack-top {
+
     display: flex;
+
     justify-content: space-between;
 
     font-family: monospace;
+
     font-size: 9px;
 
     text-transform: uppercase;
 }
 
 .pack h3 {
+
     font-size: 27px;
 
     line-height: .95;
@@ -626,7 +746,9 @@ section {
 }
 
 .pack-detail {
+
     display: flex;
+
     justify-content: space-between;
 
     padding: 8px 0;
@@ -641,17 +763,21 @@ section {
 }
 
 .pack-detail span:last-child {
+
     font-family: monospace;
 }
 
 .pack-note {
+
     font-family: monospace;
+
     font-size: 9px;
 
     margin-bottom: 10px;
 }
 
 .pack-btn {
+
     display: block;
 
     text-align: center;
@@ -663,6 +789,7 @@ section {
     font-size: 9px;
 
     text-transform: uppercase;
+
     letter-spacing: .08em;
 }
 
@@ -671,12 +798,16 @@ section {
 }
 
 .pack-btn:hover {
+
     background: var(--black);
+
     color: white;
 }
 
 .pack.featured .pack-btn:hover {
+
     background: white;
+
     color: var(--black);
 }
 
@@ -686,6 +817,7 @@ section {
 ========================================================= */
 
 .builder {
+
     margin-top: 55px;
 
     border: 1px solid var(--black);
@@ -696,6 +828,7 @@ section {
 }
 
 .builder-grid {
+
     display: grid;
 
     grid-template-columns: repeat(2, 1fr);
@@ -704,9 +837,11 @@ section {
 }
 
 .field label {
+
     display: block;
 
     font-family: monospace;
+
     font-size: 9px;
 
     text-transform: uppercase;
@@ -716,6 +851,7 @@ section {
 
 select,
 input[type="number"] {
+
     width: 100%;
 
     padding: 12px;
@@ -728,6 +864,7 @@ input[type="number"] {
 }
 
 .custom-input {
+
     display: none;
 
     margin-top: 8px;
@@ -738,6 +875,7 @@ input[type="number"] {
 }
 
 .builder-result {
+
     margin-top: 28px;
 
     padding-top: 22px;
@@ -745,19 +883,23 @@ input[type="number"] {
     border-top: 1px solid var(--black);
 
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 
     gap: 25px;
 }
 
 .builder-result h3 {
+
     font-size: 24px;
 
     letter-spacing: -.04em;
 }
 
 .builder-result p {
+
     color: var(--muted);
 
     font-size: 12px;
@@ -771,7 +913,9 @@ input[type="number"] {
 ========================================================= */
 
 .self-paced {
+
     background: var(--black);
+
     color: white;
 }
 
@@ -780,6 +924,7 @@ input[type="number"] {
 }
 
 .course-grid {
+
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
@@ -794,6 +939,7 @@ input[type="number"] {
 }
 
 .course {
+
     background: var(--black);
 
     min-height: 340px;
@@ -801,11 +947,14 @@ input[type="number"] {
     padding: 25px;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: space-between;
 }
 
 .course-tag {
+
     font-family: monospace;
 
     font-size: 9px;
@@ -816,6 +965,7 @@ input[type="number"] {
 }
 
 .course h3 {
+
     font-size: 34px;
 
     line-height: .92;
@@ -824,6 +974,7 @@ input[type="number"] {
 }
 
 .course p {
+
     color: #999;
 
     font-size: 12px;
@@ -834,6 +985,7 @@ input[type="number"] {
 }
 
 .course-link {
+
     display: inline-block;
 
     margin-top: 18px;
@@ -855,6 +1007,7 @@ input[type="number"] {
 ========================================================= */
 
 .about-grid {
+
     display: grid;
 
     grid-template-columns: .9fr 1.1fr;
@@ -865,12 +1018,15 @@ input[type="number"] {
 }
 
 .photo-placeholder {
+
     min-height: 430px;
 
     background: #deded8;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     font-family: monospace;
@@ -881,6 +1037,7 @@ input[type="number"] {
 }
 
 .about-copy h3 {
+
     font-size: 38px;
 
     letter-spacing: -.055em;
@@ -891,6 +1048,7 @@ input[type="number"] {
 }
 
 .about-copy p {
+
     margin-bottom: 15px;
 
     font-size: 14px;
@@ -901,6 +1059,7 @@ input[type="number"] {
 }
 
 .stats {
+
     display: grid;
 
     grid-template-columns: repeat(2, 1fr);
@@ -911,18 +1070,21 @@ input[type="number"] {
 }
 
 .stat {
+
     padding: 18px 0;
 
     border-bottom: 1px solid var(--black);
 }
 
 .stat:nth-child(odd) {
+
     border-right: 1px solid var(--black);
 
     margin-right: 18px;
 }
 
 .stat-number {
+
     font-size: 36px;
 
     font-weight: 800;
@@ -931,6 +1093,7 @@ input[type="number"] {
 }
 
 .stat-label {
+
     font-family: monospace;
 
     font-size: 9px;
@@ -944,6 +1107,7 @@ input[type="number"] {
 ========================================================= */
 
 .platform-grid {
+
     display: grid;
 
     grid-template-columns: repeat(3, 1fr);
@@ -954,24 +1118,28 @@ input[type="number"] {
 }
 
 .platform {
+
     padding: 25px 18px 25px 0;
 
     border-bottom: 1px solid var(--black);
 }
 
 .platform:not(:last-child) {
+
     border-right: 1px solid var(--black);
 
     margin-right: 22px;
 }
 
 .platform h3 {
+
     font-size: 28px;
 
     margin-bottom: 10px;
 }
 
 .platform p {
+
     color: var(--muted);
 
     font-size: 12px;
@@ -985,6 +1153,7 @@ input[type="number"] {
 ========================================================= */
 
 .trial {
+
     min-height: 360px;
 
     background: #e5e5df;
@@ -999,6 +1168,7 @@ input[type="number"] {
 }
 
 .trial h2 {
+
     font-size: clamp(55px, 8vw, 110px);
 
     line-height: .82;
@@ -1007,6 +1177,7 @@ input[type="number"] {
 }
 
 .trial-copy {
+
     max-width: 330px;
 
     font-size: 14px;
@@ -1022,6 +1193,7 @@ input[type="number"] {
 ========================================================= */
 
 .contact-grid {
+
     display: grid;
 
     grid-template-columns: 1fr 1fr;
@@ -1034,6 +1206,7 @@ input[type="number"] {
 }
 
 .contact-note {
+
     max-width: 430px;
 
     font-size: 14px;
@@ -1042,10 +1215,12 @@ input[type="number"] {
 }
 
 .contact-links {
+
     border-top: 1px solid var(--black);
 }
 
 .contact-link {
+
     display: flex;
 
     justify-content: space-between;
@@ -1060,6 +1235,7 @@ input[type="number"] {
 }
 
 .contact-name {
+
     font-family: Arial, Helvetica, sans-serif;
 
     font-size: 15px;
@@ -1068,6 +1244,7 @@ input[type="number"] {
 }
 
 .contact-action {
+
     font-family: monospace;
 
     font-size: 9px;
@@ -1081,6 +1258,7 @@ input[type="number"] {
 ========================================================= */
 
 footer {
+
     background: var(--black);
 
     color: white;
@@ -1126,85 +1304,129 @@ footer {
         padding: 60px 6vw;
     }
 
+
     .hero {
-        min-height: 580px;
+
+        min-height: calc(100vh - 68px);
 
         padding: 45px 6vw;
     }
 
+
     .hero-title {
+
         font-size: clamp(58px, 15vw, 110px);
     }
 
+
     .hero-title .hero-subtitle {
+
         font-size: clamp(32px, 8vw, 65px);
 
         white-space: nowrap;
     }
 
-    .hero-bottom {
-        flex-direction: column;
 
-        align-items: flex-start;
+    .hero-bottom {
+
+        gap: 14px;
     }
+
+
+    .hero-buttons {
+
+        justify-content: flex-end;
+
+        width: 100%;
+    }
+
 
     .hero-regions {
-        gap: 7px;
+
+        justify-content: flex-start;
+
+        gap: 6px;
+
+        overflow: hidden;
     }
+
 
     .country-pill {
-        padding: 8px 13px;
 
-        font-size: 12px;
+        padding: 8px 11px;
+
+        font-size: 10px;
+
+        gap: 5px;
     }
+
 
     .country-pill .flag {
-        font-size: 15px;
+
+        font-size: 14px;
     }
+
 
     .marquee {
-        font-size: 15px;
 
-        padding: 15px 0;
+        font-size: 14px;
+
+        padding: 14px 0;
     }
+
 
     .format-grid,
     .pack-grid,
     .course-grid,
     .platform-grid {
+
         grid-template-columns: 1fr;
     }
+
 
     .length-block {
+
         grid-template-columns: 1fr;
     }
 
+
     .length:not(:last-child) {
+
         border-right: none;
 
         margin-right: 0;
     }
 
+
     .builder-grid {
+
         grid-template-columns: 1fr;
     }
 
+
     .builder-result {
+
         flex-direction: column;
 
         align-items: flex-start;
     }
 
+
     .about-grid,
     .contact-grid {
+
         grid-template-columns: 1fr;
     }
 
+
     .photo-placeholder {
+
         min-height: 350px;
     }
 
+
     .trial {
+
         flex-direction: column;
 
         align-items: flex-start;
@@ -1212,7 +1434,9 @@ footer {
         justify-content: center;
     }
 
+
     footer {
+
         flex-direction: column;
 
         gap: 10px;
@@ -1228,27 +1452,51 @@ footer {
 @media (max-width: 600px) {
 
     .hero-title .hero-subtitle {
+
         font-size: 29px;
     }
 
-    .hero-regions {
-        gap: 6px;
+
+    .hero-buttons {
+
+        justify-content: flex-start;
     }
+
+
+    .hero-regions {
+
+        /*
+           Still one row.
+           Slightly smaller labels on phones.
+        */
+
+        gap: 4px;
+
+        overflow: hidden;
+    }
+
 
     .country-pill {
-        padding: 7px 11px;
 
-        font-size: 11px;
+        padding: 6px 8px;
+
+        font-size: 9px;
+
+        gap: 3px;
     }
+
 
     .country-pill .flag {
-        font-size: 14px;
+
+        font-size: 12px;
     }
 
-    .marquee {
-        font-size: 14px;
 
-        padding: 14px 0;
+    .marquee {
+
+        font-size: 13px;
+
+        padding: 13px 0;
     }
 
 }
@@ -1384,6 +1632,7 @@ footer {
 
 <header class="hero" id="top">
 
+
     <div class="hero-top">
 
         <span class="en">
@@ -1402,6 +1651,7 @@ footer {
     </div>
 
 
+
     <div>
 
         <h1 class="hero-title">
@@ -1412,6 +1662,7 @@ footer {
                 CHINESE.
             </span>
 
+
             <span class="hero-subtitle">
                 FROM ANYWHERE.
             </span>
@@ -1421,8 +1672,45 @@ footer {
     </div>
 
 
+
     <div class="hero-bottom">
 
+
+        <!-- BUTTONS ABOVE COUNTRIES -->
+
+        <div class="hero-buttons">
+
+
+            <a href="#trial" class="primary-btn">
+
+                <span class="en">
+                    30-Min Free Trial →
+                </span>
+
+                <span class="zh">
+                    30分钟免费试听 →
+                </span>
+
+            </a>
+
+
+            <a href="#self-paced" class="secondary-btn">
+
+                <span class="en">
+                    Explore Courses
+                </span>
+
+                <span class="zh">
+                    探索录播课程
+                </span>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- COUNTRY LABELS — ONE ROW -->
 
         <div class="hero-regions">
 
@@ -1525,37 +1813,6 @@ footer {
 
             </span>
 
-
-        </div>
-
-
-        <div class="hero-buttons">
-
-
-            <a href="#trial" class="primary-btn">
-
-                <span class="en">
-                    30-Min Free Trial →
-                </span>
-
-                <span class="zh">
-                    30分钟免费试听 →
-                </span>
-
-            </a>
-
-
-            <a href="#self-paced" class="secondary-btn">
-
-                <span class="en">
-                    Explore Courses
-                </span>
-
-                <span class="zh">
-                    探索录播课程
-                </span>
-
-            </a>
 
         </div>
 
@@ -1991,9 +2248,7 @@ footer {
 
 
     <div class="eyebrow length-label">
-
         LESSON LENGTH
-
     </div>
 
 
