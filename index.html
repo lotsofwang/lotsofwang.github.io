@@ -3638,17 +3638,35 @@ footer {
     <h3>Book your trial.</h3>
     <p class="modal-intro en">Tell me when you are available and what you want to learn. I will confirm the trial time with you.</p>
     <p class="modal-intro zh">告诉我你的可用时间和学习目标，我会和你确认试听时间。</p>
-    <form onsubmit="submitForm(event, 'trialSuccess')">
+    <form id="trialForm" action="https://formspree.io/f/xoevblyo" method="POST" onsubmit="submitTrial(event)">
+      <input type="hidden" name="request_type" value="Free Trial Request">
+      <input type="hidden" name="student_timezone" id="trialTimezoneHidden">
+      <input type="hidden" name="madrid_time" id="trialMadridTimeHidden">
       <div class="form-grid">
-        <div class="form-field"><label>Name</label><input required></div>
-        <div class="form-field"><label>Email</label><input type="email" required></div>
-        <div class="form-field"><label>Time zone</label><input placeholder="e.g. Europe/Madrid" required></div>
-        <div class="form-field"><label>Chinese level</label><select><option>Beginner</option><option>Elementary</option><option>Intermediate</option><option>Advanced</option></select></div>
-        <div class="form-field full"><label>Preferred days & times</label><textarea placeholder="e.g. Saturday 10:00–13:00"></textarea></div>
-        <div class="form-field full"><label>What would you like to learn?</label><textarea></textarea></div>
+        <div class="form-field"><label>Name *</label><input name="name" autocomplete="name" required></div>
+        <div class="form-field"><label>Email *</label><input type="email" name="email" autocomplete="email" required></div>
+        <div class="form-field"><label>Contact method *</label><select name="contact_method" required><option value="">Select one</option><option>WhatsApp</option><option>iMessage</option><option>WeChat</option></select></div>
+        <div class="form-field"><label>Contact details *</label><input name="contact_details" placeholder="Number, email or WeChat ID" required></div>
+        <div class="form-field"><label>Time zone *</label><select name="timezone" id="trialTimezoneSelect" required onchange="updateTrialMadridTime()"><option value="">Select your time zone</option></select></div>
+        <div class="form-field"><label>Chinese level</label><select name="level"><option>Beginner</option><option>Elementary</option><option>Intermediate</option><option>Advanced</option><option>HSK / exam preparation</option><option>Business Chinese</option></select></div>
+        <div class="form-field full"><label>Preferred days *</label><div class="day-options">
+          <label class="day-option"><input type="checkbox" name="preferred_days" value="Monday" onchange="updateTrialMadridTime()"><span>Monday</span></label>
+          <label class="day-option"><input type="checkbox" name="preferred_days" value="Tuesday" onchange="updateTrialMadridTime()"><span>Tuesday</span></label>
+          <label class="day-option"><input type="checkbox" name="preferred_days" value="Wednesday" onchange="updateTrialMadridTime()"><span>Wednesday</span></label>
+          <label class="day-option"><input type="checkbox" name="preferred_days" value="Thursday" onchange="updateTrialMadridTime()"><span>Thursday</span></label>
+          <label class="day-option"><input type="checkbox" name="preferred_days" value="Friday" onchange="updateTrialMadridTime()"><span>Friday</span></label>
+          <label class="day-option"><input type="checkbox" name="preferred_days" value="Saturday" onchange="updateTrialMadridTime()"><span>Saturday</span></label>
+          <label class="day-option"><input type="checkbox" name="preferred_days" value="Sunday" onchange="updateTrialMadridTime()"><span>Sunday</span></label>
+        </div></div>
+        <div class="form-field"><label>From *</label><input type="time" name="start_time" id="trialStartTime" min="06:00" max="22:00" step="1800" required onchange="updateTrialMadridTime()"></div>
+        <div class="form-field"><label>To *</label><input type="time" name="end_time" id="trialEndTime" min="06:00" max="22:00" step="1800" required onchange="updateTrialMadridTime()"></div>
+        <div class="form-field full"><div id="trialMadridTimePreview" class="time-preview">Select your time zone and preferred time to see the approximate Madrid time.</div></div>
+        <div class="form-field full"><label>What would you like to learn?</label><textarea name="goals" placeholder="For example: speaking, pronunciation, HSK, everyday Chinese..."></textarea></div>
       </div>
+      <label class="form-check"><input type="checkbox" name="flexible"> <span>I can be flexible with my schedule if needed.</span></label>
       <div class="form-actions"><button class="primary-btn" type="submit">Request Trial →</button></div>
-      <div class="form-success" id="trialSuccess">Thanks! Your trial request is ready. In this prototype, it is not sent to a server yet.</div>
+      <div class="modal-note">This request does not book a fixed time. I will contact you to confirm the trial.</div>
+      <div class="form-success" id="trialSuccess"></div>
     </form>
   </div>
 </div>
@@ -3992,6 +4010,43 @@ function updateMadridTime(){
 }
 
 initAvailabilityFields();
+
+function initTrialFields(){
+ const tz=document.getElementById('trialTimezoneSelect');
+ if(!tz)return;
+ timezoneOptions.forEach(([off,label,iana])=>{const o=document.createElement('option');o.value=iana;o.textContent=off+' — '+label;tz.appendChild(o)});
+ try{
+   const detected=Intl.DateTimeFormat().resolvedOptions().timeZone;
+   if(detected && [...tz.options].some(o=>o.value===detected)) tz.value=detected;
+ }catch(e){}
+ updateTrialMadridTime();
+}
+function updateTrialMadridTime(){
+ const tz=document.getElementById('trialTimezoneSelect'), st=document.getElementById('trialStartTime'), et=document.getElementById('trialEndTime'), preview=document.getElementById('trialMadridTimePreview');
+ if(!tz||!st||!et||!preview)return;
+ document.getElementById('trialTimezoneHidden').value=tz.value||'';
+ if(!tz.value||!st.value||!et.value){
+   preview.textContent='Select your time zone and preferred time to see the approximate Madrid time.';
+   document.getElementById('trialMadridTimeHidden').value=''; return;
+ }
+ const [sh,sm]=st.value.split(':').map(Number), [eh,em]=et.value.split(':').map(Number);
+ const selectedDay=document.querySelector('#trialForm input[name="preferred_days"]:checked');
+ const now=new Date(); let base=new Date(now.getFullYear(),now.getMonth(),now.getDate(),12,0,0);
+ if(selectedDay){ const days={Sunday:0,Monday:1,Tuesday:2,Wednesday:3,Thursday:4,Friday:5,Saturday:6}; const target=days[selectedDay.value]; base.setDate(base.getDate()+((target-base.getDay()+7)%7)); }
+ function offsetAt(zone){ const parts=new Intl.DateTimeFormat('en-US',{timeZone:zone,timeZoneName:'longOffset',hour:'2-digit',minute:'2-digit'}).formatToParts(base); const z=parts.find(p=>p.type==='timeZoneName')?.value||'GMT'; const m=z.match(/GMT([+-])(\d{2})(?::(\d{2}))?/); return m?(m[1]==='-'?-1:1)*(+m[2]*60+(+(m[3]||0))):0; }
+ const diff=offsetAt('Europe/Madrid')-offsetAt(tz.value); let a=sh*60+sm+diff,b=eh*60+em+diff;
+ const fmt=x=>{x=(x+1440)%1440;return String(Math.floor(x/60)).padStart(2,'0')+':'+String(x%60).padStart(2,'0')};
+ const madrid=fmt(a)+'–'+fmt(b)+' Madrid time'; preview.textContent='Approximately '+madrid+'.'; document.getElementById('trialMadridTimeHidden').value=madrid;
+}
+initTrialFields();
+
+async function submitTrial(event){
+ event.preventDefault();
+ const form=document.getElementById('trialForm'), button=form.querySelector('button[type=submit]'), success=document.getElementById('trialSuccess'), original=button.innerText;
+ button.disabled=true; button.innerText='SENDING...';
+ const data=new FormData(form); data.append('_subject','New Free Trial Request — Teacher Xiāo');
+ try{ const response=await fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}}); if(!response.ok)throw new Error('Submission failed'); success.innerText='Thanks! Your trial request has been sent. I will contact you to confirm the time.'; success.classList.add('show'); form.reset(); updateTrialMadridTime(); } catch(e){ success.innerText='Something went wrong. Please try again, or contact me directly.'; success.classList.add('show'); } finally { button.disabled=false; button.innerText=original; }
+}
 
 function openAvailabilityFromBuilder() {
     const plan = document.getElementById('packResult').innerText + ' · ' + document.getElementById('packDuration').innerText;
