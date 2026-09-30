@@ -1340,6 +1340,10 @@ footer {
     .form-field.full { grid-column:auto; }
 }
 </style>
+
+<style>
+.day-options{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:8px}.day-option{font-size:12px;font-weight:400;display:flex;align-items:center;gap:5px}.day-option input{width:auto}.time-preview{font-size:11px;line-height:1.6;color:#666;border-top:1px solid #ddd;padding-top:10px}.optional{color:#999;font-weight:400}.form-field select{width:100%}
+</style>
 </head>
 
 
@@ -3591,19 +3595,26 @@ footer {
     <p class="modal-intro en">Live classes are arranged after we confirm your preferred schedule. For group classes, I will match students before payment.</p>
     <p class="modal-intro zh">直播课程会先根据你的时间安排确认。小组课会先匹配学生，确认成班后再付款。</p>
     <form id="availabilityForm" action="https://formspree.io/f/xoevblyo" method="POST" onsubmit="submitAvailability(event)">
+      <input type="hidden" name="student_timezone" id="studentTimezoneHidden">
+      <input type="hidden" name="madrid_time" id="madridTimeHidden">
       <div class="form-grid">
-        <div class="form-field"><label>Name</label><input name="name" required></div>
-        <div class="form-field"><label>Email</label><input type="email" name="email" required></div>
-        <div class="form-field"><label>Time zone</label><input name="timezone" placeholder="e.g. Europe/Madrid" required></div>
+        <div class="form-field"><label>Name *</label><input name="name" autocomplete="name" required></div>
+        <div class="form-field"><label>Email *</label><input type="email" name="email" autocomplete="email" required></div>
+        <div class="form-field"><label>Contact method *</label><select name="contact_method" required><option value="">Select one</option><option>WhatsApp</option><option>iMessage</option><option>WeChat</option></select></div>
+        <div class="form-field"><label>Contact details *</label><input name="contact_details" placeholder="Number, email or WeChat ID" required></div>
+        <div class="form-field"><label>Time zone *</label><select name="timezone" id="timezoneSelect" required onchange="updateMadridTime()"><option value="">Select your time zone</option></select></div>
         <div class="form-field"><label>Chinese level</label><select name="level"><option>Beginner</option><option>Elementary</option><option>Intermediate</option><option>Advanced</option><option>HSK / exam preparation</option><option>Business Chinese</option></select></div>
-        <div class="form-field full"><label>Preferred days & times</label><textarea name="availability" placeholder="e.g. Tue/Thu 18:00–20:00 local time"></textarea></div>
-        <div class="form-field full"><label>Alternative times</label><input name="alternative" placeholder="Anything else that could work?" ></div>
+        <div class="form-field full"><label>Preferred days *</label><div class="day-options">${['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'].map(d => `<label class="day-option"><input type="checkbox" name="preferred_days" value="${d}" onchange="updateMadridTime()"> <span>${d}</span></label>`).join('')}</div></div>
+        <div class="form-field"><label>From *</label><select name="start_time" id="startTime" required onchange="updateMadridTime()"><option value="">Start time</option></select></div>
+        <div class="form-field"><label>To *</label><select name="end_time" id="endTime" required onchange="updateMadridTime()"><option value="">End time</option></select></div>
+        <div class="form-field full"><div id="madridTimePreview" class="time-preview">Select your time zone and preferred time to see the approximate Madrid time.</div></div>
+        <div class="form-field full"><label>Alternative availability <span class="optional">(optional)</span></label><textarea name="alternative" placeholder="For example: Saturday 10:00–12:00 local time"></textarea></div>
         <div class="form-field full"><label>Plan</label><input id="availabilityPlan" name="plan" readonly></div>
         <div class="form-field full"><label>Learning goals</label><textarea name="goals" placeholder="What would you like to improve?"></textarea></div>
       </div>
       <label class="form-check"><input type="checkbox" name="flexible"> <span>I can be flexible with my schedule if needed.</span></label>
       <div class="form-actions"><button class="primary-btn" type="submit">Send Availability →</button><button type="button" class="secondary-btn" onclick="openInquiry();">Inquiry First</button></div>
-      <div class="modal-note">This form does not promise a time. I will contact you after reviewing your availability.</div>
+      <div class="modal-note">Your local time is automatically converted to Madrid time. This form does not promise a time. I will contact you after reviewing your availability.</div>
       <div class="form-success" id="availabilitySuccess">Thanks! Your availability has been sent. I will contact you after reviewing your preferred times.</div>
     </form>
   </div>
@@ -3920,6 +3931,31 @@ function closeModal(id) {
 function closeOnBackdrop(event, id) {
     if (event.target.id === id) closeModal(id);
 }
+
+const timezoneOptions = [
+['UTC-11','Pacific / Midway','Pacific/Midway'],['UTC-10','Hawaii','Pacific/Honolulu'],['UTC-09','Alaska','America/Anchorage'],['UTC-08','Pacific Time','America/Los_Angeles'],['UTC-07','Mountain Time','America/Denver'],['UTC-06','Central Time','America/Chicago'],['UTC-05','Eastern Time','America/New_York'],['UTC-04','Atlantic Time','America/Halifax'],['UTC-03','South America / Atlantic','America/Sao_Paulo'],['UTC-02','Mid-Atlantic','Atlantic/South_Georgia'],['UTC-01','Azores / Cape Verde','Atlantic/Azores'],['UTC+00','UK / Portugal','Europe/London'],['UTC+01','Central Europe / Madrid','Europe/Madrid'],['UTC+02','Eastern Europe / South Africa','Europe/Athens'],['UTC+03','Arabia / East Africa','Asia/Riyadh'],['UTC+04','Gulf / Caucasus','Asia/Dubai'],['UTC+05','Pakistan / Central Asia','Asia/Karachi'],['UTC+05:30','India / Sri Lanka','Asia/Kolkata'],['UTC+06','Bangladesh / Central Asia','Asia/Dhaka'],['UTC+07','Southeast Asia','Asia/Bangkok'],['UTC+08','China / Singapore','Asia/Shanghai'],['UTC+09','Japan / Korea','Asia/Tokyo'],['UTC+09:30','Central Australia','Australia/Adelaide'],['UTC+10','Eastern Australia','Australia/Sydney'],['UTC+11','Pacific / New Caledonia','Pacific/Noumea'],['UTC+12','New Zealand / Pacific','Pacific/Auckland'],['UTC+13','Pacific Islands','Pacific/Tongatapu'],['UTC+14','Pacific / Line Islands','Pacific/Kiritimati']
+];
+function initAvailabilityFields(){
+ const tz=document.getElementById('timezoneSelect'), st=document.getElementById('startTime'), et=document.getElementById('endTime');
+ if(!tz||!st||!et)return;
+ timezoneOptions.forEach(([off,label,iana])=>{const o=document.createElement('option');o.value=iana;o.textContent=off+' — '+label;tz.appendChild(o)});
+ for(let h=6;h<=22;h++) for(let m of [0,30]){if(h===22&&m>0)continue; const v=String(h).padStart(2,'0')+':'+String(m).padStart(2,'0'); [st,et].forEach(sel=>{const o=document.createElement('option');o.value=v;o.textContent=v;sel.appendChild(o)})}
+ try{const detected=Intl.DateTimeFormat().resolvedOptions().timeZone; if([...tz.options].some(o=>o.value===detected))tz.value=detected;}catch(e){}
+ updateMadridTime();
+}
+function updateMadridTime(){
+ const tz=document.getElementById('timezoneSelect'), st=document.getElementById('startTime'), et=document.getElementById('endTime'), preview=document.getElementById('madridTimePreview');
+ if(!tz||!st||!et||!preview)return;
+ document.getElementById('studentTimezoneHidden').value=tz.value||'';
+ if(!tz.value||!st.value||!et.value){preview.textContent='Select your time zone and preferred time to see the approximate Madrid time.';document.getElementById('madridTimeHidden').value='';return;}
+ const [sh,sm]=st.value.split(':').map(Number), [eh,em]=et.value.split(':').map(Number);
+ const now=new Date(), base=new Date(now.getFullYear(),now.getMonth(),now.getDate(),12,0,0);
+ function offsetAt(zone){const parts=new Intl.DateTimeFormat('en-US',{timeZone:zone,timeZoneName:'longOffset',hour:'2-digit',minute:'2-digit'}).formatToParts(base); const z=parts.find(p=>p.type==='timeZoneName')?.value||'GMT'; const m=z.match(/GMT([+-])(\d{2})(?::(\d{2}))?/); return m?(m[1]==='-'?-1:1)*(+m[2]*60+(+(m[3]||0))):0;}
+ const diff=offsetAt('Europe/Madrid')-offsetAt(tz.value); let a=sh*60+sm+diff,b=eh*60+em+diff; const fmt=x=>{x=(x+1440)%1440;return String(Math.floor(x/60)).padStart(2,'0')+':'+String(x%60).padStart(2,'0')};
+ preview.textContent='Approximately '+fmt(a)+'–'+fmt(b)+' Madrid time.'; document.getElementById('madridTimeHidden').value=fmt(a)+'–'+fmt(b)+' Madrid time';
+}
+initAvailabilityFields();
+
 function openAvailabilityFromBuilder() {
     const plan = document.getElementById('packResult').innerText + ' · ' + document.getElementById('packDuration').innerText;
     document.getElementById('availabilityPlan').value = plan;
