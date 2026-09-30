@@ -236,6 +236,29 @@ section {
     -webkit-text-stroke: 1.3px var(--black);
 }
 
+/* NEW:
+   FROM ANYWHERE is intentionally smaller
+   and stays on one line.
+*/
+
+.hero-title .hero-subtitle {
+    display: block;
+
+    margin-top: 14px;
+
+    font-size: clamp(38px, 5.5vw, 78px);
+
+    line-height: .9;
+
+    letter-spacing: -.07em;
+
+    white-space: nowrap;
+
+    color: var(--black);
+
+    -webkit-text-stroke: 0;
+}
+
 .hero-bottom {
     display: flex;
     justify-content: space-between;
@@ -246,15 +269,46 @@ section {
     margin-top: 35px;
 }
 
+
+/* =========================================================
+   COUNTRY PILLS
+========================================================= */
+
 .hero-regions {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
 
-    gap: 8px;
+    gap: 9px;
+}
 
-    font-size: 24px;
+.country-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 10px 16px;
+
+    border: 1px solid #b9b9b9;
+
+    border-radius: 999px;
+
+    background: transparent;
+
+    font-size: 13px;
+
+    white-space: nowrap;
+}
+
+.country-pill .flag {
+    font-size: 17px;
     line-height: 1;
+}
+
+.country-pill:hover {
+    background: var(--black);
+    color: white;
+    border-color: var(--black);
 }
 
 .hero-buttons {
@@ -308,26 +362,49 @@ section {
 
     border-bottom: 1px solid var(--black);
 
-    padding: 12px 0;
+    padding: 17px 0;
 
     font-family: monospace;
-    font-size: 10px;
+
+    /*
+       Bigger than before.
+    */
+    font-size: 17px;
+
+    line-height: 1;
+
+    letter-spacing: .02em;
 }
 
 .marquee-track {
-    display: inline-block;
+    display: flex;
 
-    animation: scroll 25s linear infinite;
+    width: max-content;
+
+    animation: marqueeScroll 38s linear infinite;
 }
 
-@keyframes scroll {
+.marquee-group {
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+.marquee-item {
+    display: inline-block;
+
+    margin-right: 22px;
+}
+
+@keyframes marqueeScroll {
 
     from {
         transform: translateX(0);
     }
 
     to {
-        transform: translateX(-50%);
+        transform: translateX(-25%);
     }
 
 }
@@ -1059,6 +1136,12 @@ footer {
         font-size: clamp(58px, 15vw, 110px);
     }
 
+    .hero-title .hero-subtitle {
+        font-size: clamp(32px, 8vw, 65px);
+
+        white-space: nowrap;
+    }
+
     .hero-bottom {
         flex-direction: column;
 
@@ -1066,9 +1149,23 @@ footer {
     }
 
     .hero-regions {
-        font-size: 19px;
+        gap: 7px;
+    }
 
-        gap: 6px;
+    .country-pill {
+        padding: 8px 13px;
+
+        font-size: 12px;
+    }
+
+    .country-pill .flag {
+        font-size: 15px;
+    }
+
+    .marquee {
+        font-size: 15px;
+
+        padding: 15px 0;
     }
 
     .format-grid,
@@ -1120,6 +1217,40 @@ footer {
 
         gap: 10px;
     }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .hero-title .hero-subtitle {
+        font-size: 29px;
+    }
+
+    .hero-regions {
+        gap: 6px;
+    }
+
+    .country-pill {
+        padding: 7px 11px;
+
+        font-size: 11px;
+    }
+
+    .country-pill .flag {
+        font-size: 14px;
+    }
+
+    .marquee {
+        font-size: 14px;
+
+        padding: 14px 0;
+    }
+
 }
 
 </style>
@@ -1279,11 +1410,11 @@ footer {
 
             <span class="outline">
                 CHINESE.
-            </span><br>
+            </span>
 
-            FROM<br>
-
-            ANYWHERE.
+            <span class="hero-subtitle">
+                FROM ANYWHERE.
+            </span>
 
         </h1>
 
@@ -1295,18 +1426,105 @@ footer {
 
         <div class="hero-regions">
 
-            <span>🇦🇺</span>
-            <span>🇳🇿</span>
 
-            <span>🇪🇸</span>
-            <span>🇬🇧</span>
-            <span>🇩🇪</span>
-            <span>🇫🇷</span>
+            <span class="country-pill">
 
-            <span>🇺🇸</span>
-            <span>🇨🇦</span>
+                <span class="flag">
+                    🇦🇺
+                </span>
 
-            <span>🌎</span>
+                Australia
+
+            </span>
+
+
+            <span class="country-pill">
+
+                <span class="flag">
+                    🇳🇿
+                </span>
+
+                New Zealand
+
+            </span>
+
+
+            <span class="country-pill">
+
+                <span class="flag">
+                    🇪🇸
+                </span>
+
+                Spain
+
+            </span>
+
+
+            <span class="country-pill">
+
+                <span class="flag">
+                    🇬🇧
+                </span>
+
+                UK
+
+            </span>
+
+
+            <span class="country-pill">
+
+                <span class="flag">
+                    🇩🇪
+                </span>
+
+                Germany
+
+            </span>
+
+
+            <span class="country-pill">
+
+                <span class="flag">
+                    🇫🇷
+                </span>
+
+                France
+
+            </span>
+
+
+            <span class="country-pill">
+
+                <span class="flag">
+                    🇺🇸
+                </span>
+
+                USA
+
+            </span>
+
+
+            <span class="country-pill">
+
+                <span class="flag">
+                    🇨🇦
+                </span>
+
+                Canada
+
+            </span>
+
+
+            <span class="country-pill">
+
+                <span class="flag">
+                    🌎
+                </span>
+
+                Anywhere
+
+            </span>
+
 
         </div>
 
@@ -1355,10 +1573,122 @@ footer {
 
     <div class="marquee-track">
 
-        LEARN · SPEAK · UNDERSTAND · CONNECT ·
-        LEARN · SPEAK · UNDERSTAND · CONNECT ·
-        LEARN · SPEAK · UNDERSTAND · CONNECT ·
-        LEARN · SPEAK · UNDERSTAND · CONNECT ·
+
+        <div class="marquee-group">
+
+            <span class="marquee-item">
+                CONNECT
+            </span>
+
+            <span>·</span>
+
+            <span class="marquee-item">
+                LEARN
+            </span>
+
+            <span>·</span>
+
+            <span class="marquee-item">
+                SPEAK
+            </span>
+
+            <span>·</span>
+
+            <span class="marquee-item">
+                UNDERSTAND
+            </span>
+
+            <span>·</span>
+
+        </div>
+
+
+        <div class="marquee-group">
+
+            <span class="marquee-item">
+                CONNECT
+            </span>
+
+            <span>·</span>
+
+            <span class="marquee-item">
+                LEARN
+            </span>
+
+            <span>·</span>
+
+            <span class="marquee-item">
+                SPEAK
+            </span>
+
+            <span>·</span>
+
+            <span class="marquee-item">
+                UNDERSTAND
+            </span>
+
+            <span>·</span>
+
+        </div>
+
+
+        <div class="marquee-group">
+
+            <span class="marquee-item">
+                CONNECT
+            </span>
+
+            <span>·</span>
+
+            <span class="marquee-item">
+                LEARN
+            </span>
+
+            <span>·</span>
+
+            <span class="marquee-item">
+                SPEAK
+            </span>
+
+            <span>·</span>
+
+            <span class="marquee-item">
+                UNDERSTAND
+            </span>
+
+            <span>·</span>
+
+        </div>
+
+
+        <div class="marquee-group">
+
+            <span class="marquee-item">
+                CONNECT
+            </span>
+
+            <span>·</span>
+
+            <span class="marquee-item">
+                LEARN
+            </span>
+
+            <span>·</span>
+
+            <span class="marquee-item">
+                SPEAK
+            </span>
+
+            <span>·</span>
+
+            <span class="marquee-item">
+                UNDERSTAND
+            </span>
+
+            <span>·</span>
+
+        </div>
+
 
     </div>
 
@@ -1771,8 +2101,6 @@ footer {
     <div class="pack-grid">
 
 
-        <!-- PACK 01 -->
-
         <div class="pack">
 
             <div>
@@ -1941,8 +2269,6 @@ footer {
 
 
 
-        <!-- PACK 02 -->
-
         <div class="pack featured">
 
             <div>
@@ -2110,8 +2436,6 @@ footer {
         </div>
 
 
-
-        <!-- PACK 03 -->
 
         <div class="pack">
 
@@ -2283,8 +2607,6 @@ footer {
 
 
 
-    <!-- BUILD YOUR PACK -->
-
     <div style="margin-top:65px;">
 
         <div class="eyebrow">
@@ -2326,8 +2648,6 @@ footer {
         <div class="builder-grid">
 
 
-            <!-- FORMAT -->
-
             <div class="field">
 
                 <label>
@@ -2363,8 +2683,6 @@ footer {
 
 
 
-            <!-- LENGTH -->
-
             <div class="field">
 
                 <label>
@@ -2399,8 +2717,6 @@ footer {
             </div>
 
 
-
-            <!-- LESSON NUMBER -->
 
             <div class="field">
 
@@ -2454,8 +2770,6 @@ footer {
             </div>
 
 
-
-            <!-- FREQUENCY -->
 
             <div class="field">
 
@@ -3370,10 +3684,6 @@ const customFrequency =
 function updatePack() {
 
 
-    /* -------------------------
-       CUSTOM LESSONS
-    ------------------------- */
-
     if (lessonsSelect.value === "custom") {
 
         customLessons.classList.add("show");
@@ -3385,10 +3695,6 @@ function updatePack() {
     }
 
 
-    /* -------------------------
-       CUSTOM FREQUENCY
-    ------------------------- */
-
     if (frequencySelect.value === "custom") {
 
         customFrequency.classList.add("show");
@@ -3399,10 +3705,6 @@ function updatePack() {
 
     }
 
-
-    /* -------------------------
-       LESSON NUMBER
-    ------------------------- */
 
     let lessons;
 
@@ -3419,10 +3721,6 @@ function updatePack() {
     }
 
 
-    /* -------------------------
-       FREQUENCY
-    ------------------------- */
-
     let frequency;
 
     if (frequencySelect.value === "custom") {
@@ -3438,33 +3736,17 @@ function updatePack() {
     }
 
 
-    /* -------------------------
-       FORMAT
-    ------------------------- */
-
     const format =
         formatSelect.value;
 
-
-    /* -------------------------
-       LENGTH
-    ------------------------- */
 
     const length =
         lengthSelect.value;
 
 
-    /* -------------------------
-       WEEKS
-    ------------------------- */
-
     const weeks =
         Math.ceil(lessons / frequency);
 
-
-    /* -------------------------
-       RESULT
-    ------------------------- */
 
     document.getElementById("packResult").innerText =
         format +
