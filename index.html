@@ -1364,6 +1364,60 @@ body.lang-zh button.zh {
 
 /* Language-aware headline text */
 .section-title .en, .section-title .zh, h1 .en, h1 .zh, h3 .en, h3 .zh { white-space: pre-line; }
+
+/* === Typography refinement ===
+   Keep the editorial look, but improve readability in Chinese. */
+.hero-title {
+    font-size: clamp(54px, 7.6vw, 112px);
+    line-height: .86;
+}
+.hero-title .hero-subtitle {
+    font-size: clamp(30px, 4.2vw, 62px);
+    margin-top: 12px;
+}
+.section-title {
+    font-size: clamp(44px, 5vw, 70px);
+    line-height: .92;
+}
+.eyebrow {
+    font-size: 11px;
+}
+.hero-top {
+    font-size: 11px;
+}
+.hero-offer {
+    font-size: 10px;
+}
+.marquee {
+    font-size: 10px;
+    letter-spacing: .1em;
+}
+.country-pill {
+    font-size: 14px;
+}
+.primary-btn,
+.secondary-btn {
+    font-size: 11px;
+}
+.learn-row .number,
+.format-number {
+    font-size: 11px;
+}
+.learn-row span {
+    font-size: 10px;
+}
+@media (max-width: 700px) {
+    .hero-title {
+        font-size: clamp(48px, 14vw, 82px);
+    }
+    .hero-title .hero-subtitle {
+        font-size: clamp(28px, 8vw, 48px);
+    }
+    .section-title {
+        font-size: clamp(38px, 11vw, 58px);
+    }
+}
+
 </style>
 <style>
 .day-options{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:8px}.day-option{font-size:12px;font-weight:400;display:flex;align-items:center;gap:5px}.day-option input{width:auto}.time-preview{font-size:11px;line-height:1.6;color:#666;border-top:1px solid #ddd;padding-top:10px}.optional{color:#999;font-weight:400}.form-field select{width:100%}
@@ -2793,6 +2847,7 @@ function applyLanguage() {
         option.textContent = currentLanguage === "zh" ? option.dataset.zh : option.dataset.en;
     });
     localizeForms();
+    if (typeof refreshTimezoneOptions === "function") refreshTimezoneOptions();
     const customLessons = document.getElementById("customLessons");
     const customFrequency = document.getElementById("customFrequency");
     if (customLessons) customLessons.placeholder = currentLanguage === "zh" ? "输入课时数" : "Enter number of lessons";
@@ -2972,12 +3027,59 @@ function closeOnBackdrop(event, id) {
 }
 
 const timezoneOptions = [
-['UTC-11','Pacific / Midway','Pacific/Midway'],['UTC-10','Hawaii','Pacific/Honolulu'],['UTC-09','Alaska','America/Anchorage'],['UTC-08','Pacific Time','America/Los_Angeles'],['UTC-07','Mountain Time','America/Denver'],['UTC-06','Central Time','America/Chicago'],['UTC-05','Eastern Time','America/New_York'],['UTC-04','Atlantic Time','America/Halifax'],['UTC-03','South America / Atlantic','America/Sao_Paulo'],['UTC-02','Mid-Atlantic','Atlantic/South_Georgia'],['UTC-01','Azores / Cape Verde','Atlantic/Azores'],['UTC+00','UK / Portugal','Europe/London'],['UTC+01','Central Europe / Madrid','Europe/Madrid'],['UTC+02','Eastern Europe / South Africa','Europe/Athens'],['UTC+03','Arabia / East Africa','Asia/Riyadh'],['UTC+04','Gulf / Caucasus','Asia/Dubai'],['UTC+05','Pakistan / Central Asia','Asia/Karachi'],['UTC+05:30','India / Sri Lanka','Asia/Kolkata'],['UTC+06','Bangladesh / Central Asia','Asia/Dhaka'],['UTC+07','Southeast Asia','Asia/Bangkok'],['UTC+08','China / Singapore','Asia/Shanghai'],['UTC+09','Japan / Korea','Asia/Tokyo'],['UTC+09:30','Central Australia','Australia/Adelaide'],['UTC+10','Eastern Australia','Australia/Sydney'],['UTC+11','Pacific / New Caledonia','Pacific/Noumea'],['UTC+12','New Zealand / Pacific','Pacific/Auckland'],['UTC+13','Pacific Islands','Pacific/Tongatapu'],['UTC+14','Pacific / Line Islands','Pacific/Kiritimati']
+ ['UTC−11','Pacific','太平洋地区','Pacific/Pago_Pago'],
+ ['UTC−10','Hawaii','夏威夷','Pacific/Honolulu'],
+ ['UTC−09','Alaska','阿拉斯加','America/Anchorage'],
+ ['UTC−08','Pacific Time','太平洋时间','America/Los_Angeles'],
+ ['UTC−07','Mountain Time','山地时间','America/Denver'],
+ ['UTC−06','Central Time','中部时间','America/Chicago'],
+ ['UTC−05','Eastern Time','东部时间','America/New_York'],
+ ['UTC−04','Atlantic Time','大西洋时间','America/Halifax'],
+ ['UTC−03','South America / Atlantic','南美洲 / 大西洋地区','America/Sao_Paulo'],
+ ['UTC−02','Mid-Atlantic','中大西洋地区','Atlantic/South_Georgia'],
+ ['UTC−01','Azores / Cape Verde','亚速尔群岛 / 佛得角','Atlantic/Azores'],
+ ['UTC+00','UK / Portugal','英国 / 葡萄牙','Europe/London'],
+ ['UTC+01','Central Europe / Madrid','中欧 / 马德里','Europe/Madrid'],
+ ['UTC+02','Eastern Europe / South Africa','东欧 / 南非','Europe/Athens'],
+ ['UTC+03','Arabia / East Africa','阿拉伯半岛 / 东非','Asia/Riyadh'],
+ ['UTC+04','Gulf / Caucasus','海湾地区 / 高加索','Asia/Dubai'],
+ ['UTC+05','Pakistan / Central Asia','巴基斯坦 / 中亚','Asia/Karachi'],
+ ['UTC+05:30','India / Sri Lanka','印度 / 斯里兰卡','Asia/Kolkata'],
+ ['UTC+06','Bangladesh / Central Asia','孟加拉国 / 中亚','Asia/Dhaka'],
+ ['UTC+07','Southeast Asia','东南亚','Asia/Bangkok'],
+ ['UTC+08','China / Singapore','中国 / 新加坡','Asia/Shanghai'],
+ ['UTC+09','Japan / Korea','日本 / 韩国','Asia/Tokyo'],
+ ['UTC+09:30','Central Australia','澳大利亚中部','Australia/Adelaide'],
+ ['UTC+10','Eastern Australia','澳大利亚东部','Australia/Sydney'],
+ ['UTC+11','Pacific / New Caledonia','太平洋地区 / 新喀里多尼亚','Pacific/Noumea'],
+ ['UTC+12','New Zealand / Pacific','新西兰 / 太平洋地区','Pacific/Auckland'],
+ ['UTC+13','Pacific Islands','太平洋岛屿','Pacific/Tongatapu'],
+ ['UTC+14','Pacific / Line Islands','太平洋 / 莱恩群岛','Pacific/Kiritimati']
 ];
+function refreshTimezoneOptions(){
+ const tz=document.getElementById('timezoneSelect');
+ if(!tz)return;
+ const current=tz.value;
+ tz.innerHTML='';
+ const placeholder=document.createElement('option');
+ placeholder.value='';
+ placeholder.textContent=currentLanguage === 'zh' ? '请选择你的时区' : 'Select your time zone';
+ tz.appendChild(placeholder);
+ timezoneOptions.forEach(([off,en,zh,iana])=>{
+   const o=document.createElement('option');
+   o.value=iana;
+   o.dataset.enLabel=off+' — '+en;
+   o.dataset.zhLabel=off+' — '+zh;
+   o.textContent=currentLanguage === 'zh' ? o.dataset.zhLabel : o.dataset.enLabel;
+   tz.appendChild(o);
+ });
+ if(current && [...tz.options].some(o=>o.value===current)) tz.value=current;
+}
+
 function initAvailabilityFields(){
  const tz=document.getElementById('timezoneSelect');
  if(!tz)return;
- timezoneOptions.forEach(([off,label,iana])=>{const o=document.createElement('option');o.value=iana;o.textContent=off+' — '+label;tz.appendChild(o)});
+ refreshTimezoneOptions();
  try{
    const detected=Intl.DateTimeFormat().resolvedOptions().timeZone;
    if(detected && [...tz.options].some(o=>o.value===detected)){
