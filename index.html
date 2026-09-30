@@ -1273,6 +1273,72 @@ footer {
 
 }
 
+
+
+/* =====================================================
+   FUNCTIONAL FORMS / MODALS
+===================================================== */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,.94);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    overflow-y: auto;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+    width: min(720px, 100%);
+    max-height: calc(100vh - 48px);
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid #111;
+    padding: 30px;
+    position: relative;
+}
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    border: 0;
+    background: none;
+    font: inherit;
+    font-size: 22px;
+    cursor: pointer;
+}
+.modal h3 { margin: 0 40px 8px 0; }
+.modal-intro { margin: 0 0 24px; color: var(--muted); }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-field { margin-bottom: 14px; }
+.form-field.full { grid-column: 1 / -1; }
+.form-field label {
+    display:block;
+    font-family: monospace;
+    font-size: 9px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+}
+.form-field input, .form-field select, .form-field textarea {
+    width:100%; box-sizing:border-box; border:1px solid #bbb; background:#fff;
+    padding:11px 12px; font:inherit; border-radius:0;
+}
+.form-field textarea { min-height: 90px; resize: vertical; }
+.form-check { display:flex; gap:9px; align-items:flex-start; margin: 6px 0 18px; font-size: 13px; }
+.form-check input { margin-top:3px; }
+.form-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top: 8px; }
+.modal-note { font-family:monospace; font-size:9px; line-height:1.5; color:var(--muted); margin-top:14px; }
+.form-success { display:none; padding:18px; border:1px solid #111; margin-top:18px; }
+.form-success.show { display:block; }
+@media (max-width: 640px) {
+    .modal { padding:22px; }
+    .form-grid { grid-template-columns:1fr; }
+    .form-field.full { grid-column:auto; }
+}
 </style>
 </head>
 
@@ -2873,16 +2939,9 @@ footer {
             </div>
 
 
-            <a href="#contact" class="primary-btn">
-
-                <span class="en">
-                    Request This Package →
-                </span>
-
-                <span class="zh">
-                    咨询这个套餐 →
-                </span>
-
+            <a href="#" class="primary-btn" onclick="openAvailabilityFromBuilder(); return false;">
+                <span class="en">Check Availability →</span>
+                <span class="zh">查询时间 →</span>
             </a>
 
         </div>
@@ -2970,16 +3029,9 @@ footer {
                 </p>
 
 
-                <a href="#contact" class="course-link">
-
-                    <span class="en">
-                        Coming soon →
-                    </span>
-
-                    <span class="zh">
-                        即将上线 →
-                    </span>
-
+                <a href="#" class="course-link" onclick="openCourseInterest('pinyin', 'Pinyin From Zero'); return false;">
+                    <span class="en">Get Course Access →</span>
+                    <span class="zh">获取课程 →</span>
                 </a>
 
             </div>
@@ -3022,16 +3074,9 @@ footer {
                 </p>
 
 
-                <a href="#contact" class="course-link">
-
-                    <span class="en">
-                        Coming soon →
-                    </span>
-
-                    <span class="zh">
-                        即将上线 →
-                    </span>
-
+                <a href="#" class="course-link" onclick="openCourseInterest('survival', 'Survival Chinese'); return false;">
+                    <span class="en">Get Course Access →</span>
+                    <span class="zh">获取课程 →</span>
                 </a>
 
             </div>
@@ -3074,16 +3119,9 @@ footer {
                 </p>
 
 
-                <a href="#contact" class="course-link">
-
-                    <span class="en">
-                        Coming soon →
-                    </span>
-
-                    <span class="zh">
-                        即将上线 →
-                    </span>
-
+                <a href="#" class="course-link" onclick="openCourseInterest('everyday', 'Everyday Mandarin'); return false;">
+                    <span class="en">Get Course Access →</span>
+                    <span class="zh">获取课程 →</span>
                 </a>
 
             </div>
@@ -3432,16 +3470,9 @@ footer {
         </p>
 
 
-        <a href="#contact" class="primary-btn">
-
-            <span class="en">
-                Book Your Trial →
-            </span>
-
-            <span class="zh">
-                预约试听 →
-            </span>
-
+        <a href="#" class="primary-btn" onclick="openTrial(); return false;">
+            <span class="en">Book Your Trial →</span>
+            <span class="zh">预约试听 →</span>
         </a>
 
     </div>
@@ -3513,78 +3544,30 @@ footer {
         <div class="contact-links">
 
 
-            <a href="#" class="contact-link">
-
-                <span class="contact-name">
-
-                    <span class="en">
-                        Email
-                    </span>
-
-                    <span class="zh">
-                        邮箱
-                    </span>
-
-                </span>
-
-
-                <span class="contact-action">
-                    CONTACT →
-                </span>
-
+            <a href="#" class="contact-link" onclick="openInquiry(); return false;">
+                <span class="contact-name"><span class="en">Email</span><span class="zh">邮箱</span></span>
+                <span class="contact-action">CONTACT →</span>
             </a>
 
 
 
-            <a href="#" class="contact-link">
-
-                <span class="contact-name">
-                    WhatsApp
-                </span>
-
-
-                <span class="contact-action">
-                    MESSAGE →
-                </span>
-
+            <a href="#" class="contact-link" onclick="openInquiry(); return false;">
+                <span class="contact-name">WhatsApp</span>
+                <span class="contact-action">MESSAGE →</span>
             </a>
 
 
 
-            <a href="#" class="contact-link">
-
-                <span class="contact-name">
-                    WeChat
-                </span>
-
-
-                <span class="contact-action">
-                    ADD →
-                </span>
-
+            <a href="#" class="contact-link" onclick="openInquiry(); return false;">
+                <span class="contact-name">WeChat</span>
+                <span class="contact-action">ADD →</span>
             </a>
 
 
 
-            <a href="#" class="contact-link">
-
-                <span class="contact-name">
-
-                    <span class="en">
-                        Inquiry Form
-                    </span>
-
-                    <span class="zh">
-                        咨询表格
-                    </span>
-
-                </span>
-
-
-                <span class="contact-action">
-                    OPEN →
-                </span>
-
+            <a href="#" class="contact-link" onclick="openInquiry(); return false;">
+                <span class="contact-name"><span class="en">Inquiry Form</span><span class="zh">咨询表格</span></span>
+                <span class="contact-action">OPEN →</span>
             </a>
 
         </div>
@@ -3594,6 +3577,99 @@ footer {
 </section>
 
 
+
+
+<!-- =====================================================
+     FUNCTIONAL FORMS
+===================================================== -->
+
+<div class="modal-overlay" id="availabilityModal" onclick="closeOnBackdrop(event, 'availabilityModal')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('availabilityModal')">×</button>
+    <div class="eyebrow">LIVE CLASSES · AVAILABILITY</div>
+    <h3>Find a time that works.</h3>
+    <p class="modal-intro en">Live classes are arranged after we confirm your preferred schedule. For group classes, I will match students before payment.</p>
+    <p class="modal-intro zh">直播课程会先根据你的时间安排确认。小组课会先匹配学生，确认成班后再付款。</p>
+    <form onsubmit="submitForm(event, 'availabilitySuccess')">
+      <div class="form-grid">
+        <div class="form-field"><label>Name</label><input name="name" required></div>
+        <div class="form-field"><label>Email</label><input type="email" name="email" required></div>
+        <div class="form-field"><label>Time zone</label><input name="timezone" placeholder="e.g. Europe/Madrid" required></div>
+        <div class="form-field"><label>Chinese level</label><select name="level"><option>Beginner</option><option>Elementary</option><option>Intermediate</option><option>Advanced</option><option>HSK / exam preparation</option><option>Business Chinese</option></select></div>
+        <div class="form-field full"><label>Preferred days & times</label><textarea name="availability" placeholder="e.g. Tue/Thu 18:00–20:00 local time"></textarea></div>
+        <div class="form-field full"><label>Alternative times</label><input name="alternative" placeholder="Anything else that could work?" ></div>
+        <div class="form-field full"><label>Plan</label><input id="availabilityPlan" name="plan" readonly></div>
+        <div class="form-field full"><label>Learning goals</label><textarea name="goals" placeholder="What would you like to improve?"></textarea></div>
+      </div>
+      <label class="form-check"><input type="checkbox" name="flexible"> <span>I can be flexible with my schedule if needed.</span></label>
+      <div class="form-actions"><button class="primary-btn" type="submit">Send Availability →</button><button type="button" class="secondary-btn" onclick="openInquiry();">Inquiry First</button></div>
+      <div class="modal-note">This form does not promise a time. I will contact you after reviewing your availability.</div>
+      <div class="form-success" id="availabilitySuccess">Thanks! Your availability has been prepared. In this prototype, the form does not send data to a server yet. Connect your preferred form service (or email) before launch.</div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="trialModal" onclick="closeOnBackdrop(event, 'trialModal')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('trialModal')">×</button>
+    <div class="eyebrow">30-MIN FREE TRIAL</div>
+    <h3>Book your trial.</h3>
+    <p class="modal-intro en">Tell me when you are available and what you want to learn. I will confirm the trial time with you.</p>
+    <p class="modal-intro zh">告诉我你的可用时间和学习目标，我会和你确认试听时间。</p>
+    <form onsubmit="submitForm(event, 'trialSuccess')">
+      <div class="form-grid">
+        <div class="form-field"><label>Name</label><input required></div>
+        <div class="form-field"><label>Email</label><input type="email" required></div>
+        <div class="form-field"><label>Time zone</label><input placeholder="e.g. Europe/Madrid" required></div>
+        <div class="form-field"><label>Chinese level</label><select><option>Beginner</option><option>Elementary</option><option>Intermediate</option><option>Advanced</option></select></div>
+        <div class="form-field full"><label>Preferred days & times</label><textarea placeholder="e.g. Saturday 10:00–13:00"></textarea></div>
+        <div class="form-field full"><label>What would you like to learn?</label><textarea></textarea></div>
+      </div>
+      <div class="form-actions"><button class="primary-btn" type="submit">Request Trial →</button></div>
+      <div class="form-success" id="trialSuccess">Thanks! Your trial request is ready. In this prototype, it is not sent to a server yet.</div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="inquiryModal" onclick="closeOnBackdrop(event, 'inquiryModal')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('inquiryModal')">×</button>
+    <div class="eyebrow">INQUIRY</div>
+    <h3>Not ready to choose?</h3>
+    <p class="modal-intro en">No problem. Tell me what you are looking for and I will help you work out the options first.</p>
+    <p class="modal-intro zh">还不确定选哪种课程？没关系，先告诉我你的需求，我会帮你一起看看。</p>
+    <form onsubmit="submitForm(event, 'inquirySuccess')">
+      <div class="form-grid">
+        <div class="form-field"><label>Name</label><input required></div>
+        <div class="form-field"><label>Email</label><input type="email" required></div>
+        <div class="form-field full"><label>What are you interested in?</label><select><option>Live private lessons</option><option>Live small group</option><option>Matched group</option><option>Self-paced course</option><option>Not sure yet</option></select></div>
+        <div class="form-field full"><label>Message</label><textarea placeholder="Tell me about your goals, level, schedule, or questions."></textarea></div>
+      </div>
+      <div class="form-actions"><button class="primary-btn" type="submit">Send Inquiry →</button></div>
+      <div class="form-success" id="inquirySuccess">Thanks! Your inquiry is ready. Connect a form/email service before launch so submissions reach you.</div>
+    </form>
+  </div>
+</div>
+
+<div class="modal-overlay" id="courseModal" onclick="closeOnBackdrop(event, 'courseModal')">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('courseModal')">×</button>
+    <div class="eyebrow">SELF-PACED COURSE</div>
+    <h3 id="courseModalTitle">Course access</h3>
+    <p class="modal-intro en">Recorded courses can be purchased directly once payment is connected. For now, use this form to register your interest.</p>
+    <p class="modal-intro zh">录播课程接入付款后可以直接购买。目前先通过这个表格登记需求。</p>
+    <form onsubmit="submitForm(event, 'courseSuccess')">
+      <input type="hidden" id="courseSlug" name="course">
+      <div class="form-grid">
+        <div class="form-field"><label>Name</label><input required></div>
+        <div class="form-field"><label>Email</label><input type="email" required></div>
+        <div class="form-field full"><label>Course</label><input id="courseNameField" readonly></div>
+      </div>
+      <div class="form-actions"><button class="primary-btn" type="submit">Register Interest →</button></div>
+      <div class="form-success" id="courseSuccess">Thanks! When payment is connected, this flow can become Buy Course → Payment → Course Access.</div>
+    </form>
+  </div>
+</div>
 
 <!-- =====================================================
      FOOTER
@@ -3827,6 +3903,46 @@ customFrequency.addEventListener(
 
 updatePack();
 
+
+
+/* =====================================================
+   BUSINESS FLOW HELPERS
+===================================================== */
+
+function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+}
+function closeOnBackdrop(event, id) {
+    if (event.target.id === id) closeModal(id);
+}
+function openAvailabilityFromBuilder() {
+    const plan = document.getElementById('packResult').innerText + ' · ' + document.getElementById('packDuration').innerText;
+    document.getElementById('availabilityPlan').value = plan;
+    openModal('availabilityModal');
+}
+function openTrial() { openModal('trialModal'); }
+function openInquiry() { closeModal('availabilityModal'); openModal('inquiryModal'); }
+function openCourseInterest(slug, name) {
+    document.getElementById('courseSlug').value = slug;
+    document.getElementById('courseNameField').value = name;
+    document.getElementById('courseModalTitle').innerText = name;
+    openModal('courseModal');
+}
+function submitForm(event, successId) {
+    event.preventDefault();
+    document.getElementById(successId).classList.add('show');
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
+    }
+});
 </script>
 
 
