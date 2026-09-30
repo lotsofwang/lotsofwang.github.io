@@ -58,7 +58,7 @@ input {
 
 
 /* =========================================================
-   NAV
+   NAVIGATION
 ========================================================= */
 
 nav {
@@ -154,7 +154,7 @@ nav {
 
 
 /* =========================================================
-   GENERAL SECTIONS
+   GENERAL
 ========================================================= */
 
 section {
@@ -198,9 +198,9 @@ section {
 ========================================================= */
 
 .hero {
-    min-height: 620px;
+    min-height: 555px;
 
-    padding: 55px 6vw 50px;
+    padding: 48px 6vw 38px;
 
     display: flex;
     flex-direction: column;
@@ -228,7 +228,7 @@ section {
 
     max-width: 1250px;
 
-    margin-top: 50px;
+    margin-top: 38px;
 }
 
 .hero-title .outline {
@@ -239,17 +239,22 @@ section {
 .hero-bottom {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
 
     gap: 30px;
 
-    margin-top: 50px;
+    margin-top: 35px;
 }
 
-.hero-copy {
-    max-width: 430px;
+.hero-regions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 
-    font-size: 16px;
+    gap: 8px;
+
+    font-size: 24px;
+    line-height: 1;
 }
 
 .hero-buttons {
@@ -294,58 +299,47 @@ section {
 
 
 /* =========================================================
-   ANYWHERE
+   MARQUEE
 ========================================================= */
 
-.anywhere {
-    background: #e8e8e2;
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
 
-    padding-top: 65px;
-    padding-bottom: 60px;
+    border-bottom: 1px solid var(--black);
+
+    padding: 12px 0;
+
+    font-family: monospace;
+    font-size: 10px;
 }
 
-.anywhere-title {
-    font-size: clamp(50px, 8.3vw, 125px);
+.marquee-track {
+    display: inline-block;
 
-    line-height: .82;
-    letter-spacing: -.085em;
-
-    font-weight: 800;
-
-    max-width: 1250px;
+    animation: scroll 25s linear infinite;
 }
 
-.country-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 9px;
+@keyframes scroll {
 
-    margin-top: 48px;
-}
+    from {
+        transform: translateX(0);
+    }
 
-.country {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    to {
+        transform: translateX(-50%);
+    }
 
-    padding: 10px 17px;
-
-    border: 1px solid #aaa;
-    border-radius: 999px;
-
-    font-size: 14px;
-
-    background: rgba(255,255,255,.18);
-}
-
-.country span:first-child {
-    font-size: 17px;
 }
 
 
 /* =========================================================
-   LEARN
+   WHAT CAN YOU LEARN
 ========================================================= */
+
+.learn-section {
+    padding-top: 68px;
+}
 
 .learn-list {
     margin-top: 48px;
@@ -393,11 +387,11 @@ section {
 
 
 /* =========================================================
-   FORMAT + LENGTH COMBINED
+   FORMAT + LENGTH
 ========================================================= */
 
 .format-section {
-    padding-bottom: 0;
+    padding-bottom: 65px;
 }
 
 .format-grid {
@@ -451,13 +445,12 @@ section {
     font-size: 11px;
 }
 
-
-/* =========================================================
-   LENGTH
-========================================================= */
+.length-label {
+    margin-top: 52px;
+}
 
 .length-block {
-    margin-top: 45px;
+    margin-top: 25px;
 
     border-top: 1px solid var(--black);
 
@@ -697,7 +690,7 @@ input[type="number"] {
 
 
 /* =========================================================
-   SELF PACED
+   SELF-PACED COURSES
 ========================================================= */
 
 .self-paced {
@@ -959,6 +952,8 @@ input[type="number"] {
     gap: 65px;
 
     margin-top: 48px;
+
+    align-items: center;
 }
 
 .contact-note {
@@ -978,6 +973,8 @@ input[type="number"] {
 
     justify-content: space-between;
 
+    align-items: center;
+
     padding: 15px 0;
 
     border-bottom: 1px solid var(--black);
@@ -985,7 +982,15 @@ input[type="number"] {
     font-size: 15px;
 }
 
-.contact-link span {
+.contact-name {
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 15px;
+
+    color: var(--black);
+}
+
+.contact-action {
     font-family: monospace;
 
     font-size: 9px;
@@ -1060,6 +1065,12 @@ footer {
         align-items: flex-start;
     }
 
+    .hero-regions {
+        font-size: 19px;
+
+        gap: 6px;
+    }
+
     .format-grid,
     .pack-grid,
     .course-grid,
@@ -1073,6 +1084,7 @@ footer {
 
     .length:not(:last-child) {
         border-right: none;
+
         margin-right: 0;
     }
 
@@ -1131,33 +1143,80 @@ footer {
     <div class="nav-links">
 
         <a href="#learn">
-            <span class="en">Learn</span>
-            <span class="zh">课程</span>
+
+            <span class="en">
+                Learn
+            </span>
+
+            <span class="zh">
+                课程
+            </span>
+
         </a>
+
 
         <a href="#formats">
-            <span class="en">Live Classes</span>
-            <span class="zh">直播课程</span>
+
+            <span class="en">
+                Live Classes
+            </span>
+
+            <span class="zh">
+                直播课程
+            </span>
+
         </a>
+
 
         <a href="#packs">
-            <span class="en">Packages</span>
-            <span class="zh">课程套餐</span>
+
+            <span class="en">
+                Packages
+            </span>
+
+            <span class="zh">
+                课程套餐
+            </span>
+
         </a>
+
 
         <a href="#self-paced">
-            <span class="en">Self-Paced Courses</span>
-            <span class="zh">录播课程</span>
+
+            <span class="en">
+                Self-Paced Courses
+            </span>
+
+            <span class="zh">
+                录播课程
+            </span>
+
         </a>
+
 
         <a href="#about">
-            <span class="en">About</span>
-            <span class="zh">关于我</span>
+
+            <span class="en">
+                About
+            </span>
+
+            <span class="zh">
+                关于我
+            </span>
+
         </a>
 
+
         <a href="#contact">
-            <span class="en">Contact</span>
-            <span class="zh">联系我</span>
+
+            <span class="en">
+                Contact
+            </span>
+
+            <span class="zh">
+                联系我
+            </span>
+
         </a>
 
     </div>
@@ -1169,11 +1228,16 @@ footer {
             EN / 中
         </button>
 
+
         <a href="#trial" class="nav-cta">
 
-            <span class="en">Free Trial</span>
+            <span class="en">
+                Free Trial
+            </span>
 
-            <span class="zh">免费试听</span>
+            <span class="zh">
+                免费试听
+            </span>
 
         </a>
 
@@ -1213,7 +1277,9 @@ footer {
 
             LEARN<br>
 
-            <span class="outline">CHINESE.</span><br>
+            <span class="outline">
+                CHINESE.
+            </span><br>
 
             FROM<br>
 
@@ -1226,22 +1292,27 @@ footer {
 
     <div class="hero-bottom">
 
-        <div class="hero-copy">
 
-            <p class="en">
-                Chinese lessons built around your level,
-                your goals and the way you actually learn.
-            </p>
+        <div class="hero-regions">
 
-            <p class="zh">
-                根据你的水平、目标和学习方式，
-                打造真正适合你的中文课程。
-            </p>
+            <span>🇦🇺</span>
+            <span>🇳🇿</span>
+
+            <span>🇪🇸</span>
+            <span>🇬🇧</span>
+            <span>🇩🇪</span>
+            <span>🇫🇷</span>
+
+            <span>🇺🇸</span>
+            <span>🇨🇦</span>
+
+            <span>🌎</span>
 
         </div>
 
 
         <div class="hero-buttons">
+
 
             <a href="#trial" class="primary-btn">
 
@@ -1277,111 +1348,21 @@ footer {
 
 
 <!-- =====================================================
-     FROM ANYWHERE
+     MARQUEE
 ===================================================== -->
 
-<section class="anywhere">
+<div class="marquee">
 
-    <div class="eyebrow">
+    <div class="marquee-track">
 
-        01 — LEARN FROM ANYWHERE
-
-    </div>
-
-
-    <h2 class="anywhere-title">
-
-        LEARN CHINESE<br>
-
-        FROM ANYWHERE.
-
-    </h2>
-
-
-    <p class="section-intro en">
-
-        Wherever you are, your Chinese classroom can come with you.
-
-    </p>
-
-    <p class="section-intro zh">
-
-        无论你在哪里，都可以随时进入你的中文课堂。
-
-    </p>
-
-
-    <div class="country-list">
-
-
-        <!-- Oceania -->
-
-        <div class="country">
-            <span>🇦🇺</span>
-            <span>Australia</span>
-        </div>
-
-        <div class="country">
-            <span>🇳🇿</span>
-            <span>New Zealand</span>
-        </div>
-
-
-        <!-- Europe -->
-
-        <div class="country">
-            <span>🇪🇸</span>
-            <span>Spain</span>
-        </div>
-
-        <div class="country">
-            <span>🇬🇧</span>
-            <span>UK</span>
-        </div>
-
-        <div class="country">
-            <span>🇩🇪</span>
-            <span>Germany</span>
-        </div>
-
-        <div class="country">
-            <span>🇫🇷</span>
-            <span>France</span>
-        </div>
-
-
-        <!-- North America -->
-
-        <div class="country">
-            <span>🇺🇸</span>
-            <span>USA</span>
-        </div>
-
-        <div class="country">
-            <span>🇨🇦</span>
-            <span>Canada</span>
-        </div>
-
-
-        <!-- Everywhere -->
-
-        <div class="country">
-
-            <span>🌎</span>
-
-            <span class="en">
-                Anywhere
-            </span>
-
-            <span class="zh">
-                世界各地
-            </span>
-
-        </div>
+        LEARN · SPEAK · UNDERSTAND · CONNECT ·
+        LEARN · SPEAK · UNDERSTAND · CONNECT ·
+        LEARN · SPEAK · UNDERSTAND · CONNECT ·
+        LEARN · SPEAK · UNDERSTAND · CONNECT ·
 
     </div>
 
-</section>
+</div>
 
 
 
@@ -1389,10 +1370,10 @@ footer {
      WHAT CAN YOU LEARN
 ===================================================== -->
 
-<section id="learn">
+<section id="learn" class="learn-section">
 
     <div class="eyebrow">
-        02 — WHAT CAN YOU LEARN?
+        01 — WHAT CAN YOU LEARN?
     </div>
 
 
@@ -1411,6 +1392,7 @@ footer {
         work, travel or simply because you want to speak Chinese better.
 
     </p>
+
 
     <p class="section-intro zh">
 
@@ -1540,7 +1522,7 @@ footer {
 <section id="formats" class="format-section">
 
     <div class="eyebrow">
-        03 — HOW DO YOU WANT TO LEARN?
+        02 — HOW DO YOU WANT TO LEARN?
     </div>
 
 
@@ -1562,21 +1544,29 @@ footer {
                 01 / PRIVATE
             </div>
 
+
             <div>
 
                 <h3>
                     Private
                 </h3>
 
+
                 <p class="en">
+
                     One teacher. One student.
                     Completely focused on you.
+
                 </p>
 
+
                 <p class="zh">
+
                     一位老师，一位学生。
                     完全根据你的需求定制。
+
                 </p>
+
 
                 <strong>
                     1 student
@@ -1587,11 +1577,13 @@ footer {
         </div>
 
 
+
         <div class="format">
 
             <div class="format-number">
                 02 / SMALL GROUP
             </div>
+
 
             <div>
 
@@ -1599,15 +1591,22 @@ footer {
                     Small Group
                 </h3>
 
+
                 <p class="en">
+
                     Learn with 2–3 students
                     while keeping the class interactive.
+
                 </p>
 
+
                 <p class="zh">
+
                     2–3人小班，
                     保持互动，同时享受小班关注度。
+
                 </p>
+
 
                 <strong>
                     2–3 students
@@ -1618,11 +1617,13 @@ footer {
         </div>
 
 
+
         <div class="format">
 
             <div class="format-number">
                 03 / MATCHED GROUP
             </div>
+
 
             <div>
 
@@ -1630,15 +1631,22 @@ footer {
                     Matched Group
                 </h3>
 
+
                 <p class="en">
+
                     Students are matched according to
                     level, age, goals and learning style.
+
                 </p>
 
+
                 <p class="zh">
+
                     根据水平、年龄、目标和学习方式，
                     匹配适合你的同学。
+
                 </p>
+
 
                 <strong>
                     4–6 students
@@ -1651,7 +1659,8 @@ footer {
     </div>
 
 
-    <div class="eyebrow" style="margin-top:55px;">
+
+    <div class="eyebrow length-label">
 
         LESSON LENGTH
 
@@ -1667,9 +1676,11 @@ footer {
                 30'
             </h3>
 
+
             <p class="en">
                 SHORT · FOCUSED · FLEXIBLE
             </p>
+
 
             <p class="zh">
                 短时 · 集中 · 灵活
@@ -1684,9 +1695,11 @@ footer {
                 40'
             </h3>
 
+
             <p class="en">
                 BALANCED · INTERACTIVE
             </p>
+
 
             <p class="zh">
                 平衡 · 互动
@@ -1701,9 +1714,11 @@ footer {
                 60'
             </h3>
 
+
             <p class="en">
                 DEEP · COMPLETE · IMMERSIVE
             </p>
+
 
             <p class="zh">
                 深入 · 完整 · 沉浸
@@ -1724,7 +1739,7 @@ footer {
 <section class="packs" id="packs">
 
     <div class="eyebrow">
-        04 — POPULAR PACKS
+        03 — POPULAR PACKS
     </div>
 
 
@@ -1743,6 +1758,7 @@ footer {
         Final prices are coming soon.
 
     </p>
+
 
     <p class="section-intro zh">
 
@@ -2276,7 +2292,8 @@ footer {
         </div>
 
 
-        <h2 class="section-title" style="font-size:clamp(42px,5vw,70px);">
+        <h2 class="section-title"
+            style="font-size:clamp(42px,5vw,70px);">
 
             BUILD YOUR<br>
 
@@ -2291,6 +2308,7 @@ footer {
             number of lessons and weekly frequency.
 
         </p>
+
 
         <p class="section-intro zh">
 
@@ -2498,7 +2516,8 @@ footer {
 
             <div>
 
-                <div class="mono" style="font-size:9px; margin-bottom:7px;">
+                <div class="mono"
+                     style="font-size:9px; margin-bottom:7px;">
 
                     <span class="en">
                         YOUR STUDY PLAN
@@ -2512,12 +2531,16 @@ footer {
 
 
                 <h3 id="packResult">
+
                     Small Group · 40 min · 10 lessons
+
                 </h3>
 
 
                 <p id="packDuration">
+
                     2 lessons / week · about 5 weeks
+
                 </p>
 
             </div>
@@ -2544,13 +2567,13 @@ footer {
 
 
 <!-- =====================================================
-     SELF PACED COURSES
+     SELF-PACED COURSES
 ===================================================== -->
 
 <section class="self-paced" id="self-paced">
 
     <div class="eyebrow">
-        05 — SELF-PACED COURSES
+        04 — SELF-PACED COURSES
     </div>
 
 
@@ -2572,6 +2595,7 @@ footer {
         practical Chinese courses.
 
     </p>
+
 
     <p class="section-intro zh">
 
@@ -2595,19 +2619,29 @@ footer {
             <div>
 
                 <h3>
+
                     PINYIN<br>
+
                     FROM ZERO
+
                 </h3>
 
+
                 <p class="en">
+
                     Build a solid pronunciation foundation
                     without feeling overwhelmed.
+
                 </p>
 
+
                 <p class="zh">
+
                     从零开始掌握拼音和中文发音，
                     建立清晰的发音基础。
+
                 </p>
+
 
                 <a href="#contact" class="course-link">
 
@@ -2637,19 +2671,29 @@ footer {
             <div>
 
                 <h3>
+
                     SURVIVAL<br>
+
                     CHINESE
+
                 </h3>
 
+
                 <p class="en">
+
                     Useful Chinese for airports, hotels,
                     restaurants, shopping and real travel situations.
+
                 </p>
 
+
                 <p class="zh">
+
                     学习机场、酒店、餐厅、购物和旅行中
                     真正用得到的中文。
+
                 </p>
+
 
                 <a href="#contact" class="course-link">
 
@@ -2679,19 +2723,29 @@ footer {
             <div>
 
                 <h3>
+
                     EVERYDAY<br>
+
                     MANDARIN
+
                 </h3>
 
+
                 <p class="en">
+
                     Understand and use the Chinese
                     you actually hear in everyday conversations.
+
                 </p>
 
+
                 <p class="zh">
+
                     学习日常生活中真正能听到、
                     能用到的中文表达。
+
                 </p>
+
 
                 <a href="#contact" class="course-link">
 
@@ -2714,7 +2768,8 @@ footer {
 
     <div style="margin-top:35px;">
 
-        <p class="mono" style="font-size:9px; color:#999;">
+        <p class="mono"
+           style="font-size:9px; color:#999;">
 
             <span class="en">
                 MORE COURSES ARE ON THE WAY.
@@ -2739,7 +2794,7 @@ footer {
 <section id="about">
 
     <div class="eyebrow">
-        06 — ABOUT XIĀO
+        05 — ABOUT XIĀO
     </div>
 
 
@@ -2784,6 +2839,7 @@ footer {
 
             </p>
 
+
             <p class="zh">
 
                 我已经在线教授中文多年，
@@ -2798,6 +2854,7 @@ footer {
                 more useful in real life, and more enjoyable to learn.
 
             </p>
+
 
             <p class="zh">
 
@@ -2861,11 +2918,11 @@ footer {
                     <div class="stat-label">
 
                         <span class="en">
-                            Student Age
+                            No Age Limit
                         </span>
 
                         <span class="zh">
-                            学生年龄
+                            年龄不限
                         </span>
 
                     </div>
@@ -2910,7 +2967,7 @@ footer {
 <section>
 
     <div class="eyebrow">
-        07 — WHERE WE LEARN
+        06 — WHERE WE LEARN
     </div>
 
 
@@ -2932,17 +2989,24 @@ footer {
                 ClassIn
             </h3>
 
+
             <p class="en">
+
                 Recommended for regular lessons.
                 Professional classroom tools and free for students.
+
             </p>
 
+
             <p class="zh">
+
                 推荐用于常规课程。
                 专业的在线课堂工具，对学生免费。
+
             </p>
 
         </div>
+
 
 
         <div class="platform">
@@ -2951,15 +3015,22 @@ footer {
                 Zoom
             </h3>
 
+
             <p class="en">
+
                 Simple, familiar and easy to use.
+
             </p>
 
+
             <p class="zh">
+
                 简单、熟悉、方便使用。
+
             </p>
 
         </div>
+
 
 
         <div class="platform">
@@ -2968,14 +3039,20 @@ footer {
                 Preply
             </h3>
 
+
             <p class="en">
+
                 Available for students who prefer
                 booking through Preply.
+
             </p>
 
+
             <p class="zh">
+
                 如果你习惯通过 Preply 预约，
                 也可以选择这个平台。
+
             </p>
 
         </div>
@@ -2995,9 +3072,7 @@ footer {
     <div>
 
         <div class="eyebrow">
-
-            08 — START HERE
-
+            07 — START HERE
         </div>
 
 
@@ -3020,6 +3095,7 @@ footer {
             Come try one first.
 
         </p>
+
 
         <p class="trial-copy zh">
 
@@ -3054,7 +3130,7 @@ footer {
 <section id="contact">
 
     <div class="eyebrow">
-        09 — CONTACT
+        08 — CONTACT
     </div>
 
 
@@ -3079,6 +3155,7 @@ footer {
 
             </p>
 
+
             <p class="zh">
 
                 告诉我一些你的情况、
@@ -3096,6 +3173,7 @@ footer {
 
             </p>
 
+
             <p class="zh">
 
                 我会帮你找到最适合你的课程或套餐。
@@ -3110,54 +3188,73 @@ footer {
 
             <a href="#" class="contact-link">
 
-                <span class="en">
-                    Email
+                <span class="contact-name">
+
+                    <span class="en">
+                        Email
+                    </span>
+
+                    <span class="zh">
+                        邮箱
+                    </span>
+
                 </span>
 
-                <span class="zh">
-                    邮箱
-                </span>
 
-                <span>
+                <span class="contact-action">
                     CONTACT →
                 </span>
 
             </a>
 
 
+
             <a href="#" class="contact-link">
 
-                WhatsApp
+                <span class="contact-name">
+                    WhatsApp
+                </span>
 
-                <span>
+
+                <span class="contact-action">
                     MESSAGE →
                 </span>
 
             </a>
 
 
+
             <a href="#" class="contact-link">
 
-                WeChat
+                <span class="contact-name">
+                    WeChat
+                </span>
 
-                <span>
+
+                <span class="contact-action">
                     ADD →
                 </span>
 
             </a>
 
 
+
             <a href="#" class="contact-link">
 
-                <span class="en">
-                    Inquiry Form
+                <span class="contact-name">
+
+                    <span class="en">
+                        Inquiry Form
+                    </span>
+
+                    <span class="zh">
+                        咨询表格
+                    </span>
+
                 </span>
 
-                <span class="zh">
-                    咨询表格
-                </span>
 
-                <span>
+                <span class="contact-action">
                     OPEN →
                 </span>
 
@@ -3270,11 +3367,12 @@ const customFrequency =
     document.getElementById("customFrequency");
 
 
-
 function updatePack() {
 
 
-    /* ---------- CUSTOM LESSONS ---------- */
+    /* -------------------------
+       CUSTOM LESSONS
+    ------------------------- */
 
     if (lessonsSelect.value === "custom") {
 
@@ -3287,7 +3385,9 @@ function updatePack() {
     }
 
 
-    /* ---------- CUSTOM FREQUENCY ---------- */
+    /* -------------------------
+       CUSTOM FREQUENCY
+    ------------------------- */
 
     if (frequencySelect.value === "custom") {
 
@@ -3300,7 +3400,9 @@ function updatePack() {
     }
 
 
-    /* ---------- GET LESSON NUMBER ---------- */
+    /* -------------------------
+       LESSON NUMBER
+    ------------------------- */
 
     let lessons;
 
@@ -3317,7 +3419,9 @@ function updatePack() {
     }
 
 
-    /* ---------- GET FREQUENCY ---------- */
+    /* -------------------------
+       FREQUENCY
+    ------------------------- */
 
     let frequency;
 
@@ -3334,25 +3438,33 @@ function updatePack() {
     }
 
 
-    /* ---------- FORMAT ---------- */
+    /* -------------------------
+       FORMAT
+    ------------------------- */
 
     const format =
         formatSelect.value;
 
 
-    /* ---------- LENGTH ---------- */
+    /* -------------------------
+       LENGTH
+    ------------------------- */
 
     const length =
         lengthSelect.value;
 
 
-    /* ---------- WEEKS ---------- */
+    /* -------------------------
+       WEEKS
+    ------------------------- */
 
     const weeks =
         Math.ceil(lessons / frequency);
 
 
-    /* ---------- UPDATE RESULT ---------- */
+    /* -------------------------
+       RESULT
+    ------------------------- */
 
     document.getElementById("packResult").innerText =
         format +
@@ -3380,7 +3492,7 @@ function updatePack() {
 
 
 /* =====================================================
-   LISTENERS
+   EVENT LISTENERS
 ===================================================== */
 
 formatSelect.addEventListener(
@@ -3414,7 +3526,9 @@ customFrequency.addEventListener(
 );
 
 
-/* INITIAL */
+/* =====================================================
+   INITIALIZE
+===================================================== */
 
 updatePack();
 
