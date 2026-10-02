@@ -807,7 +807,7 @@ input[type="number"] {
 .policy-row {
     padding: 12px 0;
     border-top: 1px solid var(--line);
-    font-size: 11px;
+    font-size: 10px;
 }
 
 .policy-row strong {
@@ -1355,6 +1355,20 @@ body.lang-zh button.zh {
 
 
 
+.payment-summary { border-top:1px solid #111; border-bottom:1px solid #111; padding:16px 0; margin:20px 0; display:grid; gap:10px; }
+.payment-summary > div { display:flex; justify-content:space-between; gap:20px; }
+.payment-summary strong { font-family:monospace; font-size:10px; text-transform:uppercase; letter-spacing:.08em; }
+.payment-group-note { font-size:12px; color:var(--muted); margin-bottom:18px; }
+.policy-check a { text-decoration:underline; }
+.full-policy-text { font-size:13px; line-height:1.6; }
+.full-policy-text h4 { margin:22px 0 7px; font-size:14px; }
+.full-policy-text p { margin-bottom:10px; }
+#payButton:disabled { opacity:.45; cursor:not-allowed; }
+
+.builder-actions { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+.builder-actions .primary-btn, .builder-actions .secondary-btn { display:inline-flex; align-items:center; justify-content:center; }
+@media (max-width:600px){ .builder-actions { flex-direction:column; align-items:stretch; } }
+
 /* =====================================================
    FUNCTIONAL FORMS / MODALS
 ===================================================== */
@@ -1476,10 +1490,118 @@ body.lang-zh button.zh {
     }
 }
 
+
+
+.builder-policies {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.builder-result .builder-policies {
+    max-width: 760px;
+}
+
+.policy-switcher {
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+    max-width: 900px;
+}
+
+.policy-heading {
+    font-family: monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--muted);
+    margin-bottom: 12px;
+}
+
+.policy-content h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.policy-row {
+    display: grid;
+    grid-template-columns: 105px 1fr;
+    gap: 12px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--gray);
+    font-size: 11px;
+}
+
+.policy-row strong {
+    font-family: monospace;
+    font-size: 9px;
+}
+
+.policy-content p,
+.policy-note {
+    font-size: 11px;
+    color: var(--dark-gray);
+}
+
+.policy-note {
+    margin-top: 14px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.policy-note strong {
+    font-family: monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+}
+
+.pack-price-result {
+    margin-top: 10px;
+    font-family: monospace;
+    font-size: 12px;
+    letter-spacing: .02em;
+}
+
+@media (max-width: 600px) {
+    .policy-row {
+        grid-template-columns: 95px 1fr;
+    }
+}
+
 </style>
 <style>
 .day-options{display:flex;flex-wrap:wrap;gap:8px 14px;margin-top:8px}.day-option{font-size:12px;font-weight:400;display:flex;align-items:center;gap:5px}.day-option input{width:auto}.time-preview{font-size:11px;line-height:1.6;color:#666;border-top:1px solid #ddd;padding-top:10px}.optional{color:#999;font-weight:400}.form-field select{width:100%}
 </style>
+
+<style>
+.course-policy {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid #bdbdb7;
+  font-size: 12px;
+}
+.course-policy .eyebrow { margin-bottom: 10px; }
+.course-policy .policy-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 6px 0 8px;
+}
+.course-policy p {
+  margin: 5px 0;
+  line-height: 1.5;
+}
+.course-policy strong,
+.course-policy .policy-label {
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: .06em;
+}
+.course-policy .policy-common { margin-top: 12px; }
+.course-policy .policy-label {
+  font-weight: 700;
+  margin-top: 10px;
+}
+</style>
+
 </head>
 <body>
 <!-- =====================================================
@@ -1948,13 +2070,13 @@ body.lang-zh button.zh {
 <p class="section-intro en">
 
         Three example study routines.
-        Final prices are coming soon.
+        Prices are shown as the final package price for the selected lesson format and length.
 
     </p>
 <p class="section-intro zh">
 
         三种热门学习方案。
-        具体价格稍后公布。
+        以下为所选课程形式和时长对应的套餐价格。
 
     </p>
 <div class="pack-grid">
@@ -2031,10 +2153,10 @@ body.lang-zh button.zh {
 <div>
 <div class="pack-note">
 <span class="en">
-                        PRICE COMING SOON
+                        €180 TOTAL / STUDENT
                     </span>
 <span class="zh">
-                        价格即将公布
+                        €180 / 人 / 套
                     </span>
 </div>
 <a class="pack-btn" href="#contact">
@@ -2095,7 +2217,7 @@ body.lang-zh button.zh {
 <span class="zh">
                             频率
                         </span>
-<span class="en">3 / week</span><span class="zh">每周 3 次</span>
+<span class="en">2 / week</span><span class="zh">每周 2 次</span>
 </div>
 <div class="pack-detail">
 <span class="en">
@@ -2104,7 +2226,7 @@ body.lang-zh button.zh {
 <span class="zh">
                             总课时
                         </span>
-<span class="en">15 lessons</span><span class="zh">15 节课</span>
+<span class="en">10 lessons</span><span class="zh">10 节课</span>
 </div>
 <div class="pack-detail">
 <span class="en">
@@ -2120,10 +2242,10 @@ body.lang-zh button.zh {
 <div>
 <div class="pack-note">
 <span class="en">
-                        PRICE COMING SOON
+                        €140 TOTAL
                     </span>
 <span class="zh">
-                        价格即将公布
+                        €140 / 套
                     </span>
 </div>
 <a class="pack-btn" href="#contact">
@@ -2209,10 +2331,10 @@ body.lang-zh button.zh {
 <div>
 <div class="pack-note">
 <span class="en">
-                        PRICE COMING SOON
+                        €100 TOTAL / STUDENT
                     </span>
 <span class="zh">
-                        价格即将公布
+                        €100 / 人 / 套
                     </span>
 </div>
 <a class="pack-btn" href="#contact">
@@ -2288,7 +2410,6 @@ body.lang-zh button.zh {
 <select id="lessonsSelect">
 <option value="5" data-en="5 lessons" data-zh="5 节课">5 lessons</option>
 <option selected="" value="10" data-en="10 lessons" data-zh="10 节课">10 lessons</option>
-<option value="15" data-en="15 lessons" data-zh="15 节课">15 lessons</option>
 <option value="20" data-en="20 lessons" data-zh="20 节课">20 lessons</option>
 <option value="custom" data-en="Custom" data-zh="自定义">Custom</option>
 </select>
@@ -2333,17 +2454,58 @@ body.lang-zh button.zh {
                     2 lessons / week · about 5 weeks
 
                 </p>
+<div class="pack-price-box" style="margin-top:22px; padding:18px 20px; border:1px solid #111;">
+  <div class="mono" style="font-size:9px; margin-bottom:6px;">
+    <span class="en">PRICE</span>
+    <span class="zh">价格</span>
+  </div>
+  <div id="packPrice" style="font-size:38px;font-weight:700;line-height:1.1;">€250</div>
+<div id="packPerLesson" style="font-size:13px;margin-top:5px;">€25 / lesson</div>
+  <div id="packPriceSummary" style="font-size:10px;color:#777;margin-top:6px;">10 × 60-minute lessons</div>
+<div id="coursePolicy" class="course-policy">
+  <div class="eyebrow">COURSE POLICY</div>
+
+  <div id="privatePolicy" class="policy-content">
+    <div class="policy-title">1-ON-1</div>
+    <p><strong>24+ HOURS</strong> — Free rescheduling of the full lesson.</p>
+    <p><strong>12–24 HOURS</strong> — Non-refundable; 50% of the lesson time can be rescheduled.</p>
+    <p><strong>LESS THAN 12 HOURS</strong> — Non-refundable; the lesson cannot be rescheduled.</p>
+  </div>
+
+  <div id="groupPolicy" class="policy-content" style="display:none;">
+    <div class="policy-title">GROUP LESSONS</div>
+    <p>You may report an absence at any time. The full lesson fee still applies, and group lessons cannot be rescheduled. A class recording will be provided after the lesson.</p>
+  </div>
+
+  <div class="policy-common">
+    <div class="policy-label">TEACHER RESCHEDULING</div>
+    <p>At least 12 hours' notice whenever possible. If the teacher reschedules with less than 12 hours' notice, one complimentary lesson will be provided.</p>
+
+    <div class="policy-label">PACKAGE REFUNDS</div>
+    <p>If you cancel a package after lessons have started, completed lessons are recalculated at the standard rate for that format and length. The remaining balance is refunded.</p>
+  </div>
 </div>
+
+  
+</div>
+
+<div class="builder-actions">
 <a class="primary-btn" href="#" onclick="openAvailabilityFromBuilder(); return false;">
 <span class="en">Check Availability →</span>
 <span class="zh">查询时间 →</span>
 </a>
+<a class="secondary-btn" href="#" onclick="openPaymentFromBuilder(); return false;">
+<span class="en">Confirm &amp; Pay →</span>
+<span class="zh">确认并付款 →</span>
+</a>
+</div>
 </div>
 </div>
 </section>
 <!-- =====================================================
      SELF-PACED COURSES
 ===================================================== -->
+
 <section class="self-paced" id="self-paced">
 <div class="eyebrow"><span class="en">04 — SELF-PACED COURSES</span><span class="zh">04 — 录播课程</span></div>
 <h2 class="section-title"><span class="en">LEARN AT YOUR OWN PACE.</span><span class="zh">按照自己的节奏学习。</span></h2>
@@ -2600,31 +2762,6 @@ body.lang-zh button.zh {
 </div>
 </div>
 </section>
-<!-- =====================================================
-     COURSE POLICIES
-===================================================== -->
-<section class="course-policies" id="policies">
-<div class="eyebrow"><span class="en">POLICIES</span><span class="zh">课程规则</span></div>
-<h2 class="section-title"><span class="en">CLEAR RULES.<br>NO SURPRISES.</span><span class="zh">课程规则<br>提前说清楚。</span></h2>
-<div class="policy-grid">
-<div class="policy-card">
-<h3><span class="en">1-ON-1 LESSONS</span><span class="zh">1 对 1 课程</span></h3>
-<div class="policy-row"><strong>24+ hours</strong><span class="en">Free rescheduling of the full lesson.</span><span class="zh">可免费改期完整课时。</span></div>
-<div class="policy-row"><strong>12–24 hours</strong><span class="en">The lesson fee is non-refundable, but 50% of the lesson time can be rescheduled.</span><span class="zh">课程费用不退，但可改期 50% 的课时时长。</span></div>
-<div class="policy-row"><strong>Less than 12 hours</strong><span class="en">The lesson fee is non-refundable and the lesson cannot be rescheduled.</span><span class="zh">课程费用不退，且不可改期。</span></div>
-</div>
-<div class="policy-card">
-<h3><span class="en">GROUP LESSONS</span><span class="zh">多人课程</span></h3>
-<p class="en">Students may report an absence at any time. The full lesson fee still applies, and group lessons cannot be rescheduled. A class recording will be provided after the lesson.</p>
-<p class="zh">多人班可以随时请假，但课程费用仍全额收取，且不安排补课。课后老师会发送课程录课。</p>
-</div>
-<div class="policy-card">
-<h3><span class="en">TEACHER RESCHEDULING</span><span class="zh">老师改课</span></h3>
-<p class="en">The teacher will give at least 12 hours' notice whenever possible. If a lesson is rescheduled with less than 12 hours' notice, the student will receive one complimentary lesson.</p>
-<p class="zh">老师如需改课，会尽可能提前至少 12 小时通知。如果老师在少于 12 小时的情况下临时改课，将赠送学生一节课。</p>
-</div>
-</div>
-</section>
 
 <!-- =====================================================
      FREE TRIAL
@@ -2747,7 +2884,7 @@ body.lang-zh button.zh {
 <div class="form-field full"><label>Learning goals</label><textarea name="goals" placeholder="What would you like to improve?"></textarea></div>
 </div>
 <label class="form-check"><input name="flexible" type="checkbox"/> <span>I can be flexible with my schedule if needed.</span></label>
-<div class="form-actions"><button class="primary-btn" type="submit">Send Availability →</button><button class="secondary-btn" onclick="openInquiry();" type="button">Inquiry First</button></div>
+<div class="form-actions"><button class="primary-btn" type="submit">Check Availability →</button><button class="secondary-btn" onclick="openPaymentFromAvailability();" type="button">Confirm &amp; Pay →</button></div>
 <div class="modal-note">Your local time is automatically converted to Madrid time. This form does not promise a time. I will contact you after reviewing your availability.</div>
 <div class="form-success" id="availabilitySuccess">Thanks! Your availability has been sent. I will contact you after reviewing your preferred times.</div>
 </form>
@@ -2800,7 +2937,7 @@ body.lang-zh button.zh {
 <p class="modal-intro en">No problem. Tell me what you are looking for and I will help you work out the options first.</p>
 <p class="modal-intro zh">还不确定选哪种课程？没关系，先告诉我你的需求，我会帮你一起看看。</p>
 <form action="https://formspree.io/f/xoevblyo" id="inquiryForm" method="POST" onsubmit="submitInquiry(event)">
-<input name="form_type" type="hidden" value="Inquiry First"/>
+<input name="form_type" type="hidden" value="General Inquiry"/>
 <div class="form-grid">
 <div class="form-field"><label>Name *</label><input name="name" required=""/></div>
 <div class="form-field"><label>Email *</label><input name="email" required="" type="email"/></div>
@@ -2814,6 +2951,53 @@ body.lang-zh button.zh {
 </form>
 </div>
 </div>
+<div class="modal-overlay" id="paymentModal" onclick="closeOnBackdrop(event, 'paymentModal')">
+<div class="modal">
+<button class="modal-close" onclick="closeModal('paymentModal')">×</button>
+<div class="eyebrow">CONFIRM &amp; PAY</div>
+<h3><span class="en">Review your package.</span><span class="zh">确认你的课程套餐。</span></h3>
+<p class="modal-intro en">Please review your package and price, then read and accept the Course Terms &amp; Policies before payment.</p>
+<p class="modal-intro zh">请确认你的课程套餐和价格，并阅读、同意课程条款与规则后再付款。</p>
+<div class="payment-summary">
+<div><strong><span class="en">Package</span><span class="zh">套餐</span></strong><span id="paymentPlan">—</span></div>
+<div><strong><span class="en">Price</span><span class="zh">价格</span></strong><span id="paymentPrice">—</span></div>
+</div>
+<p class="payment-group-note" id="paymentGroupNote"><span class="en">For group classes, payment is completed after the group and schedule are confirmed.</span><span class="zh">多人课程将在确认成班和上课时间后付款。</span></p>
+<label class="form-check policy-check"><input id="policyAgreement" type="checkbox"/> <span><span class="en">I have read and agree to the <a href="#" onclick="openFullPolicy(); return false;">Course Terms &amp; Policies</a>.</span><span class="zh">我已阅读并同意<a href="#" onclick="openFullPolicy(); return false;">课程条款与规则</a>。</span></span></label>
+<div class="form-actions"><button class="primary-btn" id="payButton" type="button" disabled onclick="startPayment();"><span class="en">Continue to Secure Payment →</span><span class="zh">继续安全付款 →</span></button></div>
+<div class="modal-note"><span class="en">Online payment will be connected through Stripe. The payment button will be enabled once the terms are accepted.</span><span class="zh">线上付款将通过 Stripe 完成。勾选并同意条款后即可继续付款。</span></div>
+</div>
+</div>
+
+<div class="modal-overlay" id="fullPolicyModal" onclick="closeOnBackdrop(event, 'fullPolicyModal')">
+<div class="modal">
+<button class="modal-close" onclick="closeModal('fullPolicyModal')">×</button>
+<div class="eyebrow">COURSE TERMS &amp; POLICIES</div>
+<h3><span class="en">Course Terms &amp; Policies</span><span class="zh">课程条款与规则</span></h3>
+<div class="full-policy-text">
+<h4>1. Booking &amp; Payment</h4>
+<p>Lessons and packages are confirmed after the selected schedule is agreed. Payment is due before the first paid lesson unless otherwise agreed.</p>
+<h4>2. 1-on-1 Rescheduling</h4>
+<p>24+ hours before class: the full lesson may be rescheduled at no additional cost. 12–24 hours: the fee is non-refundable, but 50% of the lesson time may be rescheduled. Less than 12 hours: the fee is non-refundable and the lesson cannot be rescheduled.</p>
+<h4>3. Group Lessons</h4>
+<p>Students may report an absence at any time. The full lesson fee still applies. Group lessons cannot be rescheduled, and a class recording will be provided after the lesson whenever available.</p>
+<h4>4. Teacher Rescheduling</h4>
+<p>The teacher will give at least 12 hours' notice whenever possible. If the teacher reschedules with less than 12 hours' notice, one complimentary lesson will be provided, subject to applicable consumer rights and exceptional circumstances.</p>
+<h4>5. Package Cancellation &amp; Refunds</h4>
+<p>If a package is cancelled after lessons have started, completed lessons are recalculated at the standard rate applicable to the purchased format and lesson length. The remaining balance is refunded, subject to any mandatory consumer rights.</p>
+<p><strong>Example:</strong> A 20 × 60-minute 1-on-1 package is purchased for €440. If 5 lessons have been completed before cancellation, those 5 lessons are recalculated at the €27 standard rate (€135), and the remaining €305 is refundable, subject to applicable law.</p>
+<h4>6. Free Trial</h4>
+<p>The 30-minute trial is free and does not automatically book a recurring course or schedule.</p>
+<h4>7. Online Classes &amp; Recordings</h4>
+<p>Lessons may take place through ClassIn, Zoom, Preply, or another agreed platform. Group recordings are provided for students who miss a class when available.</p>
+<h4>8. Consumer Rights</h4>
+<p>Nothing in these terms is intended to limit any mandatory rights you have under applicable consumer protection law. Where required by law, statutory cancellation, withdrawal, refund, or other rights will apply.</p>
+<h4>9. Agreement</h4>
+<p>By checking the agreement box before payment, you confirm that you have read and accepted these Course Terms &amp; Policies.</p>
+</div>
+</div>
+</div>
+
 <div class="modal-overlay" id="courseModal" onclick="closeOnBackdrop(event, 'courseModal')">
 <div class="modal">
 <button class="modal-close" onclick="closeModal('courseModal')">×</button>
@@ -2914,12 +3098,11 @@ function localizedText(en, zh){ return currentLanguage === "zh" ? zh : en; }
 function refreshBusinessText(){
   const items={
     availabilityNote:["Your local time is automatically converted to Madrid time. This form does not promise a time. I will contact you after reviewing your availability.","你的当地时间会自动换算成马德里时间。提交并不代表时间已经确认，我会查看你的时间后与你联系。"],
-    availabilityButton:["Send Availability →","提交时间 →"], inquiryButton:["Inquiry First","先咨询"],
+    availabilityButton:["Check Availability →","查询时间 →"],
     trialButton:["Book Your Trial →","预约试听 →"], inquirySend:["Send Inquiry →","发送咨询 →"]
   };
   const note=document.querySelector('#availabilityForm .modal-note'); if(note) note.textContent=localizedText(...items.availabilityNote);
   const ab=document.querySelector('#availabilityForm button[type="submit"]'); if(ab&&!ab.disabled) ab.textContent=localizedText(...items.availabilityButton);
-  const ib=document.querySelector('#availabilityForm button[type="button"]'); if(ib) ib.textContent=localizedText(...items.inquiryButton);
   const tb=document.querySelector('#trialForm button[type="submit"]'); if(tb&&!tb.disabled) tb.textContent=localizedText("Request Trial →","申请试听 →");
   const iq=document.querySelector('#inquiryForm button[type="submit"]'); if(iq&&!iq.disabled) iq.textContent=localizedText(...items.inquirySend);
   document.querySelectorAll('[data-en-text]').forEach(el=>{ el.textContent = currentLanguage === 'zh' ? (el.dataset.zhText || el.dataset.enText) : el.dataset.enText; });
@@ -3003,83 +3186,102 @@ const customFrequency =
 
 function updatePack() {
 
+    if (!formatSelect || !lengthSelect || !lessonsSelect || !frequencySelect) return;
 
     if (lessonsSelect.value === "custom") {
-
         customLessons.classList.add("show");
-
     } else {
-
         customLessons.classList.remove("show");
-
     }
 
-
     if (frequencySelect.value === "custom") {
-
         customFrequency.classList.add("show");
-
     } else {
-
         customFrequency.classList.remove("show");
-
     }
 
+    let lessons = lessonsSelect.value === "custom"
+        ? parseInt(customLessons.value) || 1
+        : parseInt(lessonsSelect.value);
 
-    let lessons;
+    let frequency = frequencySelect.value === "custom"
+        ? parseInt(customFrequency.value) || 1
+        : parseInt(frequencySelect.value);
 
-    if (lessonsSelect.value === "custom") {
-
-        lessons =
-            parseInt(customLessons.value) || 1;
-
-    } else {
-
-        lessons =
-            parseInt(lessonsSelect.value);
-
-    }
-
-
-    let frequency;
-
-    if (frequencySelect.value === "custom") {
-
-        frequency =
-            parseInt(customFrequency.value) || 1;
-
-    } else {
-
-        frequency =
-            parseInt(frequencySelect.value);
-
-    }
-
-
-    const format =
-        formatSelect.value;
-
-
-    const length =
-        lengthSelect.value;
-
-
-    const weeks =
-        Math.ceil(lessons / frequency);
-
+    const format = formatSelect.value;
+    const length = parseInt(lengthSelect.value);
+    const weeks = Math.ceil(lessons / frequency);
 
     const formatZh = format === "Private" ? "一对一" : (format === "Small Group" ? "小班课" : "匹配小组");
     const formatEn = format === "Private" ? "Private" : (format === "Small Group" ? "Small Group" : "Matched Group");
+
     const resultEn = formatEn + " · " + length + " min · " + lessons + (lessons === 1 ? " lesson" : " lessons");
     const resultZh = formatZh + " · " + length + " 分钟 · " + lessons + " 节课";
-    document.getElementById("packResult").innerText = currentLanguage === "zh" ? resultZh : resultEn;
 
-    const durationEn = frequency + (frequency === 1 ? " lesson" : " lessons") + " / week · about " + weeks + (weeks === 1 ? " week" : " weeks");
+    document.getElementById("packResult").innerText =
+        currentLanguage === "zh" ? resultZh : resultEn;
+
+    const durationEn = frequency + (frequency === 1 ? " lesson" : " lessons") +
+        " / week · about " + weeks + (weeks === 1 ? " week" : " weeks");
     const durationZh = "每周 " + frequency + " 次 · 约 " + weeks + " 周";
-    document.getElementById("packDuration").innerText = currentLanguage === "zh" ? durationZh : durationEn;
 
+    document.getElementById("packDuration").innerText =
+        currentLanguage === "zh" ? durationZh : durationEn;
+
+    // Final package pricing. 5 lessons = standard rate;
+    // 10 and 20 lessons receive package pricing.
+    const rates = {
+        "Private": {
+            30: {5:15, 10:14, 20:12},
+            40: {5:20, 10:18, 20:16},
+            60: {5:27, 10:25, 20:22}
+        },
+        "Small Group": {
+            30: {5:8, 10:7, 20:6},
+            40: {5:11, 10:10, 20:9},
+            60: {5:16, 10:15, 20:14}
+        },
+        "Matched Group": {
+            30: {5:6, 10:6, 20:5},
+            40: {5:7, 10:7, 20:6},
+            60: {5:11, 10:10, 20:9}
+        }
+    };
+
+    const table = rates[format][length];
+    const rate = table[lessons] || table[5];
+    const total = rate * lessons;
+
+    let priceEn;
+    let priceZh;
+
+    if (lessons === 5) {
+        priceEn = "€" + total + " total";
+        priceZh = "€" + total + " / 套";
+    } else if (lessons === 10 || lessons === 20) {
+        priceEn = "€" + total + " total";
+        priceZh = "€" + total + " / 套";
+    } else {
+        const standardTotal = table[5] * lessons;
+        priceEn = "€" + standardTotal + " total";
+        priceZh = "€" + standardTotal + " / 套";
+    }
+
+    const priceEl = document.getElementById("packPrice");
+    if (priceEl) {
+        priceEl.innerText = currentLanguage === "zh" ? priceZh : priceEn;
+    }
+
+    // Show the relevant absence/rescheduling policy for the selected format.
+    const privatePolicy = document.getElementById("privatePolicy");
+    const groupPolicy = document.getElementById("groupPolicy");
+
+    if (privatePolicy && groupPolicy) {
+        const isPrivate = format === "Private";
+        privatePolicy.style.display = isPrivate ? "" : "block";
+        groupPolicy.style.display = isPrivate ? "none" : "block";
+    }
 }
-
 
 /* =====================================================
    EVENT LISTENERS
@@ -3260,8 +3462,42 @@ async function submitTrial(event){
  try{ const response=await fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}}); if(!response.ok)throw new Error('Submission failed'); success.innerText=localizedText('Thanks! Your trial request has been sent. I will contact you to confirm the time.','谢谢！你的试听申请已经发送成功。我会联系你确认时间。'); success.classList.add('show'); form.reset(); updateTrialMadridTime(); } catch(e){ success.innerText=localizedText('Something went wrong. Please try again, or contact me directly.','发送失败了。请稍后再试，或者直接联系我。'); success.classList.add('show'); } finally { button.disabled=false; button.innerText=original; }
 }
 
+function getBuilderPricing() {
+    const format = document.getElementById('formatSelect').value;
+    const length = parseInt(document.getElementById('lengthSelect').value);
+    const lessonsValue = document.getElementById('lessonsSelect').value;
+    const lessons = lessonsValue === 'custom' ? parseInt(document.getElementById('customLessons').value) || 1 : parseInt(lessonsValue);
+    const rates = {
+        "Private": {30:{5:15,10:14,20:12},40:{5:20,10:18,20:16},60:{5:27,10:25,20:22}},
+        "Small Group": {30:{5:9,10:8,20:7},40:{5:12,10:11,20:10},60:{5:16,10:15,20:14}},
+        "Matched Group": {30:{5:6,10:6,20:5},40:{5:9,10:8,20:7},60:{5:11,10:10,20:9}}
+    };
+    const table=rates[format][length]; const rate=table[lessons] || table[5];
+    return {format,length,lessons,rate,total:rate*lessons};
+}
+function openPaymentModal() {
+    const p=getBuilderPricing();
+    const names={Private:['Private','一对一'], 'Small Group':['Small Group','小班课'], 'Matched Group':['Matched Group','匹配小组']};
+    const name=names[p.format];
+    document.getElementById('paymentPlan').innerText = currentLanguage==='zh' ? name[1]+' · '+p.length+' 分钟 · '+p.lessons+' 节课' : name[0]+' · '+p.length+' min · '+p.lessons+(p.lessons===1?' lesson':' lessons');
+    document.getElementById('paymentPrice').innerText = currentLanguage==='zh' ? '€'+p.total+' / 套' : '€'+p.total+' total';
+    document.getElementById('paymentGroupNote').style.display = p.format==='Private' ? 'none' : '';
+    document.getElementById('policyAgreement').checked=false; document.getElementById('payButton').disabled=true;
+    openModal('paymentModal');
+}
+function openPaymentFromBuilder(){ openPaymentModal(); }
+function openPaymentFromAvailability(){ openModal('availabilityModal'); closeModal('availabilityModal'); openPaymentModal(); }
+function openFullPolicy(){ openModal('fullPolicyModal'); }
+function startPayment(){
+    const p=getBuilderPricing();
+    // Stripe Checkout/Payment Link should be connected here once the Stripe account is ready.
+    alert(currentLanguage==='zh' ? '付款页面即将连接 Stripe。当前版本已完成价格、条款同意和付款流程设计。' : 'Stripe Checkout will be connected here. The package, price, and policy agreement flow are ready.');
+}
+document.addEventListener('change', function(e){ if(e.target && e.target.id==='policyAgreement'){ document.getElementById('payButton').disabled=!e.target.checked; }});
+
 function openAvailabilityFromBuilder() {
-    const plan = document.getElementById('packResult').innerText + ' · ' + document.getElementById('packDuration').innerText;
+    const p=getBuilderPricing();
+    const plan = document.getElementById('packResult').innerText + ' · ' + document.getElementById('packDuration').innerText + ' · €' + p.total + ' total';
     document.getElementById('availabilityPlan').value = plan;
     openModal('availabilityModal');
 }
@@ -3342,5 +3578,98 @@ document.addEventListener('keydown', function(e) {
     }
 });
 </script>
+
+<script>
+const PRICING = {
+  "Private": {
+    "30": {5:15, 10:14, 20:12},
+    "40": {5:20, 10:18, 20:16},
+    "60": {5:27, 10:25, 20:22}
+  },
+  "Small Group": {
+    "30": {5:8, 10:7, 20:6},
+    "40": {5:11, 10:10, 20:9},
+    "60": {5:16, 10:15, 20:14}
+  },
+  "Matched Group": {
+    "30": {5:6, 10:6, 20:5},
+    "40": {5:7, 10:7, 20:6},
+    "60": {5:11, 10:10, 20:9}
+  }
+};
+
+function getPrice(format, length, lessons) {
+  const table = PRICING[format] && PRICING[format][String(length)];
+  if (!table) return null;
+  return table[lessons] ?? null;
+}
+
+function updateDisplayedPrice() {
+  const format = document.getElementById("formatSelect");
+  const length = document.getElementById("lengthSelect");
+  const lessons = document.getElementById("lessonsSelect");
+  const priceEl = document.getElementById("packPrice");
+  const perLessonEl = document.getElementById("packPerLesson");
+  const summaryEl = document.getElementById("packPriceSummary");
+
+  if (!format || !length || !lessons || !priceEl) return;
+
+  const n = parseInt(lessons.value, 10);
+  const p = getPrice(format.value, length.value, n);
+
+  if (p == null) {
+    priceEl.textContent = "Custom";
+    if (perLessonEl) perLessonEl.textContent = "";
+    if (summaryEl) summaryEl.textContent = "Please contact me for a custom package.";
+    return;
+  }
+
+  const total = p * n;
+  priceEl.textContent = "€" + total;
+  if (perLessonEl) {
+    perLessonEl.textContent = "€" + p + " / lesson" +
+      (format.value === "Private" ? "" : " / student");
+  }
+  if (summaryEl) {
+    const who = format.value === "Private" ? "" : " / student";
+    summaryEl.textContent = n + " × " + length.value + "-minute lessons" + who;
+  }
+}
+</script>
+
+
+<script>
+(function () {
+  function refreshPackPrice() {
+    if (typeof updateDisplayedPrice === "function") updateDisplayedPrice();
+  }
+  ["formatSelect","lengthSelect","lessonsSelect","frequencySelect"].forEach(function(id){
+    const el = document.getElementById(id);
+    if (el) el.addEventListener("change", refreshPackPrice);
+  });
+  refreshPackPrice();
+})();
+</script>
+
+
+<script>
+(function () {
+  function updateCoursePolicy() {
+    const select = document.getElementById("formatSelect");
+    const privatePolicy = document.getElementById("privatePolicy");
+    const groupPolicy = document.getElementById("groupPolicy");
+    if (!select || !privatePolicy || !groupPolicy) return;
+
+    const isPrivate = select.value === "Private";
+    privatePolicy.style.display = isPrivate ? "" : "none";
+    groupPolicy.style.display = isPrivate ? "none" : "";
+  }
+
+  const formatSelect = document.getElementById("formatSelect");
+  if (formatSelect) formatSelect.addEventListener("change", updateCoursePolicy);
+  updateCoursePolicy();
+})();
+</script>
+
 </body>
 </html>
