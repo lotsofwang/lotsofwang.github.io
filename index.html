@@ -678,6 +678,40 @@ section {
     letter-spacing: .08em;
 }
 
+.pack-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7px;
+    margin-top: 10px;
+}
+
+.pack-actions .pack-btn {
+    width: 100%;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+}
+
+.pack-actions .pack-pay {
+    background: var(--black);
+    color: white;
+}
+
+.pack.featured .pack-actions .pack-pay {
+    background: white;
+    color: var(--black);
+}
+
+.pack-actions .pack-btn:hover {
+    background: var(--black);
+    color: white;
+}
+
+.pack.featured .pack-actions .pack-btn:hover {
+    background: white;
+    color: var(--black);
+}
+
 .pack.featured .pack-btn {
     border-color: white;
 }
@@ -2069,14 +2103,14 @@ body.lang-zh button.zh {
 <h2 class="section-title"><span class="en">A ROUTINE THAT WORKS.</span><span class="zh">建立适合你的学习节奏。</span></h2>
 <p class="section-intro en">
 
-        Three example study routines.
-        Prices are shown as the final package price for the selected lesson format and length.
+        Three example study routines with exact package prices.
+        Choose a plan, check availability, or proceed to payment.
 
     </p>
 <p class="section-intro zh">
 
-        三种热门学习方案。
-        以下为所选课程形式和时长对应的套餐价格。
+        三种热门学习方案，价格均为对应套餐的最终价格。
+        可直接查看时间或进入付款流程。
 
     </p>
 <div class="pack-grid">
@@ -2153,20 +2187,20 @@ body.lang-zh button.zh {
 <div>
 <div class="pack-note">
 <span class="en">
-                        €180 TOTAL / STUDENT
+                        €100 TOTAL / STUDENT
                     </span>
 <span class="zh">
-                        €180 / 人 / 套
+                        €100 / 人 / 套
                     </span>
 </div>
-<a class="pack-btn" href="#contact">
-<span class="en">
-                        Request Details →
-                    </span>
-<span class="zh">
-                        咨询详情 →
-                    </span>
-</a>
+<div class="pack-actions">
+<button class="pack-btn pack-check" type="button" onclick="selectPopularPack('Small Group',40,10,2,'availability')">
+<span class="en">Check Availability</span><span class="zh">查看时间</span>
+</button>
+<button class="pack-btn pack-pay" type="button" onclick="selectPopularPack('Small Group',40,10,2,'payment')">
+<span class="en">Confirm &amp; Pay</span><span class="zh">确认并付款</span>
+</button>
+</div>
 </div>
 </div>
 <div class="pack featured">
@@ -2248,14 +2282,14 @@ body.lang-zh button.zh {
                         €140 / 套
                     </span>
 </div>
-<a class="pack-btn" href="#contact">
-<span class="en">
-                        Request Details →
-                    </span>
-<span class="zh">
-                        咨询详情 →
-                    </span>
-</a>
+<div class="pack-actions">
+<button class="pack-btn pack-check" type="button" onclick="selectPopularPack('Private',30,10,2,'availability')">
+<span class="en">Check Availability</span><span class="zh">查看时间</span>
+</button>
+<button class="pack-btn pack-pay" type="button" onclick="selectPopularPack('Private',30,10,2,'payment')">
+<span class="en">Confirm &amp; Pay</span><span class="zh">确认并付款</span>
+</button>
+</div>
 </div>
 </div>
 <div class="pack">
@@ -2337,14 +2371,14 @@ body.lang-zh button.zh {
                         €100 / 人 / 套
                     </span>
 </div>
-<a class="pack-btn" href="#contact">
-<span class="en">
-                        Request Details →
-                    </span>
-<span class="zh">
-                        咨询详情 →
-                    </span>
-</a>
+<div class="pack-actions">
+<button class="pack-btn pack-check" type="button" onclick="selectPopularPack('Matched Group',60,10,2,'availability')">
+<span class="en">Check Availability</span><span class="zh">查看时间</span>
+</button>
+<button class="pack-btn pack-pay" type="button" onclick="selectPopularPack('Matched Group',60,10,2,'payment')">
+<span class="en">Confirm &amp; Pay</span><span class="zh">确认并付款</span>
+</button>
+</div>
 </div>
 </div>
 </div>
@@ -3548,8 +3582,8 @@ function getBuilderPricing() {
     const lessons = lessonsValue === 'custom' ? parseInt(document.getElementById('customLessons').value) || 1 : parseInt(lessonsValue);
     const rates = {
         "Private": {30:{5:15,10:14,20:12},40:{5:20,10:18,20:16},60:{5:27,10:25,20:22}},
-        "Small Group": {30:{5:9,10:8,20:7},40:{5:12,10:11,20:10},60:{5:16,10:15,20:14}},
-        "Matched Group": {30:{5:6,10:6,20:5},40:{5:9,10:8,20:7},60:{5:11,10:10,20:9}}
+        "Small Group": {30:{5:8,10:7,20:6},40:{5:11,10:10,20:9},60:{5:16,10:15,20:14}},
+        "Matched Group": {30:{5:6,10:6,20:5},40:{5:7,10:7,20:6},60:{5:11,10:10,20:9}}
     };
     const table=rates[format][length]; const rate=table[lessons] || table[5];
     return {format,length,lessons,rate,total:rate*lessons};
@@ -3564,7 +3598,19 @@ function openPaymentModal() {
     document.getElementById('policyAgreement').checked=false; document.getElementById('payButton').disabled=true;
     openModal('paymentModal');
 }
-function openPaymentFromBuilder(){ openPaymentModal(); }
+function selectPopularPack(format, length, lessons, frequency, action){
+    const formatValue = format;
+    document.getElementById('formatSelect').value = formatValue;
+    document.getElementById('lengthSelect').value = String(length);
+    document.getElementById('lessonsSelect').value = String(lessons);
+    document.getElementById('frequencySelect').value = String(frequency);
+    updatePack();
+    if(action === 'availability'){
+        openAvailabilityFromBuilder();
+    } else {
+        openPaymentFromBuilder();
+    }
+}function openPaymentFromBuilder(){ openPaymentModal(); }
 function openPaymentFromAvailability(){ openModal('availabilityModal'); closeModal('availabilityModal'); openPaymentModal(); }
 function openFullPolicy(){ openModal('fullPolicyModal'); }
 function startPayment(){
