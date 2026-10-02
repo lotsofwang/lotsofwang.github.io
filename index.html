@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Teacher Xiāo — Learn Chinese From Anywhere</title>
-<meta content="Learn Chinese online with Teacher Xiāo. Private lessons, small groups, matched classes and self-paced Chinese courses for students worldwide." name="description"/>
+<meta content="Learn Chinese online with Teacher Xiāo. Private lessons, small groups and matched classes for students worldwide." name="description"/>
 <style>
 
 /* =========================================================
@@ -1636,6 +1636,104 @@ body.lang-zh button.zh {
 }
 </style>
 
+
+<style>
+/* =====================================================
+   PAYMENT RETURN / SUCCESS SCREEN
+===================================================== */
+.payment-success-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 20000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: #f7f7f4;
+    padding: 28px;
+    overflow-y: auto;
+}
+.payment-success-screen.show {
+    display: flex;
+}
+.payment-success-card {
+    width: min(760px, 100%);
+    border: 1px solid #111;
+    background: #fff;
+    padding: 42px;
+}
+.payment-success-mark {
+    width: 54px;
+    height: 54px;
+    border: 1px solid #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    margin-bottom: 24px;
+}
+.payment-success-card h2 {
+    font-size: clamp(42px, 7vw, 72px);
+    line-height: .9;
+    letter-spacing: -.07em;
+    margin-bottom: 18px;
+}
+.payment-success-intro {
+    max-width: 570px;
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+.payment-success-details {
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+    margin: 24px 0 28px;
+}
+.payment-success-row {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 20px;
+    padding: 12px 0;
+    border-bottom: 1px solid #deded8;
+    font-size: 13px;
+}
+.payment-success-row:last-child {
+    border-bottom: 0;
+}
+.payment-success-label {
+    font-family: monospace;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #777;
+}
+.payment-success-value {
+    overflow-wrap: anywhere;
+}
+.payment-success-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.payment-success-loading,
+.payment-success-error,
+.payment-cancelled {
+    font-size: 14px;
+    color: #555;
+    padding: 18px 0;
+}
+.payment-success-error {
+    color: #111;
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+    margin: 24px 0;
+}
+@media (max-width: 600px) {
+    .payment-success-screen { padding: 16px; }
+    .payment-success-card { padding: 26px 20px; }
+    .payment-success-row { grid-template-columns: 1fr; gap: 4px; }
+}
+</style>
+
 </head>
 <body>
 <!-- =====================================================
@@ -2997,7 +3095,10 @@ body.lang-zh button.zh {
 <p class="payment-group-note" id="paymentGroupNote"><span class="en">For group classes, payment is completed after the group and schedule are confirmed.</span><span class="zh">多人课程将在确认成班和上课时间后付款。</span></p>
 <label class="form-check policy-check"><input id="policyAgreement" type="checkbox"/> <span><span class="en">I have read and agree to the <a href="#" onclick="openFullPolicy(); return false;">Course Terms &amp; Policies</a>.</span><span class="zh">我已阅读并同意<a href="#" onclick="openFullPolicy(); return false;">课程条款与规则</a>。</span></span></label>
 <div class="form-actions"><button class="primary-btn" id="payButton" type="button" disabled onclick="startPayment();"><span class="en">Continue to Secure Payment →</span><span class="zh">继续安全付款 →</span></button></div>
-<div class="modal-note"><span class="en">Online payment will be connected through Stripe. The payment button will be enabled once the terms are accepted.</span><span class="zh">线上付款将通过 Stripe 完成。勾选并同意条款后即可继续付款。</span></div>
+<div class="modal-note">
+<span class="en">On the Stripe payment page, enter the <strong>student's full name</strong> — not the payer's name. The payment button will be enabled once the terms are accepted.</span>
+<span class="zh">进入 Stripe 付款页面后，请填写<strong>学生的姓名</strong>，不是付款人的姓名。勾选并同意条款后即可继续付款。</span>
+</div>
 </div>
 </div>
 
@@ -3130,6 +3231,127 @@ body.lang-zh button.zh {
 </form>
 </div>
 </div>
+
+<!-- =====================================================
+     PAYMENT RETURN / SUCCESS SCREEN
+===================================================== -->
+<div class="payment-success-screen" id="paymentSuccessScreen" aria-live="polite">
+  <div class="payment-success-card">
+    <div class="payment-success-mark" id="paymentReturnMark">✓</div>
+
+    <div id="paymentSuccessContent">
+      <div class="eyebrow">PAYMENT CONFIRMED</div>
+      <h2>
+        <span class="en">Thank you.</span>
+        <span class="zh">付款成功。</span>
+      </h2>
+      <p class="payment-success-intro en">
+        Your payment has been confirmed. Your student information and package details are shown below.
+        I will contact you with the next steps for your lessons.
+      </p>
+      <p class="payment-success-intro zh">
+        你的付款已经确认成功。下面是本次付款的学生信息和课程套餐详情。
+        我会联系你说明后续上课安排。
+      </p>
+
+      <div class="payment-success-loading" id="paymentSuccessLoading">
+        <span class="en">Confirming your payment details…</span>
+        <span class="zh">正在确认你的付款信息……</span>
+      </div>
+
+      <div class="payment-success-details" id="paymentSuccessDetails" style="display:none;">
+        <div class="payment-success-row">
+          <div class="payment-success-label">
+            <span class="en">Student</span><span class="zh">学生姓名</span>
+          </div>
+          <div class="payment-success-value" id="successStudentName">—</div>
+        </div>
+        <div class="payment-success-row">
+          <div class="payment-success-label">
+            <span class="en">Course</span><span class="zh">课程</span>
+          </div>
+          <div class="payment-success-value" id="successCourseName">—</div>
+        </div>
+        <div class="payment-success-row">
+          <div class="payment-success-label">
+            <span class="en">Format</span><span class="zh">课程形式</span>
+          </div>
+          <div class="payment-success-value" id="successCourseFormat">—</div>
+        </div>
+        <div class="payment-success-row">
+          <div class="payment-success-label">
+            <span class="en">Lesson</span><span class="zh">每节课</span>
+          </div>
+          <div class="payment-success-value" id="successLessonLength">—</div>
+        </div>
+        <div class="payment-success-row">
+          <div class="payment-success-label">
+            <span class="en">Package</span><span class="zh">套餐</span>
+          </div>
+          <div class="payment-success-value" id="successLessons">—</div>
+        </div>
+        <div class="payment-success-row">
+          <div class="payment-success-label">
+            <span class="en">Amount paid</span><span class="zh">付款金额</span>
+          </div>
+          <div class="payment-success-value" id="successAmount">—</div>
+        </div>
+        <div class="payment-success-row">
+          <div class="payment-success-label">
+            <span class="en">Payment email</span><span class="zh">付款邮箱</span>
+          </div>
+          <div class="payment-success-value" id="successEmail">—</div>
+        </div>
+        <div class="payment-success-row">
+          <div class="payment-success-label">
+            <span class="en">Payment status</span><span class="zh">付款状态</span>
+          </div>
+          <div class="payment-success-value" id="successStatus">—</div>
+        </div>
+        <div class="payment-success-row">
+          <div class="payment-success-label">
+            <span class="en">Reference</span><span class="zh">付款编号</span>
+          </div>
+          <div class="payment-success-value" id="successReference">—</div>
+        </div>
+      </div>
+
+      <div class="payment-success-actions">
+        <a class="primary-btn" href="./">
+          <span class="en">Back to Teacher Xiāo →</span>
+          <span class="zh">返回 Teacher Xiāo →</span>
+        </a>
+        <a class="secondary-btn" href="#contact" onclick="returnToWebsite();">
+          <span class="en">Contact me</span>
+          <span class="zh">联系我</span>
+        </a>
+      </div>
+    </div>
+
+    <div id="paymentCancelledContent" style="display:none;">
+      <div class="eyebrow">PAYMENT CANCELLED</div>
+      <h2>
+        <span class="en">No payment made.</span>
+        <span class="zh">付款已取消。</span>
+      </h2>
+      <p class="payment-cancelled en">
+        No payment was completed. Your package selection has not been changed.
+        You can return to the website and try again whenever you are ready.
+      </p>
+      <p class="payment-cancelled zh">
+        本次没有完成付款，你选择的课程套餐不会被更改。
+        准备好后可以返回网站再次尝试付款。
+      </p>
+      <div class="payment-success-actions">
+        <a class="primary-btn" href="./">
+          <span class="en">Back to Teacher Xiāo →</span>
+          <span class="zh">返回 Teacher Xiāo →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- =====================================================
      FOOTER
 ===================================================== -->
@@ -3864,5 +4086,140 @@ function updateDisplayedPrice() {
   syncPolicyLanguage();
 })();
 </script>
+
+<script>
+/* =====================================================
+   STRIPE PAYMENT RETURN / SUCCESS PAGE
+===================================================== */
+(function () {
+    const WORKER_URL = 'https://teacher-xiao-stripe.lotsofwang.workers.dev';
+
+    function setText(id, value) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value == null || value === '' ? '—' : String(value);
+    }
+
+    function formatAmount(amount, currency) {
+        if (typeof amount !== 'number') return '—';
+        try {
+            return new Intl.NumberFormat(currentLanguage === 'zh' ? 'zh-CN' : 'en-GB', {
+                style: 'currency',
+                currency: String(currency || 'eur').toUpperCase()
+            }).format(amount / 100);
+        } catch (e) {
+            return '€' + (amount / 100).toFixed(2);
+        }
+    }
+
+    function showPaymentScreen() {
+        const screen = document.getElementById('paymentSuccessScreen');
+        if (!screen) return;
+        screen.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function showPaymentError(messageEn, messageZh) {
+        const loading = document.getElementById('paymentSuccessLoading');
+        const details = document.getElementById('paymentSuccessDetails');
+        if (loading) loading.style.display = 'none';
+        if (details) details.style.display = 'none';
+
+        let error = document.getElementById('paymentSuccessError');
+        if (!error) {
+            error = document.createElement('div');
+            error.id = 'paymentSuccessError';
+            error.className = 'payment-success-error';
+            const actions = document.querySelector('#paymentSuccessContent .payment-success-actions');
+            document.getElementById('paymentSuccessContent').insertBefore(error, actions || null);
+        }
+        error.innerHTML = '<span class="en"></span><span class="zh"></span>';
+        error.querySelector('.en').textContent = messageEn;
+        error.querySelector('.zh').textContent = messageZh;
+    }
+
+    function returnToWebsite() {
+        const url = new URL(window.location.href);
+        url.search = '';
+        url.hash = 'contact';
+        window.location.href = url.toString();
+    }
+    window.returnToWebsite = returnToWebsite;
+
+    async function loadPaymentConfirmation(sessionId) {
+        try {
+            const response = await fetch(WORKER_URL + '/session?session_id=' + encodeURIComponent(sessionId), {
+                method: 'GET',
+                headers: { 'Accept': 'application/json' }
+            });
+
+            let data = {};
+            try { data = await response.json(); } catch (e) {}
+
+            if (!response.ok || !data.paymentStatus || data.paymentStatus !== 'paid') {
+                throw new Error(data.error || 'Payment could not be confirmed.');
+            }
+
+            setText('successStudentName', data.studentName);
+            setText('successCourseName', data.courseName);
+            setText('successCourseFormat', data.courseFormat);
+            setText('successLessonLength', data.lessonLength ? (data.lessonLength + (currentLanguage === 'zh' ? ' 分钟' : ' min')) : '—');
+            setText('successLessons', data.lessons ? (data.lessons + (currentLanguage === 'zh' ? ' 节课' : (Number(data.lessons) === 1 ? ' lesson' : ' lessons'))) : '—');
+            setText('successAmount', formatAmount(data.amount, data.currency));
+            setText('successEmail', data.email);
+            setText('successStatus', currentLanguage === 'zh' ? '已付款' : 'Paid');
+            setText('successReference', data.id || sessionId);
+
+            const loading = document.getElementById('paymentSuccessLoading');
+            const details = document.getElementById('paymentSuccessDetails');
+            if (loading) loading.style.display = 'none';
+            if (details) details.style.display = 'block';
+        } catch (error) {
+            console.error('Payment confirmation error:', error);
+            showPaymentError(
+                'Your payment may have been completed, but the confirmation details could not be loaded. Please contact me and include your Stripe session reference: ' + sessionId,
+                '付款可能已经完成，但暂时无法读取确认信息。请联系我，并提供你的 Stripe 付款编号：' + sessionId
+            );
+        }
+    }
+
+    function initPaymentReturn() {
+        const params = new URLSearchParams(window.location.search);
+        const payment = params.get('payment');
+        const sessionId = params.get('session_id');
+        const screen = document.getElementById('paymentSuccessScreen');
+        const successContent = document.getElementById('paymentSuccessContent');
+        const cancelledContent = document.getElementById('paymentCancelledContent');
+
+        if (!screen || !payment) return;
+
+        showPaymentScreen();
+
+        if (payment === 'cancelled') {
+            if (successContent) successContent.style.display = 'none';
+            if (cancelledContent) cancelledContent.style.display = 'block';
+            return;
+        }
+
+        if (payment !== 'success') return;
+
+        if (!sessionId) {
+            showPaymentError(
+                'The payment page returned without a payment reference. Please contact me so I can check the payment manually.',
+                '付款页面返回时没有提供付款编号。请联系我，我可以帮你手动确认付款状态。'
+            );
+            return;
+        }
+
+        loadPaymentConfirmation(sessionId);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initPaymentReturn);
+    } else {
+        initPaymentReturn();
+    }
+})();
+</script>
+
 </body>
 </html>
