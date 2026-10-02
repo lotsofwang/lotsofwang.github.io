@@ -3613,10 +3613,54 @@ function selectPopularPack(format, length, lessons, frequency, action){
 }function openPaymentFromBuilder(){ openPaymentModal(); }
 function openPaymentFromAvailability(){ openModal('availabilityModal'); closeModal('availabilityModal'); openPaymentModal(); }
 function openFullPolicy(){ openModal('fullPolicyModal'); }
-function startPayment(){
-    const p=getBuilderPricing();
-    // Stripe Checkout/Payment Link should be connected here once the Stripe account is ready.
-    alert(currentLanguage==='zh' ? '付款页面即将连接 Stripe。当前版本已完成价格、条款同意和付款流程设计。' : 'Stripe Checkout will be connected here. The package, price, and policy agreement flow are ready.');
+const STRIPE_CHECKOUT_ENDPOINT = 'https://teacher-xiao-stripe.lotsofwang.workers.dev';
+
+async function startPayment(){
+    const p = getBuilderPricing();
+    const button = document.getElementById('payButton');
+    const originalHTML = button.innerHTML;
+
+    if (!document.getElementById('policyAgreement').checked) {
+        return;
+    }
+
+    button.disabled = true;
+    button.innerText = currentLanguage === 'zh' ? '正在连接付款页面……' : 'CONNECTING TO PAYMENT...';
+
+    try {
+        const response = await fetch(STRIPE_CHECKOUT_ENDPOINT, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                format: p.format,
+                length: p.length,
+                lessons: p.lessons,
+                policyAgreed: true
+            })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.url) {
+            throw new Error(data.error || 'Unable to create checkout session.');
+        }
+
+        window.location.href = data.url;
+
+    } catch (error) {
+        console.error('Stripe checkout error:', error);
+
+        alert(
+            currentLanguage === 'zh'
+                ? '付款页面暂时无法打开。请稍后再试，或直接联系我。'
+                : 'The payment page could not be opened. Please try again or contact me directly.'
+        );
+
+        button.disabled = false;
+        button.innerHTML = originalHTML;
+    }
 }
 document.addEventListener('change', function(e){ if(e.target && e.target.id==='policyAgreement'){ document.getElementById('payButton').disabled=!e.target.checked; }});
 
