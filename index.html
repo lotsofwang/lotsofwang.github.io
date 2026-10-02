@@ -779,6 +779,64 @@ input[type="number"] {
 
 
 /* =========================================================
+   COURSE POLICIES
+========================================================= */
+.course-policies {
+    background: #f7f7f4;
+}
+
+.policy-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-top: 48px;
+}
+
+.policy-card {
+    border: 1px solid var(--black);
+    padding: 24px;
+    background: var(--white);
+}
+
+.policy-card h3 {
+    font-size: 18px;
+    letter-spacing: -.03em;
+    margin-bottom: 22px;
+}
+
+.policy-row {
+    padding: 12px 0;
+    border-top: 1px solid var(--line);
+    font-size: 11px;
+}
+
+.policy-row strong {
+    display: block;
+    font-family: monospace;
+    font-size: 9px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.policy-row span,
+.policy-card p {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.policy-card p {
+    margin-top: 10px;
+}
+
+@media (max-width: 800px) {
+    .policy-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
    SELF-PACED COURSES
 ========================================================= */
 
@@ -2542,6 +2600,32 @@ body.lang-zh button.zh {
 </div>
 </div>
 </section>
+<!-- =====================================================
+     COURSE POLICIES
+===================================================== -->
+<section class="course-policies" id="policies">
+<div class="eyebrow"><span class="en">POLICIES</span><span class="zh">课程规则</span></div>
+<h2 class="section-title"><span class="en">CLEAR RULES.<br>NO SURPRISES.</span><span class="zh">课程规则<br>提前说清楚。</span></h2>
+<div class="policy-grid">
+<div class="policy-card">
+<h3><span class="en">1-ON-1 LESSONS</span><span class="zh">1 对 1 课程</span></h3>
+<div class="policy-row"><strong>24+ hours</strong><span class="en">Free rescheduling of the full lesson.</span><span class="zh">可免费改期完整课时。</span></div>
+<div class="policy-row"><strong>12–24 hours</strong><span class="en">The lesson fee is non-refundable, but 50% of the lesson time can be rescheduled.</span><span class="zh">课程费用不退，但可改期 50% 的课时时长。</span></div>
+<div class="policy-row"><strong>Less than 12 hours</strong><span class="en">The lesson fee is non-refundable and the lesson cannot be rescheduled.</span><span class="zh">课程费用不退，且不可改期。</span></div>
+</div>
+<div class="policy-card">
+<h3><span class="en">GROUP LESSONS</span><span class="zh">多人课程</span></h3>
+<p class="en">Students may report an absence at any time. The full lesson fee still applies, and group lessons cannot be rescheduled. A class recording will be provided after the lesson.</p>
+<p class="zh">多人班可以随时请假，但课程费用仍全额收取，且不安排补课。课后老师会发送课程录课。</p>
+</div>
+<div class="policy-card">
+<h3><span class="en">TEACHER RESCHEDULING</span><span class="zh">老师改课</span></h3>
+<p class="en">The teacher will give at least 12 hours' notice whenever possible. If a lesson is rescheduled with less than 12 hours' notice, the student will receive one complimentary lesson.</p>
+<p class="zh">老师如需改课，会尽可能提前至少 12 小时通知。如果老师在少于 12 小时的情况下临时改课，将赠送学生一节课。</p>
+</div>
+</div>
+</section>
+
 <!-- =====================================================
      FREE TRIAL
 ===================================================== -->
