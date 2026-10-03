@@ -5177,14 +5177,29 @@ body.lang-zh .day-option {
     overflow-wrap: anywhere !important;
   }
 
-  /* More breathing room between Chinese lines and paragraphs. */
+  /* V24: clearly separate the two Chinese hero lines on desktop and mobile. */
   body.lang-zh .hero-zh-headline {
-    line-height: 1.02 !important;
-    gap: .10em !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: .18em !important;
+    line-height: 1 !important;
+  }
+
+  body.lang-zh .hero-zh-headline > span {
+    display: block !important;
   }
 
   body.lang-zh .hero-zh-headline .hero-outline {
     margin-top: 0 !important;
+  }
+
+  @media (max-width: 700px) {
+    body.lang-zh .hero-zh-headline {
+      font-size: clamp(58px, 16vw, 74px) !important;
+      line-height: 1.02 !important;
+      gap: .14em !important;
+    }
   }
 
   body.lang-zh .about-copy h3 {
