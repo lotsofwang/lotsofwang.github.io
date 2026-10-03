@@ -4925,5 +4925,217 @@ body.lang-zh .builder-result .local-currency-note {
 }
 </style>
 
+
+<style id="v22-mobile-real-fix">
+/*
+  V22: robust mobile builder fix.
+  Some mobile browsers / embedded browsers report a wider CSS viewport,
+  so the builder must also respond to touch/coarse-pointer devices.
+*/
+@media (max-width: 1100px), (pointer: coarse) {
+  .builder-result {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .builder-result > div:first-child {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .builder-result .pack-price-box {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+    padding: 22px 20px !important;
+  }
+
+  .builder-result .pack-price-box .price-details,
+  .builder-result .pack-price-box .course-policy {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    box-sizing: border-box !important;
+  }
+
+  .builder-result .pack-price-box .price-details {
+    padding: 0 !important;
+  }
+
+  .builder-result .pack-price-box .course-policy {
+    margin: 22px 0 0 !important;
+    padding: 22px 0 0 !important;
+    border-left: 0 !important;
+    border-right: 0 !important;
+    border-bottom: 0 !important;
+    border-top: 1px solid #bdbdb7 !important;
+  }
+
+  .builder-result .pack-price-box .course-policy .policy-head {
+    border-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .builder-result #packPrice {
+    display: block !important;
+    width: 100% !important;
+    font-size: clamp(34px, 9vw, 52px) !important;
+    line-height: 1.05 !important;
+    white-space: nowrap !important;
+  }
+
+  .builder-result #packPerLesson,
+  .builder-result #packPriceSummary,
+  .builder-result .local-currency-note {
+    display: block !important;
+    width: 100% !important;
+    line-height: 1.6 !important;
+  }
+
+  .builder-result .course-policy p {
+    line-height: 1.75 !important;
+    max-width: none !important;
+  }
+
+  .builder-result .builder-payment-methods,
+  .builder-result .builder-actions {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+}
+
+/* Extra protection for touch devices regardless of reported viewport width. */
+body.v22-touch-mobile .builder-result {
+  display: block !important;
+  width: 100% !important;
+}
+
+body.v22-touch-mobile .builder-result > div:first-child {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+body.v22-touch-mobile .builder-result .pack-price-box {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+  padding: 22px 20px !important;
+}
+
+body.v22-touch-mobile .builder-result .pack-price-box .price-details,
+body.v22-touch-mobile .builder-result .pack-price-box .course-policy {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+}
+
+body.v22-touch-mobile .builder-result .pack-price-box .price-details {
+  padding: 0 !important;
+}
+
+body.v22-touch-mobile .builder-result .pack-price-box .course-policy {
+  margin: 22px 0 0 !important;
+  padding: 22px 0 0 !important;
+  border-left: 0 !important;
+  border-top: 1px solid #bdbdb7 !important;
+}
+
+body.v22-touch-mobile .builder-result .pack-price-box .course-policy .policy-head {
+  border-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+body.v22-touch-mobile .builder-result #packPrice {
+  display: block !important;
+  width: 100% !important;
+  font-size: clamp(34px, 9vw, 52px) !important;
+  line-height: 1.05 !important;
+  white-space: nowrap !important;
+}
+
+body.v22-touch-mobile .builder-result #packPerLesson,
+body.v22-touch-mobile .builder-result #packPriceSummary,
+body.v22-touch-mobile .builder-result .local-currency-note {
+  display: block !important;
+  width: 100% !important;
+  line-height: 1.6 !important;
+}
+
+body.v22-touch-mobile .builder-result .course-policy p {
+  line-height: 1.75 !important;
+  max-width: none !important;
+}
+
+body.v22-touch-mobile .builder-result .builder-payment-methods,
+body.v22-touch-mobile .builder-result .builder-actions {
+  width: 100% !important;
+  margin-left: 0 !important;
+}
+
+/* Chinese body copy: more breathing room, without changing display headlines. */
+body.lang-zh p,
+body.lang-zh li,
+body.lang-zh .section-intro,
+body.lang-zh .about-copy,
+body.lang-zh .about-copy p,
+body.lang-zh .trial-copy,
+body.lang-zh .trial-copy p,
+body.lang-zh .contact-note,
+body.lang-zh .contact-note p,
+body.lang-zh .full-policy-text p,
+body.lang-zh .course-policy p,
+body.lang-zh .payment-methods,
+body.lang-zh .local-currency-note {
+  line-height: 1.9 !important;
+}
+
+/* Keep short UI labels compact. */
+body.lang-zh .mono,
+body.lang-zh .eyebrow,
+body.lang-zh .country-pill,
+body.lang-zh .day-option {
+  line-height: 1.45 !important;
+}
+</style>
+
+<script id="v22-touch-mobile-detection">
+(function () {
+  function updateTouchMobileClass() {
+    const coarse =
+      window.matchMedia &&
+      window.matchMedia('(pointer: coarse)').matches;
+
+    const narrow =
+      window.innerWidth <= 1100;
+
+    document.body.classList.toggle(
+      'v22-touch-mobile',
+      coarse || narrow
+    );
+  }
+
+  updateTouchMobileClass();
+
+  window.addEventListener(
+    'resize',
+    updateTouchMobileClass,
+    { passive: true }
+  );
+
+  window.addEventListener(
+    'orientationchange',
+    updateTouchMobileClass,
+    { passive: true }
+  );
+})();
+</script>
+
 </body>
 </html>
