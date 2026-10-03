@@ -2722,7 +2722,7 @@ body.lang-zh button.zh {
 
   <div id="privatePolicy" class="policy-mini">
     <div><strong>1-ON-1</strong></div>
-    <p><b>24+ hrs before class:</b> Reschedule the full lesson for free.<br><b>12–24 hrs:</b> Reschedule 50% of the lesson time (e.g. 60 → 30 min); the remaining time is charged.<br><b>Less than 12 hrs:</b> No rescheduling or refund.</p>
+    <p><b>If you need to change a confirmed 1-on-1 lesson:</b><br><b>24+ hrs before class:</b> reschedule the full lesson for free.<br><b>12 to 24 hrs:</b> 50% of the scheduled lesson time may be rescheduled (for example, 60 to 30 min); the remaining 50% is treated as used.<br><b>Less than 12 hrs:</b> no rescheduling or refund.</p>
   </div>
 
   <div id="groupPolicy" class="policy-mini" style="display:none;">
@@ -2859,8 +2859,8 @@ body.lang-zh button.zh {
      ABOUT
 ===================================================== -->
 <section id="about">
-<div class="eyebrow"><span class="en">05 — ABOUT XIĀO</span><span class="zh">05 — 关于肖老师</span></div>
-<h2 class="section-title"><span class="en">MEET TEACHER XIĀO.</span><span class="zh">认识肖老师。</span></h2>
+<div class="eyebrow"><span class="en">05 — ABOUT XIĀO</span><span class="zh">05 · 关于王老师</span></div>
+<h2 class="section-title"><span class="en">MEET TEACHER XIĀO.</span><span class="zh">认识王老师。</span></h2>
 <div class="about-grid">
 <div class="photo-placeholder">
 
@@ -3209,12 +3209,12 @@ body.lang-zh button.zh {
 <p class="payment-group-note" id="paymentGroupNote"><span class="en">For group classes, payment is completed after the group and schedule are confirmed.</span><span class="zh">多人课程将在确认成班和上课时间后付款。</span></p>
 <div class="payment-methods"><span class="en"><strong>Payment options</strong> · Stripe · PayPal · Alipay · WeChat Pay</span><span class="zh"><strong>付款方式</strong> · Stripe · PayPal · Alipay · 微信支付</span><small class="en">Stripe checkout is available online. Other payment options can be arranged directly.</small><small class="zh">Stripe 可直接在线付款，其他付款方式可直接联系我安排。</small></div>
 <label class="form-check policy-check"><input id="policyAgreement" type="checkbox"/> <span><span class="en">I have read and agree to the <a href="#" onclick="openFullPolicy(); return false;">Course Terms &amp; Policies</a>.</span><span class="zh">我已阅读并同意<a href="#" onclick="openFullPolicy(); return false;">课程条款与规则</a>。</span></span></label>
-<div class="form-actions"><button class="primary-btn" id="payButton" type="button" disabled onclick="startPayment();"><span class="en">Continue to Secure Payment →</span><span class="zh">继续安全付款 →</span></button></div>
+<label class="form-check policy-check"><input id="earlyServiceConsent" type="checkbox"/> <span><span class="en">I expressly request that my lessons begin before the 14-day withdrawal period ends. I understand that if I withdraw after lessons have started, the applicable legal rules may require payment for the part of the service already provided. I also understand that my withdrawal right may end after the service has been fully performed, where the law provides for this.</span><span class="zh">我明确要求课程在14天法定撤回期结束前开始。我理解，如果课程已经开始后行使撤回权，适用法律可能要求我支付已经提供的服务部分费用；如果课程服务已经全部履行完毕，我也理解法律规定的撤回权可能因此终止。</span></span></label>
+<div class="form-actions"><button class="primary-btn" id="payButton" type="button" disabled onclick="startPayment();"><span class="en">Continue to Payment · Payment Required</span><span class="zh">继续付款 · 付款后生效</span></button></div>
 <div class="modal-note">
-<span class="en">On the Stripe payment page, enter the <strong>student's full name</strong> — not the payer's name. The payment button will be enabled once the terms are accepted.</span>
-<span class="zh">进入 Stripe 付款页面后，请填写<strong>学生的姓名</strong>，不是付款人的姓名。勾选并同意条款后即可继续付款。</span>
-</div>
-</div>
+<span class="en">On the Stripe payment page, enter the <strong>student's full name</strong>, not the payer's name. Both confirmations above are required before continuing to payment.</span>
+<span class="zh">进入 Stripe 付款页面后，请填写<strong>学生的姓名</strong>，不是付款人的姓名。继续付款前需要完成上面的两项确认。</span>
+</div></div>
 </div>
 
 <div class="modal-overlay" id="fullPolicyModal" onclick="closeOnBackdrop(event, 'fullPolicyModal')">
@@ -3225,26 +3225,35 @@ body.lang-zh button.zh {
 
 <div class="full-policy-text">
 <h4>1. Scope &amp; Booking</h4>
-<p>These Course Terms &amp; Policies apply to live lessons and lesson packages purchased directly from Teacher Xiāo. A booking becomes confirmed when the lesson format, duration, schedule and price have been agreed and, where required, payment has been received.</p>
+<p>These Course Terms &amp; Policies apply to live lessons and lesson packages purchased directly from Teacher Xiāo through this website or by direct arrangement. They do not replace the separate terms and policies that apply when a student books through Preply. A booking becomes confirmed when the lesson format, duration, schedule and price have been agreed and, where required, payment has been received.</p>
 
 <h4>2. Pricing &amp; Payment</h4>
-<p>Prices shown on the website are the prices applicable to the selected package at the time of purchase. Package discounts apply to the package as a whole and are not retroactively applied to individual lessons if the package is later cancelled, except where mandatory consumer rights require otherwise.</p>
+<p>Prices shown on the website are the prices applicable to the selected package at the time of purchase. Package discounts are based on the number of lessons purchased. If a package is later cancelled after lessons have started, the completed lessons are recalculated using the package rate that corresponds to the number of completed lessons, as described in Section 6.</p>
 <p>For group lessons, payment is due after the group and schedule have been confirmed, unless otherwise agreed in writing.</p>
+<p>Prices on Preply may differ from the direct prices shown on this website because Preply has its own platform pricing, fees and commission structure. Preply bookings are subject to the terms and payment rules of Preply.</p>
 
-<h4>3. 1-on-1 Rescheduling</h4>
-<p><strong>24+ hours before class:</strong> the full lesson may be rescheduled at no additional cost.</p>
-<p><strong>12–24 hours before class:</strong> the lesson fee is non-refundable, but 50% of the scheduled lesson time may be rescheduled.</p>
-<p><strong>Less than 12 hours before class:</strong> the lesson fee is non-refundable and the lesson cannot be rescheduled.</p>
+<h4>3. 1-on-1 Cancellations &amp; Rescheduling</h4>
+<p>This section applies when a student wants to cancel, skip, or change the date or start time of a confirmed 1-on-1 lesson. Each cancellation or rescheduling request counts toward the student's monthly 1-on-1 cancellation allowance. The allowance is intended to give students reasonable flexibility while keeping a regular reserved time for the teacher. It does not create a separate package extension.</p>
+<p><strong>Monthly cancellation allowance:</strong> 1 lesson per month for students studying once a week, 2 lessons per month for twice a week, 3 lessons per month for three times a week, and 4 lessons per month for four times a week. For a custom weekly frequency, the allowance normally equals the agreed weekly frequency. Unused cancellation allowance does not carry over to the next month.</p>
+<p><strong>24+ hours before class:</strong> one cancellation or rescheduling request within the monthly allowance may be moved to another available time at no additional cost.</p>
+<p><strong>12 to 24 hours before class:</strong> if the request is still within the monthly allowance, 50% of the scheduled lesson time may be rescheduled. For example, a 60-minute lesson may be changed to a 30-minute lesson at a later time. The remaining 50% of the scheduled lesson time is treated as used and is not refundable.</p>
+<p><strong>Less than 12 hours before class:</strong> the lesson fee is non-refundable and the lesson cannot be rescheduled, even if the monthly allowance has not been used.</p>
+<p><strong>After the monthly allowance has been used:</strong> any additional cancellation or skipped lesson is charged in full and cannot be refunded or rescheduled, regardless of the notice given, except where mandatory law requires otherwise.</p>
+<p>Rescheduling is always subject to the teacher's availability. If a student needs to change a lesson, the request should be made as early as possible.</p>
 
 <h4>4. Group Lessons</h4>
-<p>Students may report an absence at any time. The full lesson fee remains payable, and the missed group lesson cannot be rescheduled individually. A class recording will be provided after the lesson when a recording is available.</p>
+<p>Students may report an absence from an individual group lesson at any time. An absence does not cancel the student's group package. The full lesson fee remains payable, the missed lesson cannot be rescheduled individually, and a class recording will be provided after the lesson when a recording is available.</p>
+<p><strong>Stopping a group package:</strong> if a student wants to cancel the remaining group package, the cancellation takes effect on the date the cancellation request is received. All group lessons that took place before that date are treated as used, whether the student attended or was absent. Previously missed lessons remain non-refundable, including where a recording was provided. Future lessons after the effective cancellation date are treated as unused and may be refunded according to Section 6, subject to applicable law.</p>
 
 <h4>5. Teacher Rescheduling</h4>
 <p>The teacher will provide at least 12 hours' notice of a reschedule whenever reasonably possible. If the teacher needs to reschedule with less than 12 hours' notice, one complimentary lesson will normally be provided, subject to exceptional circumstances and applicable consumer rights.</p>
 
 <h4>6. Package Cancellation &amp; Refunds</h4>
-<p>If a package is cancelled after lessons have started, completed lessons will normally be recalculated using the standard single-lesson rate applicable to the purchased format and lesson duration. The remaining package balance will then be refunded, subject to applicable law.</p>
-<p><strong>Example:</strong> a 20 × 60-minute 1-on-1 package costs €440. If 5 lessons have been completed, those 5 lessons are recalculated at the €27 standard rate (€135), leaving €305 to be refunded, subject to any mandatory statutory rights.</p>
+<p>If a package is cancelled after lessons have started, lessons already delivered are charged using the package discount tier that corresponds to the number of lessons already used. The remaining unused balance is then refunded, subject to applicable law.</p>
+<p>The calculation works as follows: 1 to 9 used lessons are charged at the 5-lesson package rate; 10 to 19 used lessons are charged at the 10-lesson package rate; 20 or more used lessons are charged at the 20-lesson package rate. The rate is applied to all used lessons, not split into separate blocks.</p>
+<p>For group packages, a lesson counts as used once the class has taken place, whether or not the student attended. A missed lesson is therefore included in the used-lesson calculation and is not refundable. If a recording was provided, the lesson is also treated as delivered.</p>
+<p><strong>Example:</strong> a 20 × 60-minute 1-on-1 package costs €440. If 11 lessons have been used, all 11 lessons are recalculated at the 10-lesson package rate of €25 per lesson, for a total of €275. The remaining €165 is refunded, subject to applicable law.</p>
+<p>Refunds are normally returned through the original payment method. The time required for the refund to appear may depend on the payment provider.</p>
 
 <h4>7. Free Trial</h4>
 <p>The 30-minute trial lesson is free. A trial does not automatically create a recurring booking or paid package. Any future lessons require a separate confirmation.</p>
@@ -3268,37 +3277,47 @@ body.lang-zh button.zh {
 <p>For students under 18, a parent or legal guardian must make the booking or provide the required consent. Parents or guardians remain responsible for the student's participation and contact information.</p>
 
 <h4>14. Consumer Rights</h4>
-<p>Nothing in these terms limits mandatory rights under applicable consumer protection law. For online service contracts in Spain, statutory withdrawal rights may apply, subject to legal exceptions and the conditions applicable when a service begins during the withdrawal period. Where mandatory law applies, it takes priority over these terms.</p>
+<p>Nothing in these terms limits mandatory rights under applicable consumer protection law. For online service contracts in Spain, the statutory withdrawal period is generally 14 calendar days from the date of the service contract, subject to legal exceptions. If a student expressly requests that lessons begin during this period, the applicable legal rules may allow the teacher to charge for the part of the service already provided if the student later exercises the withdrawal right. If the service is fully performed after the student's express request and acknowledgement, the statutory withdrawal right may end where the law provides for this. Where mandatory law applies, it takes priority over these terms.</p>
 
 <h4>15. Privacy &amp; Personal Information</h4>
-<p>Information submitted through booking, availability and payment forms is used to arrange lessons, communicate with students, process payments and provide the requested service. A separate Privacy Notice should be provided on the website before launch and will govern the processing of personal data.</p>
+<p>Information submitted through booking, availability and payment forms is used to arrange lessons, communicate with students, process payments and provide the requested service. The website's separate Privacy Notice explains how personal data is collected, used, stored and shared. By submitting personal information, students should review that notice and any applicable consent requirements.</p>
 
 <h4>16. Changes &amp; Exceptional Circumstances</h4>
 <p>Course schedules, platforms or lesson arrangements may occasionally need to change because of circumstances outside reasonable control. Where this happens, the teacher will communicate with the student and seek a reasonable solution. Nothing in this section limits mandatory legal rights.</p>
 
 <h4>17. Agreement</h4>
-<p>Before payment, the student must actively confirm that they have read and agree to these Course Terms &amp; Policies. A copy of the applicable terms and purchase confirmation should be retained by both parties.</p>
+<p>Before payment, the student must actively confirm that they have read and agree to these Course Terms &amp; Policies. If the student wants lessons to begin before the 14-day statutory withdrawal period ends, the student must also expressly request early service and acknowledge the legal consequences described in Section 14. The applicable terms, package details, price and purchase confirmation should be retained by both parties.</p>
 
-<p class="policy-note"><strong>Important:</strong> These terms are intended as a practical course policy and should be reviewed by a qualified Spanish legal professional before you begin taking substantial online payments from consumers.</p>
+<p class="policy-note"><strong>Important:</strong> These terms are written for the website's direct lesson sales and are intended to reflect the consumer rules that apply to online services in Spain. Mandatory consumer rights always take priority.</p>
 </div>
 
 <div class="full-policy-text zh">
 <h4>1. 适用范围与预约</h4>
-<p>本课程条款与规则适用于直接向王老师/Teacher Xiāo 购买的直播课程和课程套餐。课程形式、时长、时间和价格确认后，并在需要付款的情况下完成付款，课程预约即正式确认。</p>
+<p>本课程条款与规则适用于通过本网站或直接联系王老师/Teacher Xiāo 购买的直播课程和课程套餐。如果通过 Preply 预约，则适用 Preply 的相关条款和付款规则，本规则不取代 Preply 的平台规则。课程形式、时长、时间和价格确认后，并在需要付款的情况下完成付款，课程预约即正式确认。</p>
 <h4>2. 价格与付款</h4>
-<p>网站显示的价格为购买时所选套餐适用的价格。套餐优惠针对整个套餐；如果套餐开始后取消课程，已完成的课程原则上按照对应课程形式和时长的标准单节价格重新计算，但法律强制规定的消费者权利除外。</p>
+<p>网站显示的价格为购买时所选套餐适用的价格。套餐优惠根据购买的课程数量确定。如果套餐开始上课后取消，将按照第6条的规则，根据已经完成的课程数量对应的套餐优惠价重新计算。</p>
 <p>多人课程通常在成班并确认上课时间后付款，除非双方另有书面约定。</p>
-<h4>3. 1对1改课</h4>
-<p><strong>提前24小时以上：</strong>可免费改期完整课时。</p>
-<p><strong>提前12–24小时：</strong>课程费用不退，但可改期原课时的50%。</p>
-<p><strong>少于12小时：</strong>课程费用不退，且不能改期。</p>
+<p>Preply 上显示的价格可能与本网站直接购买的价格不同，因为 Preply 有自己的平台定价、费用和佣金机制。通过 Preply 预约的课程同时受 Preply 的相关条款和付款规则约束。</p>
+<h4>3. 1对1取消与改课</h4>
+<p>本条适用于学生需要取消、跳过或更改已经确认的1对1课程日期或开始时间的情况。每次取消或改课请求都会计入当月的1对1取消额度。这个额度是为了给学生合理的时间安排弹性，同时让老师能够保留固定的上课时间。取消额度不会自动延长整个套餐的有效期。</p>
+<p><strong>每月取消额度：</strong>每周1次课，每月可取消或改课1次；每周2次，每月2次；每周3次，每月3次；每周4次，每月4次。自定义每周频率通常按照双方确认的每周次数确定。未使用的取消额度不会累计到下个月。</p>
+<p><strong>提前24小时以上：</strong>在当月取消额度内提出的取消或改课，可免费改到老师有空的其他时间。</p>
+<p><strong>提前12至24小时：</strong>如果仍在当月取消额度内，可以改期原定课时的50%。例如，60分钟课程可以改为之后补30分钟，剩余50%的原定课时视为已使用，不退款。</p>
+<p><strong>少于12小时：</strong>课程费用不退，且不能改期，即使当月取消额度尚未用完。</p>
+<p><strong>超过当月取消额度后：</strong>当月额度已经用完后，额外取消或跳过的课程均按全额收费，不能退款，也不能改期，无论提前多久提出，但法律强制规定的权利除外。</p>
+<p>所有改课都需要根据老师的时间安排确认。如需更改课程，建议尽早提出。</p>
 <h4>4. 多人课程</h4>
-<p>学生可以随时告知缺席，但缺席课程仍按全额收费，不能针对个人补课。课程结束后，如有录课，会提供给参加该课程的学生。</p>
+<p>学生可以随时告知某一节多人课程缺席。缺席不会自动取消整个多人课程套餐。缺席课程仍按全额收费，不能针对个人补课。课程结束后，如有录课，会提供给参加该课程的学生。</p>
+<p><strong>取消整个多人课程套餐：</strong>如果学生希望取消剩余的多人课程套餐，取消从老师收到取消请求的当天起生效。在此日期之前已经进行的多人课程均视为已使用，无论学生是否参加。之前已经缺席的课程同样不能退款，如果已经提供录课，则也视为该课程已经提供。取消生效日期之后尚未进行的课程，按照第6条重新计算并处理剩余退款，但以适用法律为准。</p>
 <h4>5. 老师改课</h4>
 <p>如需改课，老师会在合理可行的情况下至少提前12小时通知。如老师在不足12小时内临时改课，通常会赠送一节课，但不可抗力等特殊情况以及法律规定的消费者权利除外。</p>
 <h4>6. 套餐取消与退款</h4>
-<p>套餐开始上课后取消，已完成的课程原则上按照所购买课程形式和时长对应的标准单节价格重新计算，剩余金额再退款，但法律强制规定的消费者权利除外。</p>
-<p><strong>例如：</strong>20节60分钟1对1套餐价格为€440。如果已经完成5节，则5节按照标准价格€27/节重新计算，共€135，剩余€305原则上退款，但以适用法律为准。</p>
+<p>套餐开始上课后取消，已经提供或已经使用的课程，会按照已经使用的课程数量对应的套餐优惠价重新计算，剩余未使用金额再退款，但以适用法律为准。</p>
+<p>计算规则为：已使用1至9节，全部按照5节套餐的单节优惠价计算；已使用10至19节，全部按照10节套餐的单节优惠价计算；已使用20节或以上，全部按照20节套餐的单节优惠价计算。不会把已经使用的课程拆成不同套餐档位分别计算。</p>
+<p>对于多人课程，只要课程已经进行，该节课就计入已使用课程，无论学生是否参加。之前缺席的课程同样计入已使用课程，不退款。如果已经提供录课，也视为该课程已经提供。</p>
+<p><strong>例如：</strong>20节60分钟1对1套餐价格为€440。如果已经使用11节，则11节全部按照10节套餐的优惠价€25/节计算，共€275，剩余€165退款，但以适用法律为准。</p>
+<p>退款通常会原路退回原付款方式。实际到账时间可能取决于付款服务商。</p>
+
 <h4>7. 免费试听</h4>
 <p>30分钟试听课免费。试听不会自动产生后续固定课程或付费套餐；后续课程需要单独确认。</p>
 <h4>8. 出勤、迟到与缺席</h4>
@@ -3314,14 +3333,14 @@ body.lang-zh button.zh {
 <h4>13. 未成年人</h4>
 <p>18岁以下学生的课程应由家长或法定监护人购买或提供必要同意。家长/监护人对学生的参与以及联系方式负责。</p>
 <h4>14. 消费者法定权利</h4>
-<p>本规则不限制适用消费者保护法律赋予学生的强制性权利。在西班牙，线上服务合同可能涉及法定14天撤回权，但具体适用范围取决于法律规定以及服务是否在撤回期内开始等情况。法律强制规定的权利优先于本规则。</p>
+<p>本规则不限制适用消费者保护法律赋予学生的强制性权利。在西班牙，线上服务合同通常有14个自然日的法定撤回期，从服务合同成立之日起计算，但法律规定的例外情况除外。如果学生明确要求课程在该期限内开始，并之后行使撤回权，适用法律可能要求学生支付已经提供的服务部分。如果学生在明确要求课程提前开始后，课程服务已经全部履行完毕，法律规定的撤回权可能因此终止。法律强制规定的权利优先于本规则。</p>
 <h4>15. 隐私与个人信息</h4>
-<p>学生通过预约、时间查询和付款表格提交的信息将用于安排课程、沟通、处理付款以及提供相关服务。网站正式上线前应提供单独的隐私政策，具体个人信息处理以隐私政策为准。</p>
+<p>学生通过预约、时间查询和付款表格提交的信息将用于安排课程、沟通、处理付款以及提供相关服务。网站单独的隐私政策会说明个人信息如何收集、使用、保存和共享。提交个人信息前，请阅读隐私政策以及适用的同意说明。</p>
 <h4>16. 变更与特殊情况</h4>
 <p>因合理无法控制的情况，课程时间、平台或安排可能需要调整。发生此类情况时，老师会及时沟通并尽量寻找合理解决方案。本条不限制任何法律强制规定的权利。</p>
 <h4>17. 同意</h4>
-<p>付款前，学生必须主动确认已阅读并同意本课程条款与规则。双方应保留适用版本的条款和购买确认记录。</p>
-<p class="policy-note"><strong>重要：</strong>以上内容是适合网站使用的课程条款草案。正式开始大量线上收款前，建议请西班牙当地合资格律师审核。</p>
+<p>付款前，学生必须主动确认已阅读并同意本课程条款与规则。如果学生希望课程在14天法定撤回期结束前开始，还必须明确要求提前开始服务，并确认第14条所述的相关法律后果。双方应保留适用版本的条款、套餐详情、价格和购买确认记录。</p>
+<p class="policy-note"><strong>重要：</strong>以上内容用于本网站直接销售课程，并按照西班牙线上服务消费者规则进行设计。任何法律强制规定的消费者权利始终优先于本规则。</p>
 </div>
 
 </div>
@@ -3678,8 +3697,8 @@ function updatePack() {
     document.getElementById("packDuration").innerText =
         currentLanguage === "zh" ? durationZh : durationEn;
 
-    // Final package pricing. 5 lessons = standard rate;
-    // 10 and 20 lessons receive package pricing.
+    // Final package pricing. 1–9 lessons use the 5-lesson rate;
+    // 10–19 lessons use the 10-lesson rate; 20+ lessons use the 20-lesson rate.
     const rates = {
         "Private": {
             30: {5:15, 10:14, 20:12},
@@ -3687,19 +3706,20 @@ function updatePack() {
             60: {5:27, 10:25, 20:22}
         },
         "Small Group": {
-            30: {5:8, 10:7, 20:6},
-            40: {5:11, 10:10, 15:10, 20:9},
+            30: {5:10, 10:9, 20:8},
+            40: {5:11, 10:10, 20:9},
             60: {5:16, 10:15, 20:14}
         },
         "Matched Group": {
-            30: {5:6, 10:6, 20:5},
-            40: {5:7, 10:7, 20:6},
+            30: {5:7, 10:6, 20:5},
+            40: {5:8, 10:7, 20:6},
             60: {5:11, 10:10, 20:9}
         }
     };
 
     const table = rates[format][length];
-    const rate = table[lessons] || table[5];
+    const rateTier = lessons < 10 ? 5 : (lessons < 20 ? 10 : 20);
+    const rate = table[rateTier];
     const total = rate * lessons;
 
     const displayTotal = total;
@@ -3711,15 +3731,6 @@ function updatePack() {
     if (summaryEl) summaryEl.dataset.priceSummary = lessons + " × " + length + "-minute lessons" + (format === "Private" ? "" : " / student");
     if (typeof refreshAllPrices === "function") refreshAllPrices();
 
-    // Show the relevant absence/rescheduling policy for the selected format.
-    const privatePolicy = document.getElementById("privatePolicy");
-    const groupPolicy = document.getElementById("groupPolicy");
-
-    if (privatePolicy && groupPolicy) {
-        const isPrivate = format === "Private";
-        privatePolicy.style.display = isPrivate ? "" : "block";
-        groupPolicy.style.display = isPrivate ? "none" : "block";
-    }
 }
 
 /* =====================================================
@@ -3908,10 +3919,12 @@ function getBuilderPricing() {
     const lessons = lessonsValue === 'custom' ? parseInt(document.getElementById('customLessons').value) || 1 : parseInt(lessonsValue);
     const rates = {
         "Private": {30:{5:15,10:14,20:12},40:{5:20,10:18,20:16},60:{5:27,10:25,20:22}},
-        "Small Group": {30:{5:8,10:7,20:6},40:{5:11,10:10,15:10,20:9},60:{5:16,10:15,20:14}},
-        "Matched Group": {30:{5:6,10:6,20:5},40:{5:7,10:7,20:6},60:{5:11,10:10,20:9}}
+        "Small Group": {30:{5:10,10:9,20:8},40:{5:11,10:10,20:9},60:{5:16,10:15,20:14}},
+        "Matched Group": {30:{5:7,10:6,20:5},40:{5:8,10:7,20:6},60:{5:11,10:10,20:9}}
     };
-    const table=rates[format][length]; const rate=table[lessons] || table[5];
+    const table=rates[format][length];
+    const rateTier = lessons < 10 ? 5 : (lessons < 20 ? 10 : 20);
+    const rate=table[rateTier];
     return {format,length,lessons,rate,total:rate*lessons};
 }
 function openPaymentModal() {
@@ -3946,7 +3959,7 @@ async function startPayment(){
     const button = document.getElementById('payButton');
     const originalHTML = button.innerHTML;
 
-    if (!document.getElementById('policyAgreement').checked) {
+    if (!document.getElementById('policyAgreement').checked || !document.getElementById('earlyServiceConsent').checked) {
         return;
     }
 
@@ -3963,7 +3976,8 @@ async function startPayment(){
                 format: p.format,
                 length: p.length,
                 lessons: p.lessons,
-                policyAgreed: true
+                policyAgreed: true,
+                earlyServiceConsent: true
             })
         });
 
@@ -3988,7 +4002,7 @@ async function startPayment(){
         button.innerHTML = originalHTML;
     }
 }
-document.addEventListener('change', function(e){ if(e.target && e.target.id==='policyAgreement'){ document.getElementById('payButton').disabled=!e.target.checked; }});
+document.addEventListener('change', function(e){ if(e.target && (e.target.id==='policyAgreement' || e.target.id==='earlyServiceConsent')){ const a=document.getElementById('policyAgreement').checked; const b=document.getElementById('earlyServiceConsent').checked; document.getElementById('payButton').disabled=!(a && b); }});
 
 function openAvailabilityFromBuilder() {
     const p=getBuilderPricing();
@@ -4082,40 +4096,68 @@ const PRICING = {
     "60": {5:27, 10:25, 20:22}
   },
   "Small Group": {
-    "30": {5:8, 10:7, 20:6},
+    "30": {5:10, 10:9, 20:8},
     "40": {5:11, 10:10, 20:9},
     "60": {5:16, 10:15, 20:14}
   },
   "Matched Group": {
-    "30": {5:6, 10:6, 20:5},
-    "40": {5:7, 10:7, 20:6},
+    "30": {5:7, 10:6, 20:5},
+    "40": {5:8, 10:7, 20:6},
     "60": {5:11, 10:10, 20:9}
   }
 };
 
 function getPrice(format, length, lessons) {
   const table = PRICING[format] && PRICING[format][String(length)];
-  if (!table) return null;
-  return table[lessons] ?? null;
+  if (!table || !Number.isFinite(lessons) || lessons < 1) return null;
+  const tier = lessons < 10 ? 5 : (lessons < 20 ? 10 : 20);
+  return table[tier] ?? null;
 }
 
 function updateDisplayedPrice() {
   const format = document.getElementById("formatSelect");
   const length = document.getElementById("lengthSelect");
   const lessons = document.getElementById("lessonsSelect");
+  const customLessons = document.getElementById("customLessons");
   const priceEl = document.getElementById("packPrice");
   const perLessonEl = document.getElementById("packPerLesson");
   const summaryEl = document.getElementById("packPriceSummary");
 
   if (!format || !length || !lessons || !priceEl) return;
 
-  const n = parseInt(lessons.value, 10);
+  // When "Custom" is selected, always use the number entered in the
+  // custom lessons field. Frequency must never determine the price.
+  const n = lessons.value === "custom"
+    ? parseInt(customLessons && customLessons.value, 10)
+    : parseInt(lessons.value, 10);
+
+  if (!Number.isFinite(n) || n < 1) {
+    priceEl.textContent = "Custom";
+    priceEl.removeAttribute("data-eur");
+    if (perLessonEl) {
+      perLessonEl.textContent = "";
+      perLessonEl.removeAttribute("data-eur");
+    }
+    if (summaryEl) {
+      summaryEl.textContent = "Please enter the number of lessons.";
+      summaryEl.dataset.priceSummary = summaryEl.textContent;
+    }
+    return;
+  }
+
   const p = getPrice(format.value, length.value, n);
 
   if (p == null) {
     priceEl.textContent = "Custom";
-    if (perLessonEl) perLessonEl.textContent = "";
-    if (summaryEl) summaryEl.textContent = "Please contact me for a custom package.";
+    priceEl.removeAttribute("data-eur");
+    if (perLessonEl) {
+      perLessonEl.textContent = "";
+      perLessonEl.removeAttribute("data-eur");
+    }
+    if (summaryEl) {
+      summaryEl.textContent = "Please contact me for a custom package.";
+      summaryEl.dataset.priceSummary = summaryEl.textContent;
+    }
     return;
   }
 
@@ -4137,33 +4179,23 @@ function updateDisplayedPrice() {
   function refreshPackPrice() {
     if (typeof updateDisplayedPrice === "function") updateDisplayedPrice();
   }
-  ["formatSelect","lengthSelect","lessonsSelect","frequencySelect"].forEach(function(id){
+  ["formatSelect","lengthSelect","lessonsSelect"].forEach(function(id){
     const el = document.getElementById(id);
     if (el) el.addEventListener("change", refreshPackPrice);
   });
+
+  const customLessons = document.getElementById("customLessons");
+  if (customLessons) {
+    customLessons.addEventListener("input", refreshPackPrice);
+    customLessons.addEventListener("change", refreshPackPrice);
+  }
+
   refreshPackPrice();
 })();
 </script>
 
 
-<script>
-(function () {
-  function updateCoursePolicy() {
-    const select = document.getElementById("formatSelect");
-    const privatePolicy = document.getElementById("privatePolicy");
-    const groupPolicy = document.getElementById("groupPolicy");
-    if (!select || !privatePolicy || !groupPolicy) return;
 
-    const isPrivate = select.value === "Private";
-    privatePolicy.style.display = isPrivate ? "" : "none";
-    groupPolicy.style.display = isPrivate ? "none" : "";
-  }
-
-  const formatSelect = document.getElementById("formatSelect");
-  if (formatSelect) formatSelect.addEventListener("change", updateCoursePolicy);
-  updateCoursePolicy();
-})();
-</script>
 
 
 <script>
@@ -4735,5 +4767,34 @@ body.lang-zh .stats .stat:nth-child(3) .stat-label .zh{display:inline!important;
   }
 }
 </style>
+
+
+
+
+<script id="v14-policy-follow-format">
+(function(){
+  function syncPolicyToFormat(){
+    const formatSelect = document.getElementById("formatSelect");
+    const privatePolicy = document.getElementById("privatePolicy");
+    const groupPolicy = document.getElementById("groupPolicy");
+    if(!formatSelect || !privatePolicy || !groupPolicy) return;
+
+    if(formatSelect.value === "Private"){
+      privatePolicy.style.display = "";
+      groupPolicy.style.display = "none";
+    }else{
+      privatePolicy.style.display = "none";
+      groupPolicy.style.display = "";
+    }
+  }
+
+  const formatSelect = document.getElementById("formatSelect");
+  if(formatSelect){
+    formatSelect.addEventListener("change", syncPolicyToFormat);
+    syncPolicyToFormat();
+  }
+})();
+</script>
+
 </body>
 </html>
