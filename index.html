@@ -2000,7 +2000,7 @@ body.lang-zh button.zh {
 <div>
 <h1 class="hero-title">
   <span class="en hero-en-headline"><span class="hero-solid">LEARN</span><span class="hero-outline">CHINESE.</span><span class="hero-solid">FROM ANYWHERE.</span></span>
-  <span class="zh hero-zh-headline"><span>随时随地，学</span><span class="hero-outline">中文。</span></span>
+  <span class="zh hero-zh-headline"><span>随时随地，</span><span class="hero-outline">学中文。</span></span>
   <div class="hero-offer">
 <span class="en">ONLINE CHINESE · LIVE + RECORDED</span>
 <span class="zh">在线中文 · 直播 + 录播</span>
@@ -2868,7 +2868,7 @@ body.lang-zh button.zh {
 
         </div>
 <div class="about-copy">
-<h3><span class="en">Chinese teacher. Language nerd. Human being.</span><span class="zh">中文老师。语言爱好者。一个真实的人。</span></h3>
+<h3><span class="en">Chinese with Xiao. Real language. Real life.</span><span class="zh">跟王老师学中文，把中文用进真实生活。</span></h3>
 <p class="en">
 
                 I’ve been teaching Chinese online for years,
@@ -3425,6 +3425,12 @@ body.lang-zh button.zh {
         </div>
         <div class="payment-success-row">
           <div class="payment-success-label">
+            <span class="en">Frequency</span><span class="zh">上课频率</span>
+          </div>
+          <div class="payment-success-value" id="successFrequency">—</div>
+        </div>
+        <div class="payment-success-row">
+          <div class="payment-success-label">
             <span class="en">Amount paid</span><span class="zh">付款金额</span>
           </div>
           <div class="payment-success-value" id="successAmount">—</div>
@@ -3975,6 +3981,7 @@ async function startPayment(){
                 format: p.format,
                 length: p.length,
                 lessons: p.lessons,
+                frequency: document.getElementById('frequencySelect')?.value || '',
                 policyAgreed: true
             })
         });
@@ -4297,6 +4304,7 @@ function updateDisplayedPrice() {
             setText('successCourseFormat', data.courseFormat);
             setText('successLessonLength', data.lessonLength ? (data.lessonLength + (currentLanguage === 'zh' ? ' 分钟' : ' min')) : '—');
             setText('successLessons', data.lessons ? (data.lessons + (currentLanguage === 'zh' ? ' 节课' : (Number(data.lessons) === 1 ? ' lesson' : ' lessons'))) : '—');
+            setText('successFrequency', data.frequency ? (data.frequency + (currentLanguage === 'zh' ? ' 次 / 周' : (Number(data.frequency) === 1 ? ' lesson / week' : ' lessons / week'))) : '—');
             setText('successAmount', formatAmount(data.amount, data.currency));
             setText('successEmail', data.email);
             setText('successStatus', currentLanguage === 'zh' ? '已付款' : 'Paid');
@@ -4691,6 +4699,66 @@ body.lang-zh .stats .stat:nth-child(3) .stat-label .zh{display:inline!important;
 /* FREE TRIAL — visible separation in 30-MIN */
 .trial h2{word-spacing:.08em;}
 .trial h2 .en,.trial h2 .zh{word-spacing:.12em;}
+
+
+/* MOBILE NAV + BUILDER FIXES */
+@media (max-width: 950px) {
+  .nav-right {
+    gap: 12px;
+  }
+  .currency-control {
+    display: inline-flex !important;
+    align-items: center;
+  }
+  .currency-control select {
+    font-size: 9px;
+    padding-right: 13px;
+  }
+}
+
+@media (max-width: 760px) {
+  .builder-result {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    row-gap: 14px !important;
+  }
+
+  .builder-result > div:first-child {
+    display: block !important;
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .pack-price-box {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .price-details,
+  .pack-price-box .course-policy {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .pack-price-box .course-policy {
+    border-left: 0 !important;
+    border-top: 1px solid #bdbdb7 !important;
+    padding-left: 0 !important;
+    padding-top: 18px !important;
+    margin-top: 0 !important;
+  }
+
+  .builder-result .builder-payment-methods,
+  .builder-result .builder-actions {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+}
 </style>
 
 <style>
