@@ -5137,5 +5137,70 @@ body.lang-zh .day-option {
 })();
 </script>
 
+
+<style id="v23-mobile-final-spacing">
+/* V23: mobile price line and Chinese typography refinement */
+
+/* Keep the local price inside the builder box. */
+@media (max-width: 1100px), (pointer: coarse) {
+  .builder-result .pack-price-box #packPrice {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    white-space: normal !important;
+    overflow: hidden !important;
+    line-height: 1.08 !important;
+  }
+
+  .builder-result .pack-price-box #packPrice .local-price {
+    display: block !important;
+    white-space: nowrap !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
+
+  .builder-result .pack-price-box #packPrice .eur-price {
+    display: inline !important;
+    white-space: nowrap !important;
+    margin-left: 0 !important;
+    font-size: .58em !important;
+  }
+
+  .builder-result .pack-price-box #packPrice .price-suffix {
+    display: inline !important;
+    white-space: nowrap !important;
+    font-size: .58em !important;
+  }
+
+  .builder-result .pack-price-box #packPerLesson {
+    white-space: normal !important;
+    overflow-wrap: anywhere !important;
+  }
+
+  /* More breathing room between Chinese lines and paragraphs. */
+  body.lang-zh .hero-zh-headline {
+    line-height: 1.02 !important;
+    gap: .10em !important;
+  }
+
+  body.lang-zh .hero-zh-headline .hero-outline {
+    margin-top: 0 !important;
+  }
+
+  body.lang-zh .about-copy h3 {
+    line-height: 1.18 !important;
+    margin-bottom: 24px !important;
+  }
+
+  body.lang-zh .about-copy p,
+  body.lang-zh .section-intro,
+  body.lang-zh .course-policy p,
+  body.lang-zh .full-policy-text p {
+    line-height: 1.9 !important;
+    margin-bottom: 14px !important;
+  }
+}
+</style>
+
 </body>
 </html>
