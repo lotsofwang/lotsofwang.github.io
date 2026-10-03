@@ -4862,5 +4862,68 @@ body.lang-zh .stats .stat:nth-child(3) .stat-label .zh{display:inline!important;
 })();
 </script>
 
+<style>
+/* V21 MOBILE BUILDER + CHINESE LINE SPACING FIX */
+@media (max-width: 950px) {
+  .builder-result .pack-price-box {
+    grid-template-columns: 1fr !important;
+    row-gap: 22px !important;
+    column-gap: 0 !important;
+  }
+
+  .builder-result .pack-price-box .price-details,
+  .builder-result .pack-price-box .course-policy {
+    width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .builder-result .pack-price-box .course-policy {
+    border-left: 0 !important;
+    border-top: 1px solid #bdbdb7 !important;
+    padding: 22px 0 0 !important;
+    margin: 0 !important;
+  }
+
+  .builder-result .pack-price-box .course-policy .policy-head {
+    border-top: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .builder-result #packPrice {
+    font-size: 38px !important;
+    line-height: 1.15 !important;
+    white-space: normal !important;
+  }
+
+  .builder-result #packPerLesson,
+  .builder-result #packPriceSummary {
+    line-height: 1.55 !important;
+  }
+
+  .builder-result .course-policy p {
+    line-height: 1.65 !important;
+  }
+}
+
+/* Give Chinese body copy more breathing room without changing the display typography. */
+body.lang-zh p,
+body.lang-zh .section-intro,
+body.lang-zh .card p,
+body.lang-zh .course-card p,
+body.lang-zh .about-copy p,
+body.lang-zh .trial-copy p,
+body.lang-zh .contact-note p,
+body.lang-zh .full-policy-text p {
+  line-height: 1.8 !important;
+}
+
+body.lang-zh .builder-result #packDuration,
+body.lang-zh .builder-result .course-policy p,
+body.lang-zh .builder-result .local-currency-note {
+  line-height: 1.7 !important;
+}
+</style>
+
 </body>
 </html>
