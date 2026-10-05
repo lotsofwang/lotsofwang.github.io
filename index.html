@@ -1900,17 +1900,23 @@ body.lang-zh button.zh {
 ===================================================== -->
 <nav>
 
-<select class="mobile-section-nav" id="mobileSectionNav" aria-label="Section navigation" onchange="goToSection(this.value)">
-  <option value="" data-en="MENU" data-zh="目录">MENU</option>
-  <option value="#learn" data-en="01 · LEARN" data-zh="01 · 课程">01 · LEARN</option>
-  <option value="#formats" data-en="02 · FORMAT" data-zh="02 · 形式">02 · FORMAT</option>
-  <option value="#packs" data-en="03 · PACKS" data-zh="03 · 套餐">03 · PACKS</option>
-  <option value="#self-paced" data-en="04 · COURSES" data-zh="04 · 录播">04 · COURSES</option>
-  <option value="#about" data-en="05 · ABOUT" data-zh="05 · 关于">05 · ABOUT</option>
-  <option value="#platforms" data-en="06 · PLATFORM" data-zh="06 · 平台">06 · PLATFORM</option>
-  <option value="#trial" data-en="07 · TRIAL" data-zh="07 · 试听">07 · TRIAL</option>
-  <option value="#contact" data-en="08 · CONTACT" data-zh="08 · 联系">08 · CONTACT</option>
-</select>
+
+<div class="mobile-menu-wrap" id="mobileMenuWrap">
+  <button class="mobile-menu-button" id="mobileMenuButton" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
+  <div class="mobile-menu-panel" id="mobileMenuPanel">
+    <button type="button" onclick="goToSection('#learn')"><span class="en">01 · LEARN</span><span class="zh">01 · 课程</span></button>
+    <button type="button" onclick="goToSection('#formats')"><span class="en">02 · FORMAT</span><span class="zh">02 · 形式</span></button>
+    <button type="button" onclick="goToSection('#packs')"><span class="en">03 · PACKS</span><span class="zh">03 · 套餐</span></button>
+    <button type="button" onclick="goToSection('#self-paced')"><span class="en">04 · COURSES</span><span class="zh">04 · 录播</span></button>
+    <button type="button" onclick="goToSection('#about')"><span class="en">05 · ABOUT</span><span class="zh">05 · 关于</span></button>
+    <button type="button" onclick="goToSection('#platforms')"><span class="en">06 · PLATFORM</span><span class="zh">06 · 平台</span></button>
+    <button type="button" onclick="goToSection('#trial')"><span class="en">07 · TRIAL</span><span class="zh">07 · 试听</span></button>
+    <button type="button" onclick="goToSection('#contact')"><span class="en">08 · CONTACT</span><span class="zh">08 · 联系</span></button>
+  </div>
+</div>
+
 <a class="logo" href="#top">
         Teacher <span>Xiāo</span>
 </a>
@@ -2090,8 +2096,7 @@ body.lang-zh button.zh {
 <span class="en">
                     30-Min Free Trial →
                 </span>
-<span class="zh">
-                    30分钟免费试听 →
+<span class="zh"><span class="no-break">30分钟免费试听</span> →
                 </span>
 </a>
 <a class="secondary-btn" href="#self-paced">
@@ -3780,6 +3785,24 @@ function applyLanguage() {
     if (typeof refreshBusinessText === "function") refreshBusinessText();
 }
 
+
+
+function toggleMobileMenu() {
+  const panel = document.getElementById('mobileMenuPanel');
+  const button = document.getElementById('mobileMenuButton');
+  if (!panel || !button) return;
+  const open = panel.classList.toggle('open');
+  button.setAttribute('aria-expanded', open ? 'true' : 'false');
+}
+document.addEventListener('click', function(e) {
+  const wrap = document.getElementById('mobileMenuWrap');
+  const panel = document.getElementById('mobileMenuPanel');
+  const button = document.getElementById('mobileMenuButton');
+  if (wrap && panel && button && !wrap.contains(e.target)) {
+    panel.classList.remove('open');
+    button.setAttribute('aria-expanded', 'false');
+  }
+});
 
 function goToSection(target) {
     if (!target) return;
@@ -5618,5 +5641,139 @@ input[type="text"][inputmode="numeric"][maxlength="5"] { font-variant-numeric: t
 .no-break { white-space: nowrap; }
 @media (min-width: 701px) {
   .mobile-break { display:none !important; }
+}
+</style>
+
+<style id="v28-stat-grid">
+.about-stats, .stats-grid, .about-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+</style>
+
+<style id="v28-zh-mobile-headlines">
+@media (max-width: 700px) {
+  /* Chinese section headlines: smaller, calmer, fewer accidental wraps. */
+  .zh .section-title,
+  .zh .section-heading,
+  .zh .big-title,
+  .zh .headline,
+  .zh h1,
+  .zh h2 {
+    font-size: clamp(30px, 8.8vw, 52px) !important;
+    line-height: 1.05 !important;
+    letter-spacing: -0.03em !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+  }
+
+  /* Hero/large Chinese display titles */
+  .hero-title .zh {
+    font-size: clamp(40px, 12vw, 68px) !important;
+    line-height: 1.02 !important;
+    word-break: keep-all !important;
+  }
+
+  /* Let longer Chinese headlines fit more naturally. */
+  .section-label .zh,
+  .eyebrow .zh {
+    white-space: nowrap !important;
+  }
+}
+</style>
+
+<style id="v28-language-visibility">
+body.lang-zh .en { display:none !important; }
+body:not(.lang-zh) .zh { display:none !important; }
+</style>
+
+<style id="v28-mobile-menu">
+.mobile-menu-wrap { display:none; position:relative; }
+.mobile-menu-button {
+  width:44px; height:44px; padding:0; border:0; background:transparent;
+  display:flex; flex-direction:column; justify-content:center; gap:5px;
+  cursor:pointer;
+}
+.mobile-menu-button span {
+  display:block; width:22px; height:2px; background:#111; margin-left:auto; margin-right:auto;
+}
+.mobile-menu-panel {
+  position:absolute; top:52px; left:0; width:190px;
+  border:1px solid #111; background:#f7f7f5; z-index:1000;
+  display:none; padding:4px 0;
+}
+.mobile-menu-panel.open { display:block; }
+.mobile-menu-panel button {
+  width:100%; padding:11px 14px; border:0; border-bottom:1px solid #ddd;
+  background:transparent; text-align:left; font-family:monospace;
+  font-size:10px; letter-spacing:.04em; cursor:pointer;
+}
+.mobile-menu-panel button:last-child { border-bottom:0; }
+.mobile-menu-panel button:hover { background:#eee; }
+
+@media (max-width:700px) {
+  nav .mobile-section-nav { display:none !important; }
+  nav .mobile-menu-wrap { display:block !important; order:0; }
+  nav .logo { order:1; }
+  nav .nav-right { order:3; }
+  nav { gap:4px !important; }
+  nav .logo { font-size:15px !important; }
+  nav .nav-right { margin-left:auto; }
+}
+</style>
+
+<style id="v28b-zh-headline-actual">
+@media (max-width:700px) {
+  body.lang-zh .section-title {
+    font-size: clamp(34px, 8.2vw, 50px) !important;
+    line-height: 1.08 !important;
+    letter-spacing: -.035em !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+    max-width: 100% !important;
+  }
+  body.lang-zh .hero-title {
+    font-size: clamp(48px, 12vw, 72px) !important;
+    line-height: 1.04 !important;
+    letter-spacing: -.055em !important;
+  }
+  body.lang-zh .hero-title .hero-subtitle {
+    font-size: clamp(24px, 6.8vw, 38px) !important;
+    line-height: 1.1 !important;
+    white-space: normal !important;
+  }
+  body.lang-zh .pack h3,
+  body.lang-zh .learn-list h3,
+  body.lang-zh .section-heading {
+    line-height: 1.1 !important;
+    word-break: keep-all !important;
+  }
+}
+</style>
+
+<style id="v28b-menu-final">
+@media(max-width:700px){
+  nav .mobile-menu-wrap{
+    width:44px !important;
+    min-width:44px !important;
+    flex:0 0 44px !important;
+    margin:0 !important;
+  }
+  nav .mobile-menu-button{
+    width:44px !important;
+    height:44px !important;
+  }
+}
+</style>
+
+<style id="v28c-stats-real">
+.stats {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+@media(max-width:700px){
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  .stat { min-width:0 !important; }
+  .stat-number { white-space:nowrap; }
 }
 </style>
