@@ -1899,6 +1899,18 @@ body.lang-zh button.zh {
      NAVIGATION
 ===================================================== -->
 <nav>
+
+<select class="mobile-section-nav" id="mobileSectionNav" aria-label="Section navigation" onchange="goToSection(this.value)">
+  <option value="" data-en="MENU" data-zh="目录">MENU</option>
+  <option value="#learn" data-en="01 · LEARN" data-zh="01 · 课程">01 · LEARN</option>
+  <option value="#formats" data-en="02 · FORMAT" data-zh="02 · 形式">02 · FORMAT</option>
+  <option value="#packs" data-en="03 · PACKS" data-zh="03 · 套餐">03 · PACKS</option>
+  <option value="#self-paced" data-en="04 · COURSES" data-zh="04 · 录播">04 · COURSES</option>
+  <option value="#about" data-en="05 · ABOUT" data-zh="05 · 关于">05 · ABOUT</option>
+  <option value="#platforms" data-en="06 · PLATFORM" data-zh="06 · 平台">06 · PLATFORM</option>
+  <option value="#trial" data-en="07 · TRIAL" data-zh="07 · 试听">07 · TRIAL</option>
+  <option value="#contact" data-en="08 · CONTACT" data-zh="08 · 联系">08 · CONTACT</option>
+</select>
 <a class="logo" href="#top">
         Teacher <span>Xiāo</span>
 </a>
@@ -2860,7 +2872,7 @@ body.lang-zh button.zh {
 ===================================================== -->
 <section id="about">
 <div class="eyebrow"><span class="en">05 — ABOUT XIĀO</span><span class="zh">05 · 关于王老师</span></div>
-<h2 class="section-title"><span class="en">MEET TEACHER XIĀO.</span><span class="zh">认识王老师。</span></h2>
+<h2 class="section-title"><span class="en">MEET<span class="mobile-break"><br></span> TEACHER XIĀO.</span><span class="zh">认识王老师。</span></h2>
 <div class="about-grid">
 <div class="photo-placeholder">
 
@@ -2868,7 +2880,7 @@ body.lang-zh button.zh {
 
         </div>
 <div class="about-copy">
-<h3><span class="en">Chinese with Xiao. Real language. Real life.</span><span class="zh">跟王老师学中文，把中文用进真实生活。</span></h3>
+<h3><span class="en">Chinese with Xiao.<span class="mobile-break"><br></span>Real language.<span class="mobile-break"><br></span>Real life.</span><span class="zh">跟王老师学中文，把中文用进真实生活。</span></h3>
 <p class="en">
 
                 I’ve been teaching Chinese online for years,
@@ -2949,7 +2961,7 @@ body.lang-zh button.zh {
 <!-- =====================================================
      PLATFORMS
 ===================================================== -->
-<section>
+<section id="platforms">
 <div class="eyebrow"><span class="en">06 — WHERE WE LEARN</span><span class="zh">06 — 我们在哪里上课</span></div>
 <h2 class="section-title"><span class="en">THE PLATFORM IS YOUR CHOICE.</span><span class="zh">选择你喜欢的上课平台。</span></h2>
 <div class="platform-grid">
@@ -2987,7 +2999,7 @@ body.lang-zh button.zh {
 </div>
 <a class="platform platform-link" href="https://preply.com/en/tutor/5365951" target="_blank" rel="noopener noreferrer">
 <h3>
-                Preply ↗
+                Preply →
             </h3>
 <p class="en">
 
@@ -3013,7 +3025,7 @@ body.lang-zh button.zh {
 <div class="eyebrow">
             07 — START HERE
         </div>
-<h2><span class="en">30-MIN FREE TRIAL.</span><span class="zh">30分钟免费试听。</span></h2>
+<h2><span class="en">30-MIN <span class="no-break">FREE TRIAL.</span></span><span class="zh">30分钟免费试听。</span></h2>
 </div>
 <div>
 <div class="trial-copy en">
@@ -3187,7 +3199,7 @@ body.lang-zh button.zh {
 <div class="form-field"><label>Email (optional)</label><input name="email"="" type="email"/></div>
 <div class="form-field"><label>Preferred contact *</label><select name="contact_method"=""><option value="">Select one</option><option>WhatsApp</option><option>iMessage</option><option>WeChat</option></select></div>
 <div class="form-field"><label>Contact details (optional)</label><input name="contact_details" placeholder="Your number or WeChat ID"=""/></div>
-<div class="form-field full"><label>What are you interested in?</label><select name="interest"><option>Live private lessons</option><option>Live small group</option><option>Matched group</option><option>Self-paced course</option><option>Not sure yet</option></select></div>
+<div class="form-field full"><label>What are you interested in?</label><select name="interest"><option data-en="Live private lessons">Live private lessons</option><option data-en="Live small group (2–3 students)">Live small group (2–3 students)</option><option data-en="Matched group (4–6 students)">Matched group (4–6 students)</option><option data-en="Self-paced recorded course">Self-paced recorded course</option><option data-en="Not sure yet">Not sure yet</option></select></div>
 <div class="form-field full"><label>Message</label><textarea name="message" placeholder="Tell me about your goals, level, schedule, or questions."></textarea></div>
 </div>
 <div class="form-field full contact-choice-note">
@@ -3692,7 +3704,7 @@ function localizeForms() {
         "Select one":"请选择", "Beginner":"初级", "Intermediate":"中级", "Advanced":"高级",
         "HSK / YCT":"HSK / YCT", "Business Chinese":"商务中文",
         "WhatsApp":"WhatsApp", "iMessage":"iMessage", "WeChat":"微信",
-        "Live private lessons":"直播一对一", "Live small group":"直播小班课", "Matched group":"匹配小组",
+        "Live private lessons":"直播一对一", "Live small group":"直播小班课（2–3人）", "Live small group (2–3 students)":"直播小班课（2–3人）", "Matched group":"匹配小组（4–6人）", "Matched group (4–6 students)":"匹配小组（4–6人）",
         "Self-paced course":"录播课程", "Not sure yet":"还不确定",
         "30 minutes":"30 分钟", "40 minutes":"40 分钟", "60 minutes":"60 分钟",
         "5 lessons":"5 节课", "10 lessons":"10 节课", "15 lessons":"15 节课", "20 lessons":"20 节课", "Custom":"自定义", "Private":"一对一", "Small Group":"小班课", "Matched Group":"匹配小组", "1 student":"1 人", "2–3 students":"2–3 人", "4–6 students":"4–6 人", "1 lesson":"1 节课", "lessons / week":"每周课次"
@@ -3766,6 +3778,20 @@ function applyLanguage() {
     if (customFrequency) customFrequency.placeholder = currentLanguage === "zh" ? "输入每周课次数" : "Enter lessons per week";
     updatePack();
     if (typeof refreshBusinessText === "function") refreshBusinessText();
+}
+
+
+function goToSection(target) {
+    if (!target) return;
+    const el = document.querySelector(target);
+    if (el) {
+        const nav = document.querySelector('nav');
+        const offset = nav ? nav.offsetHeight + 10 : 10;
+        const top = el.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+    }
+    const select = document.getElementById('mobileSectionNav');
+    if (select) select.value = '';
 }
 
 function toggleLanguage() {
@@ -5454,4 +5480,143 @@ body.lang-zh .day-option {
 <style id="v26-time-24h">
 input[type="text"][inputmode="numeric"][maxlength="5"]::placeholder { color:#999; }
 input[type="text"][inputmode="numeric"][maxlength="5"] { font-variant-numeric: tabular-nums; letter-spacing:.02em; }
+</style>
+
+<style id="v27-mobile-polish">
+/* MOBILE HERO */
+@media (max-width: 700px) {
+  .hero-en-headline .hero-solid:first-child {
+    font-size: clamp(62px, 18vw, 100px) !important;
+  }
+  .hero-en-headline .hero-outline {
+    font-size: clamp(60px, 17vw, 94px) !important;
+  }
+  .hero-en-headline .hero-solid:last-child {
+    font-size: clamp(36px, 10.5vw, 58px) !important;
+  }
+
+  .hero-regions {
+    gap: 5px !important;
+  }
+  .country-pill {
+    padding: 5px 9px !important;
+    font-size: 9.5px !important;
+    gap: 5px !important;
+  }
+  .country-pill .flag {
+    font-size: 12px !important;
+  }
+
+  /* Three lesson-length cells stay equal-width on phones. */
+  .length-block {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  .length {
+    padding: 20px 8px !important;
+    min-width: 0 !important;
+  }
+  .length:not(:first-child) {
+    padding-left: 8px !important;
+  }
+  .length h3 {
+    font-size: clamp(38px, 12vw, 58px) !important;
+  }
+  .length p {
+    font-size: 8px !important;
+    line-height: 1.35 !important;
+    letter-spacing: .03em !important;
+  }
+
+  /* Popular pack: prevent the price block from colliding with details. */
+  .pack {
+    min-height: 0 !important;
+  }
+  .pack > div:last-child {
+    margin-top: 24px !important;
+  }
+  .pack-note {
+    margin: 0 0 14px !important;
+    line-height: 1.35 !important;
+    white-space: normal !important;
+  }
+  .pack-note .price-dual {
+    display: block !important;
+    line-height: 1.25 !important;
+  }
+
+  /* About headline: intentional mobile line breaks. */
+  .mobile-break {
+    display: inline !important;
+  }
+
+  /* Platform cards: no stray right-hand vertical lines on mobile. */
+  .platform:not(:last-child) {
+    border-right: 0 !important;
+    margin-right: 0 !important;
+    border-bottom: 1px solid var(--black) !important;
+  }
+  .platform {
+    padding-right: 0 !important;
+  }
+
+  /* Bigger student-count text in format cards. */
+  .format strong {
+    font-size: 16px !important;
+    line-height: 1.1 !important;
+  }
+
+  /* Compact frozen mobile section directory. */
+  nav .mobile-section-nav {
+    display: block !important;
+    width: 92px;
+    min-width: 92px;
+    padding: 7px 5px;
+    border: 1px solid var(--black);
+    background: transparent;
+    font-family: monospace;
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+}
+</style>
+
+<style id="v27-format-count-desktop">
+.format strong {
+  font-size: 15px;
+  line-height: 1.1;
+}
+.mobile-break { display: none; }
+</style>
+
+<style id="v27-mobile-nav-base">
+.mobile-section-nav { display:none; }
+@media (max-width: 950px) {
+  nav .mobile-section-nav { display:block; }
+}
+@media (max-width: 600px) {
+  nav {
+    height: 60px !important;
+    padding: 0 4vw !important;
+    gap: 6px !important;
+  }
+  nav .logo {
+    font-size: 15px !important;
+  }
+  nav .nav-right {
+    gap: 6px !important;
+    margin-left: auto;
+  }
+  nav .mobile-section-nav {
+    order: 2;
+  }
+  nav .nav-right { order: 3; }
+}
+</style>
+
+<style id="v27-final-overrides">
+.no-break { white-space: nowrap; }
+@media (min-width: 701px) {
+  .mobile-break { display:none !important; }
+}
 </style>
