@@ -3103,11 +3103,11 @@ body.lang-zh button.zh {
 <input id="madridTimeHidden" name="madrid_time" type="hidden"/>
 <div class="form-grid">
 <div class="form-field"><label>Name *</label><input autocomplete="name" name="name" required=""/></div>
-<div class="form-field"><label>Email *</label><input autocomplete="email" name="email" required="" type="email"/></div>
-<div class="form-field"><label>Contact method *</label><select name="contact_method" required=""><option value="">Select one</option><option>WhatsApp</option><option>iMessage</option><option>WeChat</option></select></div>
-<div class="form-field"><label>Contact details *</label><input name="contact_details" placeholder="Number, email or WeChat ID" required=""/></div>
-<div class="form-field"><label>Time zone *</label><select id="timezoneSelect" name="timezone" onchange="updateMadridTime()" required=""><option value="">Select your time zone</option></select></div>
-<div class="form-field"><label>Chinese level</label><select name="level"><option>Beginner</option><option>Elementary</option><option>Intermediate</option><option>Advanced</option><option>HSK / exam preparation</option><option>Business Chinese</option></select></div>
+<div class="form-field"><label>Email (optional)</label><input autocomplete="email" name="email" type="email"/></div>
+<div class="form-field"><label>Contact method (optional)</label><select name="contact_method"><option value="">Select one</option><option>WhatsApp</option><option>iMessage</option><option>WeChat</option></select></div>
+<div class="form-field"><label>Contact details (optional)</label><input name="contact_details" placeholder="Number, email or WeChat ID"/></div>
+<div class="form-field full contact-choice-note"><span class="en">Please provide either an email address or another contact method.</span><span class="zh">请至少提供邮箱或其他一种联系方式。</span></div><div class="form-field"><label>Time zone *</label><select id="timezoneSelect" name="timezone" onchange="updateMadridTime()" required=""><option value="">Select your time zone</option></select></div>
+<div class="form-field"><label>Chinese level</label><select name="level"><option>Beginner</option><option>Intermediate</option><option>Advanced</option><option>HSK / YCT</option><option>Business Chinese</option></select></div>
 <div class="form-field full">
 <label for="preferredDays">Preferred days *</label>
 <div class="day-options" id="preferredDays">
@@ -3120,8 +3120,8 @@ body.lang-zh button.zh {
 <label class="day-option"><input name="preferred_days" onchange="updateMadridTime()" type="checkbox" value="Sunday"/><span>Sunday</span></label>
 </div>
 </div>
-<div class="form-field"><label>From *</label><input id="startTime" max="22:00" min="06:00" name="start_time" onchange="updateMadridTime()" required="" step="1800" type="time"/></div>
-<div class="form-field"><label>To *</label><input id="endTime" max="22:00" min="06:00" name="end_time" onchange="updateMadridTime()" required="" step="1800" type="time"/></div>
+<div class="form-field"><label>From *</label><input id="startTime" max="22:00" min="06:00" name="start_time" onchange="updateMadridTime()" required="" step="60" lang="en-GB" type="text"/ inputmode="numeric" autocomplete="off" placeholder="HH:MM" maxlength="5" pattern="(?:[01]\d|2[0-3]):[0-5]\d"></div>
+<div class="form-field"><label>To *</label><input id="endTime" max="22:00" min="06:00" name="end_time" onchange="updateMadridTime()" required="" step="60" lang="en-GB" type="text"/ inputmode="numeric" autocomplete="off" placeholder="HH:MM" maxlength="5" pattern="(?:[01]\d|2[0-3]):[0-5]\d"></div>
 <div class="form-field full"><div class="time-preview" id="madridTimePreview">Select your time zone and preferred time to see the approximate Madrid time.</div></div>
 <div class="form-field full"><label>Alternative availability <span class="optional">(optional)</span></label><textarea name="alternative" placeholder="For example: Saturday 10:00–12:00 local time"></textarea></div>
 <div class="form-field full"><label>Plan</label><input id="availabilityPlan" name="plan" readonly=""/></div>
@@ -3147,11 +3147,11 @@ body.lang-zh button.zh {
 <input id="trialMadridTimeHidden" name="madrid_time" type="hidden"/>
 <div class="form-grid">
 <div class="form-field"><label>Name *</label><input autocomplete="name" name="name" required=""/></div>
-<div class="form-field"><label>Email *</label><input autocomplete="email" name="email" required="" type="email"/></div>
-<div class="form-field"><label>Contact method *</label><select name="contact_method" required=""><option value="">Select one</option><option>WhatsApp</option><option>iMessage</option><option>WeChat</option></select></div>
-<div class="form-field"><label>Contact details *</label><input name="contact_details" placeholder="Number, email or WeChat ID" required=""/></div>
-<div class="form-field"><label>Time zone *</label><select id="trialTimezoneSelect" name="timezone" onchange="updateTrialMadridTime()" required=""><option value="">Select your time zone</option></select></div>
-<div class="form-field"><label>Chinese level</label><select name="level"><option>Beginner</option><option>Elementary</option><option>Intermediate</option><option>Advanced</option><option>HSK / exam preparation</option><option>Business Chinese</option></select></div>
+<div class="form-field"><label>Email (optional)</label><input autocomplete="email" name="email" type="email"/></div>
+<div class="form-field"><label>Contact method (optional)</label><select name="contact_method"><option value="">Select one</option><option>WhatsApp</option><option>iMessage</option><option>WeChat</option></select></div>
+<div class="form-field"><label>Contact details (optional)</label><input name="contact_details" placeholder="Number, email or WeChat ID"/></div>
+<div class="form-field full contact-choice-note"><span class="en">Please provide either an email address or another contact method.</span><span class="zh">请至少提供邮箱或其他一种联系方式。</span></div><div class="form-field"><label>Time zone *</label><select id="trialTimezoneSelect" name="timezone" onchange="updateTrialMadridTime()" required=""><option value="">Select your time zone</option></select></div>
+<div class="form-field"><label>Chinese level</label><select name="level"><option>Beginner</option><option>Intermediate</option><option>Advanced</option><option>HSK / YCT</option><option>Business Chinese</option></select></div>
 <div class="form-field full"><label>Preferred days *</label><div class="day-options">
 <label class="day-option"><input name="preferred_days" onchange="updateTrialMadridTime()" type="checkbox" value="Monday"/><span>Monday</span></label>
 <label class="day-option"><input name="preferred_days" onchange="updateTrialMadridTime()" type="checkbox" value="Tuesday"/><span>Tuesday</span></label>
@@ -3161,8 +3161,8 @@ body.lang-zh button.zh {
 <label class="day-option"><input name="preferred_days" onchange="updateTrialMadridTime()" type="checkbox" value="Saturday"/><span>Saturday</span></label>
 <label class="day-option"><input name="preferred_days" onchange="updateTrialMadridTime()" type="checkbox" value="Sunday"/><span>Sunday</span></label>
 </div></div>
-<div class="form-field"><label>From *</label><input id="trialStartTime" max="22:00" min="06:00" name="start_time" onchange="updateTrialMadridTime()" required="" step="1800" type="time"/></div>
-<div class="form-field"><label>To *</label><input id="trialEndTime" max="22:00" min="06:00" name="end_time" onchange="updateTrialMadridTime()" required="" step="1800" type="time"/></div>
+<div class="form-field"><label>From *</label><input id="trialStartTime" max="22:00" min="06:00" name="start_time" onchange="updateTrialMadridTime()" required="" step="60" lang="en-GB" type="text"/ inputmode="numeric" autocomplete="off" placeholder="HH:MM" maxlength="5" pattern="(?:[01]\d|2[0-3]):[0-5]\d"></div>
+<div class="form-field"><label>To *</label><input id="trialEndTime" max="22:00" min="06:00" name="end_time" onchange="updateTrialMadridTime()" required="" step="60" lang="en-GB" type="text"/ inputmode="numeric" autocomplete="off" placeholder="HH:MM" maxlength="5" pattern="(?:[01]\d|2[0-3]):[0-5]\d"></div>
 <div class="form-field full"><div class="time-preview" id="trialMadridTimePreview">Select your time zone and preferred time to see the approximate Madrid time.</div></div>
 <div class="form-field full"><label>What would you like to learn?</label><textarea name="goals" placeholder="For example: speaking, pronunciation, HSK, everyday Chinese..."></textarea></div>
 </div>
@@ -3184,13 +3184,16 @@ body.lang-zh button.zh {
 <input name="form_type" type="hidden" value="General Inquiry"/>
 <div class="form-grid">
 <div class="form-field"><label>Name *</label><input name="name" required=""/></div>
-<div class="form-field"><label>Email *</label><input name="email" required="" type="email"/></div>
-<div class="form-field"><label>Preferred contact *</label><select name="contact_method" required=""><option value="">Select one</option><option>WhatsApp</option><option>iMessage</option><option>WeChat</option></select></div>
-<div class="form-field"><label>Contact details *</label><input name="contact_details" placeholder="Your number or WeChat ID" required=""/></div>
+<div class="form-field"><label>Email (optional)</label><input name="email"="" type="email"/></div>
+<div class="form-field"><label>Preferred contact *</label><select name="contact_method"=""><option value="">Select one</option><option>WhatsApp</option><option>iMessage</option><option>WeChat</option></select></div>
+<div class="form-field"><label>Contact details (optional)</label><input name="contact_details" placeholder="Your number or WeChat ID"=""/></div>
 <div class="form-field full"><label>What are you interested in?</label><select name="interest"><option>Live private lessons</option><option>Live small group</option><option>Matched group</option><option>Self-paced course</option><option>Not sure yet</option></select></div>
 <div class="form-field full"><label>Message</label><textarea name="message" placeholder="Tell me about your goals, level, schedule, or questions."></textarea></div>
 </div>
-<div class="form-actions"><button class="primary-btn" type="submit">Send Inquiry →</button></div>
+<div class="form-field full contact-choice-note">
+      <span class="en">Please provide either an email address or another contact method.</span>
+      <span class="zh">请至少提供邮箱或其他一种联系方式。</span>
+    </div><div class="form-actions"><button class="primary-btn" type="submit">Send Inquiry →</button></div>
 <div class="form-success" id="inquirySuccess"></div>
 </form>
 </div>
@@ -3392,7 +3395,11 @@ body.lang-zh button.zh {
         <span class="zh">正在确认你的付款信息……</span>
       </div>
 
-      <div class="payment-success-details" id="paymentSuccessDetails" style="display:none;">
+      <div class="payment-email-note">
+  <span class="en">A payment receipt can be sent to the payment email. Your payment record is also kept in Stripe.</span>
+  <span class="zh">付款凭证可发送到付款邮箱，付款记录也会保存在 Stripe 中。</span>
+</div>
+<div class="payment-success-details" id="paymentSuccessDetails" style="display:none;">
         <div class="payment-success-row">
           <div class="payment-success-label">
             <span class="en">Student</span><span class="zh">学生姓名</span>
@@ -3491,6 +3498,134 @@ body.lang-zh button.zh {
   </div>
 </div>
 
+
+<!-- =====================================================
+     LEGAL + PRIVACY NOTICES
+===================================================== -->
+<div class="modal-overlay" id="legalModal" onclick="closeOnBackdrop(event, 'legalModal')">
+  <div class="modal legal-modal">
+    <button class="modal-close" onclick="closeModal('legalModal')">×</button>
+    <div class="eyebrow">LEGAL NOTICE</div>
+    <h3><span class="en">Legal Notice</span><span class="zh">法律声明</span></h3>
+
+    <div class="legal-text en">
+      <h4>1. Website owner</h4>
+      <p><strong>Teacher Xiāo</strong> is operated by an individual self-employed teacher providing online language education services.</p>
+      <p><strong>Legal identity and contact:</strong> Wang Lingxiao, NIF / NIE Y8859871D, Calle Topete 6, Madrid, 28039, Spain; email: lotsofwang@gmail.com.</p>
+
+      <h4>2. Purpose of the website</h4>
+      <p>This website provides information about online Chinese and English lessons, allows visitors to request availability or a free trial, and allows customers to purchase lesson packages through the available payment process.</p>
+
+      <h4>3. Prices and payment</h4>
+      <p>Prices displayed on the website are stated in EUR as the base currency. Local-currency displays are approximate conversions. Stripe processes online card payments in EUR. Prices offered through third-party platforms such as Preply may differ because those platforms apply their own fees or commissions.</p>
+
+      <h4>4. Intellectual property</h4>
+      <p>Unless otherwise stated, the website's text, design and original materials are owned by or used with permission by the website owner. They may not be reproduced or commercially reused without permission, except where permitted by law.</p>
+
+      <h4>5. External services</h4>
+      <p>The website may link to or use third-party services including Stripe, Formspree, Zoom, ClassIn, Preply, WhatsApp, WeChat and TikTok. Those services have their own terms and privacy policies.</p>
+
+      <h4>6. Applicable law</h4>
+      <p>These website terms are governed by applicable Spanish and European law, without prejudice to any mandatory consumer rights that apply to a particular customer.</p>
+
+      <p class="legal-small">Last updated: October 2026.</p>
+    </div>
+
+    <div class="legal-text zh">
+      <h4>1. 网站经营者</h4>
+      <p><strong>Teacher Xiāo</strong> 由个体自雇教师运营，提供线上语言教学服务。</p>
+      <p><strong>法定身份及联系方式：</strong> Wang Lingxiao，NIF / NIE：Y8859871D，地址：Calle Topete 6, Madrid, 28039, Spain；邮箱：lotsofwang@gmail.com。</p>
+
+      <h4>2. 网站用途</h4>
+      <p>本网站用于介绍线上中文和英语课程，接收时间咨询和免费试听申请，并提供课程套餐的在线付款流程。</p>
+
+      <h4>3. 价格与付款</h4>
+      <p>网站以欧元作为基础货币显示课程价格。其他货币仅为参考换算，实际在线付款以欧元结算。通过第三方平台（例如 Preply）购买时，价格可能因平台费用或佣金而有所不同。</p>
+
+      <h4>4. 知识产权</h4>
+      <p>除另有说明外，本网站的文字、设计和原创材料由网站经营者拥有或经授权使用。除法律允许的情况外，未经许可不得复制或用于商业用途。</p>
+
+      <h4>5. 第三方服务</h4>
+      <p>本网站可能使用或链接 Stripe、Formspree、Zoom、ClassIn、Preply、WhatsApp、微信和 TikTok 等第三方服务。第三方服务分别适用其自己的条款和隐私政策。</p>
+
+      <h4>6. 适用法律</h4>
+      <p>本网站适用西班牙及欧洲相关法律，同时不影响适用于具体消费者的任何强制性消费者权利。</p>
+
+      <p class="legal-small">最后更新：2026 年 10 月。</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="privacyModal" onclick="closeOnBackdrop(event, 'privacyModal')">
+  <div class="modal legal-modal">
+    <button class="modal-close" onclick="closeModal('privacyModal')">×</button>
+    <div class="eyebrow">PRIVACY</div>
+    <h3><span class="en">Privacy Notice</span><span class="zh">隐私声明</span></h3>
+
+    <div class="legal-text en">
+      <h4>1. Data controller</h4>
+      <p>The data controller is the self-employed teacher operating Teacher Xiāo. Contact: <strong>lotsofwang@gmail.com</strong>.</p>
+
+      <h4>2. What information may be collected</h4>
+      <p>Depending on the form or purchase, this may include your name, email address, contact details, time zone, preferred days and times, Chinese level, learning goals, course/package information, and payment-related information processed by Stripe.</p>
+
+      <h4>3. Why information is used</h4>
+      <p>Information is used to respond to inquiries, arrange trial or live lessons, confirm schedules, provide requested services, process payments, maintain business records, and communicate about the purchased course or request.</p>
+
+      <h4>4. Third-party processors</h4>
+      <p>Forms may be processed through Formspree, while online payments are processed through Stripe. Depending on the service selected, lesson delivery may involve Zoom, ClassIn or other platforms chosen with the student. These providers may process personal information under their own privacy terms.</p>
+
+      <h4>5. Retention</h4>
+      <p>Personal information is kept only for as long as reasonably necessary for the purposes above, including applicable accounting, tax, contractual and legal obligations.</p>
+
+      <h4>6. Your rights</h4>
+      <p>Subject to applicable law, you may request access, correction, deletion, restriction, objection or portability of your personal data, and may withdraw consent where processing is based on consent. Contact <strong>lotsofwang@gmail.com</strong> to exercise your rights.</p>
+
+      <h4>7. Complaints</h4>
+      <p>You may also lodge a complaint with the competent data-protection authority, including the Spanish Data Protection Agency (AEPD), where applicable.</p>
+
+      <h4>8. Local storage</h4>
+      <p>The website may use browser local storage for preferences such as language or currency.</p>
+
+      <h4>9. Cookies</h4>
+      <p>This website does not currently use non-essential advertising or analytics cookies of its own. It may use browser local storage for preferences such as language and currency. Third-party services, such as Stripe Checkout, may use their own cookies or similar technologies when you use their services. If non-essential cookies or tracking technologies are added in the future, the website will provide the information and consent controls required by applicable law.</p>
+
+      <p class="legal-small">Last updated: October 2026.</p>
+    </div>
+
+    <div class="legal-text zh">
+      <h4>1. 数据控制者</h4>
+      <p>Teacher Xiāo 由自雇教师运营。联系邮箱：<strong>lotsofwang@gmail.com</strong>。</p>
+
+      <h4>2. 可能收集的信息</h4>
+      <p>根据你填写的表格或购买流程，可能涉及姓名、邮箱、联系方式、时区、可上课日期和时间、中文水平、学习目标、课程套餐信息，以及由 Stripe 处理的付款相关信息。</p>
+
+      <h4>3. 信息用途</h4>
+      <p>信息用于回复咨询、安排试听和直播课程、确认时间、提供所请求的服务、处理付款、保存必要的业务记录，以及就课程或申请与学生沟通。</p>
+
+      <h4>4. 第三方处理方</h4>
+      <p>表格可能通过 Formspree 处理，在线付款通过 Stripe 处理。根据学生选择的课程和平台，授课可能使用 Zoom、ClassIn 或其他双方约定的平台。这些服务商会按照各自的隐私政策处理相关信息。</p>
+
+      <h4>5. 保存期限</h4>
+      <p>个人信息只会在实现上述目的所合理需要的期限内保存，同时遵守适用的会计、税务、合同和法律义务。</p>
+
+      <h4>6. 你的权利</h4>
+      <p>在适用法律允许的范围内，你可以要求访问、更正、删除、限制处理、反对处理或数据可携带；如果处理依据是你的同意，也可以撤回同意。如需行使权利，请联系 <strong>lotsofwang@gmail.com</strong>。</p>
+
+      <h4>7. 投诉</h4>
+      <p>在适用情况下，你也可以向有管辖权的数据保护机构投诉，包括西班牙数据保护局（AEPD）。</p>
+
+      <h4>8. 本地存储</h4>
+      <p>本网站可能使用浏览器本地存储来保存语言、货币等偏好。</p>
+
+      <h4>9. Cookie</h4>
+      <p>本网站目前不会自行使用非必要的广告或分析 Cookie。网站可能使用浏览器本地存储来保存语言、货币等偏好。Stripe Checkout 等第三方服务在你使用其服务时，可能使用其自己的 Cookie 或类似技术。如果今后加入非必要 Cookie 或追踪技术，网站将按照适用法律提供相应说明及同意选项。</p>
+
+      <p class="legal-small">最后更新：2026 年 10 月。</p>
+    </div>
+  </div>
+</div>
+
 <!-- =====================================================
      FOOTER
 ===================================================== -->
@@ -3505,6 +3640,10 @@ body.lang-zh button.zh {
 <span class="zh">
             随时随地学中文。
         </span>
+</span>
+<span class="footer-legal">
+  <a href="#" onclick="openModal('legalModal'); return false;"><span class="en">Legal Notice</span><span class="zh">法律声明</span></a>
+  <a href="#" onclick="openModal('privacyModal'); return false;"><span class="en">Privacy</span><span class="zh">隐私</span></a>
 </span>
 <span>
         © 2026
@@ -3525,8 +3664,8 @@ let currentLanguage = "en";
 function localizeForms() {
     const zh = currentLanguage === "zh";
     const labels = {
-        "Name *": "姓名 *", "Email *": "邮箱 *", "Contact method *": "联系方式 *",
-        "Contact details *": "联系方式详情 *", "Time zone *": "时区 *",
+        "Name *": "姓名 *", "Email (optional)": "邮箱（可选）", "Contact method (optional)": "联系方式（可选）",
+        "Contact details (optional)": "联系方式详情（可选）", "Time zone *": "时区 *",
         "Chinese level": "中文水平", "Preferred days *": "希望上课的日期 *",
         "From *": "开始时间 *", "To *": "结束时间 *",
         "Alternative availability": "其他可上课时间", "I can be flexible with my schedule if needed.": "如果需要，我的时间可以灵活调整。",
@@ -3550,8 +3689,8 @@ function localizeForms() {
         if (placeholders[raw]) el.setAttribute("placeholder", zh ? placeholders[raw] : raw);
     });
     const optionMaps = {
-        "Select one":"请选择", "Beginner":"初级", "Elementary":"初级入门", "Intermediate":"中级", "Advanced":"高级",
-        "HSK / exam preparation":"HSK / 考试准备", "Business Chinese":"商务中文",
+        "Select one":"请选择", "Beginner":"初级", "Intermediate":"中级", "Advanced":"高级",
+        "HSK / YCT":"HSK / YCT", "Business Chinese":"商务中文",
         "WhatsApp":"WhatsApp", "iMessage":"iMessage", "WeChat":"微信",
         "Live private lessons":"直播一对一", "Live small group":"直播小班课", "Matched group":"匹配小组",
         "Self-paced course":"录播课程", "Not sure yet":"还不确定",
@@ -3911,7 +4050,10 @@ initTrialFields();
 
 async function submitTrial(event){
  event.preventDefault();
- const form=document.getElementById('trialForm'), button=form.querySelector('button[type=submit]'), success=document.getElementById('trialSuccess'), original=button.innerText;
+ const form=document.getElementById('trialForm');
+ if (!validateContactChoice(form)) return;
+ for (const id of ['trialStartTime','trialEndTime']) { const el=document.getElementById(id); if (el && !isValid24HourTime(el.value)) { alert(localizedText('Please enter a valid time in 24-hour format, e.g. 17:42.', '请输入有效的24小时制时间，例如 17:42。')); el.focus(); return; } }
+ const button=form.querySelector('button[type=submit]'), success=document.getElementById('trialSuccess'), original=button.innerText;
  button.disabled=true; button.innerText=localizedText('SENDING...','发送中……');
  const data=new FormData(form); data.append('_subject','New Free Trial Request — Teacher Xiāo');
  try{ const response=await fetch(form.action,{method:'POST',body:data,headers:{'Accept':'application/json'}}); if(!response.ok)throw new Error('Submission failed'); success.innerText=localizedText('Thanks! Your trial request has been sent. I will contact you to confirm the time.','谢谢！你的试听申请已经发送成功。我会联系你确认时间。'); success.classList.add('show'); form.reset(); updateTrialMadridTime(); } catch(e){ success.innerText=localizedText('Something went wrong. Please try again, or contact me directly.','发送失败了。请稍后再试，或者直接联系我。'); success.classList.add('show'); } finally { button.disabled=false; button.innerText=original; }
@@ -4023,10 +4165,55 @@ function openCourseInterest(slug, name) {
     document.getElementById('courseModalTitle').innerText = name;
     openModal('courseModal');
 }
+
+
+function isValid24HourTime(value) {
+    return /^(?:[01]\d|2[0-3]):[0-5]\d$/.test((value || '').trim());
+}
+function normalizeTimeField(input) {
+    if (!input) return;
+    input.addEventListener('input', () => {
+        let v = input.value.replace(/[^\d:]/g, '');
+        if (v.length === 4 && !v.includes(':')) v = v.slice(0,2) + ':' + v.slice(2);
+        input.value = v.slice(0,5);
+    });
+}
+document.addEventListener('DOMContentLoaded', () => {
+    ['startTime','endTime','trialStartTime','trialEndTime'].forEach(id => {
+        normalizeTimeField(document.getElementById(id));
+    });
+});
+
+function validateContactChoice(form) {
+    const email = (form.querySelector('[name="email"]')?.value || '').trim();
+    const method = (form.querySelector('[name="contact_method"]')?.value || '').trim();
+    const details = (form.querySelector('[name="contact_details"]')?.value || '').trim();
+
+    if (!email && !details) {
+        alert(localizedText(
+            'Please provide either your email address or another contact method.',
+            '请至少提供邮箱或其他一种联系方式。'
+        ));
+        return false;
+    }
+
+    if (method && !details) {
+        alert(localizedText(
+            'Please enter your contact details for the selected contact method.',
+            '请选择了联系方式后，请填写对应的联系方式详情。'
+        ));
+        return false;
+    }
+
+    return true;
+}
+
 async function submitAvailability(event) {
     event.preventDefault();
 
     const form = document.getElementById("availabilityForm");
+    if (!validateContactChoice(form)) return;
+    for (const id of ["startTime","endTime"]) { const el=document.getElementById(id); if (el && !isValid24HourTime(el.value)) { alert(localizedText("Please enter a valid time in 24-hour format, e.g. 17:42.", "请输入有效的24小时制时间，例如 17:42。")); el.focus(); return; } }
     const button = form.querySelector("button[type=submit]");
     const success = document.getElementById("availabilitySuccess");
     const originalText = button.innerText;
@@ -4064,6 +4251,7 @@ async function submitAvailability(event) {
 async function submitInquiry(event){
     event.preventDefault();
     const form=document.getElementById('inquiryForm');
+    if (!validateContactChoice(form)) return;
     const button=form.querySelector('button[type=submit]');
     const success=document.getElementById('inquirySuccess');
     const original=button.innerText;
@@ -5219,3 +5407,51 @@ body.lang-zh .day-option {
 
 </body>
 </html>
+
+<style id="v25-form-polish">
+.day-option { gap: 12px !important; }
+.day-option input { margin-right: 0 !important; }
+.day-options { column-gap: 22px !important; row-gap: 12px !important; }
+.contact-choice-note {
+  margin-top: -2px;
+  margin-bottom: 2px;
+  font-size: 10px;
+  color: #777;
+  line-height: 1.45;
+}
+.form-field input[type="time"] {
+  font-variant-numeric: tabular-nums;
+}
+</style>
+
+<style id="v25-legal">
+.legal-modal { max-width: 860px; }
+.legal-text { font-size: 12px; line-height: 1.65; color: var(--dark-gray); }
+.legal-text h4 { margin: 22px 0 7px; font-size: 13px; color: var(--black); }
+.legal-text p { margin: 0 0 10px; }
+.legal-small { margin-top: 24px !important; color: #888; font-size: 10px; }
+.footer-legal { display:inline-flex; gap:12px; }
+.footer-legal a { color:inherit; text-decoration:none; border-bottom:1px solid #bbb; }
+.footer-legal a:hover { border-bottom-color:#111; }
+@media(max-width:700px){
+  .footer-legal { gap:9px; flex-wrap:wrap; }
+  .legal-text { font-size:11px; line-height:1.7; }
+}
+</style>
+
+<style id="v25-payment-email-note">
+.payment-email-note {
+  margin: 14px 0 18px;
+  padding: 10px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  font-size: 10px;
+  color: #777;
+  line-height: 1.55;
+}
+</style>
+
+<style id="v26-time-24h">
+input[type="text"][inputmode="numeric"][maxlength="5"]::placeholder { color:#999; }
+input[type="text"][inputmode="numeric"][maxlength="5"] { font-variant-numeric: tabular-nums; letter-spacing:.02em; }
+</style>
