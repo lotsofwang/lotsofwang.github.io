@@ -5777,3 +5777,58 @@ body:not(.lang-zh) .zh { display:none !important; }
   .stat-number { white-space:nowrap; }
 }
 </style>
+
+<style id="v29-about-mobile-fix">
+@media (max-width:700px) {
+  #about .about-grid,
+  #about .about-content,
+  #about .about-layout,
+  #about .about-inner {
+    display:block !important;
+    grid-template-columns:1fr !important;
+    width:100% !important;
+  }
+  #about img,
+  #about .about-photo,
+  #about .about-image {
+    display:block !important;
+    width:100% !important;
+    max-width:100% !important;
+    height:auto !important;
+    margin:0 0 28px 0 !important;
+  }
+  #about .about-text,
+  #about .about-copy {
+    display:block !important;
+    width:100% !important;
+    min-width:0 !important;
+    margin:0 !important;
+  }
+}
+</style>
+
+<style id="v29-menu-black">
+.mobile-menu-panel,
+.mobile-menu-panel button,
+.mobile-menu-panel button .en,
+.mobile-menu-panel button .zh {
+  color:#111 !important;
+}
+</style>
+
+<style id="v29-zh-hero-final">
+@media (max-width:700px) {
+  body.lang-zh .hero-title {
+    font-size:clamp(52px,13.5vw,76px) !important;
+    line-height:1.02 !important;
+    letter-spacing:-.06em !important;
+  }
+  body.lang-zh .hero-title .hero-subtitle {
+    font-size:16px !important;
+    line-height:1.15 !important;
+    letter-spacing:.12em !important;
+    margin-top:14px !important;
+    white-space:nowrap !important;
+  }
+}
+</style>
