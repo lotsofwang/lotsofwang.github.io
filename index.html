@@ -1907,6 +1907,44 @@ body.lang-zh button.zh {
 }
 </style>
 
+
+
+<style id="v35-about-photo-crop">
+/* About photo: crop from the TOP so the bottom aligns with the right column. */
+@media (min-width: 701px) {
+  #about .photo-placeholder {
+    height: 574px !important;
+    min-height: 574px !important;
+    overflow: hidden !important;
+  }
+
+  #about .photo-placeholder img {
+    width: 90% !important;
+    max-width: 90% !important;
+    height: 574px !important;
+    aspect-ratio: auto !important;
+    object-fit: cover !important;
+    object-position: center bottom !important;
+    display: block !important;
+  }
+}
+
+/* Keep the mobile About photo behavior unchanged. */
+@media (max-width: 700px) {
+  #about .photo-placeholder {
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  #about .photo-placeholder img {
+    height: auto !important;
+    aspect-ratio: 3 / 4 !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <!-- =====================================================
