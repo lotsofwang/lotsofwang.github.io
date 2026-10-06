@@ -1908,36 +1908,46 @@ body.lang-zh button.zh {
 </style>
 
 
-
-<style id="v35-about-photo-crop">
-/* About photo: crop from the TOP so the bottom aligns with the right column. */
+<style id="v36-about-photo-crop-final">
+/* About desktop: crop the top of the photo so its bottom aligns
+   with the bottom of the text/stat block on the right. */
 @media (min-width: 701px) {
   #about .photo-placeholder {
-    height: 574px !important;
-    min-height: 574px !important;
+    height: 535px !important;
+    min-height: 535px !important;
+    max-height: 535px !important;
     overflow: hidden !important;
+    background: transparent !important;
+    display: block !important;
   }
 
   #about .photo-placeholder img {
+    display: block !important;
     width: 90% !important;
     max-width: 90% !important;
-    height: 574px !important;
+    height: 535px !important;
+    min-height: 535px !important;
+    max-height: 535px !important;
     aspect-ratio: auto !important;
     object-fit: cover !important;
     object-position: center bottom !important;
-    display: block !important;
   }
 }
 
-/* Keep the mobile About photo behavior unchanged. */
+/* Mobile: leave the existing mobile photo layout alone. */
 @media (max-width: 700px) {
   #about .photo-placeholder {
     height: auto !important;
     min-height: 0 !important;
+    max-height: none !important;
   }
 
   #about .photo-placeholder img {
+    width: 100% !important;
+    max-width: 100% !important;
     height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
     aspect-ratio: 3 / 4 !important;
     object-fit: cover !important;
     object-position: center center !important;
