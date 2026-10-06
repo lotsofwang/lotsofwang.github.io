@@ -6,8 +6,6 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Teacher Xiāo — Learn Chinese From Anywhere</title>
 <meta content="Learn Chinese online with Teacher Xiāo. Private lessons, small groups and matched classes for students worldwide." name="description"/>
-<link href="teacher-xiao-favicon.svg" rel="icon" type="image/svg+xml"/>
-<link href="teacher-xiao-favicon.svg" rel="apple-touch-icon"/>
 <style>
 
 /* =========================================================
@@ -2822,10 +2820,7 @@ body.lang-zh button.zh {
                     建立清晰的发音基础。
 
                 </p>
-<a class="course-link" href="#" onclick="openCourseInterest('pinyin', 'Pinyin From Zero'); return false;">
-<span class="en">Get Course Access →</span>
-<span class="zh">获取课程 →</span>
-</a>
+<span class="course-link coming-soon-link"><span class="en">COMING SOON...</span><span class="zh">即将上线……</span></span>
 </div>
 </div>
 <div class="course">
@@ -2846,10 +2841,7 @@ body.lang-zh button.zh {
                     真正用得到的中文。
 
                 </p>
-<a class="course-link" href="#" onclick="openCourseInterest('survival', 'Survival Chinese'); return false;">
-<span class="en">Get Course Access →</span>
-<span class="zh">获取课程 →</span>
-</a>
+<span class="course-link coming-soon-link"><span class="en">COMING SOON...</span><span class="zh">即将上线……</span></span>
 </div>
 </div>
 <div class="course">
@@ -2870,23 +2862,11 @@ body.lang-zh button.zh {
                     能用到的中文表达。
 
                 </p>
-<a class="course-link" href="#" onclick="openCourseInterest('everyday', 'Everyday Mandarin'); return false;">
-<span class="en">Get Course Access →</span>
-<span class="zh">获取课程 →</span>
-</a>
+<span class="course-link coming-soon-link"><span class="en">COMING SOON...</span><span class="zh">即将上线……</span></span>
 </div>
 </div>
 </div>
-<div style="margin-top:35px;">
-<p class="mono" style="font-size:9px; color:#999;">
-<span class="en">
-                MORE COURSES ARE ON THE WAY.
-            </span>
-<span class="zh">
-                更多课程正在准备中。
-            </span>
-</p>
-</div>
+
 </section>
 <!-- =====================================================
      ABOUT
@@ -2899,7 +2879,7 @@ body.lang-zh button.zh {
 <img src="teacher-xiao-about.jpg" alt="Teacher Xiāo" loading="lazy"/>
 </div>
 <div class="about-copy">
-<h3><span class="en">Chinese with Xiao.<span class="mobile-break"><br></span>Real language.<span class="mobile-break"><br></span>Real life.</span><span class="zh">跟王老师学中文，把中文用进真实生活。</span></h3>
+<h3><span class="en about-lines"><span>Chinese with Xiao.</span><span>Real language.</span><span>Real life.</span></span><span class="zh">跟王老师学中文，把中文用进真实生活。</span></h3>
 <p class="en">
 
                 I’ve been teaching Chinese online for years,
@@ -3244,10 +3224,7 @@ body.lang-zh button.zh {
 <div class="payment-methods"><span class="en"><strong>Payment options</strong> · Stripe · PayPal · Alipay · WeChat Pay</span><span class="zh"><strong>付款方式</strong> · Stripe · PayPal · Alipay · 微信支付</span><small class="en">Stripe checkout is available online. Other payment options can be arranged directly.</small><small class="zh">Stripe 可直接在线付款，其他付款方式可直接联系我安排。</small></div>
 <label class="form-check policy-check"><input id="policyAgreement" type="checkbox"/> <span><span class="en">I have read and agree to the <a href="#" onclick="openFullPolicy(); return false;">Course Terms &amp; Policies</a>.</span><span class="zh">我已阅读并同意<a href="#" onclick="openFullPolicy(); return false;">课程条款与规则</a>。</span></span></label>
 <div class="form-actions"><button class="primary-btn" id="payButton" type="button" disabled onclick="startPayment();"><span class="en">Continue to Payment · Payment Required</span><span class="zh">继续付款 · 付款后生效</span></button></div>
-<div class="modal-note">
-<span class="en">On the Stripe payment page, enter the <strong>student's full name</strong>, not the payer's name. Your confirmation above is required before continuing to payment.</span>
-<span class="zh">进入 Stripe 付款页面后，请填写<strong>学生的姓名</strong>，不是付款人的姓名。继续付款前需要同意课程条款与规则。</span>
-</div></div>
+</div>
 </div>
 
 <div class="modal-overlay" id="fullPolicyModal" onclick="closeOnBackdrop(event, 'fullPolicyModal')">
@@ -5465,6 +5442,167 @@ body.lang-zh .day-option {
     line-height: 1.9 !important;
     margin-bottom: 14px !important;
   }
+}
+</style>
+
+
+<style id="v32-web-fixes">
+/* V32: precise web-only fixes requested by user. */
+.day-option {
+  gap: 12px !important;
+}
+.day-option input {
+  margin-right: 10px !important;
+}
+.day-options {
+  column-gap: 22px !important;
+  row-gap: 12px !important;
+}
+
+/* Chinese hero: two clear lines with breathing room after the comma. */
+body.lang-zh .hero-zh-headline {
+  gap: .16em !important;
+  line-height: 1.02 !important;
+}
+body.lang-zh .hero-zh-headline .hero-outline {
+  margin-top: 0 !important;
+}
+
+/* Chinese trial panel: move the right-side copy/buttons inward on desktop. */
+@media (min-width: 801px) {
+  body.lang-zh .trial > div:last-child {
+    margin-right: 7vw !important;
+  }
+}
+
+/* Slightly smaller display typography, preserving the existing hierarchy. */
+.hero-title {
+  font-size: clamp(62px, 7.2vw, 106px) !important;
+}
+.section-title {
+  font-size: clamp(40px, 4.8vw, 66px) !important;
+}
+.about-copy h3 {
+  font-size: 36px !important;
+}
+.trial h2 {
+  font-size: clamp(52px, 7.5vw, 104px) !important;
+}
+.course h3 {
+  font-size: 32px !important;
+}
+.hero-zh-headline {
+  font-size: clamp(46px, 7.6vw, 112px) !important;
+}
+@media (max-width: 700px) {
+  .hero-title {
+    font-size: clamp(46px, 13vw, 78px) !important;
+  }
+  .section-title {
+    font-size: clamp(36px, 10.5vw, 54px) !important;
+  }
+  .hero-zh-headline {
+    font-size: clamp(54px, 15vw, 72px) !important;
+    gap: .13em !important;
+  }
+  .trial h2 {
+    font-size: clamp(48px, 13.5vw, 78px) !important;
+  }
+  .about-copy h3 {
+    font-size: 32px !important;
+  }
+  .course h3 {
+    font-size: 30px !important;
+  }
+}
+</style>
+
+
+<style id="v33-user-fixes">
+/* V33: exact follow-up fixes. Logo/favicon intentionally NOT included yet. */
+
+/* 2. About photo: use the provided image as a normal web asset. */
+.photo-placeholder {
+  overflow: hidden !important;
+}
+.photo-placeholder img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 3 / 4 !important;
+  object-fit: cover !important;
+}
+
+/* 3. About English copy: three guaranteed lines with visible breathing room. */
+.about-copy h3 .about-lines {
+  display: block !important;
+}
+.about-copy h3 .about-lines > span {
+  display: block !important;
+  margin: 0 0 .10em 0 !important;
+}
+.about-copy h3 .about-lines > span:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* 4. Make checkbox -> weekday spacing unambiguous on desktop and mobile. */
+.day-option {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0 !important;
+}
+.day-option > input[type="checkbox"] {
+  flex: 0 0 auto !important;
+  width: 18px !important;
+  height: 18px !important;
+  margin: 0 12px 0 0 !important;
+}
+.day-option > span {
+  display: inline-block !important;
+  margin-left: 0 !important;
+}
+.day-options {
+  column-gap: 24px !important;
+  row-gap: 14px !important;
+}
+
+/* 5. Payment modal: no explanatory sentence under the confirmation controls. */
+#paymentModal .modal-note,
+#paymentModal .payment-note {
+  display: none !important;
+}
+
+/* 7 + 8. Chinese hero: explicit line break after the comma + clear vertical gap. */
+body.lang-zh .hero-zh-headline {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: .22em !important;
+  line-height: 1 !important;
+}
+body.lang-zh .hero-zh-headline > span {
+  display: block !important;
+  margin: 0 !important;
+}
+body.lang-zh .hero-zh-headline .hero-outline {
+  margin-top: 0 !important;
+  padding-top: .02em !important;
+}
+
+/* 9. Chinese trial panel: move the right column visibly inward. */
+@media (min-width: 801px) {
+  body.lang-zh .trial > div:last-child {
+    position: relative !important;
+    left: -5vw !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* 10. Recorded course CTAs should read Coming Soon rather than look purchasable. */
+.coming-soon-link {
+  cursor: default !important;
+  border-bottom-color: #999 !important;
+  color: #999 !important;
 }
 </style>
 
