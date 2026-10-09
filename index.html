@@ -4081,6 +4081,10 @@ body.lang-zh #about .about-copy h3 > span.zh { display: block !important; }
 ===================================================== */
 
 let currentLanguage = "en";
+try {
+    const savedLanguage = localStorage.getItem("teacherXiaoLanguage");
+    if (savedLanguage === "zh" || savedLanguage === "en") currentLanguage = savedLanguage;
+} catch (e) {}
 
 function localizeForms() {
     const zh = currentLanguage === "zh";
@@ -4223,6 +4227,7 @@ function goToSection(target) {
 
 function toggleLanguage() {
     currentLanguage = currentLanguage === "en" ? "zh" : "en";
+    try { localStorage.setItem("teacherXiaoLanguage", currentLanguage); } catch (e) {}
     applyLanguage();
 }
 
