@@ -486,6 +486,12 @@ section {
     color: var(--muted);
 }
 
+.learn-row .learn-audience {
+    white-space: nowrap;
+    font-size: 9px;
+}
+
+
 
 /* =========================================================
    FORMAT + LENGTH
@@ -504,6 +510,43 @@ section {
 
     border-top: 1px solid var(--black);
     border-left: 1px solid var(--black);
+}
+
+.format-people {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 10px;
+    min-height: 92px;
+    margin: 8px 0 6px;
+}
+
+.format-people .person {
+    position: relative;
+    display: block;
+    width: 28px;
+    height: 42px;
+    border: 2px solid var(--black);
+    border-radius: 16px 16px 8px 8px;
+    background: transparent;
+}
+
+.format-people .person::before {
+    content: "";
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 2px solid var(--black);
+    border-radius: 50%;
+    background: var(--white);
+    left: 50%;
+    top: -18px;
+    transform: translateX(-50%);
+}
+
+.format-people .person:nth-child(2),
+.format-people .person:nth-child(4) {
+    transform: scale(.86);
 }
 
 .format {
@@ -536,6 +579,15 @@ section {
     color: var(--muted);
 
     font-size: 13px;
+}
+
+.format p {
+    line-height: 1.75;
+}
+
+.format:nth-child(3) .zh {
+    max-width: none;
+    white-space: nowrap;
 }
 
 .format strong {
@@ -1430,6 +1482,74 @@ body.lang-zh button.zh {
 @media (max-width:600px){ .builder-actions { flex-direction:column; align-items:stretch; } }
 
 /* =====================================================
+   LEARN COURSE DETAIL MODALS
+===================================================== */
+.learn-row[role="button"] {
+    cursor: pointer;
+}
+.learn-row[role="button"]:focus-visible {
+    outline: 2px solid var(--black);
+    outline-offset: 4px;
+}
+.learn-course-modal .modal {
+    width: min(780px, 100%);
+}
+.learn-course-modal .learn-course-content.course-hidden {
+    display: none !important;
+}
+.learn-course-modal .learn-course-list {
+    margin: 18px 0 0;
+    padding-left: 24px;
+}
+.learn-course-modal .learn-course-list li {
+    margin: 0 0 10px;
+    line-height: 1.55;
+}
+.learn-course-modal .learn-course-list.en {
+    font-size: 17px;
+}
+.learn-course-modal .learn-course-list.zh {
+    font-size: 15px;
+    margin-left: 26px;
+    padding-left: 48px;
+    line-height: 1.7;
+}
+.learn-course-modal .learn-course-subtitle {
+    margin: 0 0 8px;
+    font-size: 15px;
+    color: var(--dark-gray);
+}
+.learn-course-modal .learn-course-actions {
+    margin-top: 26px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+}
+.learn-course-modal .learn-course-actions .primary-btn,
+.learn-course-modal .learn-course-actions .secondary-btn {
+    cursor: pointer;
+}
+@media (max-width: 640px) {
+    .learn-row .learn-audience {
+        font-size: 8px;
+    }
+    .format:nth-child(3) .zh {
+        font-size: 12px;
+        overflow-x: auto;
+    }
+    .learn-course-modal .learn-course-list.en {
+        font-size: 16px;
+    }
+    .learn-course-modal .learn-course-list.zh {
+        margin-left: 16px;
+        padding-left: 38px;
+    }
+    .learn-course-modal .learn-course-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+/* =====================================================
    FUNCTIONAL FORMS / MODALS
 ===================================================== */
 
@@ -1907,6 +2027,91 @@ body.lang-zh button.zh {
 }
 </style>
 
+
+<style id="v7-final-modal-indent-and-format-alignment">
+/* Chinese course popups: move the entire bullet list inward, including its bullets. */
+#learnCourseModal.learn-course-modal .modal {
+  width: min(780px, calc(100vw - 48px)) !important;
+}
+#learnCourseModal.learn-course-modal #learnCourseModalBody .learn-course-content.zh .learn-course-list.zh {
+  display: block !important;
+  margin: 22px 0 0 48px !important;
+  padding: 0 0 0 28px !important;
+  width: calc(100% - 76px) !important;
+  max-width: calc(100% - 76px) !important;
+  box-sizing: border-box !important;
+  list-style: disc outside !important;
+  line-height: 1.7 !important;
+}
+#learnCourseModal.learn-course-modal #learnCourseModalBody .learn-course-content.zh .learn-course-list.zh li {
+  padding-left: 4px !important;
+  margin: 0 0 14px !important;
+}
+@media (max-width: 640px) {
+  #learnCourseModal.learn-course-modal .modal {
+    width: calc(100vw - 28px) !important;
+  }
+  #learnCourseModal.learn-course-modal #learnCourseModalBody .learn-course-content.zh .learn-course-list.zh {
+    margin-left: 20px !important;
+    padding-left: 24px !important;
+    width: calc(100% - 44px) !important;
+    max-width: calc(100% - 44px) !important;
+  }
+}
+
+/* Keep the original V3 card height. Put smaller people icons directly above
+   the corresponding heading, aligned with the heading's left edge. */
+.format {
+  min-height: 285px !important;
+  height: auto !important;
+  justify-content: space-between !important;
+}
+.format-people {
+  min-height: 0 !important;
+  height: 27px !important;
+  width: max-content !important;
+  align-self: flex-start !important;
+  justify-content: flex-start !important;
+  align-items: flex-end !important;
+  gap: 5px !important;
+  margin: 12px 0 8px 0 !important;
+}
+.format-people .person {
+  width: 15px !important;
+  height: 22px !important;
+  border-width: 1.4px !important;
+  border-radius: 9px 9px 4px 4px !important;
+}
+.format-people .person::before {
+  width: 8px !important;
+  height: 8px !important;
+  border-width: 1.4px !important;
+  top: -11px !important;
+}
+.format-people .person:nth-child(2),
+.format-people .person:nth-child(4) {
+  transform: scale(.82) !important;
+}
+.format h3 { margin: 0 0 8px !important; }
+@media (max-width: 950px) {
+  .format-people { margin-top: 12px !important; }
+}
+</style>
+
+
+<style id="v9-course-modal-width-narrower">
+/* Narrow only the bilingual course-detail popup. Keep mobile side margins. */
+#learnCourseModal.learn-course-modal > .modal {
+  width: min(760px, calc(100vw - 48px)) !important;
+  max-width: 760px !important;
+}
+@media (max-width: 640px) {
+  #learnCourseModal.learn-course-modal > .modal {
+    width: calc(100vw - 28px) !important;
+    max-width: calc(100vw - 28px) !important;
+  }
+}
+</style>
 </head>
 <body>
 <!-- =====================================================
@@ -2171,7 +2376,7 @@ body.lang-zh button.zh {
 
     </p>
 <div class="learn-list">
-<div class="learn-row">
+<div class="learn-row" role="button" tabindex="0" onclick="openLearnModal('beginner')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLearnModal('beginner')}">
 <div class="number">
                 01
             </div>
@@ -2183,7 +2388,7 @@ body.lang-zh button.zh {
                 从这里开始
             </span>
 </div>
-<div class="learn-row">
+<div class="learn-row" role="button" tabindex="0" onclick="openLearnModal('intermediate')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLearnModal('intermediate')}">
 <div class="number">
                 02
             </div>
@@ -2195,7 +2400,7 @@ body.lang-zh button.zh {
                 稳步提升
             </span>
 </div>
-<div class="learn-row">
+<div class="learn-row" role="button" tabindex="0" onclick="openLearnModal('advanced')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLearnModal('advanced')}">
 <div class="number">
                 03
             </div>
@@ -2207,7 +2412,7 @@ body.lang-zh button.zh {
                 更进一步
             </span>
 </div>
-<div class="learn-row">
+<div class="learn-row" role="button" tabindex="0" onclick="openLearnModal('business')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLearnModal('business')}">
 <div class="number">
                 04
             </div>
@@ -2219,7 +2424,7 @@ body.lang-zh button.zh {
                 商务中文
             </span>
 </div>
-<div class="learn-row">
+<div class="learn-row" role="button" tabindex="0" onclick="openLearnModal('hsk')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLearnModal('hsk')}">
 <div class="number">
                 05
             </div>
@@ -2229,6 +2434,18 @@ body.lang-zh button.zh {
             </span>
 <span class="zh">
                 考试准备
+            </span>
+</div>
+<div class="learn-row" role="button" tabindex="0" onclick="openLearnModal('primaryChinese')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLearnModal('primaryChinese')}">
+<div class="number">
+                06
+            </div>
+<h3><span class="en">Primary Chinese</span><span class="zh">小学语文</span></h3>
+<span class="en learn-audience">
+                FOR OVERSEAS CHINESE CHILDREN
+            </span>
+<span class="zh">
+                海外华裔儿童
             </span>
 </div>
 </div>
@@ -2244,6 +2461,7 @@ body.lang-zh button.zh {
 <div class="format-number">
                 01 / PRIVATE
             </div>
+<div class="format-people" aria-hidden="true"><span class="person"></span></div>
 <div>
 <h3><span class="en">Private</span><span class="zh">一对一</span></h3>
 <p class="en">
@@ -2254,7 +2472,7 @@ body.lang-zh button.zh {
                 </p>
 <p class="zh">
 
-                    一位老师，一位学生。
+                    一位老师，一位学生。<br>
                     完全根据你的需求定制。
 
                 </p>
@@ -2267,6 +2485,7 @@ body.lang-zh button.zh {
 <div class="format-number">
                 02 / SMALL GROUP
             </div>
+<div class="format-people" aria-hidden="true"><span class="person"></span><span class="person"></span><span class="person"></span></div>
 <div>
 <h3><span class="en">Small Group</span><span class="zh">小班课</span></h3>
 <p class="en">
@@ -2277,7 +2496,7 @@ body.lang-zh button.zh {
                 </p>
 <p class="zh">
 
-                    2–3人小班，
+                    2–3人小班，<br>
                     保持互动，同时享受小班关注度。
 
                 </p>
@@ -2290,6 +2509,7 @@ body.lang-zh button.zh {
 <div class="format-number">
                 03 / MATCHED GROUP
             </div>
+<div class="format-people" aria-hidden="true"><span class="person"></span><span class="person"></span><span class="person"></span><span class="person"></span><span class="person"></span></div>
 <div>
 <h3><span class="en">Matched Group</span><span class="zh">匹配小组</span></h3>
 <p class="en">
@@ -2623,7 +2843,7 @@ body.lang-zh button.zh {
 </div>
 </div>
 </div>
-<div style="margin-top:65px;">
+<div id="build-pack" style="margin-top:65px; scroll-margin-top:90px;">
 <div class="eyebrow">
             BUILD YOUR OWN
         </div>
@@ -3108,6 +3328,181 @@ body.lang-zh button.zh {
 <!-- =====================================================
      FUNCTIONAL FORMS
 ===================================================== -->
+<div class="modal-overlay learn-course-modal" id="learnCourseModal" onclick="closeOnBackdrop(event, 'learnCourseModal')">
+<div class="modal">
+<button class="modal-close" onclick="closeModal('learnCourseModal')">×</button>
+
+<div class="eyebrow" id="learnCourseEyebrow">01 — BEGINNER</div>
+
+<h3 id="learnCourseModalTitle">
+  <span class="en">Beginner</span>
+  <span class="zh">初级</span>
+</h3>
+
+<div id="learnCourseModalBody">
+
+  <div class="en learn-course-content" data-course="beginner">
+    <ul class="learn-course-list en">
+      <li>Pinyin &amp; pronunciation</li>
+      <li>Basic vocabulary &amp; phrases</li>
+      <li>Everyday topics &amp; expressions</li>
+      <li>Basic grammar &amp; sentence patterns</li>
+      <li>Listening &amp; speaking practice</li>
+      <li>Reading simple Chinese</li>
+      <li>Everyday conversations</li>
+    </ul>
+  </div>
+
+  <div class="en learn-course-content course-hidden" data-course="intermediate">
+    <ul class="learn-course-list en">
+      <li>Character recognition &amp; writing</li>
+      <li>Expanding vocabulary &amp; expressions</li>
+      <li>More complex grammar &amp; sentence patterns</li>
+      <li>Reading short texts &amp; practical materials</li>
+      <li>Listening comprehension</li>
+      <li>Expressing opinions &amp; experiences</li>
+      <li>More natural &amp; fluent communication</li>
+    </ul>
+  </div>
+
+  <div class="en learn-course-content course-hidden" data-course="advanced">
+    <ul class="learn-course-list en">
+      <li>Advanced vocabulary &amp; grammar</li>
+      <li>Complex sentence structures</li>
+      <li>Authentic Chinese texts &amp; materials</li>
+      <li>Discussions on abstract &amp; current topics</li>
+      <li>Idioms &amp; common expressions</li>
+      <li>Expressing ideas clearly &amp; naturally</li>
+      <li>Improving fluency &amp; accuracy</li>
+    </ul>
+  </div>
+
+  <div class="en learn-course-content course-hidden" data-course="business">
+    <ul class="learn-course-list en">
+      <li>Workplace vocabulary &amp; expressions</li>
+      <li>Professional conversations</li>
+      <li>Emails &amp; written communication</li>
+      <li>Meetings &amp; presentations</li>
+      <li>Negotiation &amp; business communication</li>
+      <li>Chinese business culture</li>
+      <li>Real-life workplace situations</li>
+    </ul>
+  </div>
+
+  <div class="en learn-course-content course-hidden" data-course="hsk">
+    <ul class="learn-course-list en">
+      <li>Level-based vocabulary &amp; grammar</li>
+      <li>Reading &amp; listening practice</li>
+      <li>Speaking &amp; writing practice</li>
+      <li>Exam-style questions</li>
+      <li>Mock tests &amp; timed practice</li>
+      <li>Common mistakes &amp; key strategies</li>
+      <li>Targeted exam preparation</li>
+    </ul>
+  </div>
+
+  <div class="zh learn-course-content" data-course="beginner" style="display:none">
+    <ul class="learn-course-list zh">
+      <li>拼音与发音</li>
+      <li>基础词汇与短语</li>
+      <li>日常话题与表达</li>
+      <li>基础语法与句型</li>
+      <li>听力与口语练习</li>
+      <li>简单中文阅读</li>
+      <li>日常会话</li>
+    </ul>
+  </div>
+
+  <div class="zh learn-course-content course-hidden" data-course="intermediate">
+    <ul class="learn-course-list zh">
+      <li>汉字认读与书写</li>
+      <li>扩展词汇与表达</li>
+      <li>更复杂的语法与句型</li>
+      <li>阅读短文与实用材料</li>
+      <li>听力理解</li>
+      <li>表达观点与个人经历</li>
+      <li>更自然、流利地交流</li>
+    </ul>
+  </div>
+
+  <div class="zh learn-course-content course-hidden" data-course="advanced">
+    <ul class="learn-course-list zh">
+      <li>高级词汇与语法</li>
+      <li>复杂句式</li>
+      <li>真实中文文本与材料</li>
+      <li>抽象话题与时事讨论</li>
+      <li>成语与常用表达</li>
+      <li>清晰、自然地表达观点</li>
+      <li>提升流利度与准确度</li>
+    </ul>
+  </div>
+
+  <div class="zh learn-course-content course-hidden" data-course="business">
+    <ul class="learn-course-list zh">
+      <li>职场词汇与表达</li>
+      <li>专业场景对话</li>
+      <li>邮件与书面沟通</li>
+      <li>会议与演示</li>
+      <li>谈判与商务沟通</li>
+      <li>中文商务文化</li>
+      <li>真实职场场景</li>
+    </ul>
+  </div>
+
+  <div class="zh learn-course-content course-hidden" data-course="hsk">
+    <ul class="learn-course-list zh">
+      <li>分级词汇与语法</li>
+      <li>阅读与听力练习</li>
+      <li>口语与写作练习</li>
+      <li>考试题型练习</li>
+      <li>模拟测试与计时练习</li>
+      <li>常见错误与重点策略</li>
+      <li>针对性考试准备</li>
+    </ul>
+  </div>
+
+  <div class="en learn-course-content course-hidden" data-course="primaryChinese">
+    <p class="learn-course-subtitle">For overseas Chinese children who are native Chinese speakers</p>
+    <ul class="learn-course-list en">
+      <li>Character recognition &amp; writing</li>
+      <li>Vocabulary &amp; grammar</li>
+      <li>Reading comprehension</li>
+      <li>Sentence expression &amp; language use</li>
+      <li>Composition &amp; writing</li>
+      <li>Classical Chinese &amp; traditional culture</li>
+      <li>Aligned with primary Chinese curriculum</li>
+    </ul>
+  </div>
+
+  <div class="zh learn-course-content course-hidden" data-course="primaryChinese">
+    <p class="learn-course-subtitle">适合以中文为母语的海外华裔孩子</p>
+    <ul class="learn-course-list zh">
+      <li>汉字认读与书写</li>
+      <li>词语与语法</li>
+      <li>阅读理解</li>
+      <li>句子表达与语言运用</li>
+      <li>作文与写作</li>
+      <li>古诗文与传统文化</li>
+      <li>对接小学语文课程</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="learn-course-actions form-actions">
+  <button class="primary-btn" type="button" onclick="closeModal('learnCourseModal'); goToSection('#build-pack');">
+    <span class="en">Build Your Pack →</span>
+    <span class="zh">定制你的课程套餐 →</span>
+  </button>
+  <button class="secondary-btn" type="button" onclick="closeModal('learnCourseModal'); openInquiry();">
+    <span class="en">Send Inquiry →</span>
+    <span class="zh">发送咨询 →</span>
+  </button>
+</div>
+
+</div>
+</div>
+
 <div class="modal-overlay" id="availabilityModal" onclick="closeOnBackdrop(event, 'availabilityModal')">
 <div class="modal">
 <button class="modal-close" onclick="closeModal('availabilityModal')">×</button>
@@ -4120,6 +4515,28 @@ function getBuilderPricing() {
     const rate=table[rateTier];
     return {format,length,lessons,rate,total:rate*lessons};
 }
+function openLearnModal(course){
+    const meta = {
+        beginner: {en:'01 — BEGINNER', zh:'01 — 初级', titleEn:'Beginner', titleZh:'初级'},
+        intermediate: {en:'02 — INTERMEDIATE', zh:'02 — 中级', titleEn:'Intermediate', titleZh:'中级'},
+        advanced: {en:'03 — ADVANCED', zh:'03 — 高级', titleEn:'Advanced', titleZh:'高级'},
+        business: {en:'04 — BUSINESS CHINESE', zh:'04 — 商务中文', titleEn:'Business Chinese', titleZh:'商务中文'},
+        hsk: {en:'05 — HSK / CYT', zh:'05 — HSK / YCT', titleEn:'HSK / CYT', titleZh:'HSK / YCT'},
+        primaryChinese: {en:'06 — PRIMARY CHINESE', zh:'06 — 小学语文', titleEn:'Primary Chinese', titleZh:'小学语文'}
+    };
+    const m = meta[course] || meta.beginner;
+    const eyebrow = document.getElementById('learnCourseEyebrow');
+    const title = document.getElementById('learnCourseModalTitle');
+    if (eyebrow) eyebrow.textContent = currentLanguage === 'zh' ? m.zh : m.en;
+    if (title) {
+        title.innerHTML = '<span class="en">' + m.titleEn + '</span><span class="zh">' + m.titleZh + '</span>';
+    }
+    document.querySelectorAll('#learnCourseModalBody .learn-course-content').forEach(el => {
+        el.classList.toggle('course-hidden', el.dataset.course !== course);
+    });
+    openModal('learnCourseModal');
+}
+
 function openPaymentModal() {
     const p=getBuilderPricing();
     const names={Private:['Private','一对一'], 'Small Group':['Small Group','小班课'], 'Matched Group':['Matched Group','匹配小组']};
@@ -5612,6 +6029,132 @@ body.lang-zh .hero-zh-headline .hero-outline {
   cursor: default !important;
   border-bottom-color: #999 !important;
   color: #999 !important;
+}
+</style>
+
+
+<style id="final-format-icons-and-zh-modal-layout">
+/* Chinese course-detail modal: make the panel narrower and balance the bullet indentation. */
+body.lang-zh .learn-course-modal .modal {
+    width: min(620px, 100%) !important;
+}
+body.lang-zh .learn-course-modal .learn-course-list.zh {
+    margin-left: 0 !important;
+    padding-left: 34px !important;
+    line-height: 1.75 !important;
+}
+body.lang-zh .learn-course-modal .learn-course-list.zh li {
+    padding-left: 3px;
+}
+
+/* Keep the people illustrations small and place them directly above each format title. */
+.format {
+    justify-content: flex-start !important;
+}
+.format-people {
+    min-height: 0 !important;
+    height: 38px !important;
+    align-items: flex-end !important;
+    gap: 7px !important;
+    margin: 22px 0 13px !important;
+}
+.format-people .person {
+    width: 18px !important;
+    height: 27px !important;
+    border-width: 1.5px !important;
+    border-radius: 10px 10px 5px 5px !important;
+}
+.format-people .person::before {
+    width: 10px !important;
+    height: 10px !important;
+    border-width: 1.5px !important;
+    top: -13px !important;
+}
+.format-people .person:nth-child(2),
+.format-people .person:nth-child(4) {
+    transform: scale(.88) !important;
+}
+.format h3 {
+    margin: 0 0 8px !important;
+}
+.format > div:last-child {
+    margin-top: 0;
+}
+@media (max-width: 640px) {
+    body.lang-zh .learn-course-modal .modal {
+        width: 100% !important;
+    }
+    body.lang-zh .learn-course-modal .learn-course-list.zh {
+        padding-left: 30px !important;
+    }
+}
+</style>
+
+
+<style id="v5-chinese-course-modal-list-indent">
+/* Chinese course modal: indent the list from the modal's left edge.
+   Keep the change scoped to Chinese lists so English and other features stay untouched. */
+#learnCourseModal .learn-course-list.zh {
+    margin-left: 48px !important;
+    padding-left: 52px !important;
+    box-sizing: border-box !important;
+}
+@media (max-width: 640px) {
+    #learnCourseModal .learn-course-list.zh {
+        margin-left: 24px !important;
+        padding-left: 42px !important;
+    }
+}
+</style>
+
+
+<style id="v6-fix-chinese-modal-indent-and-format-cards">
+/* Chinese course popups: visibly indent the whole bullet list to the right. */
+#learnCourseModal .learn-course-content.zh .learn-course-list.zh {
+    margin-left: 76px !important;
+    padding-left: 44px !important;
+    width: calc(100% - 120px) !important;
+    max-width: calc(100% - 120px) !important;
+    box-sizing: border-box !important;
+}
+@media (max-width: 700px) {
+    #learnCourseModal .learn-course-content.zh .learn-course-list.zh {
+        margin-left: 34px !important;
+        padding-left: 34px !important;
+        width: calc(100% - 68px) !important;
+        max-width: calc(100% - 68px) !important;
+    }
+}
+
+/* Restore the V3 card height and spacing, while keeping the people icons. */
+.format {
+    min-height: 285px !important;
+    height: auto !important;
+    justify-content: space-between !important;
+}
+.format-people {
+    min-height: 0 !important;
+    height: 34px !important;
+    margin: 8px 0 4px !important;
+    gap: 6px !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.format-people .person {
+    width: 20px !important;
+    height: 30px !important;
+    border-width: 1.8px !important;
+    border-radius: 12px 12px 6px 6px !important;
+}
+.format-people .person::before {
+    width: 10px !important;
+    height: 10px !important;
+    border-width: 1.8px !important;
+    top: -13px !important;
+}
+.format-people .person:nth-child(2),
+.format-people .person:nth-child(4) {
+    transform: scale(.82) !important;
 }
 </style>
 
