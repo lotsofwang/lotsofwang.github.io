@@ -2112,6 +2112,18 @@ body.lang-zh button.zh {
   }
 }
 </style>
+
+<style id="final-language-and-payment-spacing-fix">
+/* About heading: never show both languages at once. */
+body:not(.lang-zh) #about .about-copy h3 > span.zh { display: none !important; }
+body.lang-zh #about .about-copy h3 > span.en { display: none !important; }
+body.lang-zh #about .about-copy h3 > span.zh { display: block !important; }
+
+/* Separate the payment-method heading from its lighter explanatory text. */
+.payment-methods > span { display: block; margin-bottom: 8px; }
+.payment-methods > small { display: block; margin-top: 8px; }
+</style>
+
 </head>
 <body>
 <!-- =====================================================
@@ -2992,7 +3004,7 @@ body.lang-zh button.zh {
   
 </div>
 
-<div class="payment-methods builder-payment-methods"><span class="en"><strong>Payment options</strong> · Stripe · PayPal · Alipay · WeChat Pay</span><span class="zh"><strong>付款方式</strong> · Stripe · PayPal · Alipay · 微信支付</span><small class="en">Online Stripe checkout is available; other payment options can be arranged directly.</small><small class="zh">可直接使用 Stripe 在线付款，其他付款方式可联系我安排。</small></div>
+<div class="payment-methods builder-payment-methods"><span class="en"><strong>Payment options</strong> · Stripe · PayPal · Alipay · WeChat Pay</span><span class="zh"><strong>付款方式</strong> · Stripe · PayPal · Alipay · 微信支付</span><small class="en">Online Stripe checkout is available; other payment options can be arranged directly.</small><small class="zh">其他付款方式可联系安排。</small></div>
 <div class="builder-actions">
 <a class="primary-btn" href="#" onclick="openAvailabilityFromBuilder(); return false;">
 <span class="en">Check Availability →</span>
@@ -3622,7 +3634,7 @@ body.lang-zh button.zh {
 <div><strong><span class="en">Price</span><span class="zh">价格</span></strong><span id="paymentPrice">—</span></div>
 </div>
 <p class="payment-group-note" id="paymentGroupNote"><span class="en">For group classes, payment is completed after the group and schedule are confirmed.</span><span class="zh">多人课程将在确认成班和上课时间后付款。</span></p>
-<div class="payment-methods"><span class="en"><strong>Payment options</strong> · Stripe · PayPal · Alipay · WeChat Pay</span><span class="zh"><strong>付款方式</strong> · Stripe · PayPal · Alipay · 微信支付</span><small class="en">Stripe checkout is available online. Other payment options can be arranged directly.</small><small class="zh">Stripe 可直接在线付款，其他付款方式可直接联系我安排。</small></div>
+<div class="payment-methods"><span class="en"><strong>Payment options</strong> · Stripe · PayPal · Alipay · WeChat Pay</span><span class="zh"><strong>付款方式</strong> · Stripe · PayPal · Alipay · 微信支付</span><small class="en">Stripe checkout is available online. Other payment options can be arranged directly.</small><small class="zh">其他付款方式可联系安排。</small></div>
 <label class="form-check policy-check"><input id="policyAgreement" type="checkbox"/> <span><span class="en">I have read and agree to the <a href="#" onclick="openFullPolicy(); return false;">Course Terms &amp; Policies</a>.</span><span class="zh">我已阅读并同意<a href="#" onclick="openFullPolicy(); return false;">课程条款与规则</a>。</span></span></label>
 <div class="form-actions"><button class="primary-btn" id="payButton" type="button" disabled onclick="startPayment();"><span class="en">Continue to Payment</span><span class="zh">继续付款</span></button></div>
 </div>
@@ -6155,6 +6167,60 @@ body.lang-zh .learn-course-modal .learn-course-list.zh li {
 .format-people .person:nth-child(2),
 .format-people .person:nth-child(4) {
     transform: scale(.82) !important;
+}
+</style>
+
+
+<style id="v10-about-photo-crop-and-zh-headline-spacing">
+/* About section: crop the portrait to the height of the copy/stats column.
+   Keep the bottom of the original photo visible, trimming excess from the top.
+   Same desktop behavior in English and Chinese. */
+@media (min-width: 701px) {
+  #about .about-grid {
+    align-items: start !important;
+  }
+  #about .photo-placeholder {
+    height: 552px !important;
+    min-height: 0 !important;
+    max-height: 552px !important;
+    overflow: hidden !important;
+    background: transparent !important;
+    display: block !important;
+  }
+  #about .photo-placeholder img {
+    display: block !important;
+    width: 90% !important;
+    max-width: 90% !important;
+    height: 552px !important;
+    min-height: 552px !important;
+    max-height: 552px !important;
+    aspect-ratio: auto !important;
+    object-fit: cover !important;
+    object-position: center bottom !important;
+  }
+}
+/* Chinese About headline: increase line spacing without changing English. */
+#about .about-copy h3 .zh {
+  display: block !important;
+  line-height: 1.22 !important;
+}
+@media (max-width: 700px) {
+  #about .photo-placeholder {
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden !important;
+  }
+  #about .photo-placeholder img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: 3 / 4 !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
 }
 </style>
 
