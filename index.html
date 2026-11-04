@@ -5113,6 +5113,7 @@ const TZ_CURRENCY={
 const CURRENCY_STORAGE_KEY='teacherXiaoCurrency';
 let localCurrency='EUR';
 let currencyRates={EUR:1};
+let currencyRatesPromise=null;
 
 function detectLocalCurrency(){
     try{
@@ -5149,10 +5150,25 @@ function syncCurrencySelector(){
 
 function setCurrency(currency){
     if(!LOCAL_CURRENCY_CONFIG[currency])return;
+
     localCurrency=currency;
     try{ localStorage.setItem(CURRENCY_STORAGE_KEY,currency); }catch(e){}
     syncCurrencySelector();
+
+    // Rates are loaded once on page startup. If the user selects a currency
+    // before that request finishes, refresh again as soon as it completes.
     refreshAllPrices();
+    if(!currencyRates[currency]){
+        loadCurrencyRates().then(()=>{
+            // Do not overwrite a newer selection made while rates were loading.
+            if(localCurrency===currency && !currencyRates[currency]){
+                localCurrency='EUR';
+                try{ localStorage.setItem(CURRENCY_STORAGE_KEY,'EUR'); }catch(e){}
+                syncCurrencySelector();
+            }
+            refreshAllPrices();
+        });
+    }
 }
 
 function formatLocalAmount(eur,currency){
@@ -5244,43 +5260,56 @@ function refreshAllPrices(){
 }
 
 async function loadCurrencyRates(){
-    const saved=getSavedCurrency();
-    localCurrency=saved || detectLocalCurrency();
+    // Prevent duplicate requests. Importantly, do NOT skip this request when
+    // the visitor's default currency is EUR: the selector still needs all
+    // other exchange rates so a manual change can work immediately.
+    if(currencyRatesPromise) return currencyRatesPromise;
+
+    const preferredCurrency=getSavedCurrency() || detectLocalCurrency();
+    localCurrency=preferredCurrency;
     syncCurrencySelector();
 
-    if(localCurrency==='EUR'){
-        currencyRates={EUR:1};
-        refreshAllPrices();
-        return;
-    }
+    currencyRatesPromise=(async()=>{
+        try{
+            const response=await fetch(
+                'https://api.frankfurter.dev/v2/rates?base=EUR&quotes=USD,GBP,CNY,AUD,NZD,CAD,CHF,HKD,SGD,JPY,KRW',
+                {cache:'no-store'}
+            );
+            if(!response.ok) throw new Error('Currency rate request failed: '+response.status);
 
-    try{
-        const response=await fetch(
-            'https://api.frankfurter.dev/v2/rates?base=EUR&quotes=USD,GBP,CNY,AUD,NZD,CAD,CHF,HKD,SGD,JPY,KRW',
-            {cache:'no-store'}
-        );
-        if(!response.ok)throw new Error('Currency rate request failed');
-
-        const rows=await response.json();
-        currencyRates={EUR:1};
-        rows.forEach(row=>{
-            if(row && row.quote && Number.isFinite(Number(row.rate))){
-                currencyRates[row.quote]=Number(row.rate);
+            const rows=await response.json();
+            if(!Array.isArray(rows) || rows.length===0){
+                throw new Error('Currency rate API returned no rates');
             }
-        });
 
-        if(!currencyRates[localCurrency]){
-            localCurrency='EUR';
-            syncCurrencySelector();
+            const rates={EUR:1};
+            rows.forEach(row=>{
+                if(row && row.quote && Number.isFinite(Number(row.rate))){
+                    rates[String(row.quote).toUpperCase()]=Number(row.rate);
+                }
+            });
+
+            // Do not publish a partial/invalid result as a successful load.
+            if(!rates.USD || !rates.GBP || !rates.CNY){
+                throw new Error('Currency rate API response is missing required currencies');
+            }
+
+            currencyRates=rates;
+        }catch(error){
+            console.error('Teacher Xiao currency rates could not be loaded:',error);
+            currencyRates={EUR:1};
+            if(!currencyRates[localCurrency]){
+                localCurrency='EUR';
+                try{ localStorage.setItem(CURRENCY_STORAGE_KEY,'EUR'); }catch(e){}
+                syncCurrencySelector();
+            }
         }
-    }catch(e){
-        // If rates cannot be loaded, keep the site usable and show EUR.
-        localCurrency='EUR';
-        currencyRates={EUR:1};
-        syncCurrencySelector();
-    }
 
-    refreshAllPrices();
+        refreshAllPrices();
+        return currencyRates;
+    })();
+
+    return currencyRatesPromise;
 }
 
 loadCurrencyRates();
