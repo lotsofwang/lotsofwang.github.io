@@ -2350,12 +2350,12 @@ body.lang-zh #about .about-copy h3 > span.zh { display: block !important; }
 <span class="zh"><span class="no-break">30分钟免费试听</span> →
                 </span>
 </a>
-<a class="secondary-btn" href="#self-paced">
+<a class="secondary-btn" href="#build-pack">
 <span class="en">
-                    Explore Courses
+                    Get a Quote →
                 </span>
 <span class="zh">
-                    探索录播课程
+                    查询课程报价 →
                 </span>
 </a>
 </div>
@@ -2694,7 +2694,7 @@ body.lang-zh #about .about-copy h3 > span.zh { display: block !important; }
 </div>
 <div>
 <div class="pack-note">
-<span class="price-dual" data-eur="150" data-en-suffix="TOTAL / STUDENT" data-zh-suffix="/ 人 / 套">€150 TOTAL / STUDENT</span>
+<span class="price-dual" data-eur="165" data-en-suffix="TOTAL / STUDENT" data-zh-suffix="/ 人 / 套">€165 TOTAL / STUDENT</span>
 </div>
 <div class="pack-actions">
 <button class="pack-btn pack-check" type="button" onclick="selectPopularPack('Small Group',40,15,3,'availability')">
@@ -2778,7 +2778,7 @@ body.lang-zh #about .about-copy h3 > span.zh { display: block !important; }
 </div>
 <div>
 <div class="pack-note">
-<span class="price-dual" data-eur="240" data-en-suffix="TOTAL" data-zh-suffix="/ 套">€240 TOTAL</span>
+<span class="price-dual" data-eur="280" data-en-suffix="TOTAL" data-zh-suffix="/ 套">€280 TOTAL</span>
 </div>
 <div class="pack-actions">
 <button class="pack-btn pack-check" type="button" onclick="selectPopularPack('Private',30,20,2,'availability')">
@@ -2988,8 +2988,8 @@ body.lang-zh #about .about-copy h3 > span.zh { display: block !important; }
       <span class="en">PRICE</span>
       <span class="zh">价格</span>
     </div>
-    <div id="packPrice" style="font-size:38px;font-weight:700;line-height:1.1;">€250</div>
-    <div id="packPerLesson" style="font-size:13px;margin-top:5px;">€25 / lesson</div>
+    <div id="packPrice" style="font-size:38px;font-weight:700;line-height:1.1;">€300</div>
+    <div id="packPerLesson" style="font-size:13px;margin-top:5px;">€30 / lesson</div>
     <div id="packPriceSummary" style="font-size:10px;color:#777;margin-top:6px;">10 × 60-minute lessons</div>
     <div class="local-currency-note"><span class="en">Local currency is an approximate conversion. Payment is processed in EUR.</span><span class="zh">当地货币为参考换算价格，实际付款以欧元结算。</span></div>
   </div>
@@ -3685,7 +3685,7 @@ body.lang-zh #about .about-copy h3 > span.zh { display: block !important; }
 <p>If a package is cancelled after lessons have started, lessons already delivered are charged using the package discount tier that corresponds to the number of lessons already used. The remaining unused balance is then refunded, subject to applicable law.</p>
 <p>The calculation works as follows: 1 to 9 used lessons are charged at the 5-lesson package rate; 10 to 19 used lessons are charged at the 10-lesson package rate; 20 or more used lessons are charged at the 20-lesson package rate. The rate is applied to all used lessons, not split into separate blocks.</p>
 <p>For group packages, a lesson counts as used once the class has taken place, whether or not the student attended. A missed lesson is therefore included in the used-lesson calculation and is not refundable. If a recording was provided, the lesson is also treated as delivered.</p>
-<p><strong>Example:</strong> a 20 × 60-minute 1-on-1 package costs €440. If 11 lessons have been used, all 11 lessons are recalculated at the 10-lesson package rate of €25 per lesson, for a total of €275. The remaining €165 is refunded, subject to applicable law.</p>
+<p><strong>Example:</strong> a 20 × 60-minute 1-on-1 package costs €540. If 11 lessons have been used, all 11 lessons are recalculated at the 10-lesson package rate of €30 per lesson, for a total of €330. The remaining €210 is refunded, subject to applicable law.</p>
 <p>Refunds are normally returned through the original payment method. The time required for the refund to appear may depend on the payment provider.</p>
 
 <h4>7. Free Trial</h4>
@@ -3748,7 +3748,7 @@ body.lang-zh #about .about-copy h3 > span.zh { display: block !important; }
 <p>套餐开始上课后取消，已经提供或已经使用的课程，会按照已经使用的课程数量对应的套餐优惠价重新计算，剩余未使用金额再退款，但以适用法律为准。</p>
 <p>计算规则为：已使用1至9节，全部按照5节套餐的单节优惠价计算；已使用10至19节，全部按照10节套餐的单节优惠价计算；已使用20节或以上，全部按照20节套餐的单节优惠价计算。不会把已经使用的课程拆成不同套餐档位分别计算。</p>
 <p>对于多人课程，只要课程已经进行，该节课就计入已使用课程，无论学生是否参加。之前缺席的课程同样计入已使用课程，不退款。如果已经提供录课，也视为该课程已经提供。</p>
-<p><strong>例如：</strong>20节60分钟1对1套餐价格为€440。如果已经使用11节，则11节全部按照10节套餐的优惠价€25/节计算，共€275，剩余€165退款，但以适用法律为准。</p>
+<p><strong>例如：</strong>20节60分钟1对1套餐价格为€540。如果已经使用11节，则11节全部按照10节套餐的优惠价€30/节计算，共€330，剩余€210退款，但以适用法律为准。</p>
 <p>退款通常会原路退回原付款方式。实际到账时间可能取决于付款服务商。</p>
 
 <h4>7. 免费试听</h4>
@@ -4313,18 +4313,18 @@ function updatePack() {
     // 10–19 lessons use the 10-lesson rate; 20+ lessons use the 20-lesson rate.
     const rates = {
         "Private": {
-            30: {5:15, 10:14, 20:12},
-            40: {5:20, 10:18, 20:16},
-            60: {5:27, 10:25, 20:22}
+            30: {5:17, 10:16, 20:14},
+            40: {5:23, 10:21, 20:19},
+            60: {5:32, 10:30, 20:27}
         },
         "Small Group": {
             30: {5:10, 10:9, 20:8},
-            40: {5:11, 10:10, 20:9},
+            40: {5:12, 10:11, 20:10},
             60: {5:16, 10:15, 20:14}
         },
         "Matched Group": {
-            30: {5:7, 10:6, 20:5},
-            40: {5:8, 10:7, 20:6},
+            30: {5:8, 10:7, 20:6},
+            40: {5:9, 10:8, 20:7},
             60: {5:11, 10:10, 20:9}
         }
     };
@@ -4533,9 +4533,9 @@ function getBuilderPricing() {
     const lessonsValue = document.getElementById('lessonsSelect').value;
     const lessons = lessonsValue === 'custom' ? parseInt(document.getElementById('customLessons').value) || 1 : parseInt(lessonsValue);
     const rates = {
-        "Private": {30:{5:15,10:14,20:12},40:{5:20,10:18,20:16},60:{5:27,10:25,20:22}},
-        "Small Group": {30:{5:10,10:9,20:8},40:{5:11,10:10,20:9},60:{5:16,10:15,20:14}},
-        "Matched Group": {30:{5:7,10:6,20:5},40:{5:8,10:7,20:6},60:{5:11,10:10,20:9}}
+        "Private": {30:{5:17,10:16,20:14},40:{5:23,10:21,20:19},60:{5:32,10:30,20:27}},
+        "Small Group": {30:{5:10,10:9,20:8},40:{5:12,10:11,20:10},60:{5:16,10:15,20:14}},
+        "Matched Group": {30:{5:8,10:7,20:6},40:{5:9,10:8,20:7},60:{5:11,10:10,20:9}}
     };
     const table=rates[format][length];
     const rateTier = lessons < 10 ? 5 : (lessons < 20 ? 10 : 20);
@@ -4774,18 +4774,18 @@ document.addEventListener('keydown', function(e) {
 <script>
 const PRICING = {
   "Private": {
-    "30": {5:15, 10:14, 20:12},
-    "40": {5:20, 10:18, 20:16},
-    "60": {5:27, 10:25, 20:22}
+    "30": {5:17, 10:16, 20:14},
+    "40": {5:23, 10:21, 20:19},
+    "60": {5:32, 10:30, 20:27}
   },
   "Small Group": {
     "30": {5:10, 10:9, 20:8},
-    "40": {5:11, 10:10, 20:9},
+    "40": {5:12, 10:11, 20:10},
     "60": {5:16, 10:15, 20:14}
   },
   "Matched Group": {
-    "30": {5:7, 10:6, 20:5},
-    "40": {5:8, 10:7, 20:6},
+    "30": {5:8, 10:7, 20:6},
+    "40": {5:9, 10:8, 20:7},
     "60": {5:11, 10:10, 20:9}
   }
 };
